@@ -5,7 +5,8 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Welcome to My Awesome Website</h1>
-  <p>This is a simple page hosted on GitHub Pages!</p>
+  <img src="https://mrnussbaum.com/storage/uploads/activities/math/bios/archimedes.jpg"
+  <h1>Online Maths Notes</h1>
+  <p>This is where I will post all my maths notes!</p>
 </body>
 </html>
