@@ -90,7 +90,7 @@
     </main>
 
     <footer>
-        <p>&copy; 2025 My Math Notes. All rights reserved.</p>
+        <p>Temp Footer</p>
     </footer>
 
 </body>
