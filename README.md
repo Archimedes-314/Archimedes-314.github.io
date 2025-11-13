@@ -5,7 +5,7 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <img src="https://mrnussbaum.com/storage/uploads/activities/math/bios/archimedes.jpg"
+  <img src="https://mrnussbaum.com/storage/uploads/activities/math/bios/archimedes.jpg" width="100">
   <h1>Online Maths Notes</h1>
   <p>This is where I will post all my maths notes!</p>
 </body>
