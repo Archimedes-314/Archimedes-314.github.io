@@ -1,25 +1,41 @@
 window.MathJax = {
-  tex: {
-    macros: {
-      R: "\\mathbb{R}",
-      Q: "\\mathbb{Q}",
-      Z: "\\mathbb{Z}",
-      N: "\\mathbb{N}",
-      C: "\\mathbb{C}",
-      abs: ["\\left|#1\\right|", 1],
-      norm: ["\\left\\lVert#1\\right\\rVert", 1],
-      inner: ["\\langle #1, #2 \\rangle", 2],
-      limn: "\\lim_{n \\to \\infty}",
-      limx: ["\\lim_{x \\to #1}", 1],
-      seq: ["\\{ #1 \\}_{n=1}^\\infty", 1],
-      fn: ["#1 : #2 \\to #3", 3],
-      open: ["( #1, #2 )", 2],
-      closed: ["[ #1, #2 ]", 2],
-      halfopen: ["[ #1, #2 )", 2],
-      eps: "\\varepsilon",
-      empty: "\\varnothing"
-    }
-  }
+    tex: {
+        macros: {
+            // Basic sets
+            R: "\\mathbb{R}",
+            Q: "\\mathbb{Q}",
+            Z: "\\mathbb{Z}",
+            N: "\\mathbb{N}",
+            C: "\\mathbb{C}",
+
+
+            // Operators
+            abs: ["\\left|#1\\right|", 1],
+            norm: ["\\left\\lVert#1\\right\\rVert", 1],
+            inner: ["\\langle #1, #2 \\rangle", 2],
+
+
+// Logic & limits
+limn: "\\lim_{n \\to \\infty}",
+limx: ["\\lim_{x \\to #1}", 1],
+
+
+// Sequences & functions
+seq: ["\\{ #1 \\}_{n=1}^\\infty", 1],
+fn: ["#1 : #2 \\to #3", 3],
+
+
+// Intervals
+open: ["( #1, #2 )", 2],
+closed: ["[ #1, #2 ]", 2],
+halfopen: ["[ #1, #2 )", 2],
+
+
+// Misc
+eps: "\\varepsilon",
+empty: "\\varnothing"
+}
+}
 };
 
 window.addEventListener("DOMContentLoaded", () => {
