@@ -15,6 +15,7 @@ window.MathJax = {
             Ce: "\\widehat{\\mathbb{C}}",
             i: "\\mathrm{i}",
             d: "\\mathrm{d}",
+            S: "{\\mathrm{S}}",
 
 
             // Operators
