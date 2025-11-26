@@ -28,30 +28,40 @@
     <main>
         <section>
             <h2>The Axioms</h2>
+            <p>Here are the axioms explored in this section.</p>
             <ol start="0">
-                <li> There exists an \( \N_0\) which we call the natural numbers.</li> 
+                <li> There exists a set \( \N_0 \) called the natural numbers.</li> 
                 <li> \(0\in\N_0\)</li>
                 <li> \(\forall n\in\N_0, \ \S(n)\in\N_0\)</li>
                 <li> \(\forall n\in\N_0, \ \S(n)\neq0\)</li>
                 <li> \( \forall n,m\in\N_0, \ \S(n)=\S(m)\implies n=m \)</li>
                 <li> \(\forall A\subseteq\N_0, \ \{0\in A \ \land \ (\forall n \in A, \ \S(n)\in A) \} \implies A=\N_0\)</li>
             </ol>
-            <h2>Peano Axioms and the Natural Numbers</h2>
+            
+            <p>
+                These are explored in greater detail in the sections listed at the bottom of the page. 
+                For a deeper understanding about the purpose of these axioms, I encourage you to 
+                read everything below.
+            </p>
+        </section>
+        <section>
+            
+            <h2>Purpose of the Axioms</h2>
 
             <p>
                 It's imperative to understand that the Peano axioms <em><strong>
-                do not invent</strong></em> the natural numbers from scratch. 
+                do not invent</strong></em> the natural numbers from nothing. 
                 The natural numbers have existed for thousands of years before any formal 
-                foundation was written down. We already "knew" what \(1,2,3,\dots\)
+                foundation was written down. We already understood what \(1,2,3,\dots\)
                 were long before modern mathematics existed.
             </p>
 
             <p>
-                When mathematicians began formalising number systems, the question became:
+                When mathematician Giuseppe Peano began formalising the natural numbers, the central question became:
                 <em>What basic properties of the natural numbers do we take as self-evident?</em>
                 These properties were written down as axioms&mdash;now called the <em>
                 Peano axioms</em>&mdash;and capture the essence of the natural numbers, 
-                and provide a rigid foundation for the deefinition and properties of the real numbers.
+                providing a rigorous foundation from which the integers, rationals, and reals can be built.
             </p>
 
         </section>
@@ -69,41 +79,42 @@
             </p>
 
             <p>
-                But in the Peano framework, this is reversed. We <em><strong>do not</strong></em> start by saying:
+                This remains true in the Peano framework, but the axioms do not define the successor of 
+                \(1\) as \(2\), the successor of \(2\) as \(3\), and so on. Instead, the relationship \( \S(0) = 1, \S(1) = 2, \ldots\) 
+                arise from how we interpret the axioms withing our pre-existing understanding of the natural numbers.
             </p>
 
-            <ul>
-                <li>"Define \(\S(1) = 2\)", and conclusing \(\S(a) = a + 1\).</li>
-            </ul>
 
-            <p>Instead, we do the following:</p>
-            <ul>
-                <li>
-                    Define <strong>addition</strong> recursively:
-                    <br>
-                    \(a + 0 = a\)  
-                    <br>
-                    \(a + \S(b) = \S(a + b)\)
-                </li>
-            </ul>
-            <p>And the fact that \( \S(0) = 1, \S(1) = 2,\) etc. is implied from our natural
-            understanding of the natural numbers.</p>
 
             <p>
-                Maths isn't taught by constructing logic and then relating it to the world. Instead, 
-                we use maths to explain the real world, and then we drill down into the underlying logic.
+                Mathematics isn't taught by constructing logic and then relating it to the world; rather, 
+                we use maths to describe the real world, and later drill down into the underlying logic.
                 Children aren't taught the axioms of arithmetic, derive definitions for numbers, and
                 then learn how to map \(\S(\S(0))\) to two apples; we learn that one apple plus one apple 
                 is two apples, and only later construct a logical framework to explain this.
             </p>
 
+            
+
             <p>
-                The Peano axioms simply capture the patterns we already recognise, but in a 
+                The Peano axioms simply formalise the patterns we already recognise, but in a 
                 way that allows more complex number systems (like integers and reals) to be 
                 built rigorously.
             </p>
         </section>
 
+        <section>
+        <ul class="topic-list">
+            <li>
+                <a href="understnading-the-peano-axioms/understanding-the-peano-axioms.html"><h2>Understanding the Peano Axioms</h2></a>
+                <p>
+                    In this section, each axiom will be explored in geater detail,
+                    where you will learn why these axioms are necessary and what
+                    they mean.
+                </p>
+            </li>
+        </ul>
+        </section>
 
 
     </main>
