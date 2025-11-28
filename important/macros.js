@@ -16,6 +16,7 @@ window.MathJax = {
             i: "\\mathrm{i}",
             d: "\\mathrm{d}",
             S: "{\\mathrm{S}}",
+            e: "\\mathrm{e}",
 
 
             // Operators
