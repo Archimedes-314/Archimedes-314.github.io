@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Understanding the Peano Axioms</title>
+    <link rel="icon" href="../../../important/archimedes.png" />
+    <link rel="stylesheet" href="../../../important/style-sheet.css">
+
+    <!-- Custom macros + theorem/definition/example system -->
+    <script src="../../../important/macros.js"></script>
+
+        <!-- MathJax -->
+    <script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+
+
+</head>
+<body>
+    <header>
+        <h1>Understanding the Peano Axioms</h1>
+        <nav class="button-style-box">
+            <a class="blue-text" href="../../../index.html">Home</a> /
+            <a class="blue-text" href="../../constructing-the-reals.html">Constructing the Reals</a> /
+            <a class="blue-text" href="../the-peano-axioms.html">The Peano Axioms</a> /
+            <a class="blue-text" href="">Understanding the Peano Axioms</a>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>
+                The Axioms
+            </h2>
+            <ol>
+                <li> \(0\in\N_0\)</li>
+                <li> \(\forall n\in\N_0, \ \S(n)\in\N_0\)</li>
+                <li> \(\forall n\in\N_0, \ \S(n)\neq0\)</li>
+                <li> \( \forall n,m\in\N_0, \ \S(n)=\S(m)\implies n=m \)</li>
+                <li> \(\forall A\subseteq\N_0, \ (0\in A \ \land \ (\forall n \in A, \ \S(n)\in A) ) \implies A=\N_0\)</li>
+            </ol>
+            
+            <p>
+                In this section, we will look into the meaning and purpose of each axiom.
+            </p>
+        </section>
+
+        <section>
+            <h2>Notation</h2>
+            <p>There are two common definitions of the set \(\N\). Those are as follows:
+            </p>
+            <ul>
+                <li>\(\N := \{1, 2, 3, 4, \ldots\}\)</li>
+                <li>\(\N := \{0, 1, 2, 3, 4, \ldots\}\)</li>
+            </ul>
+            <p>
+                The definition you use depends on context. But within analysis branches, it's common to define
+                \(\N := \{1, 2, 3, 4, \ldots\}\), and \(\N_0 := \{0, 1, 2, 3, 4, \ldots\}\). That is the definition
+                we will be using.
+            </p>
+            <p>
+                We will also be using the function \(\S(n)\) while exploring the Peano Axioms and the construction of
+                the reals. This function is called the <em>successor function</em>, and is defined as follows:
+                \begin{align*}
+                    \S : \N_0 &\to \N_0\\
+                    n &\mapsto n+1
+                \end{align*}
+                So the successor of any natural number returns that number plus \(1\).
+            </p>
+        </section>
+
+        <section>
+            <h2>Why \(0\) Is in the Set of Natural Numbers?</h2>
+                --- additive identity and it's use in the definition of basic operations.
+        </section>
+
+        <section>
+            <h2> Why the Successor Function</h2>
+            --- Why the successor function is necessary for the axioms.
+        </section>
+
+        <section>
+            <h2>Why Start With \(0\)?</h2>
+            --- Explain why the negative integers are not in the set of naturals: equivelnce class definition of naturals. 0 is an
+            exception do to the reasoning for the first axiom.
+        </section>
+
+        <section>
+            <h2>Successor Injectivity</h2>
+            --- Why it's necessary to state why the successor function is injective.
+        </section>
+
+
+        <section>
+            <h2>The Axiom of Induction</h2>
+            <h3> What it's saying</h3>
+            <p>
+                Now we'll look into the fifth axiom:
+                \(\underbrace{\forall A\subseteq\N_0}_{\text{Arbitrary Subset}}, \ 
+                \underbrace{(0\in A \ \land \ (\forall n \in A, \ \S(n)\in A) )}_{\text{Conditions}} 
+                \implies \underbrace{A=\N_0}_{\text{Conclusion}}\) <br>
+            </p>
+            <p>
+                This axiom has three main components:
+            </p>
+                <ol>
+                    <li>Choose any subset \(A \subseteq \N_0\).</li>
+                    <li>Assume it satisfies the two stated conditions.</li>
+                    <li>Conclude the necessary result if the conditions are met.</li>
+                </ol>
+            <p>
+                Taken together, these say that if an arbitrary subset of the naturals
+                satisfies the two conditions, then that subset must be equal to \(\N_0\).
+            </p>
+
+            <p>
+                The first condition is \(0\in A\), requiring our subset to contain \(0\). The next condition is 
+                \(\forall n\in A, \ \S(n)\in A\), meaning that for any member of \(A\), it's successor is also in \(A\).
+            </p>
+            <p> 
+                So if \(0\) is in \(A\) and the successor of all numbers in \(A\) is also in \(A\), that requires 
+                \(A=\{0, \S(0), \S(\S(0)), \ldots\}\), which is exactly \(\N_0\).
+            </p>
+
+            <h3>Why it's important</h3>
+            <p>
+                Say we have some proposition \(P\), and we want to prove that the proposition is true for all natural numbers. A simple way to do this
+                is to start with the set \(A:=\{n\in\N_0 \ : \ P(n)\text{ is true}\}\) which contains the set of naturals numbers for which
+                \(P\) is true.
+            </p>
+            <p>
+                First, we can show \(P(0)\) is true. That is, the proposition is true when the argument is \(0\). If that holds, we can then say
+                \(0\in A\).
+            </p>
+            <p>
+                Next, we assume that \(n \in A\). That is, we assume \(P(n)\) is true for some arbitrary natural number \(n\).  
+                Under this assumption, we then show that \(P(\S(n))\) is also true. If we can prove this in a way that doesn't 
+                restrict \(n\) to any specific value, that we can claim \(n\in A \implies \S(n)\in A\)
+            </p>
+            <p>
+                Once we've shown that \(0 \in A\) and 
+                \(\forall n \in A,\ \S(n) \in A\), 
+                then the axiom of induction tells us that \(A = \mathbb{N}_0\). 
+                Therefore, the proposition must be true for all natural numbers.
+            </p>
+
+            
+        </section>
+    </main>
+
+    <footer>
+        <p>Ο Αρχιμήδης Είναι Φοβερός</p>
+    </footer>
+</body>
+</html>
