@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Construction of Real Numbers</title>
-    <link rel="icon" href="../important/archimedes.jpg" />
+    <link rel="icon" href="../important/archimedes.png" />
     <link rel="stylesheet" href="../important/style-sheet.css">
 
         <!-- MathJax -->
@@ -28,14 +28,31 @@
         <section>
             <h2>Overview</h2>
             <p>
-                Axioms play a central role in constructing the real numbers and formalising mathematical concepts. For example, if we're working in the usual decimal system (base 10), we know \(5+2 = 2+5\). This can be easily explained on a number line: starting at 2 and moving along 5 units is the same as starting at 5 and moving along 2 units. This symmetry applies to all natural numbers. If you start at \(n\) units and move along \(m\) units, it is the same as starting at \(m\) units and moving along \(n\) units for some \(n,m\in\mathbb{N}\).
+                Axioms are the foundation of formal mathematics, as they provide a rigid structure 
+                for how the real numbers behave. To demonstrate why
+                these axioms are necessary, consider a simple property like commutativity which 
+                states for any two numbers \(a,b\in\R, \ a+b=b+a\). This property is very intuitive
+                for the natural numbers. For example, if you have \(3\)
+                apples and then get \(5\) more, you end up with \(8\) apples, just like if you had started 
+                with \(5\) apples and got \(3\) more.
             </p>
             <p>
-                But what about the other real numbers? How would you explain \(e+\pi = \pi + e\)? You can't directly appeal to a number line like with the naturals, and their behaviour isn't self-evident in the same way. To explain properties like commutativity for <em>all</em> real numbers, we need a more foundational approach.
+                But what happens when you move beyond the natural numbers to more abstract numbers like the 
+                irrationals? If you have two irrational numbers like \(\e\) and \(\pi\), how would you show
+                \(\e+\pi=\pi+\e\)? These numbers don't have a clear representation on the numberline like the 
+                naturals, and it's not immedeatly obvious why the equality should hold.
             </p>
             <p>
-                One rigorous way is to build the real numbers starting from the naturals, as we can easily explain their self-evident properties. By constructing the integers, rationals, and reals from the naturals, we can define the properties of each set using the properties of the naturals. Understanding the properties of the naturals and eventually all real numbers will provide a rigid foundation that we can use in the study of Real Analysis.
+                This is where axioms can be used to define the properties of real numbers. The natural 
+                numbers are the best place to begin due to the intuitive nature of their properties. 
+                After understanding why the natural numbers behave the way they do, we can then
+                define the integers through the naturals. This allows us to carry the self-evident properties of 
+                the naturals to the definition of the integers. Then we can define the rationals through the
+                integers, tying their definition to the naturals. We can then do the same with the real numbers.
             </p>
+
+
+            
         </section>
 
         <section>
@@ -64,7 +81,119 @@
     </main>
 
     <footer>
-        <p>Ο Αρχιμήδης Είναι Φοβερός</p>
-    </footer>
+        <style>
+        .testing-button {
+            color: white;
+            background-color: blue;
+            padding: 8px 20px;
+            border-radius: 20px;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+        <button onclick="testButton()" class="testing-button">Press me!</button>
+        <p id="testButtonText">You have clicked this button 0 times!</p><br>
+
+        <button onclick="testButtonTwo()" class="testing-button">Press me!</button>
+        <p id="testButtonTwoText">I am testing something.</p><br>
+
+        <p>Who is \(\pi\) named after?</p>
+        <ul>
+            <li><button onclick="testButtonThreeOne()">Euler</button></li>
+            <li><button onclick="testButtonThreeTwo()">Archimedes</button></li>
+            <li><button onclick="testButtonThreeThree()">Euclid</button></li>
+            <li><button onclick="testButtonThreeFour()">Riemann</button></li>
+        </ul>
+        <p id="testButtonThreeText"></p>
+        <p id="testIncorrectGuessesCounter"></p>
+        <button onclick="testResetButton()" id="testResetButtonText" style="display: none;">Reset</button>
+        <button onclick="testCorrectResetButton()" id="testCorrectResetButtonText" style="display: none;">Reset</button>
+        
+
+        <script>
+            let x = 0;
+
+            function testButton() {
+                x++;
+                document.getElementById("testButtonText").innerHTML = "You have clicked this button " + x + " times!";
+            
+            }
+
+            function testButtonTwo() {
+                if (document.getElementById("testButtonTwoText").innerHTML==="I am testing something.") {
+                    document.getElementById("testButtonTwoText").innerHTML="I am testing some JS."
+                } else {
+                    document.getElementById("testButtonTwoText").innerHTML="I am testing something."
+                }
+            }
+
+            let y=0
+
+            function testButtonThreeOne() {
+
+                if (document.getElementById("testButtonThreeText").innerHTML==='') {
+                    document.getElementById("testButtonThreeText").innerHTML="Euler is incorrect!";
+
+                    y++;
+                    document.getElementById("testIncorrectGuessesCounter").innerHTML="Your incorrect answers: " + y;
+
+                    showTestResetButton();
+                } 
+            }
+
+            function testButtonThreeTwo() {
+
+                if (document.getElementById("testButtonThreeText").innerHTML==='') {
+                document.getElementById("testButtonThreeText").innerHTML="Archimedes is Correct!";
+                
+                showTestCorrectResetButton();
+                } 
+            }
+
+            function testButtonThreeThree() {
+
+                if (document.getElementById("testButtonThreeText").innerHTML==='') {
+                    document.getElementById("testButtonThreeText").innerHTML="Euclid is incorrect!.";
+
+                    y++;
+                    document.getElementById("testIncorrectGuessesCounter").innerHTML="Your incorrect answers: " + y;
+
+                    showTestResetButton();
+                } 
+            }
+
+            function testButtonThreeFour() {
+
+                if (document.getElementById("testButtonThreeText").innerHTML==='') {
+                    document.getElementById("testButtonThreeText").innerHTML="Riemann is incorrect!";
+
+                    y++;
+                    document.getElementById("testIncorrectGuessesCounter").innerHTML="Your incorrect answers: " + y;
+
+                    showTestResetButton();
+                } 
+            }
+
+            function showTestResetButton() {
+                document.getElementById("testResetButtonText").style.display = "inline-block";
+            }
+
+            function showTestCorrectResetButton() {
+                document.getElementById("testCorrectResetButtonText").style.display = "inline-block";
+            }
+
+            function testResetButton() {
+                document.getElementById("testButtonThreeText").innerHTML='';
+                document.getElementById("testResetButtonText").style.display="none";
+            }
+
+            function testCorrectResetButton() {
+                document.getElementById("testButtonThreeText").innerHTML='';
+                document.getElementById("testIncorrectGuessesCounter").innerHTML=''
+                document.getElementById("testCorrectResetButtonText").style.display="none";
+                y=0
+            }
+    </script>
+</footer>
 </body>
 </html>
