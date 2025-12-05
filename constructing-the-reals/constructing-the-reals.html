@@ -27,30 +27,67 @@
     <main>
         <section>
             <h2>Overview</h2>
+            <h3>Why Formal Mathematics is Needed</h3>
             <p>
-                Axioms are the foundation of formal mathematics. They are derived from the self-evident
-                properties . To demonstrate why
-                these axioms are necessary, consider a simple property like commutativity which 
-                states for any two numbers \(a,b\in\R, \ a+b=b+a\). This property is very intuitive
-                for the natural numbers. For example, if you have \(3\)
-                apples and then get \(5\) more, you end up with \(8\) apples, just like if you had started 
-                with \(5\) apples and got \(3\) more.
-            </p>
-            <p>
-                But what happens when you move beyond the natural numbers to more abstract numbers like the 
-                irrationals? If you have two irrational numbers like \(\e\) and \(\pi\), how would you show
-                \(\e+\pi=\pi+\e\)? These numbers don't have a clear representation on the numberline like the 
-                naturals, and it's not immedeatly obvious why the equality should hold.
-            </p>
-            <p>
-                This is where axioms can be used to define the properties of real numbers. The natural 
-                numbers are the best place to begin due to the intuitive nature of their properties. 
-                After understanding why the natural numbers behave the way they do, we can then
-                define the integers through the naturals. This allows us to carry the self-evident properties of 
-                the naturals to the definition of the integers. Then we can define the rationals through the
-                integers, tying their definition to the naturals. We can then do the same with the real numbers.
+                In everyday life, we often use maths without thinking twice, whether it's basic arithmetic 
+                in cooking, or algebra in budgeting. But as we move from everyday maths to more advanced 
+                topics such as calculus and analysis, certain ideas or definitions we used before aren't 
+                as precise or rigorous as we once thought.
             </p>
 
+            <p>
+                For example, consider this familiar question: Is \(1 = 0.\bar{9}\)? 
+            </p>
+
+            <p>
+                This is a common internet problem that often generates plenty of controversy. A common
+                argument for why it's true relies on the idea that the real numbers are dense, which 
+                means that for any two real numbers, there <em>must</em> exist another real number between them. 
+                This property seems obvious enough: for any two numbers \(a,b\in\R\), we must have 
+                \(a\lt (a + b)/2\lt b\). 
+            </p>
+
+            <p>
+                Using this fact, we could show that there exists no real number \(x\) such that 
+                \(0.\bar{9} \lt x \lt 1\). However, this argument relies on two assumptions: that the 
+                reals are dense (as stated), and that \(0.\bar{9}\) is a valid real number.
+            </p>
+
+            <p>
+                Thus, to prove \(1 = 0.\bar{9}\) through this method, we first need to prove our two 
+                assumptions. But this raises a bigger question: <em>How far back do we need to go to justify 
+                these assumptions; is there a point where our claims gain objective validity</em>?
+            </p>
+
+            <h3>How We Formalise Mathematics</h3>
+
+            <p>
+                This is where the story of formal and rigorous mathematics begins. 
+            </p>
+
+            <p>
+                Since the late 19th century, mathematicians have been fascinated with formalising mathematics. 
+                Alfred Whitehead and Bertrand Russell explored this topic when writing their book <em>Principia 
+                Mathematica</em>, where they attempted to remove all assumptions used in the current construction 
+                of the real number system. <br>However, in the 1930s, Kurt G&ouml;del and his incompleteness theorems 
+                showed that this project is fundamentally impossible; any system complex enough to do basic arithmetic 
+                will include assumptions that can not be proven within the system itself. In essence, no mathematical
+                system can be both <strong>complete</strong> <em>(able to prove every true statement)</em> and 
+                <strong>consistent</strong> <em>(free from contradictions)</em>.
+            </p>
+
+            <p>
+                This leads us to an important question: If no system can be complete and consistent, how can we 
+                build a rigorous framework for mathematics? The answer lies in axioms. Axioms are basic, self-evident 
+                statements derived from our natural understanding of numbers. While axioms are not provable within 
+                the system itself, they are accepted as starting points that allow us to develop more complex and 
+                reliable mathematical structures.
+            </p>
+
+            <p>
+                In the next sections, we will explore the axioms of the real number system. These axioms allow us 
+                to build the rigorous mathematical theories that underpin calculus, real analysis, and beyond.
+            </p>
 
             
         </section>
@@ -106,8 +143,8 @@
         </ul>
         <p id="testButtonThreeText"></p>
         <p id="testIncorrectGuessesCounter"></p>
-        <button onclick="testResetButton()" id="testResetButtonText" style="display: none;">Reset</button>
-        <button onclick="testCorrectResetButton()" id="testCorrectResetButtonText" style="display: none;">Reset</button>
+        <button onclick="testResetButton()" id="testResetButtonText" style="display: none;" class="testing-button">Retry</button>
+        <button onclick="testCorrectResetButton()" id="testCorrectResetButtonText" style="display: none;" class="testing-button">Reset</button>
         
 
         <script>
