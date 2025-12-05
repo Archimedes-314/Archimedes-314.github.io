@@ -1,7 +1,7 @@
 window.MathJax = {
     tex: {
         macros: {
-            // Roman and bold shortcuts
+            // Roman, bold, and style shortcuts
             re: "\\mathrm{Re}",
             im: "\\mathrm{Im}",
             diam: "\\mathrm{diam}",
@@ -17,6 +17,7 @@ window.MathJax = {
             d: "\\mathrm{d}",
             S: "{\\mathrm{S}}",
             e: "\\mathrm{e}",
+            bar: ["{\\overline{#1}}", 1],
 
 
             // Operators
