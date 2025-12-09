@@ -30,9 +30,10 @@
             <h3>Why Formal Mathematics is Needed</h3>
             <p>
                 In everyday life, we often use maths without thinking twice, whether it's basic arithmetic 
-                in cooking, or algebra in budgeting. But as we move from everyday maths to more advanced 
-                topics such as calculus and analysis, certain ideas or definitions we used before aren't 
-                as precise or rigorous as we once thought.
+                in cooking, or algebra in budgeting. But as we move toward more advanced topics such as 
+                calculus and analysis, we begin to notice that many familiar ideas are not as precise as 
+                we once assumed. Some concepts work intuitively but lack the rigor needed for deeper 
+                mathematical reasoning.
             </p>
 
             <p>
@@ -40,52 +41,69 @@
             </p>
 
             <p>
-                This is a common internet problem that often generates plenty of controversy. A common
-                argument for why it's true relies on the idea that the real numbers are dense, which 
-                means that for any two real numbers, there <em>must</em> exist another real number between them. 
-                This property seems obvious enough: for any two numbers \(a,b\in\R\), we must have 
-                \(a\lt (a + b)/2\lt b\). 
+                This is a common internet problem that often generates plenty of controversy. One popular
+                argument for why it's true relies on the idea that the real numbers are dense: for any two 
+                real numbers, there <em>must</em> exist another real number between them. 
+                At first glance, this property seems obvious. For any two numbers \(a,b\in\R\), we must have 
+                \(a\lt b \implies a\lt (a + b)/2\lt b\). 
             </p>
+            <div class="example">
+                Take two numbers \(a,b\in\R\) where \(a\lt b\). We can take the following:
+                \begin{align*}
+                    a &\lt b\\
+                    \implies a+a &\lt a+b\\
+                    \implies 2a &\lt a+b\\
+                    \implies a &\lt \frac{a+b}2\\\\
+                \end{align*}
+                A similar argument shows that:
+                \begin{equation} 
+                    a \lt b \implies \frac{a+b}2 \lt b
+                \end{equation}
+                Putting these together results in: \(\displaystyle a \lt \frac{a+b}2 \lt b\)
+            </div>
 
             <p>
                 Using this fact, we could show that there exists no real number \(x\) such that 
-                \(0.\bar{9} \lt x \lt 1\). However, this argument relies on two assumptions: that the 
-                reals are dense (as stated), and that \(0.\bar{9}\) is a valid real number.
+                \(0.\bar{9} \lt x \lt 1\). However, this argument relies on two foundational ideas: 
+                the real numbers geniunely have the density property, and that the numeral \(0.\bar{9}\)
+                corresponds to well-defined real number.
             </p>
 
             <p>
-                Thus, to prove \(1 = 0.\bar{9}\) through this method, we first need to prove our two 
-                assumptions. But this raises a bigger question: <em>How far back do we need to go to justify 
-                these assumptions; is there a point where our claims gain objective validity</em>?
+                Thus, to use this argument rigorously, we must first justify these starting points.
+                But those justifications themselves rely on earlier principles.
+                This leads to a deeper question: <em>How far back must we go to justify our claim; is there
+                a point at which our claims attain objective validity</em>?
             </p>
+
 
             <h3>How We Formalise Mathematics</h3>
 
             <p>
-                This is where the story of formal and rigorous mathematics begins. 
+                Since the late 19th century, mathematicians have been fascinated in formalising the foundations of mathematics. 
+                Alfred Whitehead and Bertrand Russell famously pursued this topic in their monumental work <em>Principia 
+                Mathematica</em>, where they attempted to build the real number system&mdash;and eventually the whole of
+                mathematics&mdash;from an entirely explicit and assumption-free logical framework.
+            </p>
+            <p>
+                However, in the 1930s, Kurt G&ouml;del and his incompleteness theorems proved that this project is fundamentally 
+                impossible; any system complex enough to do basic arithmetic will include assumptions about the natural numbers
+                that can not be proven within the system itself. 
             </p>
 
             <p>
-                Since the late 19th century, mathematicians have been fascinated with formalising mathematics. 
-                Alfred Whitehead and Bertrand Russell explored this topic when writing their book <em>Principia 
-                Mathematica</em>, where they attempted to remove all assumptions used in the current construction 
-                of the real number system. <br>However, in the 1930s, Kurt G&ouml;del and his incompleteness theorems 
-                showed that this project is fundamentally impossible; any system complex enough to do basic arithmetic 
-                will include assumptions that can not be proven within the system itself. In essence, no mathematical
-                system can be both <strong>complete</strong> <em>(able to prove every true statement)</em> and 
-                <strong>consistent</strong> <em>(free from contradictions)</em>.
+                This leads us to an important question: <strong><em>If no system can be both complete and consistent, how can we 
+                build a rigorous foundation for mathematics?</em></strong> G&ouml;del's work shows that we cannot prove the consistency 
+                of arithmetic from within arithmetic itself. Nevertheless, we can still describe the basic structure 
+                of the natural numbers. We can describe the principles that align with our intuitive understanding 
+                rather than being derived purely from logic. These guiding principles are called <em>axioms</em>. 
+                Although they cannot be proven within the very system they generate, they serve as the starting points 
+                from which more complex and dependable mathematical theories can be developed.
             </p>
 
-            <p>
-                This leads us to an important question: If no system can be complete and consistent, how can we 
-                build a rigorous framework for mathematics? The answer lies in axioms. Axioms are basic, self-evident 
-                statements derived from our natural understanding of numbers. While axioms are not provable within 
-                the system itself, they are accepted as starting points that allow us to develop more complex and 
-                reliable mathematical structures.
-            </p>
 
             <p>
-                In the next sections, we will explore the axioms of the real number system. These axioms allow us 
+                In the sections below, we will explore the axioms of the real number system. These axioms allow us 
                 to build the rigorous mathematical theories that underpin calculus, real analysis, and beyond.
             </p>
 
@@ -93,13 +111,17 @@
         </section>
 
         <section>
-            <h2>Topics</h2>
+            <h2>Topic Sections</h2>
             <ul class="topic-list">
                 <li>
-                  <h3><a href="peano-axioms-and-the-naturals/the-peano-axioms.html">Peano Axioms and the Natural Numbers</a></h3>
-                </li>
-                <li>
-                 Constructing the Naturals
+                  <h3><a href="peano-axioms-and-the-naturals/the-peano-axioms.html"> 
+                    Section One: <br>
+                    Peano Axioms and the Natural Numbers</a></h3>
+                  <p>
+                    The <em>Peano Axioms</em> describe basic properties of the natural numbers. In this section, we will
+                    examine these axioms and see how they allow us to define the natural numbers, describe their behaviour,
+                    and construct the basic operations.
+                  </p>
                 </li>
                 <li>
                     Constructing the Rationals
@@ -118,119 +140,7 @@
     </main>
 
     <footer>
-        <style>
-        .testing-button {
-            color: white;
-            background-color: blue;
-            padding: 8px 20px;
-            border-radius: 20px;
-            border: none;
-            cursor: pointer;
-        }
-    </style>
-        <button onclick="testButton()" class="testing-button">Press me!</button>
-        <p id="testButtonText">You have clicked this button 0 times!</p><br>
-
-        <button onclick="testButtonTwo()" class="testing-button">Press me!</button>
-        <p id="testButtonTwoText">I am testing something.</p><br>
-
-        <p>Who is \(\pi\) named after?</p>
-        <ul>
-            <li><button onclick="testButtonThreeOne()">Euler</button></li>
-            <li><button onclick="testButtonThreeTwo()">Archimedes</button></li>
-            <li><button onclick="testButtonThreeThree()">Euclid</button></li>
-            <li><button onclick="testButtonThreeFour()">Riemann</button></li>
-        </ul>
-        <p id="testButtonThreeText"></p>
-        <p id="testIncorrectGuessesCounter"></p>
-        <button onclick="testResetButton()" id="testResetButtonText" style="display: none;" class="testing-button">Retry</button>
-        <button onclick="testCorrectResetButton()" id="testCorrectResetButtonText" style="display: none;" class="testing-button">Reset</button>
-        
-
-        <script>
-            let x = 0;
-
-            function testButton() {
-                x++;
-                document.getElementById("testButtonText").innerHTML = "You have clicked this button " + x + " times!";
-            
-            }
-
-            function testButtonTwo() {
-                if (document.getElementById("testButtonTwoText").innerHTML==="I am testing something.") {
-                    document.getElementById("testButtonTwoText").innerHTML="I am testing some JS."
-                } else {
-                    document.getElementById("testButtonTwoText").innerHTML="I am testing something."
-                }
-            }
-
-            let y=0
-
-            function testButtonThreeOne() {
-
-                if (document.getElementById("testButtonThreeText").innerHTML==='') {
-                    document.getElementById("testButtonThreeText").innerHTML="Euler is incorrect!";
-
-                    y++;
-                    document.getElementById("testIncorrectGuessesCounter").innerHTML="Your incorrect answers: " + y;
-
-                    showTestResetButton();
-                } 
-            }
-
-            function testButtonThreeTwo() {
-
-                if (document.getElementById("testButtonThreeText").innerHTML==='') {
-                document.getElementById("testButtonThreeText").innerHTML="Archimedes is Correct!";
-                
-                showTestCorrectResetButton();
-                } 
-            }
-
-            function testButtonThreeThree() {
-
-                if (document.getElementById("testButtonThreeText").innerHTML==='') {
-                    document.getElementById("testButtonThreeText").innerHTML="Euclid is incorrect!.";
-
-                    y++;
-                    document.getElementById("testIncorrectGuessesCounter").innerHTML="Your incorrect answers: " + y;
-
-                    showTestResetButton();
-                } 
-            }
-
-            function testButtonThreeFour() {
-
-                if (document.getElementById("testButtonThreeText").innerHTML==='') {
-                    document.getElementById("testButtonThreeText").innerHTML="Riemann is incorrect!";
-
-                    y++;
-                    document.getElementById("testIncorrectGuessesCounter").innerHTML="Your incorrect answers: " + y;
-
-                    showTestResetButton();
-                } 
-            }
-
-            function showTestResetButton() {
-                document.getElementById("testResetButtonText").style.display = "inline-block";
-            }
-
-            function showTestCorrectResetButton() {
-                document.getElementById("testCorrectResetButtonText").style.display = "inline-block";
-            }
-
-            function testResetButton() {
-                document.getElementById("testButtonThreeText").innerHTML='';
-                document.getElementById("testResetButtonText").style.display="none";
-            }
-
-            function testCorrectResetButton() {
-                document.getElementById("testButtonThreeText").innerHTML='';
-                document.getElementById("testIncorrectGuessesCounter").innerHTML=''
-                document.getElementById("testCorrectResetButtonText").style.display="none";
-                y=0
-            }
-    </script>
-</footer>
+        <p>Ο Αρχιμήδης Είναι Φοβερός</p>
+    </footer>
 </body>
 </html>
