@@ -28,14 +28,14 @@
     <main>
         <section>
             <h2>The Axioms</h2>
-            <p>Here are the axioms explored in this section.</p>
-            <ol start="0">
-                <li> There exists a set \( \N_0 \) called the natural numbers.</li> 
+            <h3>Here are the axioms explored in this section:</h3>
+            <p>There is a set \(\N_0\) which we call the <em>natural numbers</em> with the following properties:</p>
+            <ol>
                 <li> \(0\in\N_0\)</li>
                 <li> \(\forall n\in\N_0, \ \S(n)\in\N_0\)</li>
                 <li> \(\forall n\in\N_0, \ \S(n)\neq0\)</li>
                 <li> \( \forall n,m\in\N_0, \ \S(n)=\S(m)\implies n=m \)</li>
-                <li> \(\forall A\subseteq\N_0, \ \{0\in A \ \land \ (\forall n \in A, \ \S(n)\in A) \} \implies A=\N_0\)</li>
+                <li> \(\forall A\subseteq\N_0, \ (0\in A \ \land \ (\forall n \in A, \ \S(n)\in A) ) \implies A=\N_0\)</li>
             </ol>
             
             <p>
@@ -67,7 +67,7 @@
         </section>
 
         <section>
-            <h2>Why Peano Axioms Look "Backwards"</h2>
+            <h2>What Students Often Get "Backwards"</h2>
 
             <p>
                 A common point of confusion is the role of the successor function \(\S(n)\).
@@ -75,13 +75,13 @@
             </p>
 
             <p class="maths">
-                \(1 + 1 = 2,\quad 2 + 1 = 3,\quad \text{and so on.}\)
+                \(1 + 1 = 2,\quad 2 + 1 = 3,\quad 3 + 1 = 4,\quad\) and so on.
             </p>
 
             <p>
                 This remains true in the Peano framework, but the axioms do not define the successor of 
-                \(1\) as \(2\), the successor of \(2\) as \(3\), and so on. Instead, the relationship \( \S(0) = 1, \S(1) = 2, \ldots\) 
-                are left implicit. 
+                \(1\) as \(2\), the successor of \(2\) as \(3\), and so on. Instead, the relationship 
+                \( \S(0) = 1,\ \S(1) = 2,\ \S(2)=3, \ldots\) are left implicit. 
             </p>
 
 
@@ -94,20 +94,23 @@
                 is two apples, and only later construct a logical framework to explain this.
             </p>
 
-            
 
             <p>
                 The Peano axioms simply formalise the patterns we already recognise, but in a 
                 way that allows more complex number systems (like integers and reals) to be 
-                built rigorously. We do not need to completely redefine all the real numbers
-                from nothing. 
+                built rigorously. Peano Arithmetic assumes a level of mathematical
+                maturity; we do not need to completely redefine all the real numbers
+                from nothing.
             </p>
         </section>
 
         <section>
         <ul class="topic-list">
             <li>
-                <a href="understnading-the-peano-axioms/understanding-the-peano-axioms.html"><h2>Understanding the Peano Axioms</h2></a>
+                <a href="understnading-the-peano-axioms/understanding-the-peano-axioms.html"><h3>
+                    Lesson One:<br>
+                    Understanding the Peano Axioms
+                </h3></a>
                 <p>
                     In this section, each axiom will be explored in geater detail,
                     where you will learn why these axioms are necessary and what
