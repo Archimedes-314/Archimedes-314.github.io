@@ -61,34 +61,33 @@
             </p>
             <p>
                 We will also be using the function \(\S(n)\) while exploring the Peano Axioms and the construction of
-                the reals. This function is called the <em>successor function</em>, and is defined as follows:
-                \begin{align*}
-                    \S : \N_0 &\to \N_0\\
-                    n &\mapsto n+1
-                \end{align*}
-                So the successor of any natural number returns that number plus \(1\).
+                the reals. As stated in the previous page, this function is called the <em>successor function</em>, 
+                and maps a natural number \(n\) to the number \(n+1\). Although we know explicitly that \(\S(n)=n+1\), 
+                we cannot define the successor in terms of addition, because addition itself depends on the successor. 
+                That would be circular.
             </p>
         </section>
 
         <section>
-            <h2>Why \(0\) Is in the Set of Natural Numbers?</h2>
-                --- additive identity and it's use in the definition of basic operations.
-        </section>
-
-        <section>
-            <h2> Why the Successor Function</h2>
-            --- Why the successor function is necessary for the axioms.
-        </section>
-
-        <section>
-            <h2>Why Start With \(0\)?</h2>
-            --- Explain why the negative integers are not in the set of naturals: equivelnce class definition of naturals. 0 is an
-            exception do to the reasoning for the first axiom.
-        </section>
-
-        <section>
-            <h2>Successor Injectivity</h2>
-            --- Why it's necessary to state why the successor function is injective.
+            <h2>The First Four Axioms</h2>
+            The first four axioms are simple properties of the natural numbers and don't require much explanation. The 
+            axioms translated into words are as follows:
+            <ol>
+                <li>
+                    \(0\) is a natural number. This simply specifies the starting point of the natural numbers. 
+                </li>
+                <li>
+                    The successor of any natural number is a natural number. This is known as closure under the successor 
+                    function, and results in the iterative process \(\N_0 = \{0,\ \S(0)=1,\ \S(1)=2,\ \S(2)=3, \ldots\}\).
+                </li>
+                <li>
+                    \(0\) is not the successor of any natural number. This ensures the natural numbers have a "beginning" and 
+                    that the iterative process doesn't loop back to \(0\).
+                </li>
+                <li>
+                    The successor function is injective. This means that each natural number has a unique successor. 
+                </li>
+            </ol>
         </section>
 
 
@@ -119,7 +118,7 @@
                 \(\forall n\in A, \ \S(n)\in A\), meaning that for any member of \(A\), it's successor is also in \(A\).
             </p>
             <p> 
-                So if \(0\) is in \(A\) and the successor of all numbers in \(A\) is also in \(A\), that requires 
+                So if \(0\) is in \(A\) and the successor of all numbers in \(A\) is also in \(A\), the axioms of induction forces 
                 \(A=\{0, \S(0), \S(\S(0)), \ldots\}\), which is exactly \(\N_0\).
             </p>
 
@@ -136,7 +135,7 @@
             <p>
                 Next, we assume that \(n \in A\). That is, we assume \(P(n)\) is true for some arbitrary natural number \(n\).  
                 Under this assumption, we then show that \(P(\S(n))\) is also true. If we can prove this in a way that doesn't 
-                restrict \(n\) to any specific value, that we can claim \(n\in A \implies \S(n)\in A\)
+                restrict \(n\) to any specific value, then we can claim \(n\in A \implies \S(n)\in A\).
             </p>
             <p>
                 Once we've shown that \(0 \in A\) and 
