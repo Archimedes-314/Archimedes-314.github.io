@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Standard Analysis Maths Notes">
     <meta name="google-site-verification" content="1GVbjY9xppS7E6tukfDbqtOGqj3NVu9PR0sdNOIQISE" />
-    <title>Eli's Math Notes</title>
+    <title>Eli's Maths Notes</title>
     <link rel="icon" href="important/archimedes.png" />
     <link rel="stylesheet" href="important/style-sheet.css">
 
@@ -23,7 +23,7 @@
 <body>
 
     <header>
-        <h1>Introductory Standard Analysis</h1>
+        <h1>Introductory Real Analysis</h1>
         <a class="button-style blue-text"  href="index.html">Home</a>
             <!-- Hamburger menu -->
             <!-- Hamburger menu -->
@@ -39,8 +39,20 @@
         <!-- Sidebar menu -->
         <div class="menu">
             <!-- Main section with hyperlink and toggle button for subsections -->
+             <div class="burger-toggle-btn">
+                <a href="#">Constructing the Real Numbers</a>
+                <span class="arrow" id="realnums-arrow" onclick="toggleSubmenu('realnums')">➔</span>
+            </div>
+            <div class="submenu" id="realnums-submenu">
+                <a href="#">Peano Axioms</a>
+                <a href="#">Field Axioms</a>
+                <a href="#">Completeness Axiom</a>
+                <a href="#">Order Axiom</a>
+                <a href="#">Archimedean Property</a>
+            </div>
+
             <div class="burger-toggle-btn">
-                <a href="#">Calculus I</a> <!-- Hyperlink to section details -->
+                <a href="#">Calculus I</a>
                 <span class="arrow" id="calc1-arrow" onclick="toggleSubmenu('calc1')">➔</span>
             </div>
             <div class="submenu" id="calc1-submenu">
@@ -51,7 +63,6 @@
                 <a href="#">Techniques of Integration</a>
             </div>
 
-            <!-- Repeat for other sections -->
             <div class="burger-toggle-btn">
                 <a href="#">Calculus II</a>
                 <span class="arrow" id="calc2-arrow" onclick="toggleSubmenu('calc2')">➔</span>
@@ -76,18 +87,6 @@
                 <a href="#">Stokes' Theorem</a>
             </div>
 
-            <div class="burger-toggle-btn">
-                <a href="#">Constructing the Real Numbers</a>
-                <span class="arrow" id="realnums-arrow" onclick="toggleSubmenu('realnums')">➔</span>
-            </div>
-            <div class="submenu" id="realnums-submenu">
-                <a href="#">Peano Axioms</a>
-                <a href="#">Field Axioms</a>
-                <a href="#">Completeness Axiom</a>
-                <a href="#">Order Axiom</a>
-                <a href="#">Archimedean Property</a>
-            </div>
-
             <!-- Other sections -->
             <a href="#">About</a>
             <a href="#">Contact</a>
@@ -97,14 +96,17 @@
     <main>
         <section>
             <h2>Overview</h2>
-            <p>Here you will find an overview of all the math topics I have notes on. Click on each topic to access detailed notes and explanations.</p>
+            <p>Here you will find an overview of all the maths topics I have notes on. Click on each topic to access detailed notes and explanations.</p>
         </section>
 
         <section>
-            <h2>Math Topics</h2>
+            <h2>Main Topics</h2>
             <ul class="topic-list">
                 <li>
-                    <h3><a href="constructing-the-reals/constructing-the-reals.html">Constructing the Reals: Understanding the Axioms of the Real Numbers</a></h3>
+                    <h3><a href="constructing-the-reals/constructing-the-reals.html"> 
+                        Topic One:<br>
+                        Constructing the Reals: Understanding the Axioms of the Real Numbers
+                    </a></h3>
                     <p>This section will include the following topics:</p>
                     <ul>
                         - Peano Axioms and the naturals <br>
@@ -117,15 +119,15 @@
                 </li>
                 <li><a href="blank.html">Calculus I: Understanding Limits, Derivatives, Anti-Derivatives, and Integration</a><br>
                 <ul>
-                    - This is some temproy text
+                    - This is some temporary text
                 </ul></li>
                 <li><a href="blank.html">Calculus II: Integration Techniques, Vectors, Sequences and Series</a><br>
                 <ul>
-                    - This is some temproy text
+                    - This is some temporary text
                 </ul></li>
                 <li><a href="blank.html">Calculus III: Partial Derivatives, Multiple Integrals, Line Integrals, and Vector Calculus</a><br>
                 <ul>
-                    - This is some temproy text
+                    - This is some temporary text
                 </ul></li>
             </ul>
         </section>
