@@ -23,16 +23,14 @@
 <body>
 
     <header>
-        <h1>Introductory Real Analysis</h1>
-        <a class="button-style blue-text"  href="index.html">Home</a>
-            <!-- Hamburger menu -->
-            <!-- Hamburger menu -->
+        <h1 class="header-h1-shadow">Eli's Online Notes</h1>
+
         <div class="hamburger" onclick="toggleMenu()">
             <div></div>
             <div></div>
             <div></div>
         </div>
-
+    
         <!-- Overlay to darken the background -->
         <div class="overlay" onclick="toggleMenu()"></div>
 
@@ -40,15 +38,11 @@
         <div class="menu">
             <!-- Main section with hyperlink and toggle button for subsections -->
              <div class="burger-toggle-btn">
-                <a href="#">Constructing the Real Numbers</a>
+                <a href="constructing-the-reals/constructing-the-reals.html">Constructing the Real Numbers</a>
                 <span class="arrow" id="realnums-arrow" onclick="toggleSubmenu('realnums')">➔</span>
             </div>
             <div class="submenu" id="realnums-submenu">
-                <a href="#">Peano Axioms</a>
-                <a href="#">Field Axioms</a>
-                <a href="#">Completeness Axiom</a>
-                <a href="#">Order Axiom</a>
-                <a href="#">Archimedean Property</a>
+                <a href="constructing-the-reals/peano-axioms-and-the-naturals/the-peano-axioms.html">Peano Axioms</a>
             </div>
 
             <div class="burger-toggle-btn">
@@ -56,11 +50,7 @@
                 <span class="arrow" id="calc1-arrow" onclick="toggleSubmenu('calc1')">➔</span>
             </div>
             <div class="submenu" id="calc1-submenu">
-                <a href="#">Limits and Continuity</a>
-                <a href="#">Differentiation Rules</a>
-                <a href="#">Integration by Substitution</a>
-                <a href="#">Fundamental Theorem of Calculus</a>
-                <a href="#">Techniques of Integration</a>
+                <a href="#">Temp</a>
             </div>
 
             <div class="burger-toggle-btn">
@@ -68,11 +58,7 @@
                 <span class="arrow" id="calc2-arrow" onclick="toggleSubmenu('calc2')">➔</span>
             </div>
             <div class="submenu" id="calc2-submenu">
-                <a href="#">Sequences and Series</a>
-                <a href="#">Power Series</a>
-                <a href="#">Improper Integrals</a>
-                <a href="#">Convergence Tests</a>
-                <a href="#">Taylor Series</a>
+                <a href="#">Temp</a>
             </div>
 
             <div class="burger-toggle-btn">
@@ -80,11 +66,7 @@
                 <span class="arrow" id="calc3-arrow" onclick="toggleSubmenu('calc3')">➔</span>
             </div>
             <div class="submenu" id="calc3-submenu">
-                <a href="#">Partial Derivatives</a>
-                <a href="#">Multiple Integrals</a>
-                <a href="#">Vector Calculus</a>
-                <a href="#">Green's Theorem</a>
-                <a href="#">Stokes' Theorem</a>
+                <a href="#">Temp</a>
             </div>
 
             <!-- Other sections -->
@@ -93,8 +75,23 @@
         </div>
     </header>
 
+    <div class="spacer"></div>
+
+    <div>
+        <div class="breadcrumb-wrapper">
+            <nav class="breadcrumbs">
+                <p>Home</p>
+            </nav>
+        </div>
+
+        <div class="sub-links">
+            <a href="#top">Back to Top</a>
+            <a href="#section1">Overview</a>
+            <a href="#section2">Main Topics</a>
+        </div>
+
     <main>
-        <section>
+        <section id="section1">
             <h2>Overview</h2>
             <h3>Purpose</h3>
             <p>
@@ -127,7 +124,7 @@
 
         </section>
 
-        <section>
+        <section id="section2">
             <h2>Main Topics</h2>
             <ul class="topic-list">
                 <li>
@@ -145,59 +142,28 @@
                         - Consequences of \(\R\)
                     </ul>
                 </li>
-                <li><a href="#">Calculus I: Understanding Limits, Derivatives, Anti-Derivatives, and Integration</a><br>
+                <li><a href="blank.html">Calculus I: Understanding Limits, Derivatives, Anti-Derivatives, and Integration</a><br>
                 <ul>
                     - This is some temporary text
                 </ul></li>
-                <li><a href="#">Calculus II: Integration Techniques, Vectors, Sequences and Series</a><br>
+                <li><a href="blank.html">Calculus II: Integration Techniques, Vectors, Sequences and Series</a><br>
                 <ul>
                     - This is some temporary text
                 </ul></li>
-                <li><a href="#">Calculus III: Partial Derivatives, Multiple Integrals, Line Integrals, and Vector Calculus</a><br>
+                <li><a href="blank.html">Calculus III: Partial Derivatives, Multiple Integrals, Line Integrals, and Vector Calculus</a><br>
                 <ul>
                     - This is some temporary text
                 </ul></li>
             </ul>
         </section>
+        <script src="important/burger-js.js"></script>
     </main>
-    <script>
-        // Function to toggle the main menu visibility
-        function toggleMenu() {
-            const menu = document.querySelector('.menu');
-            const hamburger = document.querySelector('.hamburger');
-            const overlay = document.querySelector('.overlay');
-
-            const isOpening = !menu.classList.contains('open');
-
-            menu.classList.toggle('open');
-            hamburger.classList.toggle('open');
-            overlay.classList.toggle('show');
-
-            // If the menu is closing, collapse all submenus
-            if (!isOpening) {
-                const allSubmenus = document.querySelectorAll('.submenu');
-                const allArrows = document.querySelectorAll('.arrow');
-
-                allSubmenus.forEach(sub => sub.classList.remove('open'));
-                allArrows.forEach(arrow => arrow.classList.remove('open'));
-            }
-        }
-
-        // Function to toggle the visibility of a specific submenu
-        function toggleSubmenu(section) {
-            const submenu = document.getElementById(section + '-submenu');
-            const arrow = document.getElementById(section + '-arrow');
-
-            submenu.classList.toggle('open');
-            arrow.classList.toggle('open');
-        }
-    </script>
+    </div>
 
     <footer>
         <p>Ο Αρχιμήδης Ειναι Φοβερός</p>
     </footer>
 
 </body>
-
 
 </html>
