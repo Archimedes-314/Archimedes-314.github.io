@@ -17,100 +17,282 @@
 </head>
 <body>
     <header>
-        <h1>Understanding The Construction of Real Numbers through the Axioms</h1>
-        <div class="button-style-box">
-            <a class="blue-text" href="../index.html">Home</a> /
-            <a class="blue-text" href="constructing-the-reals.html">Construction of the Reals</a>
+        <h1 class="header-h1-shadow">Construction the Real Numbers</h1>
+
+        <div class="hamburger" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    
+        <!-- Overlay to darken the background -->
+        <div class="overlay" onclick="toggleMenu()"></div>
+
+        <!-- Sidebar menu -->
+        <div class="menu">
+            <!-- Main section with hyperlink and toggle button for subsections -->
+             <div class="burger-toggle-btn">
+                <a href="#">Constructing the Real Numbers</a>
+                <span class="arrow" id="realnums-arrow" onclick="toggleSubmenu('realnums')">➔</span>
+            </div>
+            <div class="submenu" id="realnums-submenu">
+                <a href="peano-axioms-and-the-naturals/the-peano-axioms.html">Peano Axioms</a>
+            </div>
+
+            <div class="burger-toggle-btn">
+                <a href="#">Calculus I</a>
+                <span class="arrow" id="calc1-arrow" onclick="toggleSubmenu('calc1')">➔</span>
+            </div>
+            <div class="submenu" id="calc1-submenu">
+                <a href="#">Temp</a>
+            </div>
+
+            <div class="burger-toggle-btn">
+                <a href="#">Calculus II</a>
+                <span class="arrow" id="calc2-arrow" onclick="toggleSubmenu('calc2')">➔</span>
+            </div>
+            <div class="submenu" id="calc2-submenu">
+                <a href="#">Temp</a>
+            </div>
+
+            <div class="burger-toggle-btn">
+                <a href="#">Calculus III</a>
+                <span class="arrow" id="calc3-arrow" onclick="toggleSubmenu('calc3')">➔</span>
+            </div>
+            <div class="submenu" id="calc3-submenu">
+                <a href="#">Temp</a>
+            </div>
+
+            <!-- Other sections -->
+            <a href="#">About</a>
+            <a href="#">Contact</a>
         </div>
     </header>
 
+    
+    <div class="spacer"></div>
+
+    <div>
+        <div class="breadcrumb-wrapper">
+            <nav class="breadcrumbs">
+                <a href="../index.html"><span>Home</span></a>
+                <p>Constructing the Real Numbers</p>
+            </nav>
+        </div>
+
+        <div class="sub-links">
+            <a href="#top">Back to Top</a>
+            <a href="#section1">Overview</a>
+            <a href="#section2">Main Topics</a>
+        </div>
+
     <main>
-        <section>
+        <section id="section1">
             <h2>Overview</h2>
-            <h3>Why Formal Mathematics is Needed</h3>
-            <p>
-                In everyday life, we often use maths without thinking twice, whether it's basic arithmetic 
-                in cooking, or algebra in budgeting. But as we move toward more advanced topics such as 
-                calculus and analysis, we begin to notice that many familiar ideas are not as precise as 
-                we once assumed. Some concepts work intuitively but lack the rigor needed for deeper 
-                mathematical reasoning.
-            </p>
+                <h3>Why Rigor Becamse Necessary</h3>
+                    <p>
+                        In everyday life, we often use maths without thinking twice, whether it's basic arithmetic 
+                        in cooking, or algebra in budgeting. For centuries, this intuitive approach 
+                        was sufficient for practical purposes. However, as mathematics advanced to more complex fields,
+                        serious foundational problems began to emerge.
+                    </p>
 
-            <p>
-                For example, consider this familiar question: Is \(1 = 0.\bar{9}\)? 
-            </p>
+                    <p>
+                        Early calculus relied heavily on intuitive notions such as "infinitely small quantities" and
+                        "instantaneous change". While these ideas led to spectacular successes in physics and
+                        engineering, they were not logically precise, and contradictory arguments often coexisted 
+                        without clear resolution.
+                    </p>
 
-            <p>
-                This is a common internet problem that often generates plenty of controversy. One popular
-                argument for why it's true relies on the idea that the real numbers are dense: for any two 
-                real numbers, there <em>must</em> exist another real number between them. 
-                At first glance, this property seems obvious. For any two numbers \(a,b\in\R\), we must have 
-                \(a\lt b \implies a\lt (a + b)/2\lt b\). 
-            </p>
-            <div class="example">
-                Take two numbers \(a,b\in\R\) where \(a\lt b\). We can take the following:
-                \begin{align*}
-                    a &\lt b\\
-                    \implies a+a &\lt a+b\\
-                    \implies 2a &\lt a+b\\
-                    \implies a &\lt \frac{a+b}2\\\\
-                \end{align*}
-                A similar argument shows that:
-                \begin{equation} 
-                    a \lt b \implies \frac{a+b}2 \lt b
-                \end{equation}
-                Putting these together results in: \(\displaystyle a \lt \frac{a+b}2 \lt b\)
-            </div>
+                    <p>
+                        By the early 19th century, this lack of precision had become untenable. Mathematicians began to
+                        ask not only <em>what</em> mathematics could compute, but <em>why</em> its methods worked at all.
+                        This marked the beginning of what is now called the <strong>rigorisation of mathematics</strong>.
+                    </p>
 
-            <p>
-                Using this fact, we could show that there exists no real number \(x\) such that 
-                \(0.\bar{9} \lt x \lt 1\). However, this argument relies on two foundational ideas: 
-                the real numbers geniunely have the density property, and that the numeral \(0.\bar{9}\)
-                corresponds to well-defined real number.
-            </p>
+                <h3>A Simple Question That Reveals a Deep Problem</h3>
+                    <p>
+                        Consider the familiar question:
+                        \[
+                            0.\bar{9} = 1 \; ?
+                        \]
+                        Informally, many arguments claim this equality is "obvious", often appealing to properties of
+                        real numbers such as density or limits. For example, one may argue that if two real numbers are
+                        distinct, then there must be another real number strictly between them. This can be shown false
+                        as follows:
+                    </p>
 
-            <p>
-                Thus, to use this argument rigorously, we must first justify these starting points.
-                But those justifications themselves rely on earlier principles.
-                This leads to a deeper question: <em>How far back must we go to justify our claim; is there
-                a point at which our claims attain objective validity</em>?
-            </p>
+                    <div class="example" data-collapsible="true">
+                        Take two numbers \(a,b\in\R\) where \(a\lt b\). From the desity property, there must exist a 
+                        \( c=(a+b)/2 \in \R \) where \(a \lt c \lt b\)
+                        <div class="working">
+                            <h4>Working:</h4>
+                            For two numbers \(a,b \in \R \), \(a \lt b\) implies:
+                            \begin{align*}
+                                a &\lt b\\
+                                \implies a+a &\lt a+b\\
+                                \implies 2a &\lt a+b\\
+                                \implies a &\lt \frac{a+b}2\\\\
+                            \end{align*}
+                            A similar argument shows that:
+                            \begin{equation} 
+                                a \lt b \implies \frac{a+b}2 \lt b
+                            \end{equation}
+                            Putting these together results in: \(\displaystyle a \lt \frac{a+b}2 \lt b\)
+                        </div>
+                    </div>
+
+                    <p>
+                        Using this idea, one might attempt to argue that there can be no real number strictly between
+                        \(0.\bar{9}\) and \(1\), and therefore they must be equal.
+                    </p>
+
+                    <div class="example" data-collapsible="true">
+                        There exists no \(x\in\R\) where \( 0.\bar{9} \lt x \lt 1 \)
+                        <div class="working">
+                            <h4>Working:</h4>
+                            Suppose, for contradiction, \(0.\bar{9} \lt 1\). Then, from the previous example, assume
+                            that there exists an \(x \in \R\) such that \( 0.\bar{9} \lt x \lt 1 \).
+
+                            Define the decimal \( 0.\bar{9} \) as the limit of the sequence \( (0.\bar{9})_n \) given by:
+                            \begin{align*}
+                                (0.9)_n &:= \suma{i=1}{n}{\frac{9}{10^i}}\\
+                                0.\bar{9} &:= \Lim{n}{\infty}{(0.9)_n}
+                            \end{align*}
+
+                            Note that for all \( n \in \N \), we have:
+                            \[
+                                (0.9)_n \lt 0.\bar{9} \lt x \lt 1
+                            \]
+
+                            Now observe:
+                            \[
+                                (0.9)_n + \frac{1}{10^n} = 1
+                            \]
+                            
+                            This can be proven though induction. Due to the proofs simplicity, it will be left as an excersise
+                            for the reader. This results in:
+
+                            \[
+                                1-x \lt 1-(0.9)_n = \frac{1}{10^n}
+                            \]
+
+                            And since \( 0 \lt x \lt 1 \), it follows that: \( 0 \lt 1-x \lt 10^{-n} \).
+
+                            But by the <em>Archimedean Property</em>*, for every positive real number \(\eps > 0\), there exists 
+                            \(n \in \N\) such that \(10^{-n} \lt \eps\). In particular, there is no real number \(x\) such that 
+                            \(0 \lt 1 - x \lt 10^{-n}\) for all \(n \in \N\), because \(10^{-n} \To{n}{\infty} 0\). Therefore, 
+                            such an \(x\) cannot exist.
+
+                            <br><br>
+
+                            *<em class="footer-text">This is explores in greater detail in the lessons below.</em>
+                        </div>
+                    </div>
 
 
-            <h3>How We Formalise Mathematics</h3>
+                    <p>
+                        However, this reasoning quietly assumes two things:
+                    </p>
 
-            <p>
-                Since the late 19th century, mathematicians have been fascinated in formalising the foundations of mathematics. 
-                Alfred Whitehead and Bertrand Russell famously pursued this topic in their monumental work <em>Principia 
-                Mathematica</em>, where they attempted to build the real number system&mdash;and eventually the whole of
-                mathematics&mdash;from an entirely explicit and assumption-free logical framework.
-            </p>
-            <p>
-                However, in the 1930s, Kurt G&ouml;del and his incompleteness theorems proved that this project is fundamentally 
-                impossible; any system complex enough to do basic arithmetic will include assumptions about the natural numbers
-                that can not be proven within the system itself. 
-            </p>
-
-            <p>
-                This leads us to an important question: <strong><em>If no system can be both complete and consistent, how can we 
-                build a rigorous foundation for mathematics?</em></strong> G&ouml;del's work shows that we cannot prove the consistency 
-                of arithmetic from within arithmetic itself. Nevertheless, we can still describe the basic structure 
-                of the natural numbers. We can describe the principles that align with our intuitive understanding 
-                rather than being derived purely from logic. These guiding principles are called <em>axioms</em>. 
-                Although they cannot be proven within the very system they generate, they serve as the starting points 
-                from which more complex and dependable mathematical theories can be developed.
-            </p>
+                    <ul>
+                        <li>That the real numbers genuinely possess the density property.</li>
+                        <li>That the infinite decimal \(0.\bar{9}\) already corresponds to a well-defined real number.</li>
+                    </ul>
 
 
-            <p>
-                In the sections below, we will explore the axioms of the real number system. These axioms allow us 
-                to build the rigorous mathematical theories that underpin calculus, real analysis, and beyond.
-            </p>
+                    <p>
+                        Neither assumption is trivial. In fact, both depend on deeper structural properties of the real
+                        number system, properties that themselves must be justified. This raises a fundamental question:
+                        <em>How far back must we go before our mathematical claims no longer depend on unexamined
+                        assumptions?</em>
+                    </p>
 
-            
+                <h3>The 19th-Century Foundations of Analysis</h3>
+
+                    <p>
+                        The first major progress toward rigorous foundations came not from logic, but from analysis.
+                        During the early-to-mid 1800s, mathematicians such as Bernard Bolzano, Niels Abel, Augustin-Louis
+                        Cauchy, and Karl Weierstrass systematically eliminated the vague notions that had plagued
+                        calculus.
+                    </p>
+
+                    <p>
+                        Limits, continuity, and convergence were reformulated using precise \( \eps \) - \( \delta \)
+                        definitions. This work made calculus logically reliable, but it also exposed a deeper problem:
+                        the real numbers themselves were being used without a clear definition.
+                    </p>
+
+                    <p>
+                        In response, several independent constructions of the real numbers emerged later in the 19th
+                        century. Richard Dedekind defined real numbers using <em>cuts</em> of the rationals, while Karl
+                        Weierstrass and Georg Cantor developed constructions based on Cauchy sequences. These approaches
+                        showed that irrational numbers could be rigorously built from rational numbers alone.
+                    </p>
+
+                    <p>
+                        Around the same time, William Rowan Hamilton introduced ordered pairs of real numbers as a
+                        foundation for the complex numbers, demonstrating that even seemingly new kinds of numbers
+                        could be constructed from simpler ones.
+                    </p>
+
+                <h3>Axioms and the Natural Numbers</h3>
+
+                    <p>
+                        Yet another foundational issue remained: the rational numbers themselves depend on the natural
+                        numbers. Using ideas developed by H. G. Grassmann and Richard Dedekind, Giuseppe Peano introduced
+                        a small collection of axioms that precisely describe the structure of the natural numbers.
+                    </p>
+
+                    <p>
+                        These <em>Peano axioms</em> do not attempt to prove what numbers are. Instead, they specify how
+                        numbers behave. From them, addition, multiplication, and the rational numbers can be
+                        systematically constructed.
+                    </p>
+
+                <h3>Logicism and Its Limits</h3>
+
+                    <p>
+                        By the late 19th century, it had become plausible that large portions of mathematics could be
+                        derived from a small set of primitive principles. Gottlob Frege sought to show that arithmetic
+                        itself could be derived purely from logic, a philosophical position known as <em>logicism</em>.
+                    </p>
+
+                    <p>
+                        Frege developed the necessary logical machinery in 1879, and by the 1890s had produced detailed
+                        derivations of arithmetic. However, the discovery of paradoxes, most famously Russell's
+                        Paradox, revealed deep inconsistencies in naive logical systems.
+                    </p>
+
+                    <p>
+                        In response, Alfred Whitehead and Bertrand Russell collaborated on <em>Principia
+                        Mathematica</em>, attempting to rebuild mathematics within a carefully constrained logical
+                        framework. While enormously influential, this project ultimately revealed the immense
+                        complexity required to formalise even basic arithmetic.
+                    </p>
+
+                    <p>
+                        In the 1930s, Kurt G&ouml;del proved his incompleteness theorems, showing that any sufficiently rich
+                        axiomatic system cannot be both complete and capable of proving its own consistency. G&ouml;del did
+                        not show that mathematics lacks foundations, but rather that no single system can capture all
+                        mathematical truth from within itself.
+                    </p>
+
+                <h3>What Axioms Really Are</h3>
+
+                    <p>
+                        Modern mathematics therefore proceeds axiomatically. Axioms are not self-evident truths, nor
+                        arbitrary assumptions. Instead, they are carefully chosen principles that capture the essential
+                        structure of the objects we wish to study.
+                    </p>
+
+                    <p>
+                        In the sections that follow, we begin with the axioms for the natural numbers and show how the
+                        rationals and real numbers can be constructed step by step. This approach reveals that the real
+                        number system is in fact the result of a long and carefully reasoned historical development.
+                    </p>
         </section>
-
-        <section>
+        <section id="section2">
             <h2>Topic Sections</h2>
             <ul class="topic-list">
                 <li>
@@ -137,7 +319,9 @@
                 </li>
         </ul>
         </section>
+        <script src="../important/burger-js.js"></script>
     </main>
+    </div>
 
     <footer>
         <p>Ο Αρχιμήδης Είναι Φοβερός</p>
