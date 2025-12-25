@@ -1,3 +1,27 @@
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  cursor: url('archimedes_cur.png') 16 4, auto;
+}
+
+a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+a:hover {
+  cursor: url('archimedes_pointing.png') 16 4, pointer;
+}
+
 body {
     font-family: Arial, sans-serif;
     background-color: white;
@@ -7,24 +31,117 @@ body {
     max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
-    overflow-x: hidden
 }
 
-header {
-    background-color: #4CAF50;
+  .spacer {
+    height: 4rem
+  }
+
+  header {
+    position: fixed;
+    top: 0;
+    left: 2rem;
+    right: 2rem;
+    height: 4rem;
+    background-color: #4caf4f;
     color: white;
-    padding-top: 0.2rem;
-    padding-bottom: 0.8rem;
+    display: flex;
+    align-items: center;
+    padding: 0 1rem;
+    z-index: 100;
+    box-shadow: 2px 2px 5px #222222AA;
+  }
+
+  header h1 {
+    color: white;
+  }
+
+  .breadcrumb-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 4rem;
+  }
+
+
+  .breadcrumbs {
+    display: inline-flex;
+    align-items: center;
+    margin: 0.5rem auto;
+    font-size: 0.9rem;
+    background-color: #4caf4f;
+    color: white;
+    border-radius: 20px;
+    padding: 0 5px;
+    box-shadow: 2px 2px 5px #222222AA;
+    height: 2rem;
+  }
+    
+  .breadcrumbs span { text-decoration: underline; }
+
+  .breadcrumbs a {
+    color: white;
     text-align: center;
-    position: relative;
-}
+    transition: font-size 0.3s ease;
+    text-decoration: none;
+  }
+
+  .breadcrumbs a:hover {
+    font-size: 1rem;
+    text-decoration: none;
+  }
+
+  .breadcrumbs :not(:last-child)::after {
+    content: " / ";
+    margin: 0 4px 4px 0;
+  }
+
+  
+
+  .sub-links {
+    position: sticky;
+    top: 4rem;
+    display: flex;
+    gap: 1rem;
+    padding: 0.5rem 1rem;
+    background: #f0f0f0;
+    z-index: 50;
+    box-shadow: 2px 2px 5px #222222AA;
+    width: 100%;
+    margin-left: 0rem;
+    margin-right: 0rem;
+    box-sizing: border-box;
+  }
+
+  .sub-links a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    transition: transform 0.3s ease;
+  }
+
+  .sub-links a:hover {
+    text-decoration: underline;
+    color: #333;
+    font-weight: bold;
+    transform: scale(1.08);
+  }
+
 
 main {
     padding: 20px;
 }
 
+.header-h1-shadow {
+  text-shadow: 5px 5px 5px #11111190
+}
+
 p {
   margin: 1rem 0;
+}
+
+.footer-text {
+  font-size: smaller;
 }
 
 h2 {
@@ -49,6 +166,7 @@ section {
   margin-bottom: 2.5rem;
   padding-bottom: 1rem;
   border-bottom: 1px solid #e0e0e0;
+  scroll-margin-top: 7rem;
 }
 
 .maths {
@@ -78,12 +196,6 @@ strong {
     background-color: #d1e8d3;
 }
 
-a {
-    text-decoration: none;
-    color: #333;
-    font-weight: bold;
-}
-
 a:hover {
   text-decoration: underline;
 }
@@ -91,10 +203,6 @@ a:hover {
 .blue-text {
   color: #005cc5;
   text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
 }
 
 footer {
@@ -135,7 +243,7 @@ footer {
 .collapsible-content {
   overflow: hidden;
   max-height: 0;
-  transition: max-height 0.35s ease-in-out;
+  transition: max-height 0.4s ease-in-out;
   margin-top: 10px;
 }
 
@@ -144,7 +252,7 @@ footer {
   background: #ffffff;
   border: 1px solid #ccc;
   padding: 6px 10px;
-  cursor: pointer;
+  cursor: url('archimedes_pointing.png') 16 4, pointer;
   border-radius: 4px;
   font-size: 0.9rem;
 }
@@ -157,7 +265,7 @@ footer {
 .toggle-icon {
   background: none;
   border: none;
-  cursor: pointer;
+  cursor: url('archimedes_pointing.png') 16 4, pointer;
   font-size: 1rem;
   padding: 0;
   margin-left: 10px;
@@ -171,7 +279,6 @@ footer {
 
 .button-style {
     background-color: white;
-    color: black;
     border-radius: 10px;
     padding: 10px 5px 10px 5px;
 }
@@ -197,7 +304,7 @@ mjx-container {
             justify-content: space-between;
             width: 30px;
             height: 25px;
-            cursor: pointer;
+            cursor: url('archimedes_pointing.png') 16 4, pointer;
             z-index: 2;
             top: 10px;
             right: 10px;
@@ -214,7 +321,7 @@ mjx-container {
         .menu {
             position: fixed;
             top: 0;
-            left: -260px;
+            left: -300px;
             width: 250px;
             height: 100vh; /* Set the height to the full viewport height */
             background-color: #333;
@@ -242,7 +349,6 @@ mjx-container {
         .menu::-webkit-scrollbar-track {
             background: transparent; /* Hides the track */
         }
-
 
         .menu a {
             text-decoration: none;
@@ -287,7 +393,7 @@ mjx-container {
 
         /* Button to toggle submenu visibility */
         .burger-toggle-btn {
-            cursor: pointer;
+            cursor: url('archimedes_pointing.png') 16 4, pointer;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -327,7 +433,7 @@ mjx-container {
 
         /* When the menu is visible */
         .menu.open {
-            transform: translateX(250px); /* Slide the menu into view */
+            transform: translateX(300px); /* Slide the menu into view */
         }
 
         .overlay.show {
