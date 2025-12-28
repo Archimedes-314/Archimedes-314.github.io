@@ -30,45 +30,7 @@
         <!-- Overlay to darken the background -->
         <div class="overlay" onclick="toggleMenu()"></div>
 
-        <!-- Sidebar menu -->
-        <div class="menu">
-            <!-- Main section with hyperlink and toggle button for subsections -->
-             <div class="burger-toggle-btn">
-                <a href="../constructing-the-reals.html">Constructing the Real Numbers</a>
-                <span class="arrow" id="realnums-arrow" onclick="toggleSubmenu('realnums')">➔</span>
-            </div>
-            <div class="submenu" id="realnums-submenu">
-                <a href="#">Peano Axioms</a>
-            </div>
-
-            <div class="burger-toggle-btn">
-                <a href="#">Calculus I</a>
-                <span class="arrow" id="calc1-arrow" onclick="toggleSubmenu('calc1')">➔</span>
-            </div>
-            <div class="submenu" id="calc1-submenu">
-                <a href="#">Temp</a>
-            </div>
-
-            <div class="burger-toggle-btn">
-                <a href="#">Calculus II</a>
-                <span class="arrow" id="calc2-arrow" onclick="toggleSubmenu('calc2')">➔</span>
-            </div>
-            <div class="submenu" id="calc2-submenu">
-                <a href="#">Temp</a>
-            </div>
-
-            <div class="burger-toggle-btn">
-                <a href="#">Calculus III</a>
-                <span class="arrow" id="calc3-arrow" onclick="toggleSubmenu('calc3')">➔</span>
-            </div>
-            <div class="submenu" id="calc3-submenu">
-                <a href="#">Temp</a>
-            </div>
-
-            <!-- Other sections -->
-            <a href="#">About</a>
-            <a href="#">Contact</a>
-        </div>
+        <div id="menu-container"></div>
     </header>
 
     <div class="spacer"></div>
@@ -207,7 +169,9 @@
             
         </section>
         
-        <script src="../../../important/burger-js.js"></script>
+        <script src="/important/burger-js.js"></script>
+        <script src="/important/scroll-spy.js"></script>
+        <script src="/important/load-menu.js"></script>
     </main>
     </div>
 
