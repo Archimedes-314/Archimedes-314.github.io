@@ -18,16 +18,50 @@
 <body>
     <header>
         <h1>The Peano Axioms and the Naturals</h1>
-        <div class="button-style-box">
-            <a class="blue-text" href="../../index.html">Home</a> /
-            <a class="blue-text" href="../constructing-the-reals.html">Construction of the Reals</a> /
-            <a class="blue-text" href="">The Peano Axioms</a>
+
+        <div class="hamburger" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
         </div>
+    
+        <!-- Overlay to darken the background -->
+        <div class="overlay" onclick="toggleMenu()"></div>
+
+        <div id="menu-container"></div>
+
     </header>
 
+    <div class="spacer"></div>
+
+    <div>
+        <div class="breadcrumb-wrapper">
+            <nav class="breadcrumbs">
+                <a href="../../index.html"><span>Home</span></a>
+                <a href="../constructing-the-reals.html"><span>Construction of the Reals</span></a>
+                <p>The Peano Axims</p>
+            </nav>
+        </div>
+
+        <div class="sub-links">
+            <a href="#top">Back to Top</a>
+            <a href="#section1">The Axioms</a>
+            <a href="#section2">Purpose of the Axioms</a>
+            <a href="#section3">What Students Often Get Backwards</a>
+            <a href="#section4">lessons</a>
+        </div>
     <main>
-        <section>
+        <section id="section1">
             <h2>The Axioms</h2>
+            <p>
+                When learning about the foundations of the real numbers, it is common to begin with the <em>Peano axioms</em>, which 
+                formalise the basic properties of the natural numbers. The Peano axioms provide a rigorous starting point for 
+                defining addition, multiplication, and induction on the natural numbers. From this foundation, we can then 
+                construct the integers, rational numbers, and eventually the real numbers using additional definitions and 
+                axioms (such as equivalence classes for integers and rationals, and completeness axioms for the reals). The 
+                system built upon the Peano axioms is known as <em>Peano Arithmetic</em>.
+            </p>
+            
             <h3>Here are the axioms explored in this section:</h3>
             <p>There is a set \(\N_0\) which we call the <em>natural numbers</em> with the following properties:</p>
             <ol>
@@ -39,12 +73,12 @@
             </ol>
             
             <p>
-                These are explored in greater detail in the sections listed at the bottom of the page. 
+                These are explored in greater detail in the lessons listed at the bottom of the page. 
                 For a deeper understanding about the purpose of these axioms, I encourage you to 
                 read everything below.
             </p>
         </section>
-        <section>
+        <section id="section2">
             
             <h2>Purpose of the Axioms</h2>
 
@@ -66,8 +100,12 @@
 
         </section>
 
-        <section>
-            <h2>What Students Often Get "Backwards"</h2>
+        <section id="section3">
+            <h2>What Students Often Get Backwards</h2>
+
+            <p>
+                A common understanding of the axioms
+            </p>
 
             <p>
                 A common point of confusion is the role of the successor function \(\S(n)\).
@@ -104,7 +142,7 @@
             </p>
         </section>
 
-        <section>
+        <section id="section4">
         <ul class="topic-list">
             <li>
                 <a href="understnading-the-peano-axioms/understanding-the-peano-axioms.html"><h3>
@@ -119,9 +157,11 @@
             </li>
         </ul>
         </section>
-
-
+        <script src="../../important/burger-js.js"></script>
+        <script src="../../important/scroll-spy.js"></script>
+        <script src="../../important/load-menu.js"></script>
     </main>
+    </div>
 
     <footer>
         <p>Ο Αρχιμήδης Είναι Φοβερός</p>
