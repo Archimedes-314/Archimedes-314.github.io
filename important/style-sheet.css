@@ -52,6 +52,38 @@ body {
     box-shadow: 2px 2px 5px #222222AA;
   }
 
+.link-error-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5); 
+    color:black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s linear;
+}
+
+.link-error-container.show-error {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.link-error-box {
+    background-color: #f4f4f4;
+    border: 1px solid #cc0000;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    max-width: 400px;
+    width: 90%;
+    border-radius: 5px;
+}
+
   header h1 {
     color: white;
   }
@@ -139,16 +171,74 @@ main {
     padding: 20px;
 }
 
+
+footer {
+    background: linear-gradient(to bottom, #4CAF50, #43a047); 
+    color: white;
+    font-family: Arial, sans-serif;
+    padding: 30px 15px;
+}
+
+
+.footer-top {
+    text-align: center;
+    font-size: 0.85em;
+    margin-bottom: 20px;
+    color: #e0f2e9;
+}
+
+.footer-top span {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+
+.footer-main {
+    background-color: #388e3c; 
+    padding: 20px;
+    border-radius: 12px;
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.footer-main p {
+    margin: 10px 0;
+}
+
+
+.footer-disclaimer {
+    font-style: italic;
+    color: #dff0d8;
+}
+
+
+.footer-contact a,
+.footer-source a {
+    color: #ffffff;
+    font-weight: 500;
+    text-decoration: underline;
+    transition: color 0.2s;
+}
+
+.footer-contact a:hover,
+.footer-source a:hover {
+    color: #a5d6a7;
+}
+
+
+.footer-main p {
+    font-size: 1em;
+}
+
+
 .header-h1-shadow {
   text-shadow: 5px 5px 5px #11111190
 }
 
 p {
   margin: 1rem 0;
-}
-
-.footer-text {
-  font-size: smaller;
 }
 
 h2 {
@@ -212,12 +302,102 @@ a:hover {
   text-decoration: none;
 }
 
-footer {
-    text-align: center;
-    padding: 10px;
-    background-color: #4CAF50;
-    color: white;
+.head-print-btn {
+  position: absolute;
+  margin-left: auto;
+  margin-right: 3rem;
+  width: 150px;
+  height: 42px;
+  background-color: #388e3c;
+  color:white;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 10px;
+  right: 20px;
+  box-shadow: 2px 2px 5px #222222AA;
+  transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out, color 0.3s ease-in-out;
 }
+
+.head-print-btn svg {
+  width: 22px;
+  height: 22px;
+  fill: white;
+  transition: fill 0.3s ease-in-out;
+}
+
+.head-print-btn:hover {
+  background-color: white;
+  color: #388e3c;
+  text-decoration: none;
+  transform: scale(1.05);
+}
+
+.head-print-btn:hover svg {
+  fill: #388e3c;
+}
+
+.head-practice-questions-btn {
+  position: absolute;
+  margin-left: auto;
+  margin-right: 3rem;
+  width: 180px;
+  height: 42px;
+  background-color: #388e3c;
+  color:white;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 10px;
+  right: 190px;
+  box-shadow: 2px 2px 5px #222222AA;
+  transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.head-practice-questions-btn svg {
+  transition: transform 0.3s ease-in-out;
+}
+
+.head-practice-questions-btn:hover {
+  background-color: white;
+  color: #388e3c;
+  transform: scale(1.05);
+  text-decoration: none;
+}
+
+
+.head-practice-questions-btn:hover svg{
+  transform: rotate(-90deg);
+}
+
+.head-view-source-btn {
+  position: absolute;
+  margin-left: auto;
+  margin-right: 3rem;
+  width: 160px;
+  height: 42px;
+  background-color: #388e3c;
+  color:white;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 10px;
+  right: 390px;
+  box-shadow: 2px 2px 5px #222222AA;
+  transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.head-view-source-btn:hover {
+  background-color: white;
+  color: #388e3c;
+  transform: scale(1.05);
+  text-decoration: none;
+}
+
+
 
 .p-box {
     border-radius: 10px;
