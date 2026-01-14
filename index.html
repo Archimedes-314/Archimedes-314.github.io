@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Real Analysis Maths Notes">
+    <meta name="description" content="Real Analysis Maths Notes">   
     <meta name="google-site-verification" content="1GVbjY9xppS7E6tukfDbqtOGqj3NVu9PR0sdNOIQISE" />
     <title>Eli's Maths Notes</title>
     <link rel="icon" href="important/archimedes.png" />
@@ -83,9 +83,6 @@
     <div class="sub-links">
         <a href="#top">Back to Top</a>
         <a href="#section1">Purpose</a>
-        <a href="#section2">Why Rigor Becamse Necessary</a>
-        <a href="#section3">The History of Analysis</a>
-        <a href="#section4">Lesson Layout</a>
         <a href="#section5">Main Topics</a>
     </div>
 
@@ -96,9 +93,9 @@
                     <p>
                         Welcome to my online maths notes! This website is aimed at students seeking extra 
                         help with introductory real analysis. I am entirely self-taught and working on this 
-                        project as a hobby, so <strong>there will be mistakes in some of the content</strong>. However, I 
-                        have done my best to ensure everything is as accurate as possible. If you spot a 
-                        mistake or want to provide feedback, you can contact me at 
+                        project as a hobby, so <strong>there will be mistakes in some of the content</strong>. 
+                        However, I have done my best to ensure everything is as accurate as possible. If you 
+                        spot a mistake or want to provide feedback, you can contact me at 
                         <strong>archimedes314notes@gmail.com</strong>.
                     </p>
                 
@@ -123,254 +120,6 @@
                         GitHub</a> and is licensed under the <a href="/important/LICENCE.txt" target="_blank">
                         MIT licence</a>.
                     </p>
-        </section>
-
-        <section id="section2">
-            <h2>Why Rigor Becamse Necessary</h2>
-                <p>
-                    In everyday life, we often use maths without thinking twice. Whether we are using 
-                    arithmetic in cooking or algebra in budgeting, our intuitive approach to maths has 
-                    been sufficient for centuries. However, as mathematics expanded to more complex fields, 
-                    serious foundational problems began to emerge.
-                </p>
-                <p>
-                    Early calculus relied heavily on ideas such as "infinitesimally small quantities" and 
-                    "instantaneous rate of change". While these concepts led to spectacular success in 
-                    engineering and physics, they were not logically precise, and logical errors often 
-                    coexisted without clear resolution.
-                </p>
-                <p>
-                    By the early 19th century, this lack of precision had become untenable. Mathematition 
-                    began to ask, not just what mathematics could do, but why its methods worked at all.
-                </p>
-                 
-            <h3>A Simple Question That Reveals a Deep Question</h3>
-                <p>Take this simple question:</p>
-                <p>\(0.999… = 1? \)</p>
-                <p>
-                    Many informal arguments claim this equality is “obvious”, often using the density 
-                    property of the reals. For example, one may argue that if 0.999… and 1 are distinct 
-                    real numbers, there must be some number between them.
-                </p>
-
-                <div class="example" data-collapsible="true">
-                    Take two numbers \(a,b\in\R\) where \(a\lt b\). From the desity property, there must exist a 
-                    \( c=(a+b)/2 \in \R \) where \(a \lt c \lt b\)
-                    <div class="working">
-                        <h4>Working:</h4>
-                        For two numbers \(a,b \in \R \), \(a \lt b\) implies:
-                        \begin{align*}
-                            a &\lt b\\
-                            \implies a+a &\lt a+b\\
-                            \implies 2a &\lt a+b\\
-                            \implies a &\lt \frac{a+b}2\\\\
-                        \end{align*}
-                        A similar argument shows that:
-                        \begin{equation} 
-                            a \lt b \implies \frac{a+b}2 \lt b
-                        \end{equation}
-                        Putting these together results in: \(\displaystyle a \lt \frac{a+b}2 \lt b\)
-                    </div>
-                </div>
-
-                <p>
-                    Using this idea, one might attempt to argue that there can be no real number strictly between
-                    \(0.\bar{9}\) and \(1\), and therefore they must be equal.
-                </p>
-
-                <div class="example" data-collapsible="true">
-                    There exists no \(x\in\R\) where \( 0.\bar{9} \lt x \lt 1 \)
-                    <div class="working">
-                        <h4>Working:</h4>
-                        Suppose, for contradiction, \(0.\bar{9} \lt 1\). Then, from the previous example, assume
-                        that there exists an \(x \in \R\) such that \( 0.\bar{9} \lt x \lt 1 \).
-
-                        Define the decimal \( 0.\bar{9} \) as the limit of the sequence \( (0.\bar{9})_n \) given by:
-                        \begin{align*}
-                            (0.9)_n &:= \suma{i=1}{n}{\frac{9}{10^i}}\\
-                            0.\bar{9} &:= \Lim{n}{\infty}{(0.9)_n}
-                        \end{align*}
-
-                        Note that for all \( n \in \N \), we have:
-                        \[
-                            (0.9)_n \lt 0.\bar{9} \lt x \lt 1
-                        \]
-
-                        Now observe:
-                        \[
-                            (0.9)_n + \frac{1}{10^n} = 1
-                        \]
-                        
-                        This can be proven though induction. Due to the proofs simplicity, it will be left as an excersise
-                        for the reader. This results in:
-
-                        \[
-                            1-x \lt 1-(0.9)_n = \frac{1}{10^n}
-                        \]
-
-                        And since \( 0 \lt x \lt 1 \), it follows that: \( 0 \lt 1-x \lt 10^{-n} \).
-
-                        But by the <em>Archimedean Property</em>*, for every positive real number \(\eps > 0\), there exists 
-                        \(n \in \N\) such that \(10^{-n} \lt \eps\). In particular, there is no real number \(x\) such that 
-                        \(0 \lt 1 - x \lt 10^{-n}\) for all \(n \in \N\), because \(10^{-n} \To{n}{\infty} 0\). Therefore, 
-                        such an \(x\) cannot exist.
-
-                        <br><br>
-
-                        *<em class="footer-text">This is explored in greater detail in the lessons below.</em>
-                    </div>
-                </div>
-
-                <p>
-                    However, this reasoning quietly assumes two things:
-                </p>
-
-                <ul>
-                    <li>That the real numbers genuinely possess the density property.</li>
-                    <li>That the infinite decimal \(0.\bar{9}\) already corresponds to a well-defined real number.</li>
-                </ul>
-
-
-                <p>
-                    Neither assumption is trivial. In fact, both depend on deeper structural properties of the real
-                    number system, properties that themselves must be justified. This raises a fundamental question:
-                    <em>How far back must we go before our mathematical claims no longer depend on unexamined
-                    assumptions?</em>
-                </p>
-        </section>
-        <section id="section3">
-            <h2>The History of Analysis</h2>
-            <h3>The 19th-Century Foundations of Analysis</h3>
-
-                <p>
-                    The first major progress toward rigorous foundations came not from logic, but from analysis.
-                    During the early-to-mid 1800s, mathematicians such as Bernard Bolzano, Niels Abel, Augustin-Louis
-                    Cauchy, and Karl Weierstrass systematically eliminated the vague notions that had plagued
-                    calculus.
-                </p>
-
-                <p>
-                    Limits, continuity, and convergence were reformulated using precise \( \eps \) - \( \delta \)
-                    definitions. This work made calculus logically reliable, but it also exposed a deeper problem:
-                    the real numbers themselves were being used without a clear definition.
-                </p>
-
-                <p>
-                    In response, several independent constructions of the real numbers emerged later in the 19th
-                    century. Richard Dedekind defined real numbers using <em>cuts</em> of the rationals, while Karl
-                    Weierstrass and Georg Cantor developed constructions based on Cauchy sequences. These approaches
-                    showed that irrational numbers could be rigorously built from rational numbers alone.
-                </p>
-
-                <p>
-                    Around the same time, William Rowan Hamilton introduced ordered pairs of real numbers as a
-                    foundation for the complex numbers, demonstrating that even seemingly new kinds of numbers
-                    could be constructed from simpler ones.
-                </p>
-
-                <p>
-                    Yet another foundational issue remained: the rational numbers themselves depend on the natural
-                    numbers. Using ideas developed by H. G. Grassmann and Richard Dedekind, Giuseppe Peano introduced
-                    a small collection of axioms that precisely describe the structure of the natural numbers.
-                </p>
-
-                <p>
-                    These <em>Peano axioms</em> do not attempt to prove what numbers are. Instead, they specify how
-                    numbers behave. From them, addition, multiplication, and the rational numbers can be
-                    systematically constructed.
-                </p>
-
-            <h3>Logicism and Its Limits</h3>
-                <p>
-                    By the late 19th century, it had become plausible that large portions of mathematics could be
-                    derived from a small set of primitive principles. Gottlob Frege sought to show that arithmetic
-                    itself could be derived purely from logic, a philosophical position known as <em>logicism</em>.
-                </p>
-
-                <p>
-                    Frege developed the necessary logical machinery in 1879, and by the 1890s had produced detailed
-                    derivations of arithmetic. However, the discovery of paradoxes, most famously Russell's
-                    Paradox, revealed deep inconsistencies in naive logical systems.
-                </p>
-
-                <p>
-                    In response, Alfred Whitehead and Bertrand Russell collaborated on <em>Principia
-                    Mathematica</em>, attempting to rebuild mathematics within a carefully constrained logical
-                    framework. While enormously influential, this project ultimately revealed the immense
-                    complexity required to formalise even basic arithmetic.
-                </p>
-
-                <p>
-                    In the 1930s, Kurt G&ouml;del proved his incompleteness theorems, showing that any sufficiently rich
-                    axiomatic system cannot be both complete and capable of proving its own consistency. G&ouml;del did
-                    not show that mathematics lacks foundations, but rather that no single system can capture all
-                    mathematical truth from within itself.
-                </p>
-
-            <h3>What Axioms Really Are</h3>
-
-                <p>
-                    Long before modern analysis and logicism, mathematicians were already working axiomatically. In fact, 
-                    axioms are among the oldest tools in mathematical logic. Ancient Greek mathematicians, most notably 
-                    Euclid, recognised that any systematic body of knowledge must begin somewhere. Rather than attempting 
-                    to justify everything from first principles, they started with a small collection of basic assumptions 
-                    and reasoning logically from them.
-                </p>
-
-                <p>
-                    These early axioms were not intended to be proven. Instead, they described how fundamental objects were 
-                    allowed to behave. Euclid did not attempt to explain what a point or a line <em>is</em> in any philosophical 
-                    sense; he stated how points and lines relate to one another. From a handful of such assumptions, he was 
-                    able to derive an enormous body of geometric results. This axiomatic approach proved remarkably stable, 
-                    dominating mathematics for over two thousand years.
-                </p>
-            
-                <p>
-                    The 19th-century push toward rigour did not reject axioms; it refined them. When analysts like Cauchy and 
-                    Weierstrass formalised calculus, and when Dedekind and Cantor constructed the real numbers, they still 
-                    relied on unproven starting principles. What changed was not the existence of axioms, but the demand that 
-                    they be clearly stated and carefully examined. The goal was no longer intuitive plausibility, but logical 
-                    precision.
-                </p>
-
-                <p>
-                    Logicism, however, went a step further. Its central ambition was to reduce axioms to purely logical truths. 
-                    If arithmetic could be derived entirely from logic, then mathematics would no longer need to <em>assume</em> 
-                    anything at all. In this sense, logicism was not a refinement of the axiomatic method, but an attempt to go 
-                    beyond it.
-                </p>
-
-                <p>
-                    The failure of this project revealed paradoxes in naive logic, the immense complexity of formal reconstructions, 
-                    and G&ouml;del's incompleteness theorems, all of which showed that mathematics cannot be grounded purely in logic.
-                </p>
-
-                <p>
-                    Modern mathematics, therefore, returns to axioms. Rather than trying to reduce all of mathematics to logic, 
-                    as logicism sought to do, modern mathematical analysis and other fields build on axioms to rigorously define 
-                    the structure and principles of various mathematical systems. These axioms are no longer viewed merely as 
-                    simple intuitive starting points, but as precise, formal statements that shape the logical foundations of 
-                    mathematics. In this way, axioms are carefully examined and defined, with attention to their implications 
-                    and consistency, often relying on advanced concepts like first-order and second-order logic.
-                </p>
-
-                <p>
-                    In the sections that follow, we explore the different axioms, their meanings, and how they construct the 
-                    real number system. Beginning with axioms for the natural numbers, we will build the integers, rationals, 
-                    and then the real numbers step by step. In doing so, we will see that the real number system is the result 
-                    of carefully chosen axioms and rigorous logical development.
-                </p>
-        </section>
-
-        <section id="section4">
-            <h2>Lesson Layout</h2>
-
-                <p>
-                    The content on the website is organised into topics, sections, and lessons. "Topics" 
-                    refer to the broad subjects explored, "sections" cover the different areas within 
-                    those topics, and "lessons" are the individual lessons within each section.
-                </p>
-
         </section>
 
         <section id="section5">
@@ -430,13 +179,11 @@
     </main>
 
 <footer>
-    <!-- Top row: subtle info -->
     <div class="footer-top">
         <span class="footer-small">© 2026 Archimedes-314</span>
         <span class="footer-small">Last updated: <span id="last-updated">January 4, 2026</span></span>
     </div>
 
-    <!-- Bottom row: main footer content -->
     <div class="footer-main">
         <p class="footer-disclaimer">Errors may exist; corrections welcome.</p>
         <p class="footer-contact">Feedback/Contact: <a href="mailto:archimedes314notes@gmail.com">archimedes314notes@gmail.com</a></p>
