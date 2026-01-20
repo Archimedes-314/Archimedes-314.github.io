@@ -21,24 +21,6 @@
 <header class="site-header">
     <h1 class="header-h1-shadow">Eli's Online Notes</h1>
 
-    <div class="header-actions">
-        <div class="small-screen-header-rm">
-            <a class="head-view-source-btn"
-               href="https://github.com/Archimedes-314/Archimedes-314.github.io/tree/main"
-               target="_blank">
-                View in GitHub
-            </a>
-        </div>
-
-        <a class="head-print-btn" onclick="showError('link')">
-            Download PDF
-        </a>
-
-        <a class="head-practice-questions-btn" onclick="showError('link')">
-            Practice Questions
-        </a>
-    </div>
-
     <div class="hamburger" onclick="toggleMenu()">
         <div></div>
         <div></div>
@@ -60,8 +42,8 @@
 
 <div class="breadcrumb-wrapper">
     <nav class="breadcrumbs">
-        <a href="index.html">Home</a>
-        <span>Contact</span>
+        <a href="/index.html">Home</a>
+        <p>Contact</p>
     </nav>
 </div>
 
@@ -90,25 +72,25 @@
 
             <p>
                 <label><strong>Name</strong></label><br>
-                <input type="text" id="name" required style="width:100%; padding:8px;">
+                <input type="text" id="name" required style="width:90%; padding:8px;">
             </p>
 
             <p>
                 <label><strong>Email</strong></label><br>
-                <input type="email" id="email" required style="width:100%; padding:8px;">
+                <input type="email" id="email" required style="width:90%; padding:8px;">
             </p>
 
             <p>
                 <label><strong>Subject</strong></label><br>
                 <input type="text" id="title" required
-                    style="width:100%; padding:8px;">
+                    style="width:90%; padding:8px;">
             </p>
 
 
             <p>
                 <label><strong>Message</strong></label><br>
                 <textarea id="message" rows="6" required
-                          style="width:100%; padding:8px;"></textarea>
+                          style="width:90%; padding:8px;"></textarea>
             </p>
 
             <div
@@ -141,13 +123,16 @@
 <footer>
     <div class="footer-top">
         <span class="footer-small">© 2026 Archimedes-314</span>
-        <span class="footer-small">Last updated: 20 January 2026</span>
+        <span class="footer-small">Last updated: 21 January 2026</span>
     </div>
 
     <div class="footer-main">
         <p class="footer-disclaimer">Errors may exist; corrections welcome.</p>
         <p class="footer-contact">
-            Feedback/Contact:
+            <a href="/contact/contact.html">Feedback/Contact Page</a>
+        </p>
+        <p class="footer-contact">
+            Email Directly:
             <a href="mailto:archimedes314notes@gmail.com">
                 archimedes314notes@gmail.com
             </a>

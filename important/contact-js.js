@@ -28,13 +28,14 @@ document.getElementById("contact-form").addEventListener("submit", function (e) 
     const templateParams = {
         from_name: name,
         from_email: email,
+        reply_to: email,
         title: title,
         message: message
     };
 
     emailjs.send("service_atppor7", "template_hzp075d", templateParams)
         .then(() => {
-            return emailjs.send("SERVICE_ID", "TEMPLATE_REPLY_ID", templateParams);
+            return emailjs.send("service_atppor7", "template_u3clwo5", templateParams);
         })
         .then(() => {
             status.textContent = "Message sent successfully. Thank you!";
