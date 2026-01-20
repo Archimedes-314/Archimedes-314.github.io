@@ -1,25 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Real Analysis Maths Notes">   
-    <meta name="google-site-verification" content="1GVbjY9xppS7E6tukfDbqtOGqj3NVu9PR0sdNOIQISE" />
-    <title>Eli's Maths Notes</title>
-    <link rel="icon" href="important/archimedes.png" />
-    <link rel="stylesheet" href="important/style-sheet.css">
+    <title>Formal Logic I</title>
+    <link rel="icon" href="/important/archimedes.png" />
+    <link rel="stylesheet" href="/important/style-sheet.css">
 
-    <script src="important/macros.js"></script>
-
-
+        <!-- MathJax -->
     <script id="MathJax-script" async
         src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
     </script>
 
+    <!-- Custom macros + theorem/definition/example system -->
+    <script src="/important/macros.js"></script>
 </head>
-
 <body>
+
     <header class="site-header">
         <h1 class="header-h1-shadow">Eli's Online Notes</h1>
 
@@ -80,93 +77,81 @@
         </div>
     </header>
 
-    <div class="spacer"></div>
+
+    <div class="spacer"></div> 
 
     <div class="breadcrumb-wrapper">
         <nav class="breadcrumbs">
-            <p>Home</p>
+            <a class="nav-link"  href="/index.html">Home</a>
+            <p>Formal Logic I</p>
         </nav>
     </div>
 
     <div class="sub-links">
         <a href="#top">Back to Top</a>
-        <a href="#section1">Purpose</a>
-        <a href="#section5">Main Topics</a>
+        <a href="#section1">Overview</a>
+        <a href="#section2">Topic Sections</a>
     </div>
+
 
     <main>
         <section id="section1">
-            <h2>Purpose</h2>
-                <h3>Welcome Message</h3>
-                    <p>
-                        Welcome to my online maths notes! This website is aimed at students seeking extra 
-                        help with introductory real analysis. I am entirely self-taught and working on this 
-                        project as a hobby, so <strong>there will be mistakes in some of the content</strong>. 
-                        However, I have done my best to ensure everything is as accurate as possible. If you 
-                        spot a mistake or want to provide feedback, you can contact me at 
-                        <strong>archimedes314notes@gmail.com</strong>.
-                    </p>
-                
-                <h3>Purpose and Scope</h3>
-                    <p>
-                        This website focuses on using mathematical logic to construct the real numbers and 
-                        to understand their properties. We first learn about the basics of logic: what the 
-                        symbols mean, and how we use them to prove mathematical concepts. From our basic 
-                        logic, we can construct a simple axiomatic system to define the integers and 
-                        rational numbers in terms of natural numbers, along with operations such as addition 
-                        and multiplication. After we have a basic understanding, we return to logic to 
-                        develop a deeper understanding, thereby building a stronger system to define the 
-                        irrational numbers and strengthening our definitions of the naturals, integers, and 
-                        rationals. In the future, this website will be expanded to include lessons on linear 
-                        algebra and calculus. 
-                    </p>
+            <h2>Overview</h2>
+            <p>
+                In everyday conversations, the meaning of what we say can change depending on 
+                context and how we say it. For example, let me ask you a question: Why are you 
+                <em>here</em>? By emphasising the word "here", I'm asking why you chose this 
+                website instead of another. Maybe I'm curious about what motivated you to visit 
+                or what you're hoping to find.    
+            </p>
 
-                    <p>
-                        All lessons on this website come with a downloadable PDF. Additionally, the source 
-                        code is publicly available on 
-                        <a href="https://github.com/Archimedes-314/Archimedes-314.github.io" target="_blank">
-                        GitHub</a> and is licensed under the <a href="/important/LICENCE.txt" target="_blank">
-                        MIT licence</a>.
-                    </p>
+            <p>
+                However, if I asked you, "Why are <strong>You</strong> here!?", I'm now asking why 
+                you, in particular, are here, suggesting others are welcome, but you are not. This 
+                is much more personal and confrontational rather than curious.
+            </p>
+
+            <p>
+                Even though both sentences use the same four words, their meanings are completely 
+                different. In maths, we need a way to avoid this kind of ambiguity and express our 
+                results clearly to avoid any misinterpretations. To do this, we use mathematical 
+                logic, where each symbol means only one thing and every statement follows strict 
+                rules to keep everything clear. 
+            </p>
+
+            <p>
+                In the lessons below, we will first discuss the syntax and semantics of 
+                propositional logic, where we cover what a proposition is, how to correctly express 
+                it, and the definitions of some basic logical symbols. Afterwards, we will learn 
+                about the different methods for proving propositions.
+            </p>
         </section>
 
-        <section id="section5">
-            <h2>Main Topics</h2>
-            <ul class="topic-list">
+        <section id="section2">
+            <h2>Topic Sections</h2>
+            <ul class="topic-list main-topic-box">
                 <li>
-                    <h3><a href="formal-logic-i/formal-logic-i.html">
-                        Formal Logic I
+                    <h3><a onclick="showError('link')">
+                        Propositional Logic: Syntax and Semantics
                     </a></h3>
-                    <p>This topic will include the following sections:</p>
+                    <p>This topic will include the following sections</p>
                     <ul class="subtopic-list">
-                        <li>Mathematical Language and Symbolism</li>
-                        <li>Formal Systems and proof</li>
+                        <li>Introduction to Propositional Proofs</li>
+                        <li>Propositional Formulas</li>
+                        <li>Definition of Truth in Propositional Logic</li>
+                        <li>Satisfiability, Tautologies, and Implication</li>
+                        <li>Truth Tables</li>
+                        <li>Examples of Tautologies and Taoutological Equivalences</li>
+                        <li>Boolean Functions and DNF and CNF</li>
+                        <li>Propositional Languages</li>
+                        <li>Examples of Proofs by Inductions</li>
+                        <li>Propositional Substitution</li>
                     </ul>
-                </li>
+                </li>   
 
                 <li>
                     <h3><a onclick="showError('link')"> 
-                        Constructing the Real Numbers I
-                    </a></h3>
-                    <p>This topic will include the following sections:</p>
-                    <ul class="subtopic-list">
-                        <li>temp</li>
-                    </ul>
-                </li>
-
-                <li>
-                    <h3><a onclick="showError('link')">
-                        Formal Logic II
-                    </a></h3>
-                    <p>This topic will include the following sections:</p>
-                    <ul class="subtopic-list">
-                        <li>temp</li>
-                    </ul>
-                </li>
-
-                <li>
-                    <h3><a onclick="showError('link')">
-                        Constructing the Real Numbers II
+                        Propositional Logic: Proofs
                     </a></h3>
                     <p>This topic will include the following sections:</p>
                     <ul class="subtopic-list">
@@ -175,27 +160,25 @@
                 </li>
             </ul>
         </section>
+
         <script src="/important/burger-js.js"></script>
         <script src="/important/scroll-spy.js"></script>
         <script src="/important/load-menu.js"></script>
         <script src="/important/error-link-message.js"></script>
     </main>
 
-<footer>
-    <div class="footer-top">
-        <span class="footer-small">© 2026 Archimedes-314</span>
-        <span class="footer-small">Last updated: <span id="last-updated">20 January 2026</span></span>
-    </div>
+    <footer>
+        <div class="footer-top">
+            <span class="footer-small">© 2026 Archimedes-314</span>
+            <span class="footer-small">Last updated: <span id="last-updated">20 January 2026</span></span>
+        </div>
 
-    <div class="footer-main">
-        <p class="footer-disclaimer">Errors may exist; corrections welcome.</p>
-        <p class="footer-contact">Feedback/Contact: <a href="mailto:archimedes314notes@gmail.com">archimedes314notes@gmail.com</a></p>
-        <p class="footer-source">Source code and content available on <a href="https://github.com/Archimedes-314" target="_blank">GitHub</a></p>
-    </div>
-</footer>
-
-
+        <div class="footer-main">
+            <p class="footer-disclaimer">Errors may exist; corrections welcome.</p>
+            <p class="footer-contact">Feedback/Contact: <a href="mailto:archimedes314notes@gmail.com">archimedes314notes@gmail.com</a></p>
+            <p class="footer-source">Source code and content available on <a href="https://github.com/Archimedes-314" target="_blank">GitHub</a></p>
+        </div>
+    </footer>
 
 </body>
-
 </html>
