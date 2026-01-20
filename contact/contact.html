@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact Eli – Feedback and Corrections">
+    <title>Contact | Eli's Maths Notes</title>
+
+    <link rel="icon" href="/important/archimedes.png">
+    <link rel="stylesheet" href="/important/style-sheet.css">
+
+    <script src="/important/macros.js"></script>
+
+    <script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+
+<body>
+
+<header class="site-header">
+    <h1 class="header-h1-shadow">Eli's Online Notes</h1>
+
+    <div class="header-actions">
+        <div class="small-screen-header-rm">
+            <a class="head-view-source-btn"
+               href="https://github.com/Archimedes-314/Archimedes-314.github.io/tree/main"
+               target="_blank">
+                View in GitHub
+            </a>
+        </div>
+
+        <a class="head-print-btn" onclick="showError('link')">
+            Download PDF
+        </a>
+
+        <a class="head-practice-questions-btn" onclick="showError('link')">
+            Practice Questions
+        </a>
+    </div>
+
+    <div class="hamburger" onclick="toggleMenu()">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+
+    <div class="overlay" onclick="toggleMenu()"></div>
+    <div id="menu-container"></div>
+
+    <div class="link-error-container" onclick="hideError('link')">
+        <div class="link-error-box">
+            <h2>ERROR</h2>
+            <p>This section has not been completed.</p>
+        </div>
+    </div>
+</header>
+
+<div class="spacer"></div>
+
+<div class="breadcrumb-wrapper">
+    <nav class="breadcrumbs">
+        <a href="index.html">Home</a>
+        <span>Contact</span>
+    </nav>
+</div>
+
+<main>
+
+<section id="contact-purpose">
+    <h2>Contact & Feedback</h2>
+
+    <p>
+        This website is an ongoing personal project. Errors may exist, and corrections,
+        suggestions, or general feedback are always welcome.
+    </p>
+
+    <p>
+        You can contact me directly at
+        <strong>archimedes314notes@gmail.com</strong>,
+        or use the form below.
+    </p>
+</section>
+
+<section id="contact-form-section">
+    <h2>Send a Message</h2>
+
+    <form id="contact-form" class="math-box">
+        <div class="math-box-body">
+
+            <p>
+                <label><strong>Name</strong></label><br>
+                <input type="text" id="name" required style="width:100%; padding:8px;">
+            </p>
+
+            <p>
+                <label><strong>Email</strong></label><br>
+                <input type="email" id="email" required style="width:100%; padding:8px;">
+            </p>
+
+            <p>
+                <label><strong>Message</strong></label><br>
+                <textarea id="message" rows="6" required
+                          style="width:100%; padding:8px;"></textarea>
+            </p>
+
+            <div
+                class="cf-turnstile"
+                data-sitekey="0x4AAAAAACNurj9ra5eM2Xv8">
+            </div>
+
+            <p>
+                <button type="submit" class="button-style">
+                    Send Message
+                </button>
+            </p>
+
+            <p id="form-status"></p>
+            <input type="text" name="company" style="display:none">
+
+        </div>
+    </form>
+
+    <noscript>
+        <p>
+            JavaScript is disabled. Please email directly at
+            <strong>archimedes314notes@gmail.com</strong>.
+        </p>
+    </noscript>
+</section>
+
+</main>
+
+<footer>
+    <div class="footer-top">
+        <span class="footer-small">© 2026 Archimedes-314</span>
+        <span class="footer-small">Last updated: 20 January 2026</span>
+    </div>
+
+    <div class="footer-main">
+        <p class="footer-disclaimer">Errors may exist; corrections welcome.</p>
+        <p class="footer-contact">
+            Feedback/Contact:
+            <a href="mailto:archimedes314notes@gmail.com">
+                archimedes314notes@gmail.com
+            </a>
+        </p>
+        <p class="footer-source">
+            Source code on
+            <a href="https://github.com/Archimedes-314" target="_blank">GitHub</a>
+        </p>
+    </div>
+</footer>
+
+<script src="/important/burger-js.js"></script>
+<script src="/important/load-menu.js"></script>
+<script src="/important/error-link-message.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+<script src="/important/contact-js.js"></script>
+
+
+
+</body>
+</html>
