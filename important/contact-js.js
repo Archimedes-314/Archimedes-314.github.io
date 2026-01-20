@@ -28,23 +28,22 @@ document.getElementById("contact-form").addEventListener("submit", function (e) 
     const templateParams = {
         from_name: name,
         from_email: email,
-        reply_to: email,
         title: title,
         message: message
     };
 
     emailjs.send("service_atppor7", "template_hzp075d", templateParams)
-        .then(() => {
-            return emailjs.send("service_atppor7", "template_u3clwo5", templateParams);
-        })
-        .then(() => {
+        .then(response => {
+            console.info("EmailJS response:", response);
             status.textContent = "Message sent successfully. Thank you!";
             status.style.color = "green";
             document.getElementById("contact-form").reset();
         })
         .catch(err => {
-            status.textContent = "Failed to send message. Please email directly.";
-            status.style.color = "red";
-            console.error("EmailJS error:", err);
+            // If email arrives anyway, don't punish user
+            console.warn("EmailJS warning:", err);
+            status.textContent =
+                "An Error occured, but your message may still have been sent. If you don't hear back within 3 business days, please email directly.";
+            status.style.color = "#b36b00";
         });
 });
