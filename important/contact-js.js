@@ -34,9 +34,6 @@ document.getElementById("contact-form").addEventListener("submit", function (e) 
 
         emailjs.send("service_atppor7", "template_hzp075d", params)
         .then(() => {
-            return emailjs.send("service_atppor7", "template_u3clwo5", params);
-        })
-        .then(() => {
             status.textContent = "Message sent successfully. Thank you!";
             status.style.color = "green";
             document.getElementById("contact-form").reset();
