@@ -40,7 +40,20 @@ document.getElementById("contact-form").addEventListener("submit", function (e) 
             document.getElementById("contact-form").reset();
         })
         .catch(err => {
-            // If email arrives anyway, don't punish user
+            console.warn("EmailJS warning:", err);
+            status.textContent = "Failed to send message. Please email directly.";
+            status.style.color = "red";
+            console.error("EmailJS error:", err);
+        });
+
+        emailjs.send("service_atppor7", "template_u3clwo5", templateParams)
+        .then(response => {
+            console.info("EmailJS response:", response);
+            status.textContent = "Message sent successfully. Thank you!";
+            status.style.color = "green";
+            document.getElementById("contact-form").reset();
+        })
+        .catch(err => {
             console.warn("EmailJS warning:", err);
             status.textContent =
                 "An Error occured, but your message may still have been sent. If you don't hear back within 3 business days, please email directly.";
