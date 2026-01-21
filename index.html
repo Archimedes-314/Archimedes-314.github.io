@@ -65,17 +65,35 @@
 
         <div id="menu-container"></div>
 
-        <div class="link-error-container" onclick="hideError('link')">
+       <div class="link-error-container" onclick="hideError('link')">
             <div class="link-error-box" onclick="hideError('link')">
                 <h2>ERROR</h2>
                 <p>This section has not been completed.</p>
+                <p><span class="foot-note">Click to continue</span></p>
             </div>
         </div>
 
         <div class="screen-error-container" onclick="hideError('screen')">
             <div class="screen-error-box" onclick="hideError('screen')">
+                <h2>NOTICE</h2>
+                <p>
+                    It appears you're using a small screen. Due to the nature of the mathematics 
+                    on this site it is best viewed in landscape mode. If your device is not in 
+                    landscape mode many of the equations will run off the side of your device 
+                    (you should be able to scroll/swipe to see them) and some of the menu items 
+                    will be cut off due to the narrow screen width.
+                </p>
+                <p>
+                    <span class="foot-note">Click to continue</span>
+                </p>
+            </div>
+        </div>
+
+        <div class="pdf-error-container" onclick="hideError('pdf')">
+            <div class="pdf-error-box" onclick="hideError('pdf')">
                 <h2>ERROR</h2>
-                <p>It appears you're using a small screen. Some content may not appear correctly.</p>
+                <p>You must be in a lesson to use this button.</p>
+                <p><span class="foot-note">Click to continue</span></p>
             </div>
         </div>
     </header>
@@ -101,7 +119,8 @@
                     <p>
                         Welcome to my online maths notes! This website is aimed at students seeking extra 
                         help with introductory real analysis. I am entirely self-taught and working on this 
-                        project as a hobby, so <strong>there will be mistakes in some of the content</strong>. 
+                        project as a hobby, so <strong>there will be typs, and potentially
+                        minor errors in some of the content</strong>. 
                         However, I have done my best to ensure everything is as accurate as possible. If you 
                         spot a mistake or want to provide feedback, you can contact me directly at 
                         <a href="mailto:archimedes314notes@gmail.com">archimedes314notes@gmail.com</a>, 
@@ -185,7 +204,7 @@
 <footer>
     <div class="footer-top">
         <span class="footer-small">© 2026 Archimedes-314</span>
-        <span class="footer-small">Last updated: <span id="last-updated">20 January 2026</span></span>
+        <span class="footer-small">Last updated: <span id="last-updated">21 January 2026</span></span>
     </div>
 
     <div class="footer-main">

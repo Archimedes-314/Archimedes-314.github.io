@@ -138,7 +138,8 @@ body {
 
 
 .link-error-container,
-.screen-error-container {
+.screen-error-container,
+.pdf-error-container {
     position: fixed;
     top: 0;
     left: 0;
@@ -156,13 +157,15 @@ body {
 }
 
 .link-error-container.show-link-error,
-.screen-error-container.show-screen-error {
+.screen-error-container.show-screen-error,
+.pdf-error-container.show-pdf-error {
   opacity: 1;
   pointer-events: auto;
 }
 
 .link-error-box,
-.screen-error-box {
+.screen-error-box,
+.pdf-error-box {
     background-color: #f4f4f4;
     border: 1px solid #cc0000;
     padding: 20px;
@@ -326,6 +329,11 @@ p {
   margin: 1rem 0;
 }
 
+.foot-note {
+  font-size: 0.9rem;
+  color: #555;
+}
+
 h2 {
   text-decoration: underline;
   font-weight: 600;
@@ -463,6 +471,12 @@ a:hover {
     background-color: white;
     border-radius: 10px;
     padding: 10px 5px 10px 5px;
+}
+
+.button-style:hover {
+    background-color: #f0f0f0;
+    cursor: url('archimedes_pointing.png') 16 4, pointer;
+
 }
 
 .button-style-box {

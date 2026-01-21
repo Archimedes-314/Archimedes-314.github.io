@@ -34,7 +34,7 @@
             </div>
 
             <a class="head-print-btn"
-            href="testing.pdf"
+            onclick="showError('pdf')"
             download
             aria-label="Download lesson PDF">
                 <svg class="w-[24px] h-[24px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
@@ -62,17 +62,35 @@
 
         <div id="menu-container"></div>
 
-        <div class="link-error-container" onclick="hideError('link')">
+       <div class="link-error-container" onclick="hideError('link')">
             <div class="link-error-box" onclick="hideError('link')">
                 <h2>ERROR</h2>
                 <p>This section has not been completed.</p>
+                <p><span class="foot-note">Click to continue</span></p>
             </div>
         </div>
 
         <div class="screen-error-container" onclick="hideError('screen')">
             <div class="screen-error-box" onclick="hideError('screen')">
+                <h2>NOTICE</h2>
+                <p>
+                    It appears you're using a small screen. Due to the nature of the mathematics 
+                    on this site it is best viewed in landscape mode. If your device is not in 
+                    landscape mode many of the equations will run off the side of your device 
+                    (you should be able to scroll/swipe to see them) and some of the menu items 
+                    will be cut off due to the narrow screen width.
+                </p>
+                <p>
+                    <span class="foot-note">Click to continue</span>
+                </p>
+            </div>
+        </div>
+
+        <div class="pdf-error-container" onclick="hideError('pdf')">
+            <div class="pdf-error-box" onclick="hideError('pdf')">
                 <h2>ERROR</h2>
-                <p>It appears you're using a small screen. Some content may not appear correctly.</p>
+                <p>You must be in a lesson to use this button.</p>
+                <p><span class="foot-note">Click to continue</span></p>
             </div>
         </div>
     </header>
@@ -100,15 +118,15 @@
             <p>
                 In everyday conversations, the meaning of what we say can change depending on 
                 context and how we say it. For example, let me ask you a question: Why are you 
-                <em>here</em>? By emphasising the word "here", I'm asking why you chose this 
+                <em>here</em>? By emphasising the word 'here', I'm asking why you chose this 
                 website instead of another. Maybe I'm curious about what motivated you to visit 
                 or what you're hoping to find.    
             </p>
 
             <p>
-                However, if I asked you, "Why are <strong>You</strong> here!?", I'm now asking why 
+                However, if I asked you, 'Why are <strong>You</strong> here!?', I'm now asking why 
                 you, in particular, are here, suggesting others are welcome, but you are not. This 
-                is much more personal and confrontational rather than curious.
+                is much more personal and confrontational.
             </p>
 
             <p>
@@ -131,7 +149,7 @@
             <h2>Topic Sections</h2>
             <ul class="topic-list main-topic-box">
                 <li>
-                    <h3><a onclick="showError('link')">
+                    <h3><a href="syntax-and-semantics/syntax-and-semantics.html">
                         Propositional Logic: Syntax and Semantics
                     </a></h3>
                     <p>This topic will include the following sections</p>
@@ -170,7 +188,7 @@
     <footer>
         <div class="footer-top">
             <span class="footer-small">© 2026 Archimedes-314</span>
-            <span class="footer-small">Last updated: <span id="last-updated">20 January 2026</span></span>
+            <span class="footer-small">Last updated: <span id="last-updated">21 January 2026</span></span>
         </div>
 
     <div class="footer-main">

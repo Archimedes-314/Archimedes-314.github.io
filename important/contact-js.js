@@ -41,7 +41,7 @@ document.getElementById("contact-form").addEventListener("submit", function (e) 
         .catch(err => {
             console.warn("EmailJS issue:", err);
             status.textContent =
-                "Your message was likely sent, but an error occurred. If you don't hear back, please email directly.";
+                "Your message was likely sent, but an error occurred. If you don't hear back from me within 3 business days, please email directly.";
             status.style.color = "#b36b00";
         });
 });
