@@ -221,25 +221,30 @@ mjx-container {
   }
 }
 
-@media (max-width: 950px) {
+@media (max-width: 996px) {
   .header-actions .small-screen-header-rm {
     display: none;
   }
 }
 
-@media (max-width: 760px) {
+@media (max-width: 782px) {
   .header-h1-shadow {
     font-size: 1.5rem;
   }
 
   .header-actions {
     gap: 0.5rem;
-    font-size: small;
+  }
+}
+
+@media (max-width: 730px){
+  .header-h1-shadow {
+    font-size: 1.1rem;
   }
 }
 
 @media (max-width: 670px){
   .header-h1-shadow {
-    font-size: 1.1rem;
+    font-size: 0.8rem;
   }
 }
