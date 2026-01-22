@@ -7,8 +7,11 @@
     <meta name="description" content="Real Analysis Maths Notes">   
     <meta name="google-site-verification" content="1GVbjY9xppS7E6tukfDbqtOGqj3NVu9PR0sdNOIQISE" />
     <title>Eli's Maths Notes</title>
-    <link rel="icon" href="important/archimedes.png" />
-    <link rel="stylesheet" href="important/style-sheet.css">
+    <link rel="stylesheet" href="/important/main-styles/style-sheet.css">
+    <link rel="stylesheet" href="/important/main-styles/head-foot.css   ">
+    <link rel="stylesheet" href="/important/error-list/error-list.css">
+    <link rel="stylesheet" href="/important/burger/burger.css">
+
 
     <script src="important/macros.js"></script>
 
@@ -24,34 +27,38 @@
         <h1 class="header-h1-shadow">Eli's Online Notes</h1>
 
         <div class="header-actions">
-            <div class="small-screen-header-rm">
-                <a class="head-view-source-btn"
-                href="https://github.com/Archimedes-314/Archimedes-314.github.io/tree/main"
-                target="_blank"
-                aria-label="View in GitHub">
-                    <svg class="w-[24px] h-[24px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-                        <path fill-rule="evenodd" d="M12.006 2a9.847 9.847 0 0 0-6.484 2.44 10.32 10.32 0 0 0-3.393 6.17 10.48 10.48 0 0 0 1.317 6.955 10.045 10.045 0 0 0 5.4 4.418c.504.095.683-.223.683-.494 0-.245-.01-1.052-.014-1.908-2.78.62-3.366-1.21-3.366-1.21a2.711 2.711 0 0 0-1.11-1.5c-.907-.637.07-.621.07-.621.317.044.62.163.885.346.266.183.487.426.647.71.135.253.318.476.538.655a2.079 2.079 0 0 0 2.37.196c.045-.52.27-1.006.635-1.37-2.219-.259-4.554-1.138-4.554-5.07a4.022 4.022 0 0 1 1.031-2.75 3.77 3.77 0 0 1 .096-2.713s.839-.275 2.749 1.05a9.26 9.26 0 0 1 5.004 0c1.906-1.325 2.74-1.05 2.74-1.05.37.858.406 1.828.101 2.713a4.017 4.017 0 0 1 1.029 2.75c0 3.939-2.339 4.805-4.564 5.058a2.471 2.471 0 0 1 .679 1.897c0 1.372-.012 2.477-.012 2.814 0 .272.18.592.687.492a10.05 10.05 0 0 0 5.388-4.421 10.473 10.473 0 0 0 1.313-6.948 10.32 10.32 0 0 0-3.39-6.165A9.847 9.847 0 0 0 12.007 2Z" clip-rule="evenodd"/>
-                    </svg>
-                    View in Github
-                </a>
-            </div>
+            <button
+            onclick="showError('pdf')"
+            class="header-btn header-btn--primary"
+            aria-expanded="false"
+            type="button"
+            >
+            <svg class="header-btn-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 5v14M5 12h14"></path>
+            </svg>
+            <span class="header-btn-text">Show PDF</span>
+            </button>
 
-            <a class="head-print-btn"
-            href="testing.pdf"
-            download
-            aria-label="Download lesson PDF">
+
+
+            <a
+            class="header-btn header-btn--primary"
+            onclick="showError('pdf')"
+            >
                 <svg class="w-[24px] h-[24px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
                     <path fill-rule="evenodd" d="M9 2.221V7H4.221a2 2 0 0 1 .365-.5L8.5 2.586A2 2 0 0 1 9 2.22ZM11 2v5a2 2 0 0 1-2 2H4a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2 2 2 0 0 0 2 2h12a2 2 0 0 0 2-2 2 2 0 0 0 2-2v-7a2 2 0 0 0-2-2V4a2 2 0 0 0-2-2h-7Zm-6 9a1 1 0 0 0-1 1v5a1 1 0 1 0 2 0v-1h.5a2.5 2.5 0 0 0 0-5H5Zm1.5 3H6v-1h.5a.5.5 0 0 1 0 1Zm4.5-3a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1h1.376A2.626 2.626 0 0 0 15 15.375v-1.75A2.626 2.626 0 0 0 12.375 11H11Zm1 5v-3h.375a.626.626 0 0 1 .625.626v1.748a.625.625 0 0 1-.626.626H12Zm5-5a1 1 0 0 0-1 1v5a1 1 0 1 0 2 0v-1h1a1 1 0 1 0 0-2h-1v-1h1a1 1 0 1 0 0-2h-2Z" clip-rule="evenodd"/>
                 </svg>
-                Download PDF
+                <span class="header-btn-text">Download PDF</span>
             </a>
 
-            <a class="head-practice-questions-btn"
-            onclick="showError('link')">
+            <a 
+            class="header-btn header-btn--primary header-btn-pq"
+            onclick="showError('pq')"
+            >
                 <svg class="w-[24px] h-[24px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 20V7m0 13-4-4m4 4 4-4m4-12v13m0-13 4 4m-4-4-4 4"/>
                 </svg>
-                Practice Questions
+                <span class="header-btn-text">Practice Questions</span>
             </a>
         </div>
 
@@ -64,38 +71,7 @@
         <div class="overlay" onclick="toggleMenu()"></div>
 
         <div id="menu-container"></div>
-
-       <div class="link-error-container" onclick="hideError('link')">
-            <div class="link-error-box" onclick="hideError('link')">
-                <h2>ERROR</h2>
-                <p>This section has not been completed.</p>
-                <p><span class="foot-note">Click to continue</span></p>
-            </div>
-        </div>
-
-        <div class="screen-error-container" onclick="hideError('screen')">
-            <div class="screen-error-box" onclick="hideError('screen')">
-                <h2>NOTICE</h2>
-                <p>
-                    It appears you're using a small screen. Due to the nature of the mathematics 
-                    on this site it is best viewed in landscape mode. If your device is not in 
-                    landscape mode many of the equations will run off the side of your device 
-                    (you should be able to scroll/swipe to see them) and some of the menu items 
-                    will be cut off due to the narrow screen width.
-                </p>
-                <p>
-                    <span class="foot-note">Click to continue</span>
-                </p>
-            </div>
-        </div>
-
-        <div class="pdf-error-container" onclick="hideError('pdf')">
-            <div class="pdf-error-box" onclick="hideError('pdf')">
-                <h2>ERROR</h2>
-                <p>You must be in a lesson to use this button.</p>
-                <p><span class="foot-note">Click to continue</span></p>
-            </div>
-        </div>
+        <div id="error-container"></div>
     </header>
 
     <div class="spacer"></div>
@@ -155,7 +131,7 @@
             <ul class="topic-list">
                 <li>
                     <h3><a href="formal-logic-i/formal-logic-i.html">
-                        Formal Logic I
+                        1. Formal Logic I
                     </a></h3>
                     <p>This topic will include the following sections:</p>
                     <ul class="subtopic-list">
@@ -166,7 +142,7 @@
 
                 <li>
                     <h3><a onclick="showError('link')"> 
-                        Constructing the Real Numbers I
+                        2. Constructing the Real Numbers I
                     </a></h3>
                     <p>This topic will include the following sections:</p>
                     <ul class="subtopic-list">
@@ -176,7 +152,7 @@
 
                 <li>
                     <h3><a onclick="showError('link')">
-                        Formal Logic II
+                        3. Formal Logic II
                     </a></h3>
                     <p>This topic will include the following sections:</p>
                     <ul class="subtopic-list">
@@ -186,7 +162,7 @@
 
                 <li>
                     <h3><a onclick="showError('link')">
-                        Constructing the Real Numbers II
+                        4. Constructing the Real Numbers II
                     </a></h3>
                     <p>This topic will include the following sections:</p>
                     <ul class="subtopic-list">
@@ -195,38 +171,36 @@
                 </li>
             </ul>
         </section>
-        <script src="/important/burger-js.js"></script>
-        <script src="/important/scroll-spy.js"></script>
-        <script src="/important/load-menu.js"></script>
-        <script src="/important/error-link-message.js"></script>
     </main>
 
-<footer>
-    <div class="footer-top">
-        <span class="footer-small">© 2026 Archimedes-314</span>
-        <span class="footer-small">Last updated: <span id="last-updated">21 January 2026</span></span>
-    </div>
+    <footer>
+        <div class="footer-top">
+            <span class="footer-small">© 2026 Archimedes-314</span>
+            <span class="footer-small">Last updated: <span id="last-updated">22 January 2026</span></span>
+        </div>
 
-    <div class="footer-main">
-        <p class="footer-disclaimer">Errors may exist; corrections welcome.</p>
-        <p class="footer-contact">
-            <a href="/contact/contact.html">Feedback/Contact Page</a>
-        </p>
-        <p class="footer-contact">
-            Email Directly:
-            <a href="mailto:archimedes314notes@gmail.com">
-                archimedes314notes@gmail.com
-            </a>
-        </p>
-        <p class="footer-source">
-            Source code on
-            <a href="https://github.com/Archimedes-314" target="_blank">GitHub</a>
-        </p>
-    </div>
-</footer>
-
-
-
+        <div class="footer-main">
+            <p class="footer-disclaimer">Errors may exist; corrections welcome.</p>
+            <p class="footer-contact">
+                <a href="/contact/contact.html">Feedback/Contact Page</a>
+            </p>
+            <p class="footer-contact">
+                Email Directly:
+                <a href="mailto:archimedes314notes@gmail.com">
+                    archimedes314notes@gmail.com
+                </a>
+            </p>
+            <p class="footer-source">
+                Source code on
+                <a href="https://github.com/Archimedes-314" target="_blank">GitHub</a>
+            </p>
+        </div>
+    </footer>
+    <script src="/important/burger/burger-js.js"></script>
+    <script src="/important/scroll-spy.js"></script>
+    <script src="/important/load-menu.js"></script>
+    <script src="/important/error-link-message.js"></script>
+    <script src="/important/show-embed-js.js"></script>
 </body>
 
 </html>

@@ -7,7 +7,10 @@
     <title>Contact | Eli's Maths Notes</title>
 
     <link rel="icon" href="/important/archimedes.png">
-    <link rel="stylesheet" href="/important/style-sheet.css">
+    <link rel="stylesheet" href="/important/main-styles/style-sheet.css">
+    <link rel="stylesheet" href="/important/main-styles/head-foot.css">
+    <link rel="stylesheet" href="/important/error-list/error-list.css">
+    <link rel="stylesheet" href="/important/burger/burger.css">
 
     <script src="/important/macros.js"></script>
 
@@ -29,13 +32,6 @@
 
     <div class="overlay" onclick="toggleMenu()"></div>
     <div id="menu-container"></div>
-
-    <div class="link-error-container" onclick="hideError('link')">
-        <div class="link-error-box">
-            <h2>ERROR</h2>
-            <p>This section has not been completed.</p>
-        </div>
-    </div>
 </header>
 
 <div class="spacer"></div>
@@ -146,14 +142,13 @@
     </div>
 </footer>
 
-<script src="/important/burger-js.js"></script>
-<script src="/important/load-menu.js"></script>
-<script src="/important/error-link-message.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
-<script src="/important/contact-js.js"></script>
-
-
-
-</body>
+    <script src="/important/burger/burger-js.js"></script>
+    <script src="/important/scroll-spy.js"></script>
+    <script src="/important/load-menu.js"></script>
+    <script src="/important/error-link-message.js"></script>
+    <script src="/important/show-embed-js.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+    <script src="/important/contact-js.js"></script>
+    </body>
 </html>
