@@ -72,8 +72,6 @@
 }
 
 
-
-/* Icon */
 .header-btn-icon {
   width: 28px;
   height: 28px;
@@ -270,4 +268,25 @@ footer {
 
 .footer-main p {
     font-size: 1em;
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+  .site-header,
+  .header-actions,
+  .header-h1-shadow,
+  .header-btn,
+  .header-btn-pq svg,
+  .breadcrumbs a,
+  .sub-links a,
+  .breadcrumbs a:hover,
+  .sub-links a:hover {
+    transform: none;
+    transition: none;
+  }
+
+  .breadcrumbs a:hover{
+    font-size: 1em;
+    text-decoration: underline;
+  }
 }

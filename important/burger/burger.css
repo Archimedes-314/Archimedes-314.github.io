@@ -164,6 +164,12 @@
   pointer-events: auto;
 }
 
-html {
-  scroll-behavior: smooth;
+@media (prefers-reduced-motion: reduce) {
+  .burger-toggle-btn,
+  .hamburger,
+  .menu,
+  .overlay,
+  .toggle-icon {
+    transition: none;
+  }
 }

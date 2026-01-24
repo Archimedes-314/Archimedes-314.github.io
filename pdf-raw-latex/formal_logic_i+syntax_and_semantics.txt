@@ -18,7 +18,7 @@
 \usepackage{tcolorbox}
 \usepackage[table]{xcolor}
 \usepackage{nicematrix}
-\tcbuselibrary{skins}
+\usepackage{array}
 \usepackage{hyperref}
 \hypersetup{colorlinks=true, linkcolor=blue, urlcolor=blue}
 \usepackage{chngcntr}
@@ -37,21 +37,28 @@
 \pgfplotsset{compat=1.18}
 \pagestyle{fancy}
 
-\fancyhf{}
-\fancyhead[R]{\footnotesize\bfseries\thepage}
+
+\fancypagestyle{standard}{
+    \fancyhf{}
+    \fancyhead[R]{\footnotesize\bfseries\thepage}
+}
+
+\fancypagestyle{copyright}{
+    \fancyhf{} 
+    \fancyfoot[R]{\footnotesize ©~2026 Archimedes314 Notes---MIT License}
+    \fancyhead[R]{\footnotesize\bfseries\thepage}
+}
+
 \renewcommand{\headrulewidth}{0pt}
-\fancypagestyle{plain}{%
-  \fancyhf{}%
-  \fancyfoot[C]{\footnotesize\bfseries\thepage}%
-  \renewcommand{\headrulewidth}{0pt}%
+\renewcommand{\footrulewidth}{0pt}
+
+\newcommand{\copyrightpage}{
+  \pagestyle{copyright}
 }
 
-\fancypagestyle{nohead}{
-  \fancyhf{}
-  \fancyhead[R]{\footnotesize\bfseries\thepage}
+\newcommand{\standardpage}{
+    \pagestyle{standard}
 }
-
-\pretocmd{\section}{\thispagestyle{nohead}}{}{}
 
 \titleformat{\section}
   {\normalfont\Large\bfseries}
@@ -95,10 +102,11 @@
 \newcommand{\vect}[1]{\overrightharpoon{\mathbf{#1}}}
 \newcommand{\rarrow}{\rightarrow}
 \newcommand{\lorarrow}{\longrightarrow}
-\newcommand{\ioi}{\Longleftrightarrow}
+\newcommand{\ioi}{\longleftrightarrow}
 \newcommand{\defeq}{\overset{\mathrm{def}}{=}}
 \newcommand{\geqs}{\geqslant}
 \newcommand{\leqs}{\leqslant}
+\newcommand{\nsubset}{\not\subset}
 
 \makeatletter
 \DeclareFontFamily{U}{MnSymbolA}{}
@@ -203,6 +211,7 @@
 \newcommand{\sssu}[1]{\subsubsection*{\underline{#1}}}
 \pagenumbering{gobble}
 
+\copyrightpage
 \ \vspace{1.5em}
 \begin{center}
     {\Huge\bfseries Syntax \& Semantics \par}
@@ -213,6 +222,7 @@
 \end{center}
 
 \newpage
+\standardpage
 
 \newgeometry{left=5cm,right=5cm,top=1.5cm,bottom=1.5cm} 
 \tableofcontents
@@ -225,12 +235,14 @@
 \setcounter{page}{1}
 
 \section{Overview}
-In this overview, I'll introduce the basic syntax and semantics of propositional logic. We will cover the fundamental symbols used in propositional logic, including logical connectives, set-theoretic symbols, and quantifiers. Upon downloading this page as a PDF, you will have a reference guide for the symbols and their meanings that will be used throughout the lessons below.
+In this overview, I'll introduce the basic syntax and semantics of propositional logic. We will cover the fundamental symbols used in propositional logic, including logical connectives, set-theoretic symbols, and quantifiers.
 
 \section{What Are Propositions?}
 In formal logic, a \textit{proposition} is a declarative statement that is either true or false, but not both. Propositions are the basic building blocks of logical reasoning and are used to construct more complex statements through logical connectives.
 
-Propositional logic focuses on the relationships between these propositions and how they can be combined using logical operators such as `and' (conjunction), `or' (disjunction), `not' (negation), `if...then' (implication), and `if and only if' (biconditional).
+\textit{Propositional logic} focuses on the relationships between these propositions and how they can be combined using logical operators such as `and' (conjunction), `or' (disjunction), `not' (negation), `if...then' (implication), and `if and only if' (biconditional).
+
+
 
 For example, take the following four different propositions represented by the variables \(r\), \(s\), \(c\), and \(w\):
 
@@ -241,16 +253,35 @@ For example, take the following four different propositions represented by the v
     \item \(w\): The grass is wet.
 \end{itemize}
 
-Here, each proposition gets a truth value. That is, \(r\), \(s\), \(c\), and \(w\) will be either `True' or `False'. We can build more complex propositions by joining these variables with logical operators like negation (\( \neg \)), conjunction (\(\land\)), disjunction (\(\lor\)), and implication (\(\implies\)) as shown below:
+Here, each proposition gets a truth value. That is, \(r\), \(s\), \(c\), and \(w\) will be either `True' or `False'. We can build more complex propositions by joining these variables with logical operators like negation (\( \neg \)), conjunction (\(\land\)), disjunction (\(\lor\)), and implication (\(\rarrow\)) as shown below:
 
 \begin{itemize}
     \item \(\neg r\): It is not raining.
     \item \(r \land w\): It is raining and the grass is wet.
     \item \(s \lor r\): The sun is shining or it is raining.
-    \item \(\neg (r \lor s) \implies c\): It is neither raining nor is the sun shining, which means it must be cloudy.
+    \item \(\neg (r \lor s) \rarrow c\): It is neither raining nor is the sun shining, which means it must be cloudy.
 \end{itemize}
 
 An easy way to remember the difference between \(\land\) for conjunction and \(\lor\) for disjunction is that \(\land\) looks like a capital `A' for `and'. 
+
+\egbluebox{test}{
+Consider the following propositions:
+\begin{multicols}{2}
+\begin{itemize}
+    \item \(P(x): x\) is Prime
+    \item \(O(x): x\) is odd.
+\end{itemize}
+\end{multicols}
+We then have:
+\begin{multicols}{2}
+    \begin{itemize}
+        \item \(P(11)\) is true
+        \item \(\neg P(7)\) is false
+        \item \(P(9) \land O(9)\) is false
+        \item \(P(2) \lor O(2)\) is true
+    \end{itemize}
+\end{multicols}
+}
 
 \newpage
 
@@ -337,10 +368,18 @@ The universal quantifier is denoted by the symbol \(\forall\) and is read as `fo
 
 These are both propositions because they can be either true or false depending on the value of \(x\). For example, if \(x = 5\), then \(P(5)\) is true and \(O(5)\) is true. However, if \(x = 4\), then \(P(4)\) is false and \(O(4)\) is false. Using the universal quantifier, we can express the statement that all prime numbers greater than 2 are odd as follows:
 
-\(\forall x (P(x) \implies O(x))\), which reads: `for all values of \(x\), if \(x\) is prime greater than 2, then \(x\) is odd.'
+\(\forall x (P(x) \rarrow O(x))\), which reads: `for all values of \(x\), if \(x\) is prime greater than 2, then \(x\) is odd.'
 
 \paragraph{Existential Quantifier.}
 The existential quantifier is denoted by the symbol \(\exists\) and is read as `there exists' or `there is at least one'. It is used to indicate that there is at least one element in a particular set or domain that satisfies a given property. For example, the statement \(\exists x ( x \in \R \land x^2 = 4)\) means `there exist a number \(x\) where \(x\) is a real number and \(x\) squared equals 4', or more naturally, `there exists a real number whose square is 4'. In this case, the values \(x = 2\) and \(x = -2\) both satisfy the property.
+
+\newpage
+\pagenumbering{gobble}\section*{} \ \vfill
+\textbf{Document Management} \\
+Version: 1.0 \\
+Created: 23 January 2025 \\ 
+Reviewed: 24 January 2025 \\
+Contact: archimedes314notes@gmail.com
 
 
 \end{document}

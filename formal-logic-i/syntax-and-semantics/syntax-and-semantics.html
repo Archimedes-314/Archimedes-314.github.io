@@ -3,12 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Construction of Real Numbers</title>
+    <title>Syntax and Semantics</title>
     <link rel="icon" href="/important/images/archimedes.png" />
     <link rel="stylesheet" href="/important/main-styles/style-sheet.css">
     <link rel="stylesheet" href="/important/main-styles/head-foot.css">
     <link rel="stylesheet" href="/important/error-list/error-list.css">
     <link rel="stylesheet" href="/important/burger/burger.css">
+
+    <link rel="stylesheet" href="/important/settings/settings.css">
+    <script src="/important/settings/settings.js"></script>
+
 
 
         <!-- MathJax -->
@@ -37,16 +41,16 @@
             <span class="header-btn-text">Show PDF</span>
             </button>
 
-            <a
-            class="header-btn header-btn--primary"
-            href="/pdf/formal_logic_i+syntax_and_semantics.pdf"
-            download
+            <button
+            id="downloadPdfBtn"
+            class="header-btn header-btn--primary small-screen-header-rm"
+            type="button"
             >
-                <svg class="w-[24px] h-[24px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-                    <path fill-rule="evenodd" d="M9 2.221V7H4.221a2 2 0 0 1 .365-.5L8.5 2.586A2 2 0 0 1 9 2.22ZM11 2v5a2 2 0 0 1-2 2H4a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2 2 2 0 0 0 2 2h12a2 2 0 0 0 2-2 2 2 0 0 0 2-2v-7a2 2 0 0 0-2-2V4a2 2 0 0 0-2-2h-7Zm-6 9a1 1 0 0 0-1 1v5a1 1 0 1 0 2 0v-1h.5a2.5 2.5 0 0 0 0-5H5Zm1.5 3H6v-1h.5a.5.5 0 0 1 0 1Zm4.5-3a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1h1.376A2.626 2.626 0 0 0 15 15.375v-1.75A2.626 2.626 0 0 0 12.375 11H11Zm1 5v-3h.375a.626.626 0 0 1 .625.626v1.748a.625.625 0 0 1-.626.626H12Zm5-5a1 1 0 0 0-1 1v5a1 1 0 1 0 2 0v-1h1a1 1 0 1 0 0-2h-1v-1h1a1 1 0 1 0 0-2h-2Z" clip-rule="evenodd"/>
-                </svg>
-                <span class="header-btn-text">Download PDF</span>
-            </a>
+            <svg class="w-[24px] h-[24px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                <path fill-rule="evenodd" d="M9 2.221V7H4.221a2 2 0 0 1 .365-.5L8.5 2.586A2 2 0 0 1 9 2.22ZM11 2v5a2 2 0 0 1-2 2H4a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2 2 2 0 0 0 2 2h12a2 2 0 0 0 2-2 2 2 0 0 0 2-2v-7a2 2 0 0 0-2-2V4a2 2 0 0 0-2-2h-7Zm-6 9a1 1 0 0 0-1 1v5a1 1 0 1 0 2 0v-1h.5a2.5 2.5 0 0 0 0-5H5Zm1.5 3H6v-1h.5a.5.5 0 0 1 0 1Zm4.5-3a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1h1.376A2.626 2.626 0 0 0 15 15.375v-1.75A2.626 2.626 0 0 0 12.375 11H11Zm1 5v-3h.375a.626.626 0 0 1 .625.626v1.748a.625.625 0 0 1-.626.626H12Zm5-5a1 1 0 0 0-1 1v5a1 1 0 1 0 2 0v-1h1a1 1 0 1 0 0-2h-1v-1h1a1 1 0 1 0 0-2h-2Z" clip-rule="evenodd"/>
+            </svg>
+            <span class="header-btn-text">Download PDF</span>
+            </button>
 
             <a 
             class="header-btn header-btn--primary header-btn-pq"
@@ -91,12 +95,20 @@
     </div>
 
     <main>
-        <section id="pdfContainer" hidden>
-            <embed src="/pdf/formal_logic_i+syntax_and_semantics.pdf" 
-                type="application/pdf" 
-                width="100%" 
-                height="800px" />
+        <section
+        id="pdfContainer"
+        hidden
+        data-pdf="formal_logic_i+syntax_and_semantics"
+        >
+        <embed
+            id="pdfEmbed"
+            src="/pdf/formal_logic_i+syntax_and_semantics.pdf"
+            type="application/pdf"
+            width="100%"
+            height="800px"
+        />
         </section>
+
         <section id="section1">
             <h2>Overview</h2>
             <p>
@@ -136,19 +148,76 @@
                 Here, each proposition gets a truth value. That is, \(r\), \(s\), \(c\), and \(w\) 
                 will be either 'True' or 'False'. We can build more complex propositions by joining 
                 these variables with logical operators like negation (\(\neg\)), conjunction 
-                (\(\land\)), disjunction (\(\lor\)), and implication (\(\implies\)) as shown below:
+                (\(\land\)), disjunction (\(\lor\)), and implication (\(\rarrow\)) as shown below:
             </p>
             <ul>
                 <li>\(\neg r\): It is not raining.</li>
                 <li>\(r \land w\): It is raining and the grass is wet.</li>
                 <li>\(s \lor r\): The sun is shining or it is raining.</li>
-                <li>\(\neg (r \land s) \implies c\): It is neither raining nor is the sun shining, 
+                <li>\(\neg (r \land s) \rarrow c\): It is neither raining nor is the sun shining, 
                     which means it must be cloudy.</li>
             </ul>
             <p>
                 An easy way to remember the difference between \( \land \) for conjunction and 
                 \(\lor \) for disjunction is that \( \land \) looks like a capital 'A' for 'and'.
             </p>
+
+            <div class="example" data-collapsible="true">
+                <p>Consider the following propositions:
+                    <ul>
+                        <li>\(P(x)\): \(x\) is prime.</li>
+                        <li>\(O(x)\): \(x\) is odd.</li>
+                    </ul>
+                <p>
+                    Determine the truth value of the following:
+                </p>
+                    <ol type="a">
+                        <li>\(P(11)\)</li>
+                        <li>\(P(9) \land O(9)\)</li>
+                        <li>\(\neg P(7)\)</li>
+                        <li>\(P(2) \lor O(2)\)</li>
+                    </ol>
+                </p>
+                <div class="working">
+                    <ol type="a" class="lo-bdr-list">
+                        <li class="lo-bdr">
+                            <p class="answer"><strong>Answer:</strong> \(P(11)\) is true.</p>
+                            <p class="reason"><strong>Reason:</strong> 11 is a prime number.</p>
+                        </li>
+
+                        <li class="lo-bdr">
+                            <p class="answer"><strong>Answer:</strong> \(P(9) \land O(9)\) is false.</p>
+                            <p class="reason">
+                                <strong>Reason:</strong>
+                                9 is an odd number, so \(O(9)\) is true. However, 9 is not a prime number
+                                (it is divisible by 3), so \(P(9)\) is false. Since one part of the
+                                conjunction is false, the whole conjunction is false.
+                            </p>
+                        </li>
+
+                        <li class="lo-bdr">
+                            <p class="answer"><strong>Answer:</strong> \(\neg P(7)\) is false.</p>
+                            <p class="reason">
+                                <strong>Reason:</strong>
+                                Since 7 is a prime number, \(P(7)\) is true, and therefore its negation
+                                \(\neg P(7)\) is false.
+                            </p>
+                        </li>
+
+                        <li>
+                            <p class="answer"><strong>Answer:</strong> \(P(2) \lor O(2)\) is true.</p>
+                            <p class="reason">
+                                <strong>Reason:</strong>
+                                2 is a prime number, so \(P(2)\) is true. Although 2 is not an odd number
+                                (so \(O(2)\) is false), one part of the disjunction is true, and hence the
+                                whole disjunction is true.
+                            </p>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+
+            
         </section>
         <section id="section3">
         <h2>Set-theoretic Symbols</h2>
@@ -328,7 +397,7 @@
                 greater than 2 are odd as follows:
             </p>
             <p>
-                \(\forall x (P(x) \implies O(x))\), which reads: 'for all values of \(x\), if 
+                \(\forall x (P(x) \rarrow O(x))\), which reads: 'for all values of \(x\), if 
                 \(x\) is prime greater than 2, then \(x\) is odd.'
             </p>
 
@@ -377,7 +446,7 @@
     <footer>
         <div class="footer-top">
             <span class="footer-small">© 2026 Archimedes-314</span>
-            <span class="footer-small">Last updated: <span id="last-updated">22 January 2026</span></span>
+            <span class="footer-small">Last updated: <span id="last-updated">24 January 2026</span></span>
         </div>
 
     <div class="footer-main">

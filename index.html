@@ -13,10 +13,11 @@
     <link rel="stylesheet" href="/important/error-list/error-list.css">
     <link rel="stylesheet" href="/important/burger/burger.css">
 
+    <link rel="stylesheet" href="/important/settings/settings.css">
+    <script src="/important/settings/settings.js"></script>
 
-    <script src="important/macros.js"></script>
 
-
+    <script src="/important/macros.js"></script>
     <script id="MathJax-script" async
         src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
     </script>
@@ -40,18 +41,16 @@
             <span class="header-btn-text">Show PDF</span>
             </button>
 
-
-
-            <a
+            <button
+            id="downloadPdfBtn"
             class="header-btn header-btn--primary small-screen-header-rm"
-            href="pdf-raw-latex/testing_raw.txt"
-            download
+            type="button"
             >
-                <svg class="w-[24px] h-[24px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-                    <path fill-rule="evenodd" d="M9 2.221V7H4.221a2 2 0 0 1 .365-.5L8.5 2.586A2 2 0 0 1 9 2.22ZM11 2v5a2 2 0 0 1-2 2H4a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2 2 2 0 0 0 2 2h12a2 2 0 0 0 2-2 2 2 0 0 0 2-2v-7a2 2 0 0 0-2-2V4a2 2 0 0 0-2-2h-7Zm-6 9a1 1 0 0 0-1 1v5a1 1 0 1 0 2 0v-1h.5a2.5 2.5 0 0 0 0-5H5Zm1.5 3H6v-1h.5a.5.5 0 0 1 0 1Zm4.5-3a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1h1.376A2.626 2.626 0 0 0 15 15.375v-1.75A2.626 2.626 0 0 0 12.375 11H11Zm1 5v-3h.375a.626.626 0 0 1 .625.626v1.748a.625.625 0 0 1-.626.626H12Zm5-5a1 1 0 0 0-1 1v5a1 1 0 1 0 2 0v-1h1a1 1 0 1 0 0-2h-1v-1h1a1 1 0 1 0 0-2h-2Z" clip-rule="evenodd"/>
-                </svg>
-                <span class="header-btn-text">Download PDF</span>
-            </a>
+            <svg class="w-[24px] h-[24px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                <path fill-rule="evenodd" d="M9 2.221V7H4.221a2 2 0 0 1 .365-.5L8.5 2.586A2 2 0 0 1 9 2.22ZM11 2v5a2 2 0 0 1-2 2H4a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2 2 2 0 0 0 2 2h12a2 2 0 0 0 2-2 2 2 0 0 0 2-2v-7a2 2 0 0 0-2-2V4a2 2 0 0 0-2-2h-7Zm-6 9a1 1 0 0 0-1 1v5a1 1 0 1 0 2 0v-1h.5a2.5 2.5 0 0 0 0-5H5Zm1.5 3H6v-1h.5a.5.5 0 0 1 0 1Zm4.5-3a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1h1.376A2.626 2.626 0 0 0 15 15.375v-1.75A2.626 2.626 0 0 0 12.375 11H11Zm1 5v-3h.375a.626.626 0 0 1 .625.626v1.748a.625.625 0 0 1-.626.626H12Zm5-5a1 1 0 0 0-1 1v5a1 1 0 1 0 2 0v-1h1a1 1 0 1 0 0-2h-1v-1h1a1 1 0 1 0 0-2h-2Z" clip-rule="evenodd"/>
+            </svg>
+            <span class="header-btn-text">Download PDF</span>
+            </button>
 
             <a 
             class="header-btn header-btn--primary header-btn-pq"
@@ -91,12 +90,21 @@
     </div>
 
     <main>
-        <section id="pdfContainer" hidden>
-            <embed src="/pdf/testing.pdf" 
-                type="application/pdf" 
-                width="100%" 
-                height="800px" />
+        <section
+        id="pdfContainer"
+        hidden
+        data-pdf="testing"
+        >
+        <embed
+            id="pdfEmbed"
+            src="/pdf/testing.pdf"
+            type="application/pdf"
+            width="100%"
+            height="800px"
+        />
         </section>
+
+
 
         <section id="section1">
             <h2>Purpose</h2>
@@ -104,12 +112,25 @@
                     <p>
                         Welcome to my online maths notes! This website is aimed at students seeking extra 
                         help with introductory real analysis. I am entirely self-taught and working on this 
-                        project as a hobby, so <strong>there will be typs, and potentially
-                        minor errors in some of the content</strong>. 
+                        project as a hobby, so <strong>there will be typos and minor errors in some 
+                        of the content</strong>. 
                         However, I have done my best to ensure everything is as accurate as possible. If you 
                         spot a mistake or want to provide feedback, you can contact me directly at 
                         <a href="mailto:archimedes314notes@gmail.com">archimedes314notes@gmail.com</a>, 
                         or fill out the form on my <a href="/contact/contact.html">Contact Page</a>.
+                    </p>
+                    <p>
+                        This website is a work in progress. New content will be added over time, and I plan 
+                        to expand the topics covered in the future.
+                    </p>
+                    <p>
+                        I have also included a <a href="/important/settings/settings.html">
+                        settings page</a> where you can customise certain aspects 
+                        of the site to suit your preferences. At the moment, I only have options
+                        for reduced motion, and showing hidden working by default. I am currently 
+                        working on a dark mode option, which will be added in a future update. More
+                        options will be added over time. You can access the settings page from the 
+                        <a onclick="toggleMenu()">menu</a>.
                     </p>
                 
                 <h3>Purpose and Scope</h3>
@@ -124,14 +145,6 @@
                         irrational numbers and strengthening our definitions of the naturals, integers, and 
                         rationals. In the future, this website will be expanded to include lessons on linear 
                         algebra and calculus. 
-                    </p>
-
-                    <p>
-                        All lessons on this website come with a downloadable PDF. Additionally, the source 
-                        code is publicly available on 
-                        <a href="https://github.com/Archimedes-314/Archimedes-314.github.io" target="_blank">
-                        GitHub</a> and is licensed under the <a href="/important/LICENCE.txt" target="_blank">
-                        MIT licence</a>.
                     </p>
         </section>
 
@@ -185,7 +198,7 @@
     <footer>
         <div class="footer-top">
             <span class="footer-small">© 2026 Archimedes-314</span>
-            <span class="footer-small">Last updated: <span id="last-updated">22 January 2026</span></span>
+            <span class="footer-small">Last updated: <span id="last-updated">24 January 2026</span></span>
         </div>
 
         <div class="footer-main">
