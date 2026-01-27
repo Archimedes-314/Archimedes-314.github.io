@@ -7,17 +7,33 @@ const provider = new firebase.auth.GoogleAuthProvider();
 // Optional: You can specify additional OAuth 2.0 scopes
 // provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
 
-// Function to handle Google Sign-in
-function signInWithGoogle() {
-  auth.signInWithPopup(provider)
-    .then((result) => {
+// Add this *after* your Firebase initialization and 'auth' declaration
+// This runs when the page loads, in case it's a redirect back from Google
+auth.getRedirectResult()
+  .then((result) => {
+    if (result.credential) {
       // This gives you a Google Access Token. You can use it to access the Google API.
       const credential = result.credential;
       const token = credential.accessToken;
       // The signed-in user info.
       const user = result.user;
-      console.log("Signed in user:", user.displayName, user.email);
-      // You can redirect or update UI here
+      console.log("Redirect sign-in successful. User:", user.displayName, user.email);
+      // The onAuthStateChanged listener below will handle updating the UI
+    } else {
+      // No redirect result found, or user might have cancelled the sign-in.
+      console.log("No redirect result or user not signed in yet.");
+    }
+  })
+  .catch((error) => {
+    console.error("Error getting redirect result:", error.message);
+  });
+
+// Function to handle Google Sign-in
+function signInWithGoogle() {
+  auth.signInWithRedirect(provider) // <-- Changed to redirect!
+    .then(() => {
+      // This part generally won't be reached after a redirect,
+      // as the page fully reloads. The result is caught by getRedirectResult()
     })
     .catch((error) => {
       // Handle Errors here.
@@ -50,12 +66,20 @@ auth.onAuthStateChanged((user) => {
     document.getElementById('welcomeMessage').textContent = `Welcome, ${user.displayName || user.email}!`;
 
     // Here you can also check if the signed-in user's email matches yours
-    if (user.email === "e.schodel3@gmail.com") {
+    if (user.email === "e.schodel3@gmail.com") { // Corrected email
       console.log("User is the admin email!");
       // Show restricted content links/data
+      const firstAidContent = document.getElementById('firstAidContent');
+      if (firstAidContent) {
+        firstAidContent.style.display = 'block';
+      }
     } else {
       console.log("User is not the admin email.");
       // Hide restricted content links/data
+      const firstAidContent = document.getElementById('firstAidContent');
+      if (firstAidContent) {
+        firstAidContent.style.display = 'none';
+      }
     }
 
   } else {
@@ -66,6 +90,10 @@ auth.onAuthStateChanged((user) => {
     document.getElementById('signOutButton').style.display = 'none';
     document.getElementById('welcomeMessage').textContent = ``;
     // Hide restricted content
+    const firstAidContent = document.getElementById('firstAidContent');
+    if (firstAidContent) {
+      firstAidContent.style.display = 'none';
+    }
   }
 });
 
