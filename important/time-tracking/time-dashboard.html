@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formal Logic I</title>
+    <title>Propositional Formulas</title>
     <link rel="icon" href="/important/images/archimedes.png" />
     <link rel="stylesheet" href="/important/main-styles/style-sheet.css">
     <link rel="stylesheet" href="/important/main-styles/head-foot.css">
@@ -17,16 +17,6 @@
     <script id="MathJax-script" async
         src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
     </script>
-
-    <script>
-        window.PAGE_META = {
-            level: "topic",
-            topic: "Formal Logic I",
-            section: null,
-            lesson: null
-        };
-    </script>
-    <script src="/important/time-tracking/time-tracker.js"></script>
 </head>
 <body>
 
@@ -35,7 +25,7 @@
 
         <div class="header-actions">
             <button
-            onclick="showError('pdf')"
+            onclick="showError('link')"
             class="header-btn header-btn--primary"
             aria-expanded="false"
             type="button"
@@ -46,10 +36,8 @@
             <span class="header-btn-text">Show PDF</span>
             </button>
 
-
-
             <button
-            onclick="showError('pdf')"
+            onclick="showError('link')"
             class="header-btn header-btn--primary small-screen-header-rm"
             type="button"
             >
@@ -61,7 +49,7 @@
 
             <a 
             class="header-btn header-btn--primary header-btn-pq"
-            onclick="showError('pq')"
+            onclick="showError('link')"
             >
                 <svg class="w-[24px] h-[24px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 20V7m0 13-4-4m4 4 4-4m4-12v13m0-13 4 4m-4-4-4 4"/>
@@ -79,98 +67,60 @@
         <div class="overlay" onclick="toggleMenu()"></div>
 
         <div id="menu-container"></div>
-
-       <div id="error-container"></div>
+        <div id="error-container"></div>
     </header>
 
-
-    <div class="spacer"></div> 
+    <div class="spacer"></div>
 
     <div class="breadcrumb-wrapper">
         <nav class="breadcrumbs">
-            <a class="nav-link"  href="/index.html">Home</a>
-            <p>Formal Logic I</p>
+            <a class="nav-link" href="/index.html">Home</a>
+            <a class="nav-link" href="/formal-logic-i/formal-logic-i.html">Formal Logic I</a>
+            <a class="nav-link" href="/formal-logic-i/syntax-and-semantics/syntax-and-semantics.html">Propositional Logic: Syntax and Semantics</a>
+            <p>Propositional Formulas</p>
         </nav>
     </div>
 
     <div class="sub-links">
         <a href="#top">Back to Top</a>
         <a href="#section1">Overview</a>
-        <a href="#section2">Topic Sections</a>
+        <a href="#section2">What are propositions?</a>
+        <a href="#section3">Set-theoretic Symbols</a>
+        <a href="#section4">Universal and Existential Quantifiers</a>
+        <a href="#section5">Lessons</a>
     </div>
 
-
     <main>
-        <section id="section1">
-            <h2>Overview</h2>
-            <p>
-                In everyday conversations, the meaning of what we say can change depending on 
-                context and how we say it. For example, consider the following question: 'Why are 
-                you <em>here</em>?'' By emphasising the word 'here', I'm asking why you chose this 
-                website instead of another. Maybe I'm curious about what motivated you to visit 
-                or what you're hoping to find.    
-            </p>
-
-            <p>
-                However, if I asked you, 'Why are <strong>You</strong> here!?', I'm now asking why 
-                you, in particular, are here, suggesting others are welcome, but you are not.
-            </p>
-
-            <p>
-                Even though both sentences use the same four words, their meanings are completely 
-                different. In maths, we need a way to avoid this kind of ambiguity and express our 
-                results clearly to avoid any misinterpretations. To do this, we use mathematical 
-                logic, where each symbol means only one thing and every statement follows strict 
-                rules to keep everything clear. 
-            </p>
-
-            <p>
-                In the lessons below, we will first discuss the syntax and semantics of 
-                propositional logic, where we cover what a proposition is, how to correctly express 
-                it, and the definitions of some basic logical symbols. Afterwards, we will learn 
-                about the different methods for proving propositions.
-            </p>
+        <section
+        id="pdfContainer"
+        hidden
+        data-pdf="formal_logic_i+syntax_and_semantics"
+        >
+        <embed
+            id="pdfEmbed"
+            src="/pdf/formal_logic_i+syntax_and_semantics.pdf"
+            type="application/pdf"
+            width="100%"
+            height="800px"
+        />
         </section>
+        <section id="section1">
+            <h1>Study Time Dashboard</h1>
 
-        <section id="section2">
-            <h2>Topic Sections</h2>
-            <ul class="topic-list main-topic-box">
-                <li>
-                    <h3><a href="syntax-and-semantics/syntax-and-semantics.html">
-                        1. Propositional Logic: Syntax and Semantics
-                    </a></h3>
-                    <p>This topic will include the following sections</p>
-                    <ul class="subtopic-list">
-                        <li>Introduction to Propositional Proofs</li>
-                        <li>Propositional Formulas</li>
-                        <li>Definition of Truth in Propositional Logic</li>
-                        <li>Satisfiability, Tautologies, and Implication</li>
-                        <li>Truth Tables</li>
-                        <li>Examples of Tautologies and Taoutological Equivalences</li>
-                        <li>Boolean Functions and DNF and CNF</li>
-                        <li>Propositional Languages</li>
-                        <li>Examples of Proofs by Inductions</li>
-                        <li>Propositional Substitution</li>
-                    </ul>
-                </li>   
+            <select id="range">
+            <option value="day">Today</option>
+            <option value="week">Last 7 Days</option>
+            <option value="month">Last 30 Days</option>
+            </select>
 
-                <li>
-                    <h3><a onclick="showError('link')"> 
-                        2. Propositional Logic: Proofs
-                    </a></h3>
-                    <p>This topic will include the following sections:</p>
-                    <ul class="subtopic-list">
-                        <li>temp</li>
-                    </ul>
-                </li>
-            </ul>
+            <div id="stats"></div>
         </section>
     </main>
 
     <footer>
         <div class="footer-top">
             <span class="footer-small">© 2026 Archimedes-314</span>
-            <span class="footer-small">Last updated: <span id="last-updated">24 January 2026</span></span>
+            <span class="footer-small">Last updated: <span id="last-updated">25 January 2026</span></span>
         </div>
 
     <div class="footer-main">
@@ -195,5 +145,6 @@
     <script src="/important/load-menu.js"></script>
     <script src="/important/error-link-message.js"></script>
     <script src="/important/show-embed-js.js"></script>
+    <script src="dashboard.js"></script>
 </body>
 </html>

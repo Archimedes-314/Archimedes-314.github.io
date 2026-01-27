@@ -1,0 +1,10 @@
+{
+  "rules": {
+    "first-aid/{path=**}": {
+      "read": "if request.auth != null && request.auth.token.email == 'e.schodel3@gmail.com';"
+    },
+    "{path=**}": {
+      "read": "if true;"
+    }
+  }
+}

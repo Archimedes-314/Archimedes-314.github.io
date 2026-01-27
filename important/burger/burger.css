@@ -74,27 +74,14 @@
     z-index: 1;
     display: flex;
     flex-direction: column;
-    padding: 50px 15px 50px 0;
+    padding: 10px 15px 50px 0;
     overflow-y: scroll;
     scrollbar-width: thin;
-    scrollbar-color: transparent transparent;
+    overflow-x: hidden;
 }
 
 .menu.open {
     transform: translateX(300px);
-}
-
-.menu::-webkit-scrollbar {
-    width: 0px;
-    background: transparent;
-}
-
-.menu::-webkit-scrollbar-thumb {
-    background: transparent;
-}
-
-.menu::-webkit-scrollbar-track {
-    background: transparent;
 }
 
 .menu a {
