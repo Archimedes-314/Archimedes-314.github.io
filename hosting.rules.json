@@ -1,9 +1,9 @@
 {
   "rules": {
-    "first-aid/{path=**}": {
+    "first-aid/fa-index": {
       "read": "if request.auth != null && request.auth.token.email == 'e.schodel3@gmail.com';"
     },
-    "{path=**}": {
+    "fa-index": {
       "read": "if true;"
     }
   }
