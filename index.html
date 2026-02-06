@@ -9,6 +9,7 @@
     <title>Eli's Maths Notes</title>
     <link rel="icon" href="/important/images/archimedes.png" />
     <link rel="stylesheet" href="/important/main-styles/style-sheet.css">
+    <link rel="stylesheet" href="/important/main-styles/head-foot-dark.css">
     <link rel="stylesheet" href="/important/main-styles/head-foot.css">
     <link rel="stylesheet" href="/important/error-list/error-list.css">
     <link rel="stylesheet" href="/important/burger/burger.css">
@@ -20,18 +21,6 @@
     <script id="MathJax-script" async
         src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
     </script>
-
-    <script>
-        window.PAGE_META = {
-            level: "index",
-            topic: null,
-            section: null,
-            lesson: null
-        };
-    </script>
-    <script src="/important/time-tracking/time-tracker.js"></script>
-
-
 </head>
 
 <body>
@@ -103,7 +92,8 @@
         <section
         id="pdfContainer"
         hidden
-        data-pdf="testing"
+        data-section="testing-sc"
+        data-webpage="testing"
         >
         <embed
             id="pdfEmbed"
@@ -113,6 +103,25 @@
             height="800px"
         />
         </section>
+
+        <input type="checkbox" id="calculator-toggle" hidden>
+
+        <div class="calculator-container">
+            <label for="calculator-toggle" class="calculator-tab">
+                Calculator
+            </label>
+
+            <div class="calculator">
+                <iframe
+                src="https://graphingti84calculator.com/TI-84"
+                width="100%"
+                height="100%"
+                frameborder="0"
+                allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+
 
 
 
@@ -157,6 +166,42 @@
                         algebra and calculus. 
                     </p>
         </section>
+
+        <section 
+        class="collapsible-section" 
+        data-collapsible="true"
+        >
+            <header class="collapsible-header">
+                <h2 class="section-title">
+                    Common Notation and Syntax
+                </h2>
+
+                <button 
+                class="collapse-toggle" 
+                aria-label="Toggle section"
+                ></button>
+            </header>
+
+            <p class="section-description">
+                This section involves a list of common notation used throughout the website, as
+                well as a list of symbols and their meaning. This list section can be 
+                <a href="">downloaded</a> as a PDF.
+            </p>
+
+            <div class="section-content">
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi tincidunt turpis enim, et semper augue convallis a. Donec et ex bibendum, porta enim sed, sollicitudin arcu. Maecenas facilisis elit eget viverra consequat. Donec finibus leo condimentum, accumsan nisl vel, imperdiet sem. Integer viverra maximus neque nec viverra. Nulla facilisi. Donec vestibulum enim neque, non egestas metus blandit sit amet.</p>
+
+<p>Phasellus vehicula est nibh, a imperdiet felis iaculis lacinia. Nam a aliquet urna. Nam nec justo rhoncus, rhoncus risus at, posuere diam. Integer ut nibh dolor. Curabitur ultrices orci at mi tempus, eu ultricies mi convallis. In egestas convallis massa eget elementum. Quisque tempus feugiat luctus. Nulla eget finibus erat. Morbi varius odio magna. Donec sit amet est elit. Duis mollis sem libero, non dictum tellus interdum eget. Sed tortor velit, blandit ut commodo ut, malesuada sed tellus. Fusce vulputate auctor turpis a dignissim. Vestibulum vitae semper nulla. Curabitur urna nulla, posuere at lacinia in, iaculis id ipsum.</p>
+
+<p>Duis ornare libero at scelerisque varius. Integer et nulla vestibulum, accumsan massa non, pharetra nunc. Suspendisse in imperdiet nisl. Sed eleifend malesuada ultrices. Cras rhoncus eros sapien, at fringilla metus fermentum eget. Fusce feugiat nulla pulvinar nunc molestie, quis euismod ipsum consequat. Nullam nisl quam, molestie id fermentum ac, imperdiet at neque. Aenean vitae tellus at sem imperdiet sagittis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque varius ultrices accumsan. Sed in elit congue, iaculis mauris ut, convallis magna. Sed ut porta mi, a pretium metus.</p>
+
+<p>Integer fermentum purus nec porta euismod. Pellentesque id ornare enim, dictum imperdiet nisi. Nullam et consectetur massa. Aenean non ipsum lectus. Aenean nec arcu ac nisl condimentum consequat eu in nulla. Donec in mauris vitae tellus feugiat ullamcorper sit amet non purus. Fusce non leo velit. Praesent malesuada lectus ac augue dapibus, vel vulputate enim pretium. Vestibulum tortor nunc, iaculis id viverra non, ultricies non quam. Fusce vel augue massa. Proin laoreet eu odio et pretium.</p>
+
+<p>Donec justo purus, facilisis at fringilla eu, semper eu urna. Ut scelerisque, urna nec dapibus consectetur, diam enim vulputate lorem, ac commodo dolor sapien sit amet nulla. Nunc consequat orci eget rutrum elementum. Praesent iaculis purus non est luctus, ut laoreet lorem efficitur. Pellentesque turpis leo, aliquet sed est rutrum, porttitor finibus orci. Aliquam et ex dolor. Etiam tempus mauris at diam feugiat, nec consequat nunc tincidunt. Donec pretium laoreet dolor quis placerat. Curabitur interdum dictum nunc, feugiat pretium eros iaculis a. Aenean tincidunt nunc quis diam mattis, vitae eleifend purus tristique. Nullam ac libero at elit laoreet egestas ac eu ipsum. Praesent euismod, magna congue eleifend dapibus, est est faucibus purus, sit amet convallis ligula eros vitae velit.</p>
+
+            </div>
+        </section>
+
 
         <section id="section5">
             <h2>Main Topics</h2>
@@ -208,7 +253,7 @@
     <footer>
         <div class="footer-top">
             <span class="footer-small">© 2026 Archimedes-314</span>
-            <span class="footer-small">Last updated: <span id="last-updated">28 January 2026</span></span>
+            <span class="footer-small">Last updated: <span id="last-updated">06 February 2026</span></span>
         </div>
 
         <div class="footer-main">

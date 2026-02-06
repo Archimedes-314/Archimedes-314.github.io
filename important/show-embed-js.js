@@ -5,10 +5,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const iconPath = btn.querySelector("svg path");
   const text = btn.querySelector(".header-btn-text");
 
-  const pdfKey = pdfContainer.dataset.pdf;
+  const sectionKey = pdfContainer.dataset.section;
+  const webpageKey = pdfContainer.dataset.webpage;
 
-  const FULL_PDF = `/pdf/${pdfKey}.pdf`;
-  const SIMPLE_PDF = `/pdf/${pdfKey}-simple.pdf`;
+  const COMPLETE_PDF = `/pdf/${sectionKey}-section.pdf`;
+  const FULL_PDF = `/pdf/${webpageKey}-webpage.pdf`;
+  const SIMPLE_PDF = `/pdf/${webpageKey}-simple.pdf`;
 
   btn.addEventListener("click", () => {
     const isOpen = !pdfContainer.hasAttribute("hidden");
@@ -23,6 +25,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
     showError("pdf-choice");
   });
+
+  window.showCompletePDF = function () {
+    hideError("pdf-choice");
+
+    pdfEmbed.src = COMPLETE_PDF;
+
+    pdfContainer.removeAttribute("hidden");
+    btn.setAttribute("aria-expanded", "true");
+    text.textContent = "Hide PDF";
+    iconPath.setAttribute("d", "M5 12h14");
+  };
 
   window.showFullPDF = function () {
     hideError("pdf-choice");
@@ -52,14 +65,19 @@ document.addEventListener("DOMContentLoaded", () => {
     showError("pdf-download");
   });
 
+  window.downloadCompletePDF = function () {
+    hideError("pdf-download");
+    triggerDownload(COMPLETE_PDF, `${sectionKey}-complete.pdf`);
+  };
+
   window.downloadFullPDF = function () {
     hideError("pdf-download");
-    triggerDownload(FULL_PDF, `${pdfKey}.pdf`);
+    triggerDownload(FULL_PDF, `${webpageKey}.pdf`);
   };
 
   window.downloadSimplePDF = function () {
     hideError("pdf-download");
-    triggerDownload(SIMPLE_PDF, `${pdfKey}-simple.pdf`);
+    triggerDownload(SIMPLE_PDF, `${webpageKey}-simple.pdf`);
   };
 
   function triggerDownload(url, filename) {

@@ -37,7 +37,9 @@ window.MathJax = {
 
             // Symbols 
             lorarrow: "\\longrightarrow",
-            rarrow: "\\rightarrow"
+            rarrow: "\\rightarrow",
+            ioi: "\\longleftrightarrow",
+            sioi: "\\leftrigharrow"
         }
     }
 };
@@ -74,21 +76,36 @@ const showWorkingByDefault =
 
 applyShowWorkingSetting(showWorkingByDefault);
 
+function mathsBoxNames(element) {
+  const boxName = element?.dataset?.boxName;
+
+  const makeTitle = (label) =>
+    boxName ? `${label}: ${boxName}` : label;
+
+  return {
+    theorem: makeTitle("Theorem"),
+    definition: makeTitle("Definition"),
+    example: makeTitle("Example")
+  };
+}
 
 
 function styleMathBoxes() {
   const types = [
-    { cls: "theorem", title: "Theorem" },
-    { cls: "definition", title: "Definition" },
-    { cls: "example", title: "Example" }
+    { cls: "theorem", title: "theorem" },
+    { cls: "definition", title: "definition" },
+    { cls: "example", title: "example" }
   ];
 
   types.forEach(type => {
     document.querySelectorAll(`.${type.cls}`).forEach(el => {
-      wrapInBox(el, type.title, type.cls);
+      const names = mathsBoxNames(el);
+      const title = names[type.title];
+      wrapInBox(el, title, type.cls);
     });
   });
 }
+
 
 function wrapInBox(element, title, cls) {
   const isCollapsible = element.dataset.collapsible === "true";
@@ -157,4 +174,49 @@ function wrapInBox(element, title, cls) {
   box.appendChild(heading);
   box.appendChild(body);
   element.replaceWith(box);
+}
+
+
+window.addEventListener("DOMContentLoaded", () => {
+  setupCollapsibleSections(
+    document.documentElement.classList.contains("show-sections")
+  );
+});
+
+
+
+function setupCollapsibleSections(showByDefault = false) {
+  document.querySelectorAll(".collapsible-section").forEach(section => {
+    const content = section.querySelector(".section-content");
+    const toggle = section.querySelector(".collapse-toggle");
+
+    toggle.innerHTML = "▼"
+
+    if (!content || !toggle) return;
+
+    const open = showByDefault;
+    section.classList.toggle("open", open);
+
+    if (open) {
+      content.style.maxHeight = content.scrollHeight + "px";
+      section.style.setProperty(
+        "--content-height",
+        content.scrollHeight + "px"
+      );
+    }
+
+    toggle.addEventListener("click", () => {
+      const isOpen = section.classList.toggle("open");
+
+      if (isOpen) {
+        content.style.maxHeight = content.scrollHeight + "px";
+        section.style.setProperty(
+          "--content-height",
+          content.scrollHeight + "px"
+        );
+      } else {
+        content.style.maxHeight = "0px";
+      }
+    });
+  });
 }

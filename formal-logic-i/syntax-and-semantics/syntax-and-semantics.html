@@ -18,16 +18,6 @@
     <script id="MathJax-script" async
         src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
     </script>
-
-    <script>
-        window.PAGE_META = {
-            level: "section",
-            topic: "Formal Logic I",
-            section: "Syntax and Semantics",
-            lesson: null
-        };
-    </script>
-    <script src="/important/time-tracking/time-tracker.js"></script>
 </head>
 <body>
 
@@ -104,7 +94,8 @@
         <section
         id="pdfContainer"
         hidden
-        data-pdf="formal_logic_i+syntax_and_semantics"
+        data-section="formal_logic_i+syntax_and_semantics-sc"
+        data-webpage="formal_logic_i+syntax_and_semantics"
         >
         <embed
             id="pdfEmbed"
@@ -114,6 +105,24 @@
             height="800px"
         />
         </section>
+
+        <input type="checkbox" id="calculator-toggle" hidden>
+
+        <div class="calculator-container">
+            <label for="calculator-toggle" class="calculator-tab">
+                Calculator
+            </label>
+
+            <div class="calculator">
+                <iframe
+                src="https://graphingti84calculator.com/TI-84"
+                width="100%"
+                height="100%"
+                frameborder="0"
+                allowfullscreen>
+                </iframe>
+            </div>
+        </div>
 
         <section id="section1">
             <h2>Overview</h2>
@@ -168,7 +177,11 @@
                 \(\lor \) for disjunction is that \( \land \) looks like a capital 'A' for 'and'.
             </p>
 
-            <div class="example" data-collapsible="true">
+            <div 
+            class="example" 
+            data-collapsible="true" 
+            data-box-name="Determine the truth values"
+            >
                 <p>Consider the following propositions:
                     <ul>
                         <li>\(P(x)\): \(x\) is prime.</li>
@@ -222,201 +235,235 @@
                     </ol>
                 </div>
             </div>
-
-            
         </section>
-        <section id="section3">
-        <h2>Set-theoretic Symbols</h2>
-            <p>
-                In formal logic, set-theoretic symbols are used to represent sets and their 
-                relationships. If we take the sets \(S = \{1, 2, 3\}\) and \(T = \{2, 3, 4\}\), 
-                we can use the following symbols to describe their relationships:
-            </p>
-            <h4>Is an Element Of</h4>
-            <p>
-                The symbol \(\in\) denotes 'is an element of'. If \(x \in A\), then \(x\) is an 
-                element of set \(A\). For example, \(2 \in S\) means that 2 is an element of set
-                \(S\), and \(5 \notin T\) means that 5 is not an element of set \(T\). We use 
-                these symbols to express membership within sets.
-            </p>
+                
+        <section 
+        class="collapsible-section"
+        data-collapsible="true"
+        id="section3"
+        >
+            <header class="collapsible-header">
+                <h2 class="section-title">
+                    Set-theoretic Symbols
+                </h2>
 
-            <h4>Is a Subset Of</h4>
-            <p>
-                The symbol \(\subseteq\) denotes 'is a subset of'. If \(A \subseteq B\), then every 
-                element of set \(A\) is also an element of set \(B\). Note that \(A\) may be equal 
-                to \(B\). For example, if we have a set \(C = \{2, 3\}\), then \(C \subseteq S\) 
-                because all elements of \(C\) (which are 2 and 3) are also elements of \(S\). 
-                However, \(S \not\subseteq T\) because \(S\) contains the element 1, which is not 
-                in \(T\).
-            </p>
+                <button
+                class="collapse-toggle"
+                aria-lable="Toggle Section"
+                ></button>
+            </header>
 
-            <h4>Is a Proper Subset Of</h4>
-            <p>
-                The symbol \(\subset\) denotes 'is a proper subset of'. If \(A \subset B\), then 
-                every element of set \(A\) is an element of set \(B\). However, \(A\) is not equal 
-                to \(B\). For example, using the same sets \(C\) and \(S\) as before, we can say that 
-                \(C \subset S\) because all elements of \(C\) are in \(S\), and \(C\) is not equal 
-                to \(S\).
+            <p class="section-description">
+                In this section, I'll go over some basic symbols used in set theory, as well as 
+                some common notation regarding subsets of the real numbers.
             </p>
+            <div class="section-content">
+                <p>
+                    In formal logic, set-theoretic symbols are used to represent sets and their 
+                    relationships. If we take the sets \(S = \{1, 2, 3\}\) and \(T = \{2, 3, 4\}\), 
+                    we can use the following symbols to describe their relationships:
+                </p>
+                <h4>Is an Element Of</h4>
+                <p>
+                    The symbol \(\in\) denotes 'is an element of'. If \(x \in A\), then \(x\) is an 
+                    element of set \(A\). For example, \(2 \in S\) means that 2 is an element of set
+                    \(S\), and \(5 \notin T\) means that 5 is not an element of set \(T\). We use 
+                    these symbols to express membership within sets.
+                </p>
 
-            <p>
-                It's important to note that the definition of this symbol (\(\subset\)) changes 
-                depending on the author. In some texts, \(\subset\) is used to denote 'is a subset 
-                of', while in others, it denotes 'is a proper subset of'. Throughout this website,
-                the symbol \(\subseteq\) will be used to denote 'is a subset of', and \(\subset\) 
-                will be used to denote 'is a proper subset of'.
-            </p>
+                <h4>Is a Subset Of</h4>
+                <p>
+                    The symbol \(\subseteq\) denotes 'is a subset of'. If \(A \subseteq B\), then every 
+                    element of set \(A\) is also an element of set \(B\). Note that \(A\) may be equal 
+                    to \(B\). For example, if we have a set \(C = \{2, 3\}\), then \(C \subseteq S\) 
+                    because all elements of \(C\) (which are 2 and 3) are also elements of \(S\). 
+                    However, \(S \not\subseteq T\) because \(S\) contains the element 1, which is not 
+                    in \(T\).
+                </p>
 
-            <h4>Union</h4>
-            <p>
-                The symbol \(\cup\) denotes 'union'. The union of sets \(A\) and \(B\) is the set 
-                of all elements that are in either \(A\) or \(B\). For example, the union of sets
-                \(S\) and \(T\) is given by: \(S \cup T = \{1, 2, 3, 4\}\).
-            </p>
+                <h4>Is a Proper Subset Of</h4>
+                <p>
+                    The symbol \(\subset\) denotes 'is a proper subset of'. If \(A \subset B\), then 
+                    every element of set \(A\) is an element of set \(B\). However, \(A\) is not equal 
+                    to \(B\). For example, using the same sets \(C\) and \(S\) as before, we can say that 
+                    \(C \subset S\) because all elements of \(C\) are in \(S\), and \(C\) is not equal 
+                    to \(S\).
+                </p>
 
-            <h4>Intersection</h4>
-            <p>
-                The symbol \(\cap\) denotes 'intersection'. The intersection of sets \(A\) and 
-                \(B\) is the set of all elements that are in both \(A\) and \(B\). For example, the
-                intersection of sets \(S\) and \(T\) is given by: \(S \cap T = \{2, 3\}\). If there are 
-                no common elements between the two sets, their intersection is the empty set, 
-                denoted by \(\emptyset\). For example, if we have sets \(U = \{5, 6\}\) and 
-                \(V = \{7, 8\}\), then \(U \cap V = \emptyset\).
-            </p>
+                <p>
+                    It's important to note that the definition of this symbol (\(\subset\)) changes 
+                    depending on the author. In some texts, \(\subset\) is used to denote 'is a subset 
+                    of', while in others, it denotes 'is a proper subset of'. Throughout this website,
+                    the symbol \(\subseteq\) will be used to denote 'is a subset of', and \(\subset\) 
+                    will be used to denote 'is a proper subset of'.
+                </p>
 
-            <h4>Set Difference</h4>
-            <p>
-                The symbol \(\setminus\) denotes 'set difference'. The set difference of sets 
-                \(A\) and \(B\) is the set of all elements that are in \(A\) but not in \(B\).
-                For example, the set difference of sets \(S\) and \(T\) is given by: \(S \setminus T = 
-                \{1\}\), since 1 is in \(S\) but not in \(T\). If we take the sets 
-                \(U = \{5, 6, 7, 8\}\) and \(V = \{6, 7\}\), then the set difference is
-                \(U \setminus V = \{5, 8\}\).
-            </p>
+                <h4>Union</h4>
+                <p>
+                    The symbol \(\cup\) denotes 'union'. The union of sets \(A\) and \(B\) is the set 
+                    of all elements that are in either \(A\) or \(B\). For example, the union of sets
+                    \(S\) and \(T\) is given by: \(S \cup T = \{1, 2, 3, 4\}\).
+                </p>
 
-            <h4>Such That</h4>
-            <p>
-                The symbols \(\mid\) and \(:\) both denote 'such that'. They are often used in 
-                set-builder notation to define a set by specifying a property that its members 
-                must satisfy. For example, the set of all even natural numbers can be defined as: 
-                \(\{x \in \N_0 : x \text{ is even}\}\). This reads as 'the set of all \(x\) in 
-                the natural numbers such that \(x\) is even'.
-            </p>
+                <h4>Intersection</h4>
+                <p>
+                    The symbol \(\cap\) denotes 'intersection'. The intersection of sets \(A\) and 
+                    \(B\) is the set of all elements that are in both \(A\) and \(B\). For example, the
+                    intersection of sets \(S\) and \(T\) is given by: \(S \cap T = \{2, 3\}\). If there are 
+                    no common elements between the two sets, their intersection is the empty set, 
+                    denoted by \(\emptyset\). For example, if we have sets \(U = \{5, 6\}\) and 
+                    \(V = \{7, 8\}\), then \(U \cap V = \emptyset\).
+                </p>
 
-            <p>
-                In this website, the symbol \(:\) will be primarily used to denote 'such that'.
-                This is to avoid confusion, as the vertical bar symbol \(\mid\) is also
-                used in number theory to denote 'divides'. For example, \(a \mid b\) means That
-                \(a\) is a divisor of \(b\) (i.e., \(b\) is divisible by \(a\)).
-            </p>
+                <h4>Set Difference</h4>
+                <p>
+                    The symbol \(\setminus\) denotes 'set difference'. The set difference of sets 
+                    \(A\) and \(B\) is the set of all elements that are in \(A\) but not in \(B\).
+                    For example, the set difference of sets \(S\) and \(T\) is given by: \(S \setminus T = 
+                    \{1\}\), since 1 is in \(S\) but not in \(T\). If we take the sets 
+                    \(U = \{5, 6, 7, 8\}\) and \(V = \{6, 7\}\), then the set difference is
+                    \(U \setminus V = \{5, 8\}\).
+                </p>
 
-            <h4>The Set of Real Numbers (and its Subsets)</h4>
-            <p>
-                The set of real numbers and its subsets are represented by the following:
-            </p>
-            <ul>
-                <li>\(\R\): The set of real numbers.</li>
-                <li>\(\Q\): The set of rational numbers.</li>
-                <li>\(\Z\): The set of integers.</li>
-                <li>\(\N_0\): The set of natural numbers.</li>
-                <li>\(\N\): The set of natural numbers excluding zero.</li>
-            </ul>
-            <p>
-                There is no specific symbol for the set of irrational numbers, 
-                but they can be represented as \(\R \setminus \Q\), which denotes the set of all 
-                real numbers that are not rational. Some authors may use custom definition, such 
-                as \(\mathbb{P} = \{ x : x \in \R \land x \notin \Q \}\), to denote the set of 
-                irrational numbers. However, this website will use the set difference notation 
-                \(\R \setminus \Q\) for the irrational numbers.
-            </p>
+                <h4>Such That</h4>
+                <p>
+                    The symbols \(\mid\) and \(:\) both denote 'such that'. They are often used in 
+                    set-builder notation to define a set by specifying a property that its members 
+                    must satisfy. For example, the set of all even natural numbers can be defined as: 
+                    \(\{x \in \N_0 : x \text{ is even}\}\). This reads as 'the set of all \(x\) in 
+                    the natural numbers such that \(x\) is even'.
+                </p>
 
-            <p>
-                Note that some authors define the set of natural numbers \(\N\) to include zero, 
-                while others define it to start from one. In this website, we will use \(\N_0\) 
-                to denote the set of natural numbers including zero, and \(\N\) to denote the set 
-                of natural numbers excluding zero. When referring to the 'natural numbers', it
-                should be implied that I am referring to \(\N_0\) unless context implies otherwise.
-                If there is any ambiguity, clarification will be provided.
-            </p>
+                <p>
+                    In this website, the symbol \(:\) will be primarily used to denote 'such that'.
+                    This is to avoid confusion, as the vertical bar symbol \(\mid\) is also
+                    used in number theory to denote 'divides'. For example, \(a \mid b\) means That
+                    \(a\) is a divisor of \(b\) (i.e., \(b\) is divisible by \(a\)).
+                </p>
 
-            <p>
-                The set of integers \(\Z\) includes the natural numbers (including 0), and the
-                negative numbers. Using some basic notation, we can define the following variations
-                of the set of integers:
-            </p>
-            <ul>
-                <li>\(\Z_{\lt 0}\): The set of negative integers (i.e., \( \{-1, -2, -3, \ldots\} \)).</li>
-                <li>\(\Z_{\leq 0}\): The set of negative integers including zero (i.e., \( \{0, -1, -2, -3, \ldots\} \)).</li>
-            </ul>
+                <h4>The Set of Real Numbers (and its Subsets)</h4>
+                <p>
+                    The set of real numbers and its subsets are represented by the following:
+                </p>
+                <ul>
+                    <li>\(\R\): The set of real numbers.</li>
+                    <li>\(\Q\): The set of rational numbers.</li>
+                    <li>\(\Z\): The set of integers.</li>
+                    <li>\(\N_0\): The set of natural numbers.</li>
+                    <li>\(\N\): The set of natural numbers excluding zero.</li>
+                </ul>
+                <p>
+                    There is no specific symbol for the set of irrational numbers, 
+                    but they can be represented as \(\R \setminus \Q\), which denotes the set of all 
+                    real numbers that are not rational. Some authors may use custom definition, such 
+                    as \(\mathbb{P} = \{ x : x \in \R \land x \notin \Q \}\), to denote the set of 
+                    irrational numbers. However, this website will use the set difference notation 
+                    \(\R \setminus \Q\) for the irrational numbers.
+                </p>
 
-            <p>
-                Similarly, we can define variations of the set of rational numbers:
-            </p>
-            <ul>
-                <li>\(\Q^+\): The set of positive rational numbers (i.e., \( \{ x \in \Q : x \gt 0 \} \)).</li>
-                <li>\(\Q_0^+\): The set of positive rational numbers including zero (i.e., \( \{ x \in \Q : x \geq 0 \} \)).</li>
-                <li>\(\Q^-\): The set of negative rational numbers (i.e., \( \{ x \in \Q : x \lt 0 \} \)).</li>
-                <li>\(\Q_0^-\): The set of negative rational numbers including zero (i.e., \( \{ x \in \Q : x \leq 0 \} \)).</li>
-            </ul>
+                <p>
+                    Note that some authors define the set of natural numbers \(\N\) to include zero, 
+                    while others define it to start from one. In this website, we will use \(\N_0\) 
+                    to denote the set of natural numbers including zero, and \(\N\) to denote the set 
+                    of natural numbers excluding zero. When referring to the 'natural numbers', it
+                    should be implied that I am referring to \(\N_0\) unless context implies otherwise.
+                    If there is any ambiguity, clarification will be provided.
+                </p>
 
-            <p>
-                Similar notation can be applied to the set of real numbers \(\R\) as well:
-            </p>
-            <ul>
-                <li>\(\R^+\): The set of positive real numbers (i.e., \( \{ x \in \R : x \gt 0 \} \)).</li>
-                <li>\(\R_0^+\): The set of positive real numbers including zero (i.e., \( \{ x \in \R : x \geq 0 \} \)).</li>
-                <li>\(\R^-\): The set of negative real numbers (i.e., \( \{ x \in \R : x \lt 0 \} \)).</li>
-                <li>\(\R_0^-\): The set of negative real numbers including zero (i.e., \( \{ x \in \R : x \leq 0 \} \)).</li>
-            </ul>
-            <p>
-                Note that some of these defintions are not universally standard; always
-                check the definitions being used in any given text. The sets defined above will be
-                used consistently throughout this website. Clarification will often coincide
-                with the use of these definitions to avoid any confusion.
-            </p>
+                <p>
+                    The set of integers \(\Z\) includes the natural numbers (including 0), and the
+                    negative numbers. Using set builder notation, we can define the following variations
+                    of the set of integers:
+                </p>
+                <ul>
+                    <li>\( \Z_{\lt 0} = \{ x \in \Z : x \lt 0 \} \): The set of negative integers (i.e., \( \{-1, -2, -3, \ldots\} \)).</li>
+                    <li>\( \Z_{\leq 0} = \{ x \in \Z : x \leq 0 \} \): The set of negative integers including zero (i.e., \( \{0, -1, -2, -3, \ldots\} \)).</li>
+                </ul>
+
+                <p>
+                    Similarly, we can define variations of the set of rational numbers:
+                </p>
+                <ul>
+                    <li>\(\Q_{\gt 0} = \{ x \in \Q : x \gt 0 \}\): The set of positive rational numbers.</li>
+                    <li>\(\Q_{\geq 0} = \{ x \in \Q : x \geq 0 \}\): The set of non-negative rational numbers.</li>
+                    <li>\(\Q_{\lt 0} = \{ x \in \Q : x \lt 0 \}\): The set of negative rational numbers.</li>
+                    <li>\(\Q_{\leq 0} = \{ x \in \Q : x \leq 0 \}\): The set of non-positive rational numbers.</li>
+                </ul>
+
+                <p>
+                    Similar notation can be applied to the set of real numbers \(\R\) as well:
+                </p>
+                <ul>
+                    <li>\(\R_{\gt 0} = \{ x \in \R : x \gt 0 \} = (0, \infty)\): The set of positive real numbers.</li>
+                    <li>\(\R_{\geq 0} = \{ x \in \R : x \geq 0 \} = [0, \infty) \): The set of positive real numbers including zero.</li>
+                    <li>\(\R_{\lt 0} = \{ x \in \R : x \lt 0 \} = (-\infty, 0)\): The set of negative real numbers.</li>
+                    <li>\(\R_{\leq 0} = \{ x \in \R : x \leq 0 \} = (-\infty, 0]\): The set of negative real numbers including zero.</li>
+                </ul>
+                <p>
+                    Some authors may use other notation notation to represent subsets (for example,
+                    \( \R^+ \) can represent the non-negative real numbers). However, I've decieded
+                    to use the above notation to ensure carity as to whether 0 is or is not included 
+                    in the subsets. Set builder notation will be used if clarification is needed.
+                </p>
+                </div>
         </section>
-        <section id="section4">
-        <h2>Universal and Existential Quantifiers</h2>
-            <p>
+
+        <section 
+        class="collapsible-section"
+        data-collapsible="true"
+        id="section4"
+        >
+            <header class="collapsible-header">
+                <h2 class="section-title">Universal and Existential Quantifiers</h2>
+
+                <button
+                class="collapse-toggle"
+                aria-lable="Toggle Section"
+                ></button>
+            </header>
+
+            <p class="section-description">
                 Quantifiers are symbols that tell us how many members of a set or group a statement 
                 applies to. Instead of talking about just one particular object, quantifiers allow 
                 us to make statements about all objects in a group or about the existence of at 
-                least one object with a certain property. 
+                least one object with a certain property. In this section, I go over the the two 
+                quantifiers and explain what they mean.
             </p>
+            <div class="section-content">
+                <h4>Universal Quantifier</h4>
+                <p>
+                    The universal quantifier is denoted by the symbol \(\forall\) and is read as 
+                    'for all' or 'for every'. It is used to indicate that a statement applies to all 
+                    elements in a particular set or domain. For example, we'll take the following
+                    propositions:
+                </p>
+                <ul>
+                    <li>\(P(x)\): \(x\) is prime greater than 2.</li>
+                    <li>\(O(x)\): \(x\) is odd.</li>
+                </ul>
+                <p>
+                    These are both propositions because they can be either true or false depending on 
+                    the value of \(x\). For example, if \(x = 5\), then \(P(5)\) is true and \(O(5)\) 
+                    is true. However, if \(x = 4\), then \(P(4)\) is false and \(O(4)\) is false. 
+                    Using the universal quantifier, we can express the statement that all prime numbers 
+                    greater than 2 are odd as follows:
+                </p>
+                <p>
+                    \(\forall x (P(x) \rarrow O(x))\), which reads: 'for all values of \(x\), if 
+                    \(x\) is prime greater than 2, then \(x\) is odd.'
+                </p>
 
-            <h4>Universal Quantifier</h4>
-            <p>
-                The universal quantifier is denoted by the symbol \(\forall\) and is read as 
-                'for all' or 'for every'. It is used to indicate that a statement applies to all 
-                elements in a particular set or domain. For example, we'll take the following
-                propositions:
-            </p>
-            <ul>
-                <li>\(P(x)\): \(x\) is prime greater than 2.</li>
-                <li>\(O(x)\): \(x\) is odd.</li>
-            </ul>
-            <p>
-                These are both propositions because they can be either true or false depending on 
-                the value of \(x\). For example, if \(x = 5\), then \(P(5)\) is true and \(O(5)\) 
-                is true. However, if \(x = 4\), then \(P(4)\) is false and \(O(4)\) is false. 
-                Using the universal quantifier, we can express the statement that all prime numbers 
-                greater than 2 are odd as follows:
-            </p>
-            <p>
-                \(\forall x (P(x) \rarrow O(x))\), which reads: 'for all values of \(x\), if 
-                \(x\) is prime greater than 2, then \(x\) is odd.'
-            </p>
-
-            <h4>Existential Quantifier</h4>
-            <p>
-                The existential quantifier is denoted by the symbol \(\exists\) and is read as 
-                'there exists' or 'there is at least one'. It is used to indicate that there is 
-                at least one element in a particular set or domain that satisfies a given 
-                property. For example, the statement \(\exists x ( x \in \R \land x^2 = 4)\) 
-                means 'there exist a number \(x\) where \(x\) is a real number and \(x\) squared 
-                equals 4', or more naturally, 'there exists a real number whose square is 4'. 
-                In this case, the values \(x = 2\) and \(x = -2\) both satisfy the property.
-            </p>
+                <h4>Existential Quantifier</h4>
+                <p>
+                    The existential quantifier is denoted by the symbol \(\exists\) and is read as 
+                    'there exists' or 'there is at least one'. It is used to indicate that there is 
+                    at least one element in a particular set or domain that satisfies a given 
+                    property. For example, the statement \(\exists x ( x \in \R \land x^2 = 4)\) 
+                    means 'there exist a number \(x\) where \(x\) is a real number and \(x\) squared 
+                    equals 4', or more naturally, 'there exists a real number whose square is 4'. 
+                    In this case, the values \(x = 2\) and \(x = -2\) both satisfy the property.
+                </p>
+            </div>
         </section>
         <section id="section5">
         <h2>Lessons</h2>
@@ -452,7 +499,7 @@
     <footer>
         <div class="footer-top">
             <span class="footer-small">© 2026 Archimedes-314</span>
-            <span class="footer-small">Last updated: <span id="last-updated">24 January 2026</span></span>
+            <span class="footer-small">Last updated: <span id="last-updated">06 February 2026</span></span>
         </div>
 
     <div class="footer-main">

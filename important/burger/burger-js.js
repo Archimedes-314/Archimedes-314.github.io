@@ -18,7 +18,6 @@ function toggleMenu() {
     }
 }
 
-// Function to toggle the visibility of a specific submenu
 function toggleSubmenu(section) {
     const submenu = document.getElementById(section + '-submenu');
     const arrow = document.getElementById(section + '-arrow');

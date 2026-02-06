@@ -10,8 +10,8 @@ html {
 }
 
 a {
-    text-decoration: none;
-    color: #333;
+    text-decoration: underline;
+    color: #444;
     font-weight: bold;
 }
 
@@ -73,6 +73,59 @@ section {
   border-bottom: 1px solid #e0e0e0;
   scroll-margin-top: 7rem;
 }
+
+.collapsible-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.section-title {
+  margin: 0;
+}
+
+.collapse-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: transform 0.5s ease;
+  cursor: url('/important/images/archimedes_pointing.png') 16 4, pointer;
+}
+
+.section-content {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.8s ease;
+}
+
+.collapsible-section.open .section-content {
+  max-height: var(--content-height);
+}
+
+.section-description {
+  overflow: hidden;
+  max-height: 200px;
+  opacity: 1;
+  margin-top: 0.5rem;
+  transition:
+    max-height 0.35s ease,
+    opacity 0.25s ease,
+    margin 0.35s ease;
+}
+
+.collapsible-section.open .section-description {
+  max-height: 0;
+  opacity: 0;
+  margin-top: 0;
+  pointer-events: none;
+}
+
+
+.collapsible-section.open .collapse-toggle {
+  transform: rotate(-180deg);
+}
+
 
 .maths {
   text-align: center;

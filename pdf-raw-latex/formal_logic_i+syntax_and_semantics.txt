@@ -103,6 +103,7 @@
 \newcommand{\rarrow}{\rightarrow}
 \newcommand{\lorarrow}{\longrightarrow}
 \newcommand{\ioi}{\longleftrightarrow}
+\newcommand{\sioi}{\leftrightarrow}
 \newcommand{\defeq}{\overset{\mathrm{def}}{=}}
 \newcommand{\geqs}{\geqslant}
 \newcommand{\leqs}{\leqslant}
@@ -329,31 +330,30 @@ Note that some authors define the set of natural numbers \(\N\) to include 0, wh
 The set of integers \(\Z\) includes the natural numbers (including 0), and the negative numbers. Using some basic notation, we can define the following variations of the set of integers:
 
 \begin{itemize}
-    \item \(\Z_{< 0}\): The set of negative integers (i.e., \( \{-1, -2, -3, \ldots\} \)).
-    \item \(\Z_{\leq 0}\): The set of negative integers including zero (i.e., \( \{0, -1, -2, -3, \ldots\} \)).
+    \item \( \Z_{<0} = \{ x \in \Z : x < 0 \} \): The set of negative integers (i.e., \( \{-1, -2, -3, \ldots\} \)).
+    \item \( \Z_{\leq 0} = \{ x \in \Z : x \leq 0 \} \): The set of negative integers including zero (i.e., \( \{0, -1, -2, -3, \ldots\} \)).
 \end{itemize}
 
 Similarly, we can define variations of the set of rational numbers:
 
 
 \begin{itemize}
-    \item \(\Q^+\): The set of positive rational numbers (i.e., \( \{ x \in \Q : x > 0 \} \)).
-    \item \(\Q_0^+\): The set of positive rational numbers including zero (i.e., \( \{ x \in \Q : x \geq 0 \} \)).
-    \item \(\Q^-\): The set of negative rational numbers (i.e., \( \{ x \in \Q : x > 0 \} \)).
-    \item \(\Q_0^-\): The set of negative rational numbers including zero (i.e., \( \{ x \in \Q : x \leq 0 \} \)).
+    \item \(\Q_{> 0} = \{ x \in \Q : x > 0 \}\): The set of positive rational numbers.
+    \item \(\Q_{\geq 0} = \{ x \in \Q : x \geq 0 \}\): The set of non-negative rational numbers.
+    \item \(\Q_{< 0} = \{ x \in \Q : x < 0 \}\): The set of negative rational numbers.
+    \item \(\Q_{\leq 0} = \{ x \in \Q : x \leq 0 \}\): The set of non-positive rational numbers.
 \end{itemize}
 
 Similar notation can be applied to the set of real numbers \(\R\) as well:
 
 \begin{itemize}
-    \item \(\R^+\): The set of positive real numbers (i.e., \( \{ x \in \R : x > 0 \} \)).
-    \item \(\R_0^+\): The set of positive real numbers including zero (i.e., \( \{ x \in \R : x \geq 0 \} \)).
-    \item \(\R^-\): The set of negative real numbers (i.e., \( \{ x \in \R : x < 0 \} \)).
-    \item \(\R_0^-\): The set of negative real numbers including zero (i.e., \( \{ x \in \R : x \leq 0 \} \)).
+    \item \(\R_{> 0} = \{ x \in \R : x > 0 \} = (0, \infty)\): The set of positive real numbers.
+    \item \(\R_{\geq 0} = \{ x \in \R : x \geq 0 \} = [0, \infty) \): The set of positive real numbers including zero.
+    \item \(\R_{< 0} = \{ x \in \R : x < 0 \} = (-\infty, 0)\): The set of negative real numbers.
+    \item \(\R_{\leq 0} = \{ x \in \R : x \leq 0 \} = (-\infty, 0]\): The set of negative real numbers including zero.
 \end{itemize}
 
-Note that some of these definitions are not universally standard; always
-check the definitions being used in any given text. The sets defined above will be used consistently throughout this document. Clarification will often coincide with the use of these definitions to avoid any confusion.
+Some authors may use other notation notation to represent subsets (for example, \( \R^+ \) can represent the non-negative real numbers). However, I've decieded to use the above notation to ensure carity as to whether 0 is or is not included in the subsets. Set builder notation will be used if clarification is needed.
 
 \section{Universal and Existential Quantifiers}
 Quantifiers are symbols that tell us how many members of a set or group a statement applies to. Instead of talking about just one particular object, quantifiers allow us to make statements about all objects in a group or about the existence of at least one object with a certain property.
@@ -376,9 +376,9 @@ The existential quantifier is denoted by the symbol \(\exists\) and is read as `
 \newpage
 \pagenumbering{gobble}\section*{} \ \vfill
 \textbf{Document Management} \\
-Version: 1.0 \\
+Version: 1.1 \\
 Created: 23 January 2025 \\ 
-Reviewed: 24 January 2025 \\
+Reviewed: 06 February 2025 \\
 Contact: archimedes314notes@gmail.com
 
 
