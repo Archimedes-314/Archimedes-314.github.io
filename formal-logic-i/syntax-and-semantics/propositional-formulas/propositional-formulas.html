@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="/important/main-styles/head-foot.css">
     <link rel="stylesheet" href="/important/error-list/error-list.css">
     <link rel="stylesheet" href="/important/burger/burger.css">
+    <script src="/important/main-styles/style-sheet.js"></script>
 
     <link rel="stylesheet" href="/important/settings/settings.css">
     <script src="/important/settings/settings.js"></script>
@@ -126,44 +127,159 @@
 
         <section id="section1">
             <h2>What is a Propositional Formula</h2>
-            <p>
-                A propositional formula is a syntactic expression built from variables (such as 
-                \(p\) and \(q\)) using logical connectives like \(\neg\), \(\land\), \(\lor\), 
-                \(\rarrow\), and \(\ioi\). When specific truth values are assigned to all its 
-                variables, a propositional formula evaluates to a single, definite truth value of 
-                true or false.
-            </p>
+                <p>
+                    A propositional formula is a syntactic expression built from variables (such as 
+                    \(p\) and \(q\)) using logical connectives like \(\neg\), \(\land\), \(\lor\), 
+                    \(\rarrow\), and \(\ioi\). When specific truth values are assigned to all its 
+                    variables, a propositional formula evaluates to a single, definite truth value of 
+                    true or false.
+                </p>
 
-            <p>
-                More formally, a propositional formula is not itself a proposition but a formal 
-                expression that denotes a proposition, much like an algebraic expression (e.g., 
-                \( x + y \)) denotes a value but is not the value itself.
-            </p>
+                <p>
+                    More formally, a propositional formula is not itself a proposition but a formal 
+                    expression that denotes a proposition, much like an algebraic expression (e.g., 
+                    \( x + y \)) denotes a value but is not the value itself.
+                </p>
 
-            <p>
-                When the values of all variables in a propositional formula are specified, the 
-                formula determines a unique truth value. Thus, propositional formulas provide a 
-                systematic way to represent and analyse logical relationships between statements.
-            </p>
+                <p>
+                    When the values of all variables in a propositional formula are specified, the 
+                    formula determines a unique truth value. Thus, propositional formulas provide a 
+                    systematic way to represent and analyse logical relationships between statements.
+                </p>
 
-            <div 
-            class="example"
-            data-collapsible="true"
-            data-box-name="Find the Propositonal Formulas"
-            >
-            This is temp text 
+            <h2>Writing Propositional Formulas</h2>
+                <p>
+                    When writing formulas, the formal definition requires us to include many open and 
+                    closed brackets. While these brackets are necessary for making the structure of a 
+                    formula unambiguous, they can make formulas harder to read. For this reason, it is 
+                    common practice to omit some brackets when writing formulas informally, as long as 
+                    doing so does not create any ambiguity. In particular, we can always leave out the 
+                    outermost brackets. However, it is important to recover the original formula by 
+                    reinserting the brackets in accordance with the rules of precedence, which I will 
+                    explain below.
+                </p>
 
-                <div class="working">
-                    this is temp text
+                <ul>
+                    <li>
+                        The negation sign has the highest precedence. Just like how 'not' can turn the 
+                        meaning of a whole sentence around, the negation sign modifies the truth value 
+                        of the entire expression it applies to, overriding other operations.
+                    </li>
+
+                    <li>
+                        The connectives \(\land\) and \(\lor\) have the second-highest precedence.
+                    </li>
+
+                    <li>
+                        The connectives \(\rarrow\) and \(\sioi\) have the lowest precedence.
+                    </li>
+
+                    <li>
+                        If we omit brackets between connectives that have the same level of precedence, 
+                        we will associate them from right to left. For example, in the expression 
+                        \(p \lor q \lor r\), we associate it as \( (p\lor (q \lor r))\).
+                    </li>
+                </ul>
+
+                <div 
+                class="example"
+                data-collapsible="true"
+                data-box-name="Formal vs Informal Formulas"
+                >
+                <p>The table below shows the difference between an a formally-written formula, and its 
+                informal abbreviation.</p>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Informal Abbreviation</th>
+                                <th>Formal Formula</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>\(\neg p_1 \land p_2 \lor \neg p_3\)</td>
+                                <td>\(((\neg p_1) \land (p_2 \lor (\neg p_3)))\)</td>
+                            </tr>
+                            <tr>
+                                <td>\(\neg p_1 \lor p_2 \rarrow p_3 \sioi p_4\) </td>
+                                <td>\((((\neg p_1) \lor p_2) \rarrow (p_3 \sioi p_4))\)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="break" data-br-type="rem" data-br-length="3"></div>
+
+                    <p>
+                       <strong>Question:</strong> Add brackets into the following to show their 
+                       actual formulas: 
+                    </p>
+
+                    <ol>
+                        <li>\(\neg p_1 \land p_2 \ioi p_3\)</li>
+                        <li>\(p_1 \lor p_2 \ioi p_3 \land \neg p_4\)</li>
+                        <li>\(p_1 \rarrow p_2 \sioi p_3 \land p_4\)</li>
+                    </ol>
+
+
+                    <div class="working">
+                        <ol type="a" class="lo-bdr-list">
+                            <li>
+                                <p class="answer"><strong>Answer:</strong> \((((\neg p_1) \land p_2) \ioi p_3)\)</p>
+                                <p class="reason">
+                                    <strong>Reason:</strong>
+                                    \(\neg\) has the highest precedence, so you place its respective 
+                                    brackets first. \(\land\) has the next highest precedence, so 
+                                    you place its respective brackets next. And finally, \(\sioi\)
+                                    has the lowest precedence, so you place its respective brackets 
+                                    last.
+                                </p>
+                            </li>
+                            <li>
+                                <p class="answer"><strong>Answer:</strong> \(((p_1 \lor p_2) \ioi (p_3 \land \neg p_4))\)</p>
+                                <p class="reason">
+                                    <strong>Reason:</strong>
+                                    \(\lor\) and \(\land\) have higher precedence than \(\sioi\),
+                                    so their repsective brackets should be place first.
+                                </p>
+                            </li>
+                            <li>
+                                <p class="answer"><strong>Answer:</strong> \((p_1 \rarrow (p_2 \sioi (p_3 \land p_4)))\)</p>
+                                <p class="reason">
+                                    <strong>Reason:</strong>
+                                    \(\land\) has higher precedence than \(\sioi\) and \(\rarrow\),
+                                    so its brackets are added first. \(\sioi\) and \(\rarrow\) 
+                                    have equal precedence, so their brackets are added from right 
+                                    to left.
+                                </p>
+                            </li>
+                        </ol>
+                    </div>
                 </div>
-            </div>
+
+
+                <p>
+                    Besides omitting brackets, it is also common to use variable names like 
+                    \(p,\ q,\ r,\ \ldots\) instead of \(p_1,\ p_2,\ p_3,\ \ldots\) to make formulas 
+                    easier to read. Formally, only variables of the form \(p_i\) are allowed in 
+                    formulas, but using single-letter names is a helpful informal convention. The 
+                    connectives \(\land,\ \lor\), and \(\sioi\) are associative, so the rule about 
+                    associating from right to left does not affect their meaning. However, \(\rarrow\) 
+                    is not associative: for example, \(p \rarrow (q \rarrow r)\) is not the same as 
+                    \((p \rarrow q) \rarrow r\). On the other hand, \(p \rarrow (q \rarrow r)\) is 
+                    truth-functionally equivalent to \(p \land q \rarrow r\), which is often a useful 
+                    way to write formulas. This is one reason for choosing to associate from right to 
+                    left. To avoid confusion, it is best not to write expressions like \(A \lor B \land 
+                    C\) or \(A \rarrow B \sioi C\) without brackets. According to the conventions here, 
+                    these mean \(A \lor (B \land C)\) and \(A \rarrow (B \sioi C)\), but other authors 
+                    may use different conventions.
+                </p>
         </section>
     </main>
 
     <footer>
         <div class="footer-top">
             <span class="footer-small">© 2026 Archimedes-314</span>
-            <span class="footer-small">Last updated: <span id="last-updated">03 February 2026</span></span>
+            <span class="footer-small">Last updated: <span id="last-updated">11 February 2026</span></span>
         </div>
 
     <div class="footer-main">

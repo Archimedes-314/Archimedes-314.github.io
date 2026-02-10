@@ -8,9 +8,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const sectionKey = pdfContainer.dataset.section;
   const webpageKey = pdfContainer.dataset.webpage;
 
-  const COMPLETE_PDF = `/pdf/${sectionKey}-section.pdf`;
-  const FULL_PDF = `/pdf/${webpageKey}-webpage.pdf`;
-  const SIMPLE_PDF = `/pdf/${webpageKey}-simple.pdf`;
+  const COMPLETE_PDF = `/assets/pdf/${sectionKey}-section.pdf`;
+  const FULL_PDF = `/assets/pdf/${webpageKey}-webpage.pdf`;
+  const SIMPLE_PDF = `/assets/pdf/${webpageKey}-simple.pdf`;
 
   btn.addEventListener("click", () => {
     const isOpen = !pdfContainer.hasAttribute("hidden");

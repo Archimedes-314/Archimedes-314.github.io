@@ -130,8 +130,8 @@
             <h2>Purpose</h2>
                 <h3>Welcome Message</h3>
                     <p>
-                        Welcome to my online maths notes! This website is aimed at students seeking extra 
-                        help with introductory real analysis. I am entirely self-taught and working on this 
+                        Welcome to my online maths notes! This website is a list of personal mats notes  
+                        relating to introductory real analysis. I am entirely self-taught and working on this 
                         project as a hobby, so <strong>there will be typos and minor errors in some 
                         of the content</strong>. 
                         However, I have done my best to ensure everything is as accurate as possible. If you 
@@ -155,16 +155,33 @@
                 
                 <h3>Purpose and Scope</h3>
                     <p>
-                        This website focuses on using mathematical logic to construct the real numbers and 
-                        to understand their properties. We first learn about the basics of logic: what the 
-                        symbols mean, and how we use them to prove mathematical concepts. From our basic 
-                        logic, we can construct a simple axiomatic system to define the integers and 
-                        rational numbers in terms of natural numbers, along with operations such as addition 
-                        and multiplication. After we have a basic understanding, we return to logic to 
-                        develop a deeper understanding, thereby building a stronger system to define the 
-                        irrational numbers and strengthening our definitions of the naturals, integers, and 
-                        rationals. In the future, this website will be expanded to include lessons on linear 
-                        algebra and calculus. 
+                        This website explores how mathematical logic can be used to rigorously 
+                        construct the real numbers and understand their properties. We begin with 
+                        the basics of logic: learning what symbols mean, how to interpret 
+                        statements, and how to use logical reasoning to prove mathematical concepts. 
+                        Topics include propositional, first-order, and second-order logic.
+                    </p>
+
+                    <p>
+                        Using this foundation, we develop axiomatic systems to define the integers 
+                        and rational numbers from the natural numbers, and then construct the 
+                        irrational numbers and the real numbers. Along the way, we analyse 
+                        fundamental properties of the real number system, including completeness, 
+                        density, and incompleteness phenomena.
+                    </p>
+
+                    <p>
+                        Once we have a solid understanding of the real numbers, we return to logic, 
+                        focusing on syntax, semantics, and mathematical conventions. For example, we 
+                        examine why implicit multiplication is often given precedence over division, 
+                        how such conventions can be formally defined, and what it means for them to 
+                        be well-defined and consistent.
+                    </p>
+                    
+                    <p>
+                        In the future, this website will expand to include lessons on linear 
+                        algebra, calculus, and other areas of mathematics, always with an emphasis 
+                        on rigorous logical foundations.
                     </p>
         </section>
 
@@ -203,16 +220,17 @@
                     </p>
 
                     <p>
-                        In modern mathematics, it is common to use the <em>Halmos symbol</em> 
+                        However, in modern mathematics, it is common to use the <em>Halmos symbol</em> 
                         (also known as the <em>tombstone</em>), represented as \(\blacksquare\). 
                         Following standard convention, the tombstone will be used here to indicate 
                         the end of a proof when appropriate.
                     </p>
 
                 <h3>Implied Multiplication</h3>
+
                     <p>
-                        Multiplication can be shown in two ways: with a symbol (such as \(2 \cdot 3\)
-                        or \(4 \times 6\)), or without one, by writing values together (such as 
+                        Multiplication can be shown in two ways: with a symbol (such as \(2 \cdot 
+                        3\) or \(4 \times 6\)), or without one, by writing values together (such as 
                         \(ab\), which means \(a\) times \(b\)). When a multiplication symbol is 
                         used, the operation is called <em>explicit multiplication</em>. When no 
                         symbol is used, it is called <em>implicit</em> (or <em>implied</em>) 
@@ -221,27 +239,54 @@
                     </p>
 
                     <p>
-                        Depending on the author, implicit multiplication may be given equal or 
-                        higher precedence than division. On this site, implicit multiplication in 
-                        inline mathematics always takes precedence over division. For functions 
-                        written without brackets and immediately followed by two or more implicitly 
-                        multiplied values, all of those values are taken to be part of the 
-                        function's argument. For example:
+                        Depending on the author, implicit multiplication may be parsed with 
+                        different binding strength relative to other operations. Here are the two
+                        common conventions:
+                    </p>
+
+                    <ol>
+                        <li>
+                        <strong>High-precedence implicit multiplication.</strong><br>
+                        Implicit multiplication is treated as if it were surrounded by brackets, and therefore binds more tightly than division.
+                        </li>
+                        <li>
+                        <strong>Equal-precedence implicit multiplication.</strong><br>
+                        Implicit multiplication is treated as having the same precedence as explicit multiplication.
+                        </li>
+                    </ol>
+
+                    <p>
+                        It is important to understand which convention an author is using, as the 
+                        choice can significantly affect the interpretation of an expression. For 
+                        example, under the first convention, implicit multiplication always takes 
+                        precedence over division, and functions written without brackets are 
+                        interpreted as having all immediately following implicitly multiplied 
+                        values as part of the function's argument:
                     </p>
 
                     <ul>
-                        <li>\(1 / ab = \frac{1}{ab}\)</li>
-                        <li>\(1 / ab + c = \frac{1}{ab} + c\)</li>
-                        <li>\(\cos ab = \cos(ab)\)</li>
-                        <li>\(\cos ab + c = \cos(ab) + c\)</li>
+                        <li>\( 1 / ab = \frac{1}{ab} \)</li>
+                        <li>\( \cos ab = \cos(ab) \)</li>
                     </ul>
 
                     <p>
-                        It is important to note that this convention is a stylistic choice of 
-                        notation rather than a logical necessity. While this is one common 
-                        convention, it is also common for both implicit and explicit multiplication 
-                        to have the same precedence as division. Furthermore, if there is any 
-                        possibility of ambiguity, brackets will be used.
+                    However, if the second convention were used, the same expressions would instead 
+                    be interpreted as:
+                    </p>
+
+                    <ul>
+                        <li>\( 1 / ab = \frac{1}{a} \cdot b \)</li>
+                        <li>\( \cos ab = \cos(a) \cdot b \)</li>
+                    </ul>
+
+                    <p>
+                        Either convention is a stylistic choice of notation rather than a logical 
+                        necessity. However, the second interpretation is less common in modern 
+                        mathematical writing but does appear in some calculators and informal 
+                        contexts. Throughout this website, the first convention is used: implicit 
+                        multiplication binds more tightly than division. Whenever there is any 
+                        possibility of ambiguity, brackets will be used to make the intended meaning 
+                        explicit.
                     </p>
 
                     <p class="foot-note">(This section will be expanded overtime.)</p>
@@ -254,7 +299,7 @@
             <ul class="topic-list">
                 <li>
                     <h3><a href="formal-logic-i/formal-logic-i.html">
-                        1. Formal Logic I
+                        1. <span>Formal Logic (Part I)</span>
                     </a></h3>
                     <p>This topic will include the following sections:</p>
                     <ul class="subtopic-list">
@@ -265,7 +310,7 @@
 
                 <li>
                     <h3><a onclick="showError('link')"> 
-                        2. Constructing the Real Numbers I
+                        2. <span>Constructing the Real Numbers</span>
                     </a></h3>
                     <p>This topic will include the following sections:</p>
                     <ul class="subtopic-list">
@@ -275,17 +320,7 @@
 
                 <li>
                     <h3><a onclick="showError('link')">
-                        3. Formal Logic II
-                    </a></h3>
-                    <p>This topic will include the following sections:</p>
-                    <ul class="subtopic-list">
-                        <li>temp</li>
-                    </ul>
-                </li>
-
-                <li>
-                    <h3><a onclick="showError('link')">
-                        4. Constructing the Real Numbers II
+                        3. <span>Formal Logic (Part II)</span>
                     </a></h3>
                     <p>This topic will include the following sections:</p>
                     <ul class="subtopic-list">
@@ -299,7 +334,7 @@
     <footer>
         <div class="footer-top">
             <span class="footer-small">© 2026 Archimedes-314</span>
-            <span class="footer-small">Last updated: <span id="last-updated">07 February 2026</span></span>
+            <span class="footer-small">Last updated: <span id="last-updated">11 February 2026</span></span>
         </div>
 
         <div class="footer-main">
