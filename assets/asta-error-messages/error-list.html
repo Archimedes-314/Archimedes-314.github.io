@@ -1,0 +1,104 @@
+<div class="screen-error-container" onclick="hideError('screen')">
+    <div class="screen-error-box" onclick="hideError('screen')">
+        <h2>NOTICE</h2>
+        <p>
+            It appears you're using a small screen. Due to the nature of the mathematics 
+            on this site it is best viewed in landscape mode. If your device is not in 
+            landscape mode many of the equations will run off the side of your device 
+            (you should be able to scroll/swipe to see them) and some of the menu items 
+            will be cut off due to the narrow screen width.
+        </p>
+        <p>
+            <span class="foot-note">Click to continue</span>
+        </p>
+    </div>
+</div>
+
+<div class="pdf-error-container" onclick="hideError('pdf')">
+    <div class="pdf-error-box" onclick="hideError('pdf')">
+        <h2>ERROR</h2>
+        <p>There is no PDF available for this webpage.</p>
+        <p><span class="foot-note">Click to continue</span></p>
+    </div>
+</div>
+
+<div class="pq-error-container" onclick="hideError('pq')">
+    <div class="pq-error-box" onclick="hideError('pq')">
+        <h2>ERROR</h2>
+        <p>You must be in a lesson to use this button.</p>
+        <p><span class="foot-note">Click to continue</span></p>
+    </div>
+</div>
+
+<div class="broken-ref-error-container" onclick="hideError('broken-red')">
+    <div class="broken-ref-error-box" onclick="hideError('broken-ref')">
+        <h2>ERROR</h2>
+        <p>This link appears to be broken.</p>
+        <p><span class="foot-note">Click to continue</span></p>
+    </div>
+</div>
+
+<div class="link-error-container" onclick="hideError('link')">
+    <div class="link-error-box" onclick="hideError('link')">
+        <h2>ERROR</h2>
+        <p>This section has not been completed.</p>
+        <p><span class="foot-note">Click to continue</span></p>
+    </div>
+</div>
+
+
+
+<div class="pdf-choice-error-container" onclick="hideError('pdf-choice')">
+  <div class="pdf-choice-error-box" onclick="event.stopPropagation()">
+    <h2>EMBED PDF</h2>
+
+    <p>Please choose a format:</p>
+
+    <div class="pdf-choice-buttons">
+      <button type="button" onclick="showCompletePDF()">
+        Full Section PDF
+      </button>
+
+      <button type="button" onclick="showFullPDF()">
+        Full Webpage PDF
+      </button>
+
+      <button type="button" onclick="showSimplePDF()">
+        Simplified PDF
+      </button>
+    </div>
+
+    <p>
+      <span class="foot-note">Click outside to cancel</span>
+    </p>
+  </div>
+</div>
+
+
+<div class="pdf-download-error-container" onclick="hideError('pdf-download')">
+  <div class="pdf-choice-error-box" onclick="event.stopPropagation()">
+    <h2>DOWNLOAD PDF</h2>
+
+    <p>Please choose a format:</p>
+
+    <div class="pdf-choice-buttons">
+      <button type="button" onclick="downloadCompletePDF()">
+        Complete Section PDF
+      </button>
+
+      <button type="button" onclick="downloadFullPDF()">
+        Full PDF
+      </button>
+
+      <button type="button" onclick="downloadSimplePDF()">
+        Simplified PDF
+      </button>
+    </div>
+
+    <p>
+      <span class="foot-note">Click outside to cancel</span>
+    </p>
+  </div>
+</div>
+
+

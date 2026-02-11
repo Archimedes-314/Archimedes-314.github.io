@@ -1,0 +1,385 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% This is the raw LaTeX used to create the `formal_logic_i+syntax_and_semantics' PDF.
+% Copy and paste this into OverLeaf to compile into a readable document.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[a4paper, twoside]{article}
+\usepackage[letterpaper, top=0.6in, bottom=0.6in, left=1in, right=1in]{geometry}
+
+\renewcommand{\baselinestretch}{1.15}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.8em}
+\renewcommand{\thefootnote}{\roman{footnote}} 
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{lipsum}
+\usepackage{etoolbox}
+\usepackage{tcolorbox}
+\usepackage[table]{xcolor}
+\usepackage{nicematrix}
+\usepackage{array}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true, linkcolor=blue, urlcolor=blue}
+\usepackage{chngcntr}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{graphicx}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{float}
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+\usetikzlibrary{3d}
+\pgfplotsset{compat=1.18}
+\pagestyle{fancy}
+
+
+\fancypagestyle{standard}{
+    \fancyhf{}
+    \fancyhead[R]{\footnotesize\bfseries\thepage}
+}
+
+\fancypagestyle{copyright}{
+    \fancyhf{} 
+    \fancyfoot[R]{\footnotesize ©~2026 Archimedes314 Notes---MIT License}
+    \fancyhead[R]{\footnotesize\bfseries\thepage}
+}
+
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\newcommand{\copyrightpage}{
+  \pagestyle{copyright}
+}
+
+\newcommand{\standardpage}{
+    \pagestyle{standard}
+}
+
+\titleformat{\section}
+  {\normalfont\Large\bfseries}
+  {\thesection}{1em}{}
+
+\renewcommand{\sectionmark}[1]{\markboth{#1}{}}
+
+\newcounter{examplecounter}
+\renewcommand{\theexamplecounter}{\romannumeral\value{examplecounter}}
+\newcommand{\egc}{\refstepcounter{examplecounter}\theexamplecounter \hspace{0.5em}}
+
+\newcounter{examplecounterrefer}
+\renewcommand{\theexamplecounter}{\romannumeral\value{examplecounter}}
+\newcommand{\egr}[1]{\thesubsubsection.\ref{#1} \hspace{0.5em}}
+
+\newcommand{\mc}[2]{\multicolumn{#1}{c}{#2}}
+
+%Roman and bold font shortcuts
+\renewcommand{\Re}{\mathrm{Re}}
+\renewcommand{\Im}{\mathrm{Im}}
+\newcommand{\diam}{\mathrm{diam}}
+\newcommand{\cis}{\mathrm{cis}}
+\newcommand{\Arg}{\mathrm{Arg}}
+\renewcommand{\i}{\mathrm{i}}
+\renewcommand{\d}{\mathrm{d}}
+\newcommand{\D}{\mathrm{D}}
+\newcommand{\e}{\mathrm{e}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Ce}{\hat{\mathbb{C}}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\renewcommand{\S}{\mathrm{S}}
+
+
+\renewcommand{\hat}{\widehat}
+\renewcommand{\bar}[1]{\overline{#1}}
+\newcommand{\ttilde}[1]{\underset{\Tilde{}}{#1}}
+\newcommand{\vtilde}[1]{\underset{\Tilde{}}{\mathbf{#1}}}
+\newcommand{\vect}[1]{\overrightharpoon{\mathbf{#1}}}
+\newcommand{\rarrow}{\rightarrow}
+\newcommand{\lorarrow}{\longrightarrow}
+\newcommand{\ioi}{\longleftrightarrow}
+\newcommand{\sioi}{\leftrightarrow}
+\newcommand{\defeq}{\overset{\mathrm{def}}{=}}
+\newcommand{\geqs}{\geqslant}
+\newcommand{\leqs}{\leqslant}
+\newcommand{\nsubset}{\not\subset}
+
+\makeatletter
+\DeclareFontFamily{U}{MnSymbolA}{}
+\DeclareFontShape{U}{MnSymbolA}{m}{n}{
+    <-6>  MnSymbolA5
+   <6-7>  MnSymbolA6
+   <7-8>  MnSymbolA7
+   <8-9>  MnSymbolA8
+   <9-10> MnSymbolA9
+  <10-12> MnSymbolA10
+  <12->   MnSymbolA12}{}
+\DeclareFontShape{U}{MnSymbolA}{b}{n}{
+    <-6>  MnSymbolA-Bold5
+   <6-7>  MnSymbolA-Bold6
+   <7-8>  MnSymbolA-Bold7
+   <8-9>  MnSymbolA-Bold8
+   <9-10> MnSymbolA-Bold9
+  <10-12> MnSymbolA-Bold10
+  <12->   MnSymbolA-Bold12}{}
+\DeclareSymbolFont{MnSyA}{U}{MnSymbolA}{m}{n}
+\SetSymbolFont{MnSyA}{bold}{U}{MnSymbolA}{b}{n}
+
+\DeclareRobustCommand{\overleftharpoon}{\mathpalette{\overarrow@\leftharpoonfill@}}
+\DeclareRobustCommand{\overrightharpoon}{\mathpalette{\overarrow@\rightharpoonfill@}}
+\def\leftharpoonfill@{\arrowfill@\leftharpoondown\mn@relbar\mn@relbar}
+\def\rightharpoonfill@{\arrowfill@\mn@relbar\mn@relbar\rightharpoonup}
+
+\DeclareMathSymbol{\leftharpoondown}{\mathrel}{MnSyA}{'112}
+\DeclareMathSymbol{\rightharpoonup}{\mathrel}{MnSyA}{'100}
+\DeclareMathSymbol{\mn@relbar}{\mathrel}{MnSyA}{'320}
+\makeatother
+
+\makeatletter
+\def\@afterindentfalse{\setcounter{examplecounter}{0}}
+\makeatother
+
+\makeatletter
+\def\mathcolor#1#{\@mathcolor{#1}}
+\def\@mathcolor#1#2#3{%
+  \protect\leavevmode
+  \begingroup
+    \color#1{#2}#3%
+  \endgroup
+}
+\makeatother
+
+
+\begin{document}
+\numberwithin{equation}{subsubsection}
+\newcommand{\bluebox}[2]{\begin{tcolorbox}[colback=blue!5!white, colframe=blue!75!black, title=#1] #2 \end{tcolorbox}}
+\newcommand{\egbluebox}[2]{\begin{tcolorbox}[colback=blue!5!white, colframe=blue!75!black, title=Example \egc\label{#1}] #2 \end{tcolorbox}}
+\newcommand{\aInt}[2]{\int_{#1}^{#2}}
+\newcommand{\aIInt}[4]{\int_{#1}^{#2} \int_{#3}^{#4}}
+\newcommand{\bInt}[1]{\int_{#1}}
+\newcommand{\bIInt}[2]{\int_{#1}\int_{#2}}
+\newcommand{\Int}[4]{\int_{#1}^{#2}{#3\,\text{d} #4}}
+\newcommand{\IInt}[7]{\int_{#1}^{#2}{\int_{#3}^{#4}{#5\,\text{d} #6\,\text{d} #7}}}
+\newcommand{\lInt}[3]{\int_{#1}{#2\,\d #3}}
+\newcommand{\mlInt}[3]{\int_{#1}{\left|#2\right|\,|\d #3|}}
+\newcommand{\lIInt}[3]{\iint\limits_{#1}{#2\,\d #3}}
+\newcommand{\lIIInt}[3]{\iiint\limits_{#1}{#2\,\d #3}}
+\newcommand{\Oint}[3]{\oint_{#1}{#2\,\d #3}}
+\newcommand{\mOint}[3]{\oint_{#1}{|#2|\,|\d #3|}}
+\newcommand{\nfoldInt}[5]{{}_{#1}\!\int_{#2}^{#3}{#4\, \d #5^{#1}}}
+\newcommand{\diff}[2]{\frac{\text{d} #1}{\text{d} #2}}
+\newcommand{\pdiff}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\ndiff}[3]{\frac{\d^{#1}#2}{\d {#3}^{#1}}}
+\newcommand{\EulerD}[4]{{}_{#2}^{#1}{\mathrm{D}}_{#4}^{#3}}
+\newcommand{\npartialone}[3]{\frac{\partial^{#1}#2}{\partial {#3}^{#1}}}
+\newcommand{\npartialtwo}[6]{\frac{\partial^{#1}{#4}}{\partial{#5}^{#2} \partial{#6}^{#3}}}
+\newcommand{\npartialthree}[8]{\frac{\partial^{#1}{#5}}{\partial{#6}^{#2} \partial{#7}^{#3} \partial{#8}^{#4}}}
+\newcommand{\tvec}[1]{\underset{\Tilde{}}{\mathbf{#1}}}
+\newcommand{\vvec}[2]{\langle #1, #2 \rangle}
+\newcommand{\vvvec}[3]{\langle #1, #2, #3 \rangle}
+\newcommand{\VVec}[2]{\left[\begin{array}{c}#1\\#2\end{array}\right]}
+\newcommand{\VVVec}[3]{\left[\begin{array}{c}#1\\#2\\#3\end{array}\right]}
+\newcommand{\norm}[1]{\left\|#1\right\|}
+\newcommand{\normone}[1]{\left\|#1\right\|_1}
+\newcommand{\normtwo}[1]{\left\|#1\right\|_2}
+\newcommand{\norminf}[1]{\left\|#1\right\|_\infty}
+\newcommand{\modu}[1]{\left|#1\right|}
+\newcommand{\brackets}[1]{\left(#1\right)}
+\newcommand{\sqbrackets}[1]{\left[#1\right]}
+\newcommand{\suma}[3]{\sum\limits_{#1}^{#2} #3}
+\newcommand{\sumb}[2]{\sum\limits_{#1} #2}
+\newcommand{\proda}[3]{\prod\limits_{#1}^{#2} #3}
+\newcommand{\prodb}[2]{\prod\limits_{#1} #2}
+\newcommand{\Lim}[3]{\lim_{#1\to #2} #3}
+\newcommand{\Limb}[3]{\lim_{#1\to #2} \left(#3\right)}
+\newcommand{\Lims}[3]{\lim_{#1\to #2} \left[#3\right]}
+\newcommand{\Max}[2]{\max_{#1}{#2}}
+\newcommand{\To}[2]{\overset{#1\to#2}{\lorarrow}}
+\newcommand{\Res}[1]{\underset{#1}{\text{Res}}}
+\newcommand{\Log}[2]{\log_{#1}{#2}}
+\newcommand{\Logb}[2]{\log_{#1}{\left(#2\right)}}
+\newcommand{\Logs}[2]{\log_{#1}{\left[#2\right]}}
+\newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
+\newcommand{\ceil}[1]{\left\lceil #1 \right\rceil}
+\newcommand{\eval}[3]{\left[ #1\right|_{#2}^{#3}}
+\newcommand{\evalone}[3]{\left( #1\right|_{#2}^{#3}}
+\newcommand{\evaltwo}[3]{\left. #1\right|_{#2}^{#3}}
+\newcommand{\sssu}[1]{\subsubsection*{\underline{#1}}}
+\pagenumbering{gobble}
+
+\copyrightpage
+\ \vspace{1.5em}
+\begin{center}
+    {\Huge\bfseries Syntax \& Semantics \par}
+    {\huge\bfseries \textit{Topic 1 Section 1} \par}
+    \vspace{0.1em}
+    {\LARGE Propositions \& Basic \\ Set Theoretic Symboles \par}
+    \vspace{0.4em}
+\end{center}
+
+\newpage
+\standardpage
+
+\newgeometry{left=5cm,right=5cm,top=1.5cm,bottom=1.5cm} 
+\tableofcontents
+
+
+\newpage
+
+\restoregeometry 
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+\section{Overview}
+In this overview, I'll introduce the basic syntax and semantics of propositional logic. We will cover the fundamental symbols used in propositional logic, including logical connectives, set-theoretic symbols, and quantifiers.
+
+\section{What Are Propositions?}
+In formal logic, a \textit{proposition} is a declarative statement that is either true or false, but not both. Propositions are the basic building blocks of logical reasoning and are used to construct more complex statements through logical connectives.
+
+\textit{Propositional logic} focuses on the relationships between these propositions and how they can be combined using logical operators such as `and' (conjunction), `or' (disjunction), `not' (negation), `if...then' (implication), and `if and only if' (biconditional).
+
+
+
+For example, take the following four different propositions represented by the variables \(r\), \(s\), \(c\), and \(w\):
+
+\begin{itemize}
+    \item \(r\): It is raining.
+    \item \(s\): The sun is shining.
+    \item \(c\): It is cloudy.
+    \item \(w\): The grass is wet.
+\end{itemize}
+
+Here, each proposition gets a truth value. That is, \(r\), \(s\), \(c\), and \(w\) will be either `True' or `False'. We can build more complex propositions by joining these variables with logical operators like negation (\( \neg \)), conjunction (\(\land\)), disjunction (\(\lor\)), and implication (\(\rarrow\)) as shown below:
+
+\begin{itemize}
+    \item \(\neg r\): It is not raining.
+    \item \(r \land w\): It is raining and the grass is wet.
+    \item \(s \lor r\): The sun is shining or it is raining.
+    \item \(\neg (r \lor s) \rarrow c\): It is neither raining nor is the sun shining, which means it must be cloudy.
+\end{itemize}
+
+An easy way to remember the difference between \(\land\) for conjunction and \(\lor\) for disjunction is that \(\land\) looks like a capital `A' for `and'. 
+
+\egbluebox{test}{
+Consider the following propositions:
+\begin{multicols}{2}
+\begin{itemize}
+    \item \(P(x): x\) is Prime
+    \item \(O(x): x\) is odd.
+\end{itemize}
+\end{multicols}
+We then have:
+\begin{multicols}{2}
+    \begin{itemize}
+        \item \(P(11)\) is true
+        \item \(\neg P(7)\) is false
+        \item \(P(9) \land O(9)\) is false
+        \item \(P(2) \lor O(2)\) is true
+    \end{itemize}
+\end{multicols}
+}
+
+\newpage
+
+\section{Set-theoretic Symbols}
+In formal logic, set-theoretic symbols are used to represent sets and their relationships. If we take the sets, \(S = \{1, 2, 3\}\) and \(T = \{2, 3, 4\}\), we can use the following symbols to describe their relationships:
+
+\paragraph{Is an Element Of.} The symbol \(\in\) denotes `is an element of'. If \(x \in A\), then \(x\) is an element of set \(A\). For example, \(2 \in S\) means that 2 is an element of set \(S\), and \(5 \notin T\) means that 5 is not an element of set \(T\). We use these symbols to express membership within sets.
+
+\paragraph{Is a Subset Of.} The symbol \(\subseteq\) denotes `is a subset of'. If \(A \subseteq B\), then every element of set \(A\) is also an element of set \(B\). Note that \(A\) may be equal to \(B\). For example, if we have a set \(C = \{2, 3\}\), then \(C \subseteq S\) because all elements of \(C\) (which are 2 and 3) are also elements of \(S\). However, \(S \nsubseteq T\) because \(S\) contains the element 1, which is not in \(T\).
+
+\paragraph{Is a Proper Subset Of.} The symbol \(\subset\) denotes `is a proper subset of'. If \(A \subset B\), then every element of set \(A\) is an element of set \(B\). However, \(A\) is not equal to \(B\). For example, using the same sets \(C\) and \(S\) as before, we can say that \(C \subset S\) because all elements of \(C\) are in \(S\), and \(C\) is not equal to \(S\).
+
+It's important to note that the definition of this symbol (\(\subset\)) changes depending on the author. In some texts, \(\subset\) is used to denote `is a subset of', while in others, it denotes `is a proper subset of'. Throughout this document, the symbol \(\subseteq\) will be used to denote `is a subset of', and \(\subset\) will be used to denote `is a proper subset of'.
+
+\paragraph{Union.} The symbol \(\cup\) denotes `union'. The union of sets \(A\) and \(b\) is the set of all elements that are in either \(A\) or \(B\). For example, the union of sets \(S\) and \(T\) is given by: \( S \cup T = \{ 1, 2, 3, 4 \} \).
+
+\paragraph{Intersection.} 
+The symbol \(\cap\) denotes `intersection'. The intersection of sets \(A\) and \(B\) is the set of all elements that are in both \(A\) and \(b\). For example, the intersection of sets \(S\) and \(T\) is given by: \(S \cap T = \{ 2, 3 \}\). If there are no common elements between the two sets, their intersection is the empty set, denoted by \(\emptyset\). For example, if we have sets \(U = \{ 5, 6 \}\) and \(V = \{7, 8\}\), then \(U \cap V = \emptyset\).
+
+\paragraph{Set Difference.}
+The symbol \(\setminus\) denotes `set difference'. The set difference of sets \(A\) and \(B\) is the set of all elements that are in \(A\) but not in \(B\). For example, the set difference of sets \(S\) and \(T\) is given by: \(S \setminus T = \{1\}\), since 1 is in \(S\) but not in \(T\). If we take the sets \(U = \{ 5, 6, 7, 8 \}\) and \(V = \{ 6, 7\}\), then the set difference is \(U \setminus V = \{ 5, 8 \}\).
+
+\paragraph{Such That.}
+The symbols \(\mid\) and \(:\) both denote `such that'. They are often used in set-builder notation to define a set by specifying a property that its members must satisfy. For example, the set of all even natural numbers can be defined as: \( \{ x \in \N_0 : x \text{ is even}\} \). This reads as `the set of all natural numbers \(x\) such that \(x\) is even'.
+
+In this document, the symbol \(:\) will be primarily used to denote `such that'. This is to avoid confusion, as the vertical bar symbol \(\mid\) is also used in number theory to denote `divides'. For example, \(a \mid b\) means That \(a\) is a divisor of \(b\) (i.e., \(b\) is divisible by \(a\)).
+
+\newpage
+
+\paragraph{The Set of Real Numbers (and its Subsets).}
+The set of real numbers and its subsets are represented by the following:
+
+\begin{itemize}
+    \item \(\R\): The set of real numbers.
+    \item \(\Q\): The set of rational numbers.
+    \item \(\Z\): The set of integers.
+    \item \(\N_0\): The set of natural numbers.
+    \item \(\N\): The set of natural numbers excluding zero.
+\end{itemize}
+
+There is no specific symbol for the set of irrational numbers, but they can be represented as \(\R \setminus \Q\), which denotes the set of all real numbers that are not rational. Some authors may use custom definition, such as \(\mathbb{P} = \{ x : x \in \R \land x \notin \Q \}\), to denote the set of irrational numbers. However, this document will use the set difference notation \(\R \setminus \Q\) for the irrational numbers.
+
+Note that some authors define the set of natural numbers \(\N\) to include 0, while others define it to start from 1. In this document, I'll use \(\N_0\) to denote the set of natural numbers including 0, and \(\N\) to denote the set of natural numbers excluding 0. When referring to the `natural numbers', it should be implied that I am referring to \(\N_0\) unless context implies otherwise. If there is any ambiguity, clarification will be provided.
+
+The set of integers \(\Z\) includes the natural numbers (including 0), and the negative numbers. Using some basic notation, we can define the following variations of the set of integers:
+
+\begin{itemize}
+    \item \( \Z_{<0} = \{ x \in \Z : x < 0 \} \): The set of negative integers (i.e., \( \{-1, -2, -3, \ldots\} \)).
+    \item \( \Z_{\leq 0} = \{ x \in \Z : x \leq 0 \} \): The set of negative integers including zero (i.e., \( \{0, -1, -2, -3, \ldots\} \)).
+\end{itemize}
+
+Similarly, we can define variations of the set of rational numbers:
+
+
+\begin{itemize}
+    \item \(\Q_{> 0} = \{ x \in \Q : x > 0 \}\): The set of positive rational numbers.
+    \item \(\Q_{\geq 0} = \{ x \in \Q : x \geq 0 \}\): The set of non-negative rational numbers.
+    \item \(\Q_{< 0} = \{ x \in \Q : x < 0 \}\): The set of negative rational numbers.
+    \item \(\Q_{\leq 0} = \{ x \in \Q : x \leq 0 \}\): The set of non-positive rational numbers.
+\end{itemize}
+
+Similar notation can be applied to the set of real numbers \(\R\) as well:
+
+\begin{itemize}
+    \item \(\R_{> 0} = \{ x \in \R : x > 0 \} = (0, \infty)\): The set of positive real numbers.
+    \item \(\R_{\geq 0} = \{ x \in \R : x \geq 0 \} = [0, \infty) \): The set of positive real numbers including zero.
+    \item \(\R_{< 0} = \{ x \in \R : x < 0 \} = (-\infty, 0)\): The set of negative real numbers.
+    \item \(\R_{\leq 0} = \{ x \in \R : x \leq 0 \} = (-\infty, 0]\): The set of negative real numbers including zero.
+\end{itemize}
+
+Some authors may use other notation notation to represent subsets (for example, \( \R^+ \) can represent the non-negative real numbers). However, I've decieded to use the above notation to ensure carity as to whether 0 is or is not included in the subsets. Set builder notation will be used if clarification is needed.
+
+\section{Universal and Existential Quantifiers}
+Quantifiers are symbols that tell us how many members of a set or group a statement applies to. Instead of talking about just one particular object, quantifiers allow us to make statements about all objects in a group or about the existence of at least one object with a certain property.
+
+\paragraph{Universal Quantifier.}
+The universal quantifier is denoted by the symbol \(\forall\) and is read as `for all' or `for every'. It is used to indicate that a statement applies to all elements in a particular set or domain. For example, we'll take the following propositions:
+
+\begin{itemize}
+    \item \(P(x)\): \(x\) is prime greater than 2.
+    \item \(O(x)\): \(x\) is odd.
+\end{itemize}
+
+These are both propositions because they can be either true or false depending on the value of \(x\). For example, if \(x = 5\), then \(P(5)\) is true and \(O(5)\) is true. However, if \(x = 4\), then \(P(4)\) is false and \(O(4)\) is false. Using the universal quantifier, we can express the statement that all prime numbers greater than 2 are odd as follows:
+
+\(\forall x (P(x) \rarrow O(x))\), which reads: `for all values of \(x\), if \(x\) is prime greater than 2, then \(x\) is odd.'
+
+\paragraph{Existential Quantifier.}
+The existential quantifier is denoted by the symbol \(\exists\) and is read as `there exists' or `there is at least one'. It is used to indicate that there is at least one element in a particular set or domain that satisfies a given property. For example, the statement \(\exists x ( x \in \R \land x^2 = 4)\) means `there exist a number \(x\) where \(x\) is a real number and \(x\) squared equals 4', or more naturally, `there exists a real number whose square is 4'. In this case, the values \(x = 2\) and \(x = -2\) both satisfy the property.
+
+\newpage
+\pagenumbering{gobble}\section*{} \ \vfill
+\textbf{Document Management} \\
+Version: 1.1 \\
+Created: 23 January 2025 \\ 
+Reviewed: 06 February 2025 \\
+Contact: archimedes314notes@gmail.com
+
+
+\end{document}
