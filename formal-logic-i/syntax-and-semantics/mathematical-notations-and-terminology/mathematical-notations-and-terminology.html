@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propositional Formulas</title>
+    <link rel="icon" href="/assets/style/images/archimedes.png" />
+    <link rel="stylesheet" href="/assets/style/style-sheet.css">
+    <link rel="stylesheet" href="/assets/style/head-foot-dark.css">
+    <link rel="stylesheet" href="/assets/style/head-foot.css">
+    <link rel="stylesheet" href="/assets/asta-error-messages/error-list.css">
+    <link rel="stylesheet" href="/assets/menu/menu.css">
+    <script src="/assets/style/style-sheet.js"></script>
+
+    <link rel="stylesheet" href="/assets/settings/settings.css">
+    <script src="/assets/settings/settings.js"></script>
+
+    <script src="/assets/main-js/macros.js"></script>
+    <script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+<body>
+
+    <header class="site-header">
+        <h1 class="header-h1-shadow">Eli's Online Notes</h1>
+
+        <div class="header-actions">
+            <button
+            onclick="showError('link')"
+            class="header-btn header-btn--primary"
+            aria-expanded="false"
+            type="button"
+            >
+            <svg class="header-btn-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 5v14M5 12h14"></path>
+            </svg>
+            <span class="header-btn-text">Show PDF</span>
+            </button>
+
+            <button
+            onclick="showError('link')"
+            class="header-btn header-btn--primary small-screen-header-rm"
+            type="button"
+            >
+            <svg class="w-[24px] h-[24px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                <path fill-rule="evenodd" d="M9 2.221V7H4.221a2 2 0 0 1 .365-.5L8.5 2.586A2 2 0 0 1 9 2.22ZM11 2v5a2 2 0 0 1-2 2H4a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2 2 2 0 0 0 2 2h12a2 2 0 0 0 2-2 2 2 0 0 0 2-2v-7a2 2 0 0 0-2-2V4a2 2 0 0 0-2-2h-7Zm-6 9a1 1 0 0 0-1 1v5a1 1 0 1 0 2 0v-1h.5a2.5 2.5 0 0 0 0-5H5Zm1.5 3H6v-1h.5a.5.5 0 0 1 0 1Zm4.5-3a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1h1.376A2.626 2.626 0 0 0 15 15.375v-1.75A2.626 2.626 0 0 0 12.375 11H11Zm1 5v-3h.375a.626.626 0 0 1 .625.626v1.748a.625.625 0 0 1-.626.626H12Zm5-5a1 1 0 0 0-1 1v5a1 1 0 1 0 2 0v-1h1a1 1 0 1 0 0-2h-1v-1h1a1 1 0 1 0 0-2h-2Z" clip-rule="evenodd"/>
+            </svg>
+            <span class="header-btn-text">Download PDF</span>
+            </button>
+
+            <a 
+            class="header-btn header-btn--primary header-btn-pq"
+            onclick="showError('link')"
+            >
+                <svg class="w-[24px] h-[24px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 20V7m0 13-4-4m4 4 4-4m4-12v13m0-13 4 4m-4-4-4 4"/>
+                </svg>
+                <span class="header-btn-text">Practice Questions</span>
+            </a>
+        </div>
+
+        <div class="hamburger" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    
+        <div class="overlay" onclick="toggleMenu()"></div>
+
+        <div id="menu-container"></div>
+        <div id="error-container"></div>
+    </header>
+
+    <div class="spacer"></div>
+
+    <div class="breadcrumb-wrapper">
+        <nav class="breadcrumbs">
+            <a class="nav-link" href="/index.html">Home</a>
+            <a class="nav-link" href="/formal-logic-i/formal-logic-i.html">Formal Logic I</a>
+            <a class="nav-link" href="/formal-logic-i/syntax-and-semantics/syntax-and-semantics.html">Propositional Logic: Syntax and Semantics</a>
+            <p>Propositional Formulas</p>
+        </nav>
+    </div>
+
+    <div class="sub-links">
+        <a href="#top">Back to Top</a>
+        <a href="#section1">Overview</a>
+        <a href="#section2">What are propositions?</a>
+        <a href="#section3">Set-theoretic Symbols</a>
+        <a href="#section4">Universal and Existential Quantifiers</a>
+        <a href="#section5">Lessons</a>
+    </div>
+
+    <main>
+        <section
+        id="pdfContainer"
+        hidden
+        data-pdf="formal_logic_i+syntax_and_semantics"
+        >
+        <embed
+            id="pdfEmbed"
+            src="/pdf/formal_logic_i+syntax_and_semantics.pdf"
+            type="application/pdf"
+            width="100%"
+            height="800px"
+        />
+        </section>
+
+        <input type="checkbox" id="calculator-toggle" hidden>
+
+        <div class="calculator-container">
+            <label for="calculator-toggle" class="calculator-tab">
+                Calculator
+            </label>
+
+            <div class="calculator">
+                <iframe
+                src="https://graphingti84calculator.com/TI-84"
+                width="100%"
+                height="100%"
+                frameborder="0"
+                allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+
+        <section id="section1">
+            <h2>Sets</h2>
+            <p>
+                A set is a collection of objects considered as a single entity. The objects in a set 
+                are called its elements or members. Sets can contain any kind of object, such as 
+                numbers, symbols, or even other sets. One common way to formally define a set is to 
+                list its elements inside curly brackets. For example, the set \(\{1, 2, 3\}\) 
+                contains the elements \(1\), \(2\), and \(3\).
+            </p>
+
+            <p>
+                The order in which we list the elements does not matter, and repeating elements does 
+                not change the set. So, \(\{3, 1, 1, 1, 2\}\) is the same as \(\{1, 2, 3\}\). If we 
+                want to keep track of how many times each element appears, we use the term multiset 
+                instead of set. For instance, \(\{3\}\) and \(\{3, 3\}\) are different as multisets 
+                but are the same as sets. 
+            </p>
+
+            <p>
+                An infinite set has infinitely many elements. Since we cannot list all the elements 
+                of an infinite set, we often use the notation '\(\ldots\)' to indicate that the 
+                sequence continues forever.
+            </p>
+
+            <p>
+                We can use set-builder notation to describe a set containing elements according to 
+                some rule, which is often in the form \(\{n : [\text{rule about } n]\}\). For 
+                example, the set \(\{n \in \R : 2 \mid n\}\) represents the set of all real numbers 
+                such that \(n\) is divisible by \(2\).
+            </p>
+
+            <div
+            class="example"
+            data-collapsible="true"
+            data-box-name="Using Set-Builder Notation"
+            >
+            Using set builder notation, make sets that describe the following:
+            <ol 
+            class="multicol"
+            type="a"
+            data-col-number="2"
+            data-col-gap="1rem"
+            >
+                <li>The set of irrational numbers</li>
+                <li>The set of negative integers greater than \(-6\)</li>
+                <li>The set of integers that are multiples of 4 but not multiples of 8</li>
+                <li>The set of all numbers that can be written as \(3n - 2\) where \(n \in \Z\)</li>
+                <li>The empty set written in set-builder notation</li>
+            </ol>
+                <div class="working">
+                    <ol type="a" class="lo-bdr-list">
+                        <li>
+                            <p class="answer"><strong>Answer: </strong>\(\{ x : (x \in \R) \land (x \notin \Q) \}\)</p>
+                            <p class="reason"><strong>Reason: </strong>This gives the set of \(x\) that is real and isn't rational.</p>
+                        </li>
+
+                        <li>
+                            <p class="answer"><strong>Answer: </strong>\(\{ x \in \Z : -6 \lt x \lt 0 \}\)</p>
+                            <p class="reason"><strong>Reason: </strong>\(0\) is not a negative number, so we need to exclude it. We also need to be greater than \(-6\). This gives \(-6 \lt x \lt 0\).</p>
+                        </li>
+
+                        <li>
+                            <p class="answer"><strong>Answer: </strong>\(\{ x : (4 \mid x) \land (8 \not\mid x) \}\)</p>
+                            <p class="reason"><strong>Reason: </strong>
+                                We take the set of \(x\), and state out constraints. Adding brackets 
+                                and using '\(:\)' helps make the set easier to read, as opposed 
+                                <span class="nb">to \(\{ x \, | \, 4 \mid x \land 8 \not\mid x \}\), \(\{ x \, | \, (4 \mid x) \land (8 \not\mid x) \}\)</span> <span class="nb">or \(\{ x \, : \, 4 \mid x \land 8 \not\mid x \}\)</span>
+                            </p>
+                        </li>
+
+                        <li>
+                            <p class="answer"><strong>Answer: </strong>\(\{ 3n - 2 : n \in \Z \}\)</p>
+                            <p class="reason"><strong>Reason: </strong>Don't give complicated answers if you don't need to. We simply need the set of integers in the form \(3n - 2\) for \(n \in \Z\). While the following is correct, it is a lot harder to read and isn't <span class="nb">necessary: \(\{ x : \exists n((n \in \Z) \land (x = 3n - 2)) \}\).</span></p>
+                        </li>
+
+                        <li>
+                            <p class="answer"><strong>Answer: </strong>Let \(x \in A\), and \(P(x)\) be false for all \(x\). Then, \(\emptyset = \{ x : P(x) \}\)</p>
+                            <p class="reason"><strong>Reason: </strong>
+                                We start by letting \(x\) be in some set \(A\), and let some 
+                                proposition \(P\) be false for all values of \(x\). This means 
+                                \(P(x)\) will always be false. We can then set the empty set to be 
+                                the set of values \(x\) where \(P(x)\) is true. This is a 
+                                contradiction, leading to the set being empty. An example of this is 
+                                \(\{ x : x \neq x\}\).
+                            </p>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Set-Theoretic Symbols</h2>
+                <p>
+                    In formal logic, set-theoretic symbols are used to represent sets and their 
+                    relationships. If we take the sets \(S = \{1, 2, 3\}\) and \(T = \{2, 3, 4\}\), 
+                    we can use the following symbols to describe their relationships:
+                </p>
+                <h4>Is an Element Of</h4>
+                <p>
+                    The symbol \(\in\) denotes 'is an element of'. If \(x \in A\), then \(x\) is an 
+                    element of set \(A\). For example, \(2 \in S\) means that 2 is an element of set
+                    \(S\), and \(5 \notin T\) means that 5 is not an element of set \(T\). We use 
+                    these symbols to express membership within sets.
+                </p>
+
+                <h4>Is a Subset Of</h4>
+                <p>
+                    The symbol \(\subseteq\) denotes 'is a subset of'. If \(A \subseteq B\), then every 
+                    element of set \(A\) is also an element of set \(B\). Note that \(A\) may be equal 
+                    to \(B\). For example, if we have a set \(C = \{2, 3\}\), then \(C \subseteq S\) 
+                    because all elements of \(C\) (which are 2 and 3) are also elements of \(S\). 
+                    However, \(S \not\subseteq T\) because \(S\) contains the element 1, which is not 
+                    in \(T\).
+                </p>
+
+                <img src="/assets/plots/videos/BooleanOperationsSubset.gif" controls style="max-width: 500px; width: 100%; height: auto;">
+
+                <h4>Is a Proper Subset Of</h4>
+                <p>
+                    The symbol \(\subset\) denotes 'is a proper subset of'. If \(A \subset B\), then 
+                    every element of set \(A\) is an element of set \(B\). However, \(A\) is not equal 
+                    to \(B\). For example, using the same sets \(C\) and \(S\) as before, we can say that 
+                    \(C \subset S\) because all elements of \(C\) are in \(S\), and \(C\) is not equal 
+                    to \(S\).
+                </p>
+
+                <p>
+                    It's important to note that the definition of this symbol (\(\subset\)) changes 
+                    depending on the author. In some texts, \(\subset\) is used to denote 'is a subset 
+                    of', while in others, it denotes 'is a proper subset of'. Throughout this website,
+                    the symbol \(\subseteq\) will be used to denote 'is a subset of', and \(\subset\) 
+                    will be used to denote 'is a proper subset of'.
+                </p>
+
+                <img src="/assets/plots/videos/BooleanOperationsProperSubset.gif" controls style="max-width: 500px; width: 100%; height: auto;">
+
+                <h4>Union</h4>
+                <p>
+                    The symbol \(\cup\) denotes 'union'. The union of sets \(A\) and \(B\) is the set 
+                    of all elements that are in either \(A\) or \(B\). For example, the union of sets
+                    \(S\) and \(T\) is given by: \(S \cup T = \{1, 2, 3, 4\}\).
+                </p>
+
+                <img src="/assets/plots/videos/BooleanOperationsUnion.gif" controls style="max-width: 500px; width: 100%; height: auto;">
+
+                <h4>Intersection</h4>
+                <p>
+                    The symbol \(\cap\) denotes 'intersection'. The intersection of sets \(A\) and 
+                    \(B\) is the set of all elements that are in both \(A\) and \(B\). For example, the
+                    intersection of sets \(S\) and \(T\) is given by: \(S \cap T = \{2, 3\}\). If there are 
+                    no common elements between the two sets, their intersection is the empty set, 
+                    denoted by \(\emptyset\). For example, if we have sets \(U = \{5, 6\}\) and 
+                    \(V = \{7, 8\}\), then \(U \cap V = \emptyset\).
+                </p>
+
+                <img src="/assets/plots/videos/BooleanOperationsIntersection.gif" controls style="max-width: 500px; width: 100%; height: auto;">
+
+                <h4>Set Difference</h4>
+                <p>
+                    The symbol \(\setminus\) denotes 'set difference'. The set difference of sets 
+                    \(A\) and \(B\) is the set of all elements that are in \(A\) but not in \(B\).
+                    For example, the set difference of sets \(S\) and \(T\) is given by: \(S \setminus T = 
+                    \{1\}\), since 1 is in \(S\) but not in \(T\). If we take the sets 
+                    \(U = \{5, 6, 7, 8\}\) and \(V = \{6, 7\}\), then the set difference is
+                    \(U \setminus V = \{5, 8\}\).
+                </p>
+
+                <img src="/assets/plots/videos/BooleanOperationsDifference.gif" controls style="max-width: 500px; width: 100%; height: auto;">
+
+                <h4>Such That</h4>
+                <p>
+                    The symbols \(\mid\) and \(:\) both denote 'such that'. They are often used in 
+                    set-builder notation to define a set by specifying a property that its members 
+                    must satisfy. For example, the set of all even natural numbers can be defined as: 
+                    \(\{x \in \N_0 : x \text{ is even}\}\). This reads as 'the set of all \(x\) in 
+                    the natural numbers such that \(x\) is even'.
+                </p>
+
+                <p>
+                    In this website, the symbol \(:\) will be primarily used to denote 'such that'.
+                    This is to avoid confusion, as the vertical bar symbol \(\mid\) is also
+                    used in number theory to denote 'divides'. For example, \(a \mid b\) means That
+                    \(a\) is a divisor of \(b\) (i.e., \(b\) is divisible by \(a\)).
+                </p>
+
+                <h4>The Set of Real Numbers (and its Subsets)</h4>
+                <p>
+                    The set of real numbers and its subsets are represented by the following:
+                </p>
+                <ul>
+                    <li>\(\R\): The set of real numbers.</li>
+                    <li>\(\Q\): The set of rational numbers.</li>
+                    <li>\(\Z\): The set of integers.</li>
+                    <li>\(\N_0\): The set of natural numbers.</li>
+                    <li>\(\N\): The set of natural numbers excluding zero.</li>
+                </ul>
+                <p>
+                    There is no specific symbol for the set of irrational numbers, 
+                    but they can be represented as \(\R \setminus \Q\), which denotes the set of all 
+                    real numbers that are not rational. Some authors may use custom definition, such 
+                    as \(\mathbb{P} = \{ x : x \in \R \land x \notin \Q \}\), to denote the set of 
+                    irrational numbers. However, this website will use the set difference notation 
+                    \(\R \setminus \Q\) for the irrational numbers.
+                </p>
+
+                <p>
+                    Note that some authors define the set of natural numbers \(\N\) to include zero, 
+                    while others define it to start from one. In this website, I will use \(\N_0\) 
+                    to denote the set of natural numbers including zero, and \(\N\) to denote the set 
+                    of natural numbers excluding zero. When referring to the 'natural numbers', it
+                    should be implied that I am referring to \(\N_0\) unless context implies otherwise.
+                    If there is any ambiguity, clarification will be provided.
+                </p>
+
+                <p>
+                    The set of integers \(\Z\) includes the natural numbers (including 0), and the
+                    negative numbers. Using set builder notation, we can define the following variations
+                    of the set of integers:
+                </p>
+                <ul>
+                    <li>\( \Z_{\lt 0} = \{ x \in \Z : x \lt 0 \} \): The set of negative integers (i.e., \( \{-1, -2, -3, \ldots\} \)).</li>
+                    <li>\( \Z_{\leq 0} = \{ x \in \Z : x \leq 0 \} \): The set of negative integers including zero (i.e., \( \{0, -1, -2, -3, \ldots\} \)).</li>
+                </ul>
+
+                <p>
+                    Similarly, we can define variations of the set of rational numbers:
+                </p>
+                <ul>
+                    <li>\(\Q_{\gt 0} = \{ x \in \Q : x \gt 0 \}\): The set of positive rational numbers.</li>
+                    <li>\(\Q_{\geq 0} = \{ x \in \Q : x \geq 0 \}\): The set of non-negative rational numbers.</li>
+                    <li>\(\Q_{\lt 0} = \{ x \in \Q : x \lt 0 \}\): The set of negative rational numbers.</li>
+                    <li>\(\Q_{\leq 0} = \{ x \in \Q : x \leq 0 \}\): The set of non-positive rational numbers.</li>
+                </ul>
+
+                <p>
+                    Similar notation can be applied to the set of real numbers \(\R\) as well:
+                </p>
+                <ul>
+                    <li>\(\R_{\gt 0} = \{ x \in \R : x \gt 0 \} = (0, \infty)\): The set of positive real numbers.</li>
+                    <li>\(\R_{\geq 0} = \{ x \in \R : x \geq 0 \} = [0, \infty) \): The set of positive real numbers including zero.</li>
+                    <li>\(\R_{\lt 0} = \{ x \in \R : x \lt 0 \} = (-\infty, 0)\): The set of negative real numbers.</li>
+                    <li>\(\R_{\leq 0} = \{ x \in \R : x \leq 0 \} = (-\infty, 0]\): The set of negative real numbers including zero.</li>
+                </ul>
+                <p>
+                    Some authors may use other notation notation to represent subsets (for example,
+                    \( \R^+ \) can represent the non-negative real numbers). However, I've decieded
+                    to use the above notation to ensure carity as to whether 0 is or is not included 
+                    in the subsets. Set builder notation will be used if clarification is needed.
+                </p>
+        </section>
+
+        <section>
+            <h2 class="section-title">Universal and Existential Quantifiers</h2>
+                <h4>Universal Quantifier</h4>
+                <p>
+                    The universal quantifier is denoted by the symbol \(\forall\) and is read as 
+                    'for all' or 'for every'. It is used to indicate that a statement applies to all 
+                    elements in a particular set or domain. For example, we'll take the following
+                    propositions:
+                </p>
+                <ul>
+                    <li>\(P(x)\): \(x\) is prime greater than 2.</li>
+                    <li>\(O(x)\): \(x\) is odd.</li>
+                </ul>
+                <p>
+                    These are both propositions because they can be either true or false depending on 
+                    the value of \(x\). For example, if \(x = 5\), then \(P(5)\) is true and \(O(5)\) 
+                    is true. However, if \(x = 4\), then \(P(4)\) is false and \(O(4)\) is false. 
+                    Using the universal quantifier, we can express the statement that all prime numbers 
+                    greater than 2 are odd as follows:
+                </p>
+                <p>
+                    \(\forall x (P(x) \rarrow O(x))\), which reads: 'for all values of \(x\), if 
+                    \(x\) is prime greater than 2, then \(x\) is odd.'
+                </p>
+
+                <h4>Existential Quantifier</h4>
+                <p>
+                    The existential quantifier is denoted by the symbol \(\exists\) and is read as 
+                    'there exists' or 'there is at least one'. It is used to indicate that there is 
+                    at least one element in a particular set or domain that satisfies a given 
+                    property. For example, the statement \(\exists x ( x \in \R \land x^2 = 4)\) 
+                    means 'there exist a number \(x\) where \(x\) is a real number and \(x\) squared 
+                    equals 4', or more naturally, 'there exists a real number whose square is 4'. 
+                    In this case, the values \(x = 2\) and \(x = -2\) both satisfy the property.
+                </p>
+
+                <p>
+                    The notation \(\exists!\) is used to represent 'there exists exactly one'. For example,
+                    \(\exists! n( n \in \N \land n^2 = n )\). This means 'there exists a unique positive 
+                    integer which is equal to its square'. That unique positive integer is \(1\).
+                </p>
+                <div
+                class="example"
+                data-collapsible="true"
+                data-box-name="Simplifing Set Builder Notation"
+                >
+                Simply the following sets given the universal set is \(\R\):
+                <ol 
+                class="multicol"
+                type="a"
+                data-col-number="2"
+                data-col-gap="1rem"
+                >
+                    <li>\(\Big\{ x : \forall n\Big((n \in \N) \rarrow (x = 3n - 2) \Big) \Big\}\)</li>
+                    <li>\(\Bigg\{ x : \exists n\Bigg( (n \in \Z) \land \Big((x = n^2) \land (x \lt 0)\Big)\Bigg) \Bigg\}\)</li>
+                    <li>\(\Big\{ x : \forall n\Big( (n \in \N \land x = n) \rarrow n^2 = x\Big) \Big\}\)</li>
+                    <li>\(\Big\{x : \exists! n \in \Z\Big((n \lt 8) \land (n^2 = x)\Big)\Big\}\)</li>
+                </ol>
+                    <div class="working">
+                        <ol type="a" class="lo-bdr-list">
+                            <li>
+                                <p class="answer"><strong>Answer: </strong>\(\emptyset\)</p>
+                                <p class="reason"><strong>Reason: </strong>
+                                    If the statement is true for <em>all</em> natural numbers, then
+                                    \(x\) must equal \(3n - 2\) for every \(n \in \N\). However, 
+                                    \(3n - 2\) takes on multiplie <span class="nb">values (\(1, 3, 7, \cdots\))</span>, and 
+                                    there is no value \(x\) that can equal them all at once. Thus, 
+                                    we get the empty set.
+                                </p>
+                            </li>
+
+                            <li>
+                                <p class="answer"><strong>Answer: </strong>\(\emptyset\)</p>
+                                <p class="reason"><strong>Reason: </strong>The square of an integer is never negative.</p>
+                            </li>
+
+                            <li>
+                                <p class="answer"><strong>Answer: </strong>\((\R \setminus \N) \cup \{0, 1\}\)</p>
+                                <p class="reason"><strong>Reason: </strong>
+                                    If \(x \notin \N\), then \(n \in \N \land n = x\) is always false. So 
+                                    the implication is true for all \(n\), and thus every non-natural 
+                                    real \(x\) is included. If \(x \in \N\), then we need 
+                                    \(x = n \rarrow x = n^2\). This is only true for \(0\) and \(1\).
+                                </p>
+                            </li>
+
+                            <li>
+                                <p class="answer"><strong>Answer: </strong>\(\{0\} \cup \{n^2 : n \in \Z \land n \geq 8 \}\)</p>
+                                <p class="reason"><strong>Reason:</strong>
+                                    We need exactly one integer \(n\) such that both \(n \lt 8\) and \(n^2 = x\) hold.
+                                    For \(x=0\), only \(n=0\) satisfies \(n^2=0\), so \(x=0\) is valid.
+                                    For any positive square \(x = k^2\) with \(k \lt 8\), both \(n = k\) and \(n = -k\) satisfy
+                                    \(n^2 = x\) and \(n \lt 8\), so there are two solutions, which is not allowed.
+                                    If \(k \ge 8\), then \(+k\) does not satisfy \(n \lt 8\), but \(-k\) does, so there is
+                                    exactly one solution.
+                                    Therefore the set contains \(0\) and all squares \(k^2\) where \(k\in\Z\) and \(k \leq -8\).
+                                    Because \(k^2 = (-k)^2\), an equivalent set is \(\{0\} \cup \{ n^2 : n \in \Z \land n \geq 8 \}\).
+                                </p>
+
+
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="footer-top">
+            <span class="footer-small">© 2026 Archimedes-314</span>
+            <span class="footer-small">Last updated: <span id="last-updated">12 February 2026</span></span>
+        </div>
+
+    <div class="footer-main">
+        <p class="footer-disclaimer">Errors may exist; corrections welcome.</p>
+        <p class="footer-contact">
+            <a href="/contact/contact.html">Feedback/Contact Page</a>
+        </p>
+        <p class="footer-contact">
+            Email Directly:
+            <a href="mailto:archimedes314notes@gmail.com">
+                archimedes314notes@gmail.com
+            </a>
+        </p>
+        <p class="footer-source">
+            Source code on
+            <a href="https://github.com/Archimedes-314" target="_blank">GitHub</a>
+        </p>
+    </div>
+    </footer>
+    <script src="/assets/menu/menu.js"></script>
+    <script src="/assets/main-js/macros.js"></script>
+    <script src="/assets/main-js/scroll-spy.js"></script>
+    <script src="/assets/main-js/fetch.js"></script>
+    <script src="/assets/asta-error-messages/error-list.js"></script>
+    <script src="/assets/main-js/show-embed.js"></script>
+    <script src="/assets/main-js/maths-box.js"></script>
+    <script src="/assets/main-js/collapsible-sections.js"></script>
+</body>
+</html>

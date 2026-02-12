@@ -27,9 +27,7 @@
   transform: translateX(0);
   pointer-events: auto;
 
-  transition:
-    opacity 0.25s ease,
-    transform 0.25s ease;
+
 }
 
 .header-h1-shadow {
