@@ -1,6 +1,6 @@
 from manim import *
 
-class BooleanOperationsIntersection(Scene):
+class BooleanOperationsUnion(Scene):
     def construct(self):
         ellipse1 = Ellipse(
             width=5.0, height=5.0, fill_opacity=0.5, color=BLUE, stroke_width=10
@@ -14,14 +14,14 @@ class BooleanOperationsIntersection(Scene):
 
         self.wait(0.5)
 
-
-        i = Intersection(ellipse1, ellipse2, color=GREEN, fill_opacity=0.5)
-        self.play(i.animate)
+        u = Union(ellipse1, ellipse2, color=ORANGE, fill_opacity=0.5)
+        union_text = MathTex(r"A \cup B", font_size=36)
+        self.play(u.animate)
         self.wait(0.1)
-        self.play(i.animate.move_to(RIGHT * 4))
-        intersection_text = MathTex(r"A \cap B", font_size=36).next_to(i, UP)
-        self.play(FadeIn(intersection_text, run_time=0.5))
+        self.play(u.animate.scale(0.8).move_to(RIGHT * 4))
+        union_text.next_to(u, UP)
+        self.play(FadeIn(union_text, run_time=0.5))
 
         self.wait(3)
 
-# manim -pql --format gif --fps 30 bool_ops_intersection.py BooleanOperationsIntersection
+# manim -pql --format gif --fps 30 bool_ops_union.py BooleanOperationsUnion
