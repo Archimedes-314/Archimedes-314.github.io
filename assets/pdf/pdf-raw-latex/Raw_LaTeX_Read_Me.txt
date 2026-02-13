@@ -1,1 +1,0 @@
-The content in this folder contains the raw LaTeX code used to create the PDF documents. This folder is for users who wish to view or download the LaTeX source files. The LaTeX files can be compiled using a LaTeX editor such as OverLeaf. This folder does not contain any HTML files, or code used to create the website.

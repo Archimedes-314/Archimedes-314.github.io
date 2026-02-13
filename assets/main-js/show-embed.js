@@ -30,15 +30,15 @@ document.addEventListener("DOMContentLoaded", () => {
     hideError("pdf-choice");
 
     if (!sectionKey) {
-      showError('link')
-    } else {
-      pdfEmbed.src = COMPLETE_PDF;
-
-        pdfContainer.removeAttribute("hidden");
-        btn.setAttribute("aria-expanded", "true");
-        text.textContent = "Hide PDF";
-        iconPath.setAttribute("d", "M5 12h14");
+      showError('link');
+      return;
     }
+    pdfEmbed.src = COMPLETE_PDF;
+
+      pdfContainer.removeAttribute("hidden");
+      btn.setAttribute("aria-expanded", "true");
+      text.textContent = "Hide PDF";
+      iconPath.setAttribute("d", "M5 12h14");
   };
 
   window.showFullPDF = function () {
@@ -71,12 +71,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   window.downloadCompletePDF = function () {
     hideError("pdf-download");
-    triggerDownload(COMPLETE_PDF, `${sectionKey}-complete.pdf`);
+    triggerDownload(COMPLETE_PDF, `${sectionKey}-section.pdf`);
   };
 
   window.downloadFullPDF = function () {
     hideError("pdf-download");
-    triggerDownload(FULL_PDF, `${webpageKey}.pdf`);
+    triggerDownload(FULL_PDF, `${webpageKey}-webpage.pdf`);
   };
 
   window.downloadSimplePDF = function () {

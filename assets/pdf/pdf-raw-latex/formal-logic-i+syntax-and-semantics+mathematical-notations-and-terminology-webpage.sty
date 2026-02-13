@@ -420,19 +420,43 @@ The universal quantifier is denoted by the symbol \(\forall\) and is read as `fo
     \item \(O(x)\): \(x\) is odd.
 \end{itemize}
 
-These are both propositions because they can be either true or false depending on the value of \(x\). For example, if \(x = 5\), then \(P(5)\) is true and \(O(5)\) is true. However, if \(x = 4\), then \(P(4)\) is false and \(O(4)\) is false. Using the universal quantifier, we can express the statement that all prime numbers greater than 2 are odd as follows:
-
-\(\forall x (P(x) \rarrow O(x))\), which reads: `for all values of \(x\), if \(x\) is prime greater than 2, then \(x\) is odd.'
+These are both propositions because they can be either true or false depending on the value of \(x\). For example, if \(x = 5\), then \(P(5)\) is true and \(O(5)\) is true. However, if \(x = 4\), then \(P(4)\) is false and \(O(4)\) is false. Using the universal quantifier, we can express the statement that all prime numbers greater than 2 are odd: \(\forall x (P(x) \rarrow O(x))\), which reads: `for all values of \(x\), if \(x\) is prime greater than 2, then \(x\) is odd.'
 
 \paragraph{Existential Quantifier.}
 The existential quantifier is denoted by the symbol \(\exists\) and is read as `there exists' or `there is at least one'. It is used to indicate that there is at least one element in a particular set or domain that satisfies a given property. For example, the statement \(\exists x ( x \in \R \land x^2 = 4)\) means `there exist a number \(x\) where \(x\) is a real number and \(x\) squared equals 4', or more naturally, `there exists a real number whose square is 4'. In this case, the values \(x = 2\) and \(x = -2\) both satisfy the property.
 
+\egblueboxs{QuantifersEg}{
+    Consider the following sets, given the universal set is \(\R\):
+    \begin{multicols}{2}
+        \begin{enumerate}
+            \item \(\Big\{ x : \forall n\Big((n \in \N) \rarrow (x = 3n - 2) \Big) \Big\}\)
+            \item \(\Bigg\{ x : \exists n\Bigg( (n \in \Z) \land \Big((x = n^2) \land (x < 0)\Big)\Bigg) \Bigg\}\)
+            \item \(\Big\{ x : \forall n\Big( (n \in \N \land x = n) \rarrow n^2 = x\Big) \Big\}\)
+            \item \(\Big\{x : \exists! n \in \Z\Big((n < 8) \land (n^2 = x)\Big)\Big\}\)
+        \end{enumerate}
+    \end{multicols}
+
+    We can simplify these sets by doing the following:
+    \begin{enumerate}
+        \item If the statement is true for \textit{all} natural numbers, then \(x\) must equal \(3n - 2\) for every \(n \in \N\). However, \(3n - 2\) takes on multiple values (\(1,~3,~7,~\cdots\)), and there is no value \(x\) that can equal them all at once. Thus, we get the empty set.
+        \item The square of an integer is never negative. Thus, you get the empty set.
+        \item If \(x \notin \Z\), then \(n \in \Z\) is false. So the implication is true for all  \(n \in \R \setminus \Z\), and thus every non-natural real \(x\) is included. If \(x \in \N\), then we need \(x = n \rarrow x = n^2\). This is only true for \(0\) and \(1\).
+        \item We need exactly one integer \(n\) such that both \(n < 8\) and \(n^2 = x\) hold. For \(x=0\), only \(n=0\) satisfies \(n^2=0\), so \(x=0\) is valid. For any positive square \(x = k^2\) with \(k < 8\), both \(n = k\) and \(n = -k\) satisfy \(n^2 = x\) and \(n < 8\), so there are two solutions, which is not allowed. If \(k > 8\), then \(+k\) does not satisfy \(n < 8\), but \(-k\) does, so there is exactly one solution.
+        
+        Therefore the set contains \(0\) and all squares \(k^2\) where \(k\in\Z\) and \(k \leq -8\). Because \(k^2 = (-k)^2\), an equivalent set is \(\{0\} \cup \{ n^2 : n \in \Z \land n \geq 8 \}\).
+    \end{enumerate}
+}
+
+
+
+
+
 \newpage
 \pagenumbering{gobble}\section*{} \ \vfill
 \textbf{Document Management} \\
-Version: 1.0 \\
+Version: 1.1 \\
 Created: 06 February 2025 \\ 
-Reviewed: 13 February 2025 \\
+Reviewed: 14 February 2025 \\
 Contact: archimedes314notes@gmail.com
 
 
