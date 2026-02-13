@@ -1,0 +1,391 @@
+\documentclass[a4paper, twoside]{article}
+\usepackage[letterpaper, top=0.6in, bottom=0.6in, left=0.2in, right=0.2in]{geometry}
+
+\renewcommand{\baselinestretch}{1.15}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.8em}
+\renewcommand{\thefootnote}{\roman{footnote}} 
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{lipsum}
+\usepackage{etoolbox}
+\usepackage{tcolorbox}
+\usepackage[table]{xcolor}
+\usepackage{nicematrix}
+\tcbuselibrary{skins}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true, linkcolor=blue, urlcolor=blue}
+\usepackage{chngcntr}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{graphicx}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{float}
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+\usetikzlibrary{3d}
+\pgfplotsset{compat=1.18}
+\pagestyle{fancy}
+
+\fancyhf{}
+\fancyhead[R]{\footnotesize\bfseries\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\fancypagestyle{plain}{%
+  \fancyhf{}%
+  \fancyfoot[C]{\footnotesize\bfseries\thepage}%
+  \renewcommand{\headrulewidth}{0pt}%
+}
+
+\fancypagestyle{nohead}{
+  \fancyhf{}
+  \fancyhead[R]{\footnotesize\bfseries\thepage}
+}
+
+\pretocmd{\section}{\thispagestyle{nohead}}{}{}
+
+\titleformat{\section}
+  {\normalfont\Large\bfseries}
+  {\thesection}{1em}{}
+
+\renewcommand{\sectionmark}[1]{\markboth{#1}{}}
+
+\newcounter{examplecounter}
+\renewcommand{\theexamplecounter}{\romannumeral\value{examplecounter}}
+\newcommand{\egc}{\refstepcounter{examplecounter}\theexamplecounter \hspace{0.5em}}
+
+\newcounter{examplecounterrefer}
+\renewcommand{\theexamplecounter}{\romannumeral\value{examplecounter}}
+\newcommand{\egr}[1]{\thesubsubsection.\ref{#1} \hspace{0.5em}}
+
+\newcommand{\mc}[2]{\multicolumn{#1}{c}{#2}}
+
+
+\renewcommand{\Re}{\mathrm{Re}}
+\renewcommand{\Im}{\mathrm{Im}}
+\newcommand{\diam}{\mathrm{diam}}
+\newcommand{\cis}{\mathrm{cis}}
+\newcommand{\Arg}{\mathrm{Arg}}
+\renewcommand{\i}{\mathrm{i}}
+\renewcommand{\d}{\mathrm{d}}
+\newcommand{\D}{\mathrm{D}}
+\newcommand{\e}{\mathrm{e}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Ce}{\hat{\mathbb{C}}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\renewcommand{\hat}{\widehat}
+\renewcommand{\bar}[1]{\overline{#1}}
+\newcommand{\ttilde}[1]{\underset{\Tilde{}}{#1}}
+\newcommand{\vtilde}[1]{\underset{\Tilde{}}{\mathbf{#1}}}
+\newcommand{\vect}[1]{\overrightharpoon{\mathbf{#1}}}
+\newcommand{\rarrow}{\rightarrow}
+\newcommand{\lorarrow}{\longrightarrow}
+\newcommand{\ioi}{\Longleftrightarrow}
+\newcommand{\defeq}{\overset{\mathrm{def}}{=}}
+\newcommand{\geqs}{\geqslant}
+\newcommand{\leqs}{\leqslant}
+
+\makeatletter
+\DeclareFontFamily{U}{MnSymbolA}{}
+\DeclareFontShape{U}{MnSymbolA}{m}{n}{
+    <-6>  MnSymbolA5
+   <6-7>  MnSymbolA6
+   <7-8>  MnSymbolA7
+   <8-9>  MnSymbolA8
+   <9-10> MnSymbolA9
+  <10-12> MnSymbolA10
+  <12->   MnSymbolA12}{}
+\DeclareFontShape{U}{MnSymbolA}{b}{n}{
+    <-6>  MnSymbolA-Bold5
+   <6-7>  MnSymbolA-Bold6
+   <7-8>  MnSymbolA-Bold7
+   <8-9>  MnSymbolA-Bold8
+   <9-10> MnSymbolA-Bold9
+  <10-12> MnSymbolA-Bold10
+  <12->   MnSymbolA-Bold12}{}
+\DeclareSymbolFont{MnSyA}{U}{MnSymbolA}{m}{n}
+\SetSymbolFont{MnSyA}{bold}{U}{MnSymbolA}{b}{n}
+
+\DeclareRobustCommand{\overleftharpoon}{\mathpalette{\overarrow@\leftharpoonfill@}}
+\DeclareRobustCommand{\overrightharpoon}{\mathpalette{\overarrow@\rightharpoonfill@}}
+\def\leftharpoonfill@{\arrowfill@\leftharpoondown\mn@relbar\mn@relbar}
+\def\rightharpoonfill@{\arrowfill@\mn@relbar\mn@relbar\rightharpoonup}
+
+\DeclareMathSymbol{\leftharpoondown}{\mathrel}{MnSyA}{'112}
+\DeclareMathSymbol{\rightharpoonup}{\mathrel}{MnSyA}{'100}
+\DeclareMathSymbol{\mn@relbar}{\mathrel}{MnSyA}{'320}
+\makeatother
+
+\makeatletter
+\def\@afterindentfalse{\setcounter{examplecounter}{0}}
+\makeatother
+
+\makeatletter
+\def\mathcolor#1#{\@mathcolor{#1}}
+\def\@mathcolor#1#2#3{%
+  \protect\leavevmode
+  \begingroup
+    \color#1{#2}#3%
+  \endgroup
+}
+\makeatother
+
+
+\begin{document}
+\numberwithin{equation}{subsubsection}
+\newcommand{\bluebox}[2]{\begin{tcolorbox}[colback=blue!5!white, colframe=blue!75!black, title=#1] #2 \end{tcolorbox}}
+\newcommand{\egbluebox}[2]{\begin{tcolorbox}[colback=blue!5!white, colframe=blue!75!black, title=Example \egc\label{#1}] #2 \end{tcolorbox}}
+\newcommand{\aInt}[2]{\int_{#1}^{#2}}
+\newcommand{\aIInt}[4]{\int_{#1}^{#2} \int_{#3}^{#4}}
+\newcommand{\bInt}[1]{\int_{#1}}
+\newcommand{\bIInt}[2]{\int_{#1}\int_{#2}}
+\newcommand{\Int}[4]{\int_{#1}^{#2}{#3\,\text{d} #4}}
+\newcommand{\IInt}[7]{\int_{#1}^{#2}{\int_{#3}^{#4}{#5\,\text{d} #6\,\text{d} #7}}}
+\newcommand{\lInt}[3]{\int_{#1}{#2\,\d #3}}
+\newcommand{\mlInt}[3]{\int_{#1}{\left|#2\right|\,|\d #3|}}
+\newcommand{\lIInt}[3]{\iint\limits_{#1}{#2\,\d #3}}
+\newcommand{\lIIInt}[3]{\iiint\limits_{#1}{#2\,\d #3}}
+\newcommand{\Oint}[3]{\oint_{#1}{#2\,\d #3}}
+\newcommand{\mOint}[3]{\oint_{#1}{|#2|\,|\d #3|}}
+\newcommand{\nfoldInt}[5]{{}_{#1}\!\int_{#2}^{#3}{#4\, \d #5^{#1}}}
+\newcommand{\diff}[2]{\frac{\text{d} #1}{\text{d} #2}}
+\newcommand{\pdiff}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\ndiff}[3]{\frac{\d^{#1}#2}{\d {#3}^{#1}}}
+\newcommand{\EulerD}[4]{{}_{#2}^{#1}{\mathrm{D}}_{#4}^{#3}}
+\newcommand{\npartialone}[3]{\frac{\partial^{#1}#2}{\partial {#3}^{#1}}}
+\newcommand{\npartialtwo}[6]{\frac{\partial^{#1}{#4}}{\partial{#5}^{#2} \partial{#6}^{#3}}}
+\newcommand{\npartialthree}[8]{\frac{\partial^{#1}{#5}}{\partial{#6}^{#2} \partial{#7}^{#3} \partial{#8}^{#4}}}
+\newcommand{\tvec}[1]{\underset{\Tilde{}}{\mathbf{#1}}}
+\newcommand{\vvec}[2]{\langle #1, #2 \rangle}
+\newcommand{\vvvec}[3]{\langle #1, #2, #3 \rangle}
+\newcommand{\VVec}[2]{\left[\begin{array}{c}#1\\#2\end{array}\right]}
+\newcommand{\VVVec}[3]{\left[\begin{array}{c}#1\\#2\\#3\end{array}\right]}
+\newcommand{\norm}[1]{\left\|#1\right\|}
+\newcommand{\normone}[1]{\left\|#1\right\|_1}
+\newcommand{\normtwo}[1]{\left\|#1\right\|_2}
+\newcommand{\norminf}[1]{\left\|#1\right\|_\infty}
+\newcommand{\modu}[1]{\left|#1\right|}
+\newcommand{\brackets}[1]{\left(#1\right)}
+\newcommand{\sqbrackets}[1]{\left[#1\right]}
+\newcommand{\suma}[3]{\sum\limits_{#1}^{#2} #3}
+\newcommand{\sumb}[2]{\sum\limits_{#1} #2}
+\newcommand{\proda}[3]{\prod\limits_{#1}^{#2} #3}
+\newcommand{\prodb}[2]{\prod\limits_{#1} #2}
+\newcommand{\Lim}[3]{\lim_{#1\to #2} #3}
+\newcommand{\Limb}[3]{\lim_{#1\to #2} \left(#3\right)}
+\newcommand{\Lims}[3]{\lim_{#1\to #2} \left[#3\right]}
+\newcommand{\Max}[2]{\max_{#1}{#2}}
+\newcommand{\To}[2]{\overset{#1\to#2}{\lorarrow}}
+\newcommand{\Res}[1]{\underset{#1}{\text{Res}}}
+\newcommand{\Log}[2]{\log_{#1}{#2}}
+\newcommand{\Logb}[2]{\log_{#1}{\left(#2\right)}}
+\newcommand{\Logs}[2]{\log_{#1}{\left[#2\right]}}
+\newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
+\newcommand{\ceil}[1]{\left\lceil #1 \right\rceil}
+\newcommand{\eval}[3]{\left[ #1\right|_{#2}^{#3}}
+\newcommand{\evalone}[3]{\left( #1\right|_{#2}^{#3}}
+\newcommand{\evaltwo}[3]{\left. #1\right|_{#2}^{#3}}
+\newcommand{\sssu}[1]{\subsubsection*{\underline{#1}}}
+\pagenumbering{gobble}
+\pagenumbering{gobble}
+
+\ \vspace{1.5em}
+\begin{center}
+    {\Huge\bfseries Differentiating $f(x)=x$ \par}
+    {\huge\bfseries \textit{Simple Testing PDF} \par}
+    \vspace{0.1em}
+    {\LARGE A simple, Intuitive, and Beautiful Solution \par}
+    \vspace{0.4em}
+\end{center}
+
+\newpage
+\pagenumbering{Roman}
+\setcounter{page}{1}
+\begin{center}
+    This page is intentionally left blank to increase the document's length.
+\end{center}
+
+\newpage
+
+\tableofcontents
+
+\newpage
+
+\begin{center}
+    This page is intentionally left blank to increase the document's length.
+\end{center}
+
+\newpage
+\pagenumbering{arabic}
+\setcounter{page}{1}
+\section{Purpose of this Document}
+I was bored.
+
+\newpage
+
+\newpage
+\section{Breaking Down the Question}
+\paragraph{Question:} Solve \(\displaystyle \diff{x}{x}\)\\
+
+While this may appear quite difficult at first glance, there is a hidden---yet simple---solution to solve it. After spending years on this question, I was amazed by its beauty once I had the answer.
+
+Instead of tackling the problem as a standard derivative (these tend to be quite difficult), you can instead break it into fractional derivatives. While there are an infinite number of possibilities, splitting it into two half-derivatives produces the nicest solution.
+
+Braking this into two half-derivatives can be solved with two different formulas. The first being as follows:
+\[
+    \ndiff{\alpha}{x^n}{x}=\frac{\Pi(n)}{\Pi(n-\alpha)}x^{n-\alpha}, \qquad \qquad \Pi(n)=\Gamma(n+1)=\Int{0}{\infty}{t^{n}e^{-t}}{t}
+\]
+This allows us to take the \(\alpha\)-order derivative of a function $f(x)=x^n$.
+
+The second formula is a simple differintegral, and is given by:
+
+\[
+\EulerD{}{a}{\alpha}{t}f(t)=
+    \left\{
+        \begin{array}{cc}
+            \displaystyle\ndiff{\beta}{}{t}\left[ \nfoldInt{\beta-\alpha}{a}{t}{f(x)}{x}\right], &  \alpha>0\\\displaystyle
+            \nfoldInt{\modu{\alpha}}{a}{t}{f(x)}{x}, & \alpha<0
+        \end{array}
+    \right.
+\]
+Where \(\beta=\ceil{\alpha}\).
+Applying the Riemann-Liouville fractional integral, we get the following for positive \(\alpha\):
+\begin{align*}
+    \EulerD{}{a}{\alpha}{t}f(t)&=\ndiff{\beta}{}{t}\left[\frac{1}{\Gamma(\beta-\alpha)}\Int{a}{t}{(t-s)^{\beta-\alpha-1}f(s)}{s}\right]\\
+    \EulerD{}{a}{-\alpha}{t}f(t)&=\frac{1}{\Gamma(\alpha)}\Int{a}{t}{(t-s)^{\alpha-1}f(s)}{s}
+\end{align*}
+
+This means that we can write out the question as follows:
+\begin{align*}
+    \diff{x}{x}&=\ndiff{1/2}{}{x}\left[\ndiff{1/2}{x}{x}\right]\\
+    &=\ndiff{1/2}{}{x}\left[\frac{\Pi(1)}{\Pi(1-\frac{1}{2})}x^{1-\frac{1}{2}}\right]\\
+    &=\diff{}{x}\left[\frac{1}{\Gamma(1-\frac{1}{2})}\Int{a}{t}{(t-s)^{1-\frac{1}{2}-1}\left(
+    \frac{\Pi(1)}{\Pi(1-\frac{1}{2})}s^{1-\frac{1}{2}}
+    \right)}{s}\right]\\
+    &=\diff{}{x}\left[\left(
+    \Int{0}{\infty}{t^{-\frac{1}{2}}e^{-t}}{t}
+    \right)^{-1}\Int{a}{t}{(t-s)^{-\frac{1}{2}}\left(
+    \frac{\displaystyle
+    \Int{0}{\infty}{te^{-t}}{t}
+    }{\displaystyle
+    \Int{0}{\infty}{t^{\frac{1}{2}}e^{-t}}{t}
+    }\sqrt{s}
+    \right)}{s}\right]
+\end{align*}
+\newpage
+
+
+
+
+
+\section{Solving the Question}
+\subsection{Solving the Inner Half-Derivative}
+Now that we have the necessary formulas, we can get started on the question.
+\begin{align*}
+    \diff{x}{x}&=\ndiff{1/2}{}{x}\left[\ndiff{1/2}{}{x}\right]\\
+    &=\ndiff{1/2}{}{x}\left[\frac{\Pi(1)}{\Pi\left(1-\frac{1}{2}\right)}x^{1-\frac{1}{2}}\right]\\
+    &=\ndiff{1/2}{}{x}\left[\sqrt{x}\left(\Int{0}{\infty}{x^{\frac{1}{2}}e^{-x}}{x}\right)^{-1}\right]
+\end{align*}
+So now we will need to solve the integral, which is very simple. First, we need to use Integration by Parts.
+
+\begin{align*}
+    \Int{0}{\infty}{x^{\frac{1}{2}}e^{-x}}{x}&=\evalone{\Big.-e^{-x}\sqrt{x}}{0}{\infty}+\Int{0}{\infty}{\frac{1}{2e^x\sqrt{x}}}{x}\\
+    \therefore \Int{0}{\infty}{x^{\frac{1}{2}}e^{-x}}{x}&=\Int{0}{\infty}{\frac{1}{2}x^{-\frac{1}{2}}e^{-x}}{x}
+\end{align*}
+Now we can let \(u=x^{\frac{1}{2}}\). Note that this is an even function.
+\begin{align*}
+    \Int{0}{\infty}{\frac{1}{2}x^{-\frac{1}{2}}e^{-x}}{x}&=\Int{0}{\infty}{e^{-u^2}}{u}\\
+    &=\frac{1}{2}\lInt{\R}{e^{-u^2}}{u}
+\end{align*}
+Now we'll define this to be $I$, and do some simple manipulation.
+\begin{align*}
+    2I&=\lInt{\R}{e^{-x^2}}{x}\\
+    4I^2&=\lInt{\R}{e^{-x^2}}{x}\cdot\lInt{\R}{e^{-y^2}}{y}\\
+    &=\iint\limits_{\R\times\R}{e^{-x^2-y^2}}\d x\,\d y\\
+    &=\lInt{\R^2}{e^{-\modu{z}^2}}{z}\\
+    \mathcolor{gray}{\lIInt{D}{f(x,y)}{A}}&=\mathcolor{gray}{\lIInt{S}{f\Big(g(u,v),h(u,v)\Big)\modu{\begin{array}{cc}
+        \pdiff{x}{u} & \pdiff{x}{v} \vspace{0.5em}\\
+        \pdiff{y}{u} & \pdiff{y}{v}
+    \end{array}}}{B}}\\
+    &=\IInt{0}{2\pi}{\R_0^+}{}{e^{-r^2}\modu{\begin{array}{cc}\displaystyle
+        \pdiff{r\cos\phi}{r} &\displaystyle \pdiff{r\cos\phi}{\phi} \vspace{0.5em}\\\displaystyle
+        \pdiff{r\sin\phi}{r} &\displaystyle \pdiff{r\sin\phi}{\phi}
+    \end{array}}}{r}{\phi}\\
+    &=\IInt{0}{2\pi}{\R_0^+}{}{e^{-r^2}\modu{\begin{array}{cc}
+        \cos\phi & -r\sin\phi \\
+        \sin\phi & r\cos\phi
+    \end{array}}}{r}{\phi}\\
+    &=\Int{\R_0^+}{}{\Int{0}{2\pi}{re^{-r^2}}{\phi}}{r}\\
+    &=\pi\Int{\R_0^+}{}{2re^{-r^2}}{r}\\
+    4I^2&=\pi\\
+    \therefore \ I&=\frac{\sqrt{\pi}}{2}
+\end{align*}
+Substituting this back in gives:
+\begin{align*}
+    \diff{x}{x}&=\ndiff{1/2}{}{x}\left[\sqrt{x}\left(\Int{0}{\infty}{x^{\frac{1}{2}}e^{-x}}{x}\right)^{-1}\right]\\
+    &=\ndiff{1/2}{}{x}\left[\frac{2\sqrt{x}}{\sqrt{\pi}}\right]
+\end{align*}
+
+\subsection{Solving the Outer Half-Derivative}
+Now we will take our result from section 3.1 and substitute it into our Riemann-Liouville integral.
+
+\begin{align*}
+    \ndiff{1/2}{}{x}\left[\frac{2\sqrt{x}}{\sqrt{\pi}}\right] &= \diff{}{x}\left[ \frac{1}{\Gamma\left(\frac{1}{2}\right)} \Int{0}{x}{(x-t)^{-\frac{1}{2}}\frac{2\sqrt{t}}{\sqrt{\pi}}}{t}\right]\\
+    &=\frac{2}{\sqrt{\pi}\Gamma{\left(\frac{1}{2}\right)}}\cdot\diff{}{x}\left[ \Int{0}{x}{\frac{\sqrt{t}}{\sqrt{x-t}}}{t} \right]
+\end{align*}
+
+Now we'll solve the integral. We'll perform two substitutions. The first being \(u=\sqrt{t}, \ \d t=2u\ \d u\). This gives the following:
+\[
+    \Int{}{}{\frac{\sqrt{t}}{\sqrt{x-t}}}{t}=2\Int{}{}{\frac{u^2}{\sqrt{x-u^2}}}{u}
+\]
+
+Now we'll let \(u=\sqrt{x}\sin{v}, \ \d u =\sqrt{x}\cos{v} \ \d v\).
+\begin{align*}
+    2\Int{}{}{\frac{u^2}{\sqrt{x-u^2}}}{u}&=2\Int{}{}{\frac{
+    x\sqrt{x}\cos{v}\sin^2{v}
+    }{
+    \sqrt{x-x\sin^2{v}}
+    }}{v}\\
+    &=2x\Int{}{}{\sin^2{v}}{v}
+\end{align*}
+
+This is where knowing your reduction formulas comes in handy for you. The reduction formula for $\Int{}{}{\sin^n{x}}{x}$ is as follows:
+
+\[
+    \Int{}{}{\sin^n{x}}{x}=\frac{n-1}{n}\Int{}{}{\sin^{n-2}x}{x}-\frac{\sin^{n-1}x\cos{x}}{n}
+\]
+Now using that and undoing our substitutions, we get:
+\begin{align*}
+    2\Int{}{}{\frac{u^2}{\sqrt{x-u^2}}}{u}&=2x\Int{}{}{\sin^2{v}}{v}\\
+    &=xv-x\sin{v}\cos{v}\\
+    &=x\sin^{-1}\left( \frac{u}{\sqrt{x}} \right)-x\sin\left( \sin^{-1}\left( \frac{u}{\sqrt{x}} \right) \right)\cos\left({\sin^{-1}\left( \frac{u}{\sqrt{x}} \right)}\right)\\
+    &=x\sin^{-1}\left( \frac{u}{\sqrt{x}} \right)-\frac{xu}{\sqrt{x}}\sqrt{1-\frac{u^2}{x}}\\
+    &=x\sin^{-1}\left( \sqrt{\frac{t}{x}} \right) -x\sqrt{\frac{t}{x}}\sqrt{1-\frac{t}{x}}\\
+    \implies \ \Int{0}{x}{\sqrt{\frac{t}{x-t}}}{t}&=\evalone{x\sin^{-1}\left( \sqrt{\frac{t}{x}} \right) -x\sqrt{\frac{t}{x}}\sqrt{1-\frac{t}{x}}}{0}{x}\\
+    &=x\sin^{-1}{1}\\
+    &=\frac{x\pi}{2}\\
+    \therefore \ \diff{x}{x}&=\frac{2}{\sqrt{\pi}\Gamma{(\frac{1}{2})}}\cdot\diff{}{x}\left(\frac{x\pi}{2}\right)\\
+    &=1
+\end{align*}
+
+\newpage
+
+\section{Conclusion}
+You have just wasted your time reading this.
+
+\newpage
+
+
+
+
+
+
+
+
+\end{document}

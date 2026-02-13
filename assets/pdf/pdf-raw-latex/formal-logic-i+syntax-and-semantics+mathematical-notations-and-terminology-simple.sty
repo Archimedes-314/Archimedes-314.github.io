@@ -1,5 +1,6 @@
 \documentclass[a4paper, twoside]{article}
 \usepackage[letterpaper, top=0.6in, bottom=0.6in, left=1in, right=1in]{geometry}
+\input{embed}
 
 \renewcommand{\baselinestretch}{1.15}
 \setlength{\parindent}{0pt}
@@ -70,10 +71,7 @@
 
 \newcounter{examplecounterrefer}
 \renewcommand{\theexamplecounter}{\romannumeral\value{examplecounter}}
-\newcommand{\egr}[1]{(\ref{#1})}
-\newcommand{\egrs}[1]{(\thesection.\ref{#1})}
-\newcommand{\egrss}[1]{(\thesubsection.\ref{#1})}
-\newcommand{\egrsss}[1]{(\thesubsubsection.\ref{#1})}
+\newcommand{\egr}[1]{\thesubsubsection.\ref{#1} \hspace{0.5em}}
 
 \newcommand{\mc}[2]{\multicolumn{#1}{c}{#2}}
 
@@ -158,17 +156,8 @@
 \begin{document}
 \numberwithin{equation}{subsubsection}
 \renewcommand{\arraystretch}{1.5}
-
 \newcommand{\bluebox}[2]{\begin{tcolorbox}[colback=blue!5!white, colframe=blue!75!black, title=#1] #2 \end{tcolorbox}}
-
 \newcommand{\egbluebox}[2]{\begin{tcolorbox}[colback=blue!5!white, colframe=blue!75!black, title=Example \egc\label{#1}] #2 \end{tcolorbox}}
-
-\newcommand{\egblueboxs}[2]{\begin{tcolorbox}[colback=blue!5!white, colframe=blue!75!black, title=Example \thesection.\egc\label{#1}] #2 \end{tcolorbox}}
-
-\newcommand{\egblueboxss}[2]{\begin{tcolorbox}[colback=blue!5!white, colframe=blue!75!black, title=Example \thesubsection.\egc\label{#1}] #2 \end{tcolorbox}}
-
-\newcommand{\egblueboxsss}[2]{\begin{tcolorbox}[colback=blue!5!white, colframe=blue!75!black, title=Example \thesubsubsection.\egc\label{#1}] #2 \end{tcolorbox}}
-
 \newcommand{\aInt}[2]{\int_{#1}^{#2}}
 \newcommand{\aIInt}[4]{\int_{#1}^{#2} \int_{#3}^{#4}}
 \newcommand{\bInt}[1]{\int_{#1}}
@@ -221,3 +210,206 @@
 \newcommand{\evaltwo}[3]{\left. #1\right|_{#2}^{#3}}
 \newcommand{\sssu}[1]{\subsubsection*{\underline{#1}}}
 \pagenumbering{gobble}
+
+\begin{titlepage}
+\centering
+
+\vspace*{3cm}
+
+{\Huge\scshape Syntax \& Semantics (Simple)\par}
+\vspace{0.3cm}
+
+{\large Topic 1, Section 1, lesson 1\par}
+
+\vspace{1.2cm}
+
+{\LARGE\bfseries Mathematical \\[0.3em]
+\large Notations and Terminology\par}
+\vfill
+
+\begin{minipage}{0.7\textwidth}
+\centering
+\small\itshape
+`To ask the right question is already half the solution to a problem.'\\[0.3cm]
+— C.\,G. Jung
+\end{minipage}
+
+\vspace{1.5cm}
+
+\begin{flushleft}
+    \section*{} 
+    \rule{0.5\linewidth}{0.4pt} \\[0.3cm]
+    \textbf{Document Management} \\
+    Version: 2.0 \\
+    Created: 23 January 2025 \\ 
+    Reviewed: 13 February 2025 \\
+    Contact: archimedes314notes@gmail.com
+\end{flushleft}
+
+\end{titlepage}
+
+\newpage
+
+\restoregeometry 
+\pagenumbering{arabic}
+\setcounter{page}{1}
+\copyrightpage
+
+\section{Propositions and Sets}
+
+\sssu{Propositions}
+A \textit{proposition} is a declarative statement that is either true or false, but not both. 
+
+\textit{Propositional logic} focuses on the relationships between these propositions and how they can be combined using logical operators.
+
+\sssu{Sets}
+A \textit{set} is a collection of objects considered as a single entity. The objects in a set are called its \textit{elements} or \textit{members}. 
+
+One common way to formally define a set is to list its elements inside curly brackets. We can use \textit{set-builder notation} to describe a set containing elements according to some rule, which is often in the form \(\{n : [\text{rule about } n]\}\). 
+
+The order in which we list the elements does not matter, and repeating elements does not change the set. If we want to keep track of how many times each element appears, we use the term \textit{multiset} instead of set.
+
+\newpage
+
+\section{Logical Operators}
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|>{\centering\arraybackslash}p{2.5cm}|p{5.5cm}|p{6cm}|}
+        \hline 
+        \textbf{Symbol} & 
+        \textbf{What is Means} & 
+        \textbf{Notes}
+        \\\hline
+        %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        \(\neg P\)  & 
+        Not \(P\) &
+        \\\hline
+        %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        \(P \land Q\) & 
+        \(P\) and \(Q\) & 
+        \(\land\) looks like a capital A for `and'.
+        \\\hline
+        %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        \(P \lor Q\) 
+        & \(P\) or \(Q\) (inclusive) 
+        & If either one or both of are true, the statement \(P \lor Q\) is true.
+        \\\hline
+        %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        \(P \rarrow Q\) 
+        & \(P\) implies \(Q\) 
+        & 
+        \\\hline
+        %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        \(P \ioi Q\) &
+        \makecell[l]{
+            \(P\) is true if, and only if, \(Q\) is true. \\
+            \((P~\rarrow~Q)~\land~(Q~\rarrow~P)\) \\
+            \((P~\land~Q)~\lor~(\neg~P~\land~\neg~Q)\)
+        }&
+        `If and only if' is commonly shortened to `iff'.
+        \\\hline
+    \end{tabular}
+\end{table}
+This table will be expanded and improved overtime.
+
+\newpage
+
+\section{Set-theoretic Symbols}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|>{\centering\arraybackslash}m{2.5cm}|m{5cm}|>{\centering\arraybackslash}m{4cm}|}
+        \hline\textbf{Symbol} & \textbf{Meaning} & \textbf{Example}\\\hline
+        
+        \(\forall\) & 
+        For all values of \(x\) & 
+        \(\forall x (x \in \R \rarrow x^2 \in \R)\) 
+        \\\hline
+        %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        \(\exists\) & 
+        There exists at least one value & 
+        \(\exists x (x \in \R \land x^2 = 4)\) 
+        \\\hline
+        %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        \(\in\) & 
+        Is an element of & 
+        \(5 \in \{3, 5, 7\}\)
+        \\\hline
+        %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        \(\notin\) & 
+        Is not an element of. & 
+        \(4 \notin \{3, 5, 7\}\) 
+        \\\hline
+        %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        \(\subseteq\) & 
+        \makecell[l]{
+            Is a subset of \\ 
+            \( S \subseteq T \ioi \forall x(x \in S \rarrow x \in T)\)
+        } &
+        \makecell[c]{
+            \(\{3,7\}~\subseteq~\{3,5,7\}\) \\
+            \( \{3,5,7\}~\subseteq~\{3,5,7\} \)
+        }
+        \\\hline
+        %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        \( \nsubseteq \) &
+        \makecell[l]{
+            Is not a subset of \\
+            \(S \nsubseteq T \ioi \exists x (x \in S \land x \notin T)\)
+        } &
+        \(\{1,2,3\} \nsubseteq \{1, 3, 5, 7, 9\}\)
+        \\\hline
+        %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        \(\subset\) &
+        \makecell[l]{
+            Is a strict subset of \\
+            \(S \subset T \ioi (S \subseteq T \land S \neq T)\)
+        } &
+        \(\{1, 3, 5\} \subset \{1, 3, 5, 7, 9\}\)
+        \\\hline
+        %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        \(\nsubset\) &
+        \makecell[l]{
+            Is not a strict subset of \\
+            \(S \nsubset T \ioi ( S \nsubseteq T \lor S = T )\)
+        } &
+        \( \{3, 5, 7\} \nsubset \{3, 5, 7\} \)
+        \\\hline
+        %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        \(\cup\) &
+        \makecell[l]{
+            Union \\
+            \(S \cup T = \{x : x\in S \lor x \in T \}\)
+        } &
+        \(\{1, 3\} \cup \{5, 7\} = \{1, 3, 5, 7\} \)
+        \\\hline
+        %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        \(\cap\) &
+        \makecell[l]{
+            Intersection \\
+            \( S \cap T = \{ x : x \in S \land x \in T \} \)
+        } &
+        \makecell[l]{
+            \( \{ 1, 2, 3 \} \cap \{2, 3, 4\} = \{2, 3\} \) \\
+            \( \{ 1,2,3 \} \cap \{4, 5, 6\} = \emptyset \)
+        }
+        \\\hline
+        %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        \(\setminus\) &
+        \makecell[l]{
+            Set difference \\
+            \( S \setminus T = \{ x : x \in S \land x \notin T \} \)
+        } &
+        \( \{ 1,2,3,4 \} \setminus \{2,3\} = \{ 1,4 \} \)
+        \\\hline
+        %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \end{tabular}
+\end{table}
+
+
+
+
+This table will be expanded and improved overtime.
+
+
+\end{document}

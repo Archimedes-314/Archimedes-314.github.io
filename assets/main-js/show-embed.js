@@ -29,12 +29,16 @@ document.addEventListener("DOMContentLoaded", () => {
   window.showCompletePDF = function () {
     hideError("pdf-choice");
 
-    pdfEmbed.src = COMPLETE_PDF;
+    if (!sectionKey) {
+      showError('link')
+    } else {
+      pdfEmbed.src = COMPLETE_PDF;
 
-    pdfContainer.removeAttribute("hidden");
-    btn.setAttribute("aria-expanded", "true");
-    text.textContent = "Hide PDF";
-    iconPath.setAttribute("d", "M5 12h14");
+        pdfContainer.removeAttribute("hidden");
+        btn.setAttribute("aria-expanded", "true");
+        text.textContent = "Hide PDF";
+        iconPath.setAttribute("d", "M5 12h14");
+    }
   };
 
   window.showFullPDF = function () {

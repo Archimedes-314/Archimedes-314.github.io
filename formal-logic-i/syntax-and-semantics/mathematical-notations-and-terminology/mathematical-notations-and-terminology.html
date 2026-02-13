@@ -27,7 +27,7 @@
 
         <div class="header-actions">
             <button
-            onclick="showError('link')"
+            id="togglePdfBtn"
             class="header-btn header-btn--primary"
             aria-expanded="false"
             type="button"
@@ -79,24 +79,23 @@
             <a class="nav-link" href="/index.html">Home</a>
             <a class="nav-link" href="/formal-logic-i/formal-logic-i.html">Formal Logic I</a>
             <a class="nav-link" href="/formal-logic-i/syntax-and-semantics/syntax-and-semantics.html">Propositional Logic: Syntax and Semantics</a>
-            <p>Propositional Formulas</p>
+            <p>Mathematical Notations and Terminology</p>
         </nav>
     </div>
 
     <div class="sub-links">
         <a href="#top">Back to Top</a>
-        <a href="#section1">Overview</a>
-        <a href="#section2">What are propositions?</a>
-        <a href="#section3">Set-theoretic Symbols</a>
-        <a href="#section4">Universal and Existential Quantifiers</a>
-        <a href="#section5">Lessons</a>
+        <a href="#section0">What are Propositions?</a>
+        <a href="#section1">Sets</a>
+        <a href="#section2">Set-Theoretic Symbols</a>
+        <a href="#section3">Universal and Existential Quantifiers</a>
     </div>
 
     <main>
         <section
         id="pdfContainer"
         hidden
-        data-pdf="formal_logic_i+syntax_and_semantics"
+        data-webpage="formal-logic-i+syntax-and-semantics+mathematical+notations-and-terminology"
         >
         <embed
             id="pdfEmbed"
@@ -106,6 +105,8 @@
             height="800px"
         />
         </section>
+
+
 
         <input type="checkbox" id="calculator-toggle" hidden>
 
@@ -124,6 +125,110 @@
                 </iframe>
             </div>
         </div>
+
+        <section id="section0">
+        <h2>What Are Propositions?</h2>
+            <p>
+                In formal logic, a <em>proposition</em> is a declarative statement that is either 
+                true or false, but not both. Propositions are the basic building blocks of logical 
+                reasoning and are used to construct more complex statements through logical 
+                connectives.
+            </p>
+            <p>
+                Propositional logic focuses on the relationships between these propositions and how 
+                they can be combined using logical operators such as 'and' (conjunction), 'or' 
+                (disjunction), 'not' (negation), 'if...then' (implication), and 'if and only if' 
+                (biconditional).
+            </p>
+            <p>
+                For example, take the following four different propositions represented by the 
+                variables \(r\), \(s\), \(c\), and \(w\):
+            </p>
+            <ul>
+                <li>\(r\): It is raining.</li>
+                <li>\(s\): The sun is shining.</li>
+                <li>\(c\): It is cloudy.</li>
+                <li>\(w\): The grass is wet.</li>
+            </ul>
+
+            <p>
+                Here, each proposition gets a truth value. That is, \(r\), \(s\), \(c\), and \(w\) 
+                will be either 'True' or 'False'. We can build more complex propositions by joining 
+                these variables with logical operators like negation (\(\neg\)), conjunction 
+                (\(\land\)), disjunction (\(\lor\)), and implication (\(\rarrow\)) as shown below:
+            </p>
+            <ul>
+                <li>\(\neg r\): It is not raining.</li>
+                <li>\(r \land w\): It is raining and the grass is wet.</li>
+                <li>\(s \lor r\): The sun is shining or it is raining.</li>
+                <li>\(\neg (r \land s) \rarrow c\): It is neither raining nor is the sun shining, 
+                    which means it must be cloudy.</li>
+            </ul>
+            <p>
+                An easy way to remember the difference between \( \land \) for conjunction and 
+                \(\lor \) for disjunction is that \( \land \) looks like a capital 'A' for 'and'.
+            </p>
+
+            <div 
+            class="example" 
+            data-collapsible="true" 
+            data-box-name="Determine the truth values"
+            id="ex-truth-values"
+            >
+                <p>Consider the following propositions:
+                    <ul>
+                        <li>\(P(x)\): \(x\) is prime.</li>
+                        <li>\(O(x)\): \(x\) is odd.</li>
+                    </ul>
+                <p>
+                    Determine the truth value of the following:
+                </p>
+                    <ol type="a">
+                        <li>\(P(11)\)</li>
+                        <li>\(P(9) \land O(9)\)</li>
+                        <li>\(\neg P(7)\)</li>
+                        <li>\(P(2) \lor O(2)\)</li>
+                    </ol>
+                </p>
+                <div class="working">
+                    <ol type="a" class="lo-bdr-list">
+                        <li class="lo-bdr">
+                            <p class="answer"><strong>Answer:</strong> \(P(11)\) is true.</p>
+                            <p class="reason"><strong>Reason:</strong> 11 is a prime number.</p>
+                        </li>
+
+                        <li class="lo-bdr">
+                            <p class="answer"><strong>Answer:</strong> \(P(9) \land O(9)\) is false.</p>
+                            <p class="reason">
+                                <strong>Reason:</strong>
+                                9 is an odd number, so \(O(9)\) is true. However, 9 is not a prime number
+                                (it is divisible by 3), so \(P(9)\) is false. Since one part of the
+                                conjunction is false, the whole conjunction is false.
+                            </p>
+                        </li>
+
+                        <li class="lo-bdr">
+                            <p class="answer"><strong>Answer:</strong> \(\neg P(7)\) is false.</p>
+                            <p class="reason">
+                                <strong>Reason:</strong>
+                                Since 7 is a prime number, \(P(7)\) is true, and therefore its negation
+                                \(\neg P(7)\) is false.
+                            </p>
+                        </li>
+
+                        <li>
+                            <p class="answer"><strong>Answer:</strong> \(P(2) \lor O(2)\) is true.</p>
+                            <p class="reason">
+                                <strong>Reason:</strong>
+                                2 is a prime number, so \(P(2)\) is true. Although 2 is not an odd number
+                                (so \(O(2)\) is false), one part of the disjunction is true, and hence the
+                                whole disjunction is true.
+                            </p>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </section>
 
         <section id="section1">
             <h2>Sets</h2>
@@ -170,7 +275,7 @@
             >
                 <li>The set of irrational numbers</li>
                 <li>The set of negative integers greater than \(-6\)</li>
-                <li>The set of integers that are multiples of 4 but not multiples of 8</li>
+                <li>The set of integers that are multiples of \(4\) but not multiples of \(8\)</li>
                 <li>The set of all numbers that can be written as \(3n - 2\) where \(n \in \Z\)</li>
                 <li>The empty set written in set-builder notation</li>
             </ol>
@@ -191,7 +296,7 @@
                             <p class="reason"><strong>Reason: </strong>
                                 We take the set of \(x\), and state out constraints. Adding brackets 
                                 and using '\(:\)' helps make the set easier to read, as opposed 
-                                <span class="nb">to \(\{ x \, | \, 4 \mid x \land 8 \not\mid x \}\), \(\{ x \, | \, (4 \mid x) \land (8 \not\mid x) \}\)</span> <span class="nb">or \(\{ x \, : \, 4 \mid x \land 8 \not\mid x \}\)</span>
+                                <span class="nb">to \(\{ x \, | \, 4 \mid x \land 8 \not\mid x \}\), \(\{ x \, | \, (4 \mid x) \land (8 \nmid x) \}\)</span> <span class="nb">or \(\{ x \, : \, 4 \mid x \land 8 \not\mid x \}\)</span>
                             </p>
                         </li>
 
@@ -216,7 +321,7 @@
             </div>
         </section>
 
-        <section>
+        <section id="section2">
             <h2>Set-Theoretic Symbols</h2>
                 <p>
                     In formal logic, set-theoretic symbols are used to represent sets and their 
@@ -310,8 +415,9 @@
                     used in number theory to denote 'divides'. For example, \(a \mid b\) means That
                     \(a\) is a divisor of \(b\) (i.e., \(b\) is divisible by \(a\)).
                 </p>
-
-                <h4>The Set of Real Numbers (and its Subsets)</h4>
+        </section>
+        <section>
+                <h2>The Set of Real Numbers (and Its Subsets)</h2>
                 <p>
                     The set of real numbers and its subsets are represented by the following:
                 </p>
@@ -377,7 +483,7 @@
                 </p>
         </section>
 
-        <section>
+        <section id="section3">
             <h2 class="section-title">Universal and Existential Quantifiers</h2>
                 <h4>Universal Quantifier</h4>
                 <p>
@@ -488,7 +594,7 @@
     <footer>
         <div class="footer-top">
             <span class="footer-small">© 2026 Archimedes-314</span>
-            <span class="footer-small">Last updated: <span id="last-updated">12 February 2026</span></span>
+            <span class="footer-small">Last updated: <span id="last-updated">13 February 2026</span></span>
         </div>
 
     <div class="footer-main">
