@@ -44,6 +44,11 @@ document.addEventListener("DOMContentLoaded", () => {
   window.showFullPDF = function () {
     hideError("pdf-choice");
 
+    if (!webpageKey) {
+      showError('link');
+      return;
+    }
+
     pdfEmbed.src = FULL_PDF;
 
     pdfContainer.removeAttribute("hidden");
@@ -54,6 +59,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   window.showSimplePDF = function () {
     hideError("pdf-choice");
+
+    if (!webpageKey) {
+      showError('link');
+      return;
+    }
 
     pdfEmbed.src = SIMPLE_PDF;
 

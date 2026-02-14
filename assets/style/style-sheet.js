@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
         el.style.columnCount = `${number}`;
         el.style.columnGap = `${gap}`
     });
+
 });
 
  

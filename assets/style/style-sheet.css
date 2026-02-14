@@ -8,15 +8,47 @@ html {
   scroll-behavior: smooth;
 }
 
-a {
-    text-decoration: underline;
-    color: #444;
-    font-weight: bold;
-}
-
-a:hover {
+.a {
   cursor: url('/assets/style/images/archimedes_pointing.png') 16 4, pointer;
 }
+
+.fncy-underline a {
+  text-decoration: none;
+  color: #0000BB;
+  font-weight: bold;
+  position: relative;
+  transition: color 0.3s ease;
+  cursor: url('/assets/style/images/archimedes_pointing.png') 16 4, pointer;
+  white-space: nowrap;
+}
+
+.fncy-underline a:hover {
+  cursor: url('/assets/style/images/archimedes_pointing.png') 16 4, pointer;
+  color: #0055CC;
+}
+
+.fncy-underline a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 100%;
+  height: 2px;
+  background-color: currentColor;
+
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.3s ease;
+}
+
+.fncy-underline a:hover::after {
+  transform: scaleX(1);
+}
+
+input[type="checkbox"] {
+  cursor: url('/assets/style/images/archimedes_pointing.png') 16 4, pointer;
+}
+
 
 body {
     font-family: Arial, sans-serif;
@@ -161,6 +193,9 @@ strong {
 
 .topic-list > li a {
   text-decoration: none;
+  color: #444;
+  font-weight: bold;
+  cursor: url('/assets/style/images/archimedes_pointing.png') 16 4, pointer;
 }
 
 .topic-list > li a span {
@@ -170,15 +205,6 @@ strong {
 .subtopic-list {
   list-style-type: "- ";
   padding-left: 3rem;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-.blue-text {
-  color: #005cc5;
-  text-decoration: none;
 }
 
 .p-box {
