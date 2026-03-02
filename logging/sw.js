@@ -1,4 +1,4 @@
-const cacheName = "shift-log-cache-v1";
+const cacheName = "shift-log-cache-v2";
 const assets = [
   "/logging",
   "/logging/st-john-logging.html", 
@@ -9,6 +9,21 @@ if('serviceWorker' in navigator){
   navigator.serviceWorker.register('/logging/sw.js', { scope: '/logging/' })
     .then(() => console.log("Service Worker Registered"));
 }
+
+self.addEventListener("activate", e => {
+  e.waitUntil(
+    caches.keys().then(keys => {
+      return Promise.all(
+        keys.map(key => {
+          if (key !== cacheName) {
+            console.log("Cleaning up old cache:", key);
+            return caches.delete(key);
+          }
+        })
+      );
+    })
+  );
+});
 
 self.addEventListener("install", e => {
   e.waitUntil(

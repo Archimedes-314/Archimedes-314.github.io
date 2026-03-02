@@ -9,87 +9,276 @@
 <meta name="theme-color" content="#005bbb">
 
 <style>
-body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; margin:0; padding:15px; background:#f2f4f7; }
-h1{text-align:center;font-size:1.4rem;color:#002b5c;}
-.card{background:white;padding:15px;border-radius:12px;box-shadow:0 3px 8px rgba(0,0,0,0.08);margin-bottom:20px;}
-.section-title{font-weight:bold;margin:15px 0 8px;font-size:1rem;}
-input, select, textarea{width:100%;padding:12px;margin-top:6px;border-radius:8px;border:1px solid #ccc;font-size:1rem;box-sizing:border-box;}
-textarea { resize: vertical; }
-button{width:100%;padding:14px;margin-top:10px;border:none;border-radius:10px;font-size:1rem;font-weight:bold;cursor:pointer;}
-.primary{background:#005bbb;color:white;position:sticky;bottom:10px;z-index:100;}
-.export{background:#0a8f3d;color:white;}
-.danger{background:#c62828;color:white;}
-.secondary{background:#555;color:white;}
-.chip-container{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px;}
-.chip{padding:12px 16px;border-radius:24px;background:#e0e0e0;font-size:0.95rem;cursor:pointer;}
-.chip.active{background:#005bbb;color:white;}
-.summary{background:white;padding:12px;border-radius:10px;margin-bottom:15px;box-shadow:0 3px 8px rgba(0,0,0,0.05);}
-.entry{background:#e9f1fb;padding:12px;border-radius:10px;margin-bottom:12px;font-size:0.95rem;}
-.shift-divider{background:#002b5c;color:white;padding:8px;border-radius:8px;margin:15px 0;text-align:center;font-weight:bold;}
-.delete-btn{background:#888;color:white;padding:6px 10px;font-size:0.8rem;border-radius:6px;margin-top:8px;}
-.warning{font-size:0.8rem;color:#c62828;text-align:center;margin-top:10px;}
-@media print{button, form { display: none; } body{background:white;}}
+  body { 
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
+    margin:0; 
+    padding:15px; 
+    background:#f2f4f7
+  }
+
+  h1 {
+    text-align: center;
+    font-size: 1.4rem;
+    color: #002b5c
+  }
+
+  .card {
+    background: white;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+    margin-bottom: 20px
+  }
+
+  .section-title {
+    font-weight: bold;
+    margin: 15px 0 8px;
+    font-size: 1rem
+  }
+
+  input, select, textarea{
+    width: 100%;
+    padding: 12px;
+    margin-top: 6px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1rem
+    ;box-sizing: border-box
+  }
+
+  textarea { resize: vertical; }
+
+  button {
+    width: 100%;
+    padding: 14px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer
+  }
+
+  .primary {
+    background: #005bbb;
+    color: white;
+    position: sticky;
+    bottom: 10px;
+    z-index: 100
+  }
+
+  .export {
+    background: #0a8f3d;
+    color: white
+  }
+
+  .danger {
+    background: #c62828;
+    color: white
+  }
+
+  .secondary {
+    background: #555;
+    color: white
+  }
+
+  .chip-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top:8px
+  }
+
+  .chip {
+    padding: 12px 16px;
+    border-radius: 24px;
+    background: #e0e0e0;
+    font-size: 0.95rem;
+    cursor: pointer
+  }
+
+  .chip.active {
+    background: #005bbb;
+    color: white
+  }
+
+  .summary {
+    background: white;
+    padding: 12px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.05)
+  }
+
+  .entry {
+    background: #e9f1fb;
+    padding: 12px;
+    border-radius: 10px;
+    margin-bottom: 12px;
+    font-size: 0.95rem
+  }
+
+  .shift-divider {
+    background: #002b5c;
+    color: white;
+    padding: 8px;
+    border-radius: 8px;
+    margin: 15px 0;
+    text-align: center;
+    font-weight:bold
+  }
+
+  .delete-btn {
+    background: #888;
+    color: white;
+    padding: 6px 10px;
+    font-size: 0.8rem;
+    border-radius: 6px;
+    margin-top:8px
+  }
+
+  .warning {
+    font-size: 0.8rem;
+    color: #c62828;
+    text-align: center;
+    margin-top: 10px
+  }
+
+  @media print{
+    button, form {display: none} 
+    body {background: white}
+  }
 </style>
 </head>
 <body>
 
 <h1>Shift Case Log</h1>
 <div class="card">
-<form id="logForm">
-<button type="button" class="secondary" onclick="setNow()">Use Current Date & Time</button>
-<div class="section-title">Date</div><input type="date" id="date" required>
-<div class="section-title">Time (24hr)</div><input type="time" id="time" required step="60">
+  <form id="logForm">
 
-<div class="section-title">Severity</div>
-<div class="chip-container" id="severityChips">
-  <div class="chip">Minor</div><div class="chip">Moderate</div><div class="chip">High</div><div class="chip">Escalated</div>
-</div>
+    <button 
+    type="button" 
+    class="secondary" 
+    onclick="setNow()"
+    >
+      Use Current Date & Time
+    </button>
 
-<div class="section-title">Case Type</div>
-<select id="caseType"><option value="">-- Select --</option>
-<option>Respiratory</option><option>Musculoskeletal</option><option>Cardiac</option><option>Neurological</option><option>Heat-related</option><option>Bleeding / Wound</option><option>Diabetic</option></select>
-<input type="text" id="customCase" placeholder="Custom case type">
+    <!--Date and Time-->
+    <div class="section-title">Date</div>
+    <input type="date" id="date" required>
 
-<div class="section-title">Clinical Exposure (Location / Context)</div>
-<div class="chip-container" id="contextChips">
-  <div class="chip">Event</div><div class="chip">Roadside</div><div class="chip">Community</div><div class="chip">Sporting</div><div class="chip">Crowd</div><div class="chip">Remote</div>
-</div>
+    <div class="section-title">Time (24hr)</div>
+    <input type="time" id="time" required step="60">
 
-<div class="section-title">Clinical Level / Scope</div>
-<div class="chip-container" id="levelChips">
-  <div class="chip">Observer</div><div class="chip">Assisted</div><div class="chip">Primary Clinician</div><div class="chip">Team Lead</div>
-</div>
+    <!--Sevarity-->
+    <div class="section-title">Severity</div>
+    <div class="chip-container" id="severityChips">
+      <div class="chip">Minor</div>
+      <div class="chip">Moderate</div>
+      <div class="chip">High</div>
+      <div class="chip">Escalated</div>
+    </div>
 
-<div class="section-title">Interventions</div>
-<div class="chip-container" id="interventionChips">
-  <div class="chip">Oxygen</div><div class="chip">BGL</div><div class="chip">Bandaging</div><div class="chip">Splinting</div><div class="chip">Airway Support</div><div class="chip">CPR</div><div class="chip">Monitoring</div><div class="chip">Assisted Medication</div>
-</div>
-<input type="text" id="customIntervention" placeholder="Custom intervention">
+    <!--Case Type-->
+    <div class="section-title">Case Type</div>
+      <select id="caseType">
+        <option value="">-- Select --</option>
+        <option>Bleeding / Wound</option>
+        <option>Soft Tissue</option>
+        <option>Fracture / Dislocation</option>
+        <option>Heat-related</option>
+        <option>Diabetic</option>
+      </select>
+      
+    <input type="text" id="customCase" placeholder="Custom case type">
 
-<div class="section-title">Notes</div>
-<textarea id="notes" rows="2"></textarea>
-<button type="button" class="secondary" onclick="startVoice()">🎤 Voice to Text</button>
+    <!--Location and Context-->
+    <div class="section-title">
+      Clinical Exposure (Location / Context)
+    </div>
+    <div class="chip-container" id="contextChips">
+      <div class="chip">Event</div>
+      <div class="chip">Roadside</div>
+      <div class="chip">Community</div>
+      <div class="chip">Sporting</div>
+      <div class="chip">Crowd</div>
+      <div class="chip">Remote</div>
+    </div>
 
-<div class="section-title">Reflection (1-Tap Quick Tags)</div>
-<div class="chip-container" id="reflectionChips">
-  <div class="chip">Communication</div><div class="chip">Scene Control</div><div class="chip">Clinical Reasoning</div><div class="chip">Documentation</div><div class="chip">Equipment Prep</div><div class="chip">Confidence</div><div class="chip">Escalation</div><div class="chip">Teamwork</div>
-</div>
+    <!--Role-->
+    <div class="section-title">
+      Clinical Role
+    </div>
+    <div class="chip-container" id="levelChips">
+      <div class="chip">Observer</div>
+      <div class="chip">Assisted</div>
+      <div class="chip">Secondary</div>
+      <div class="chip">Primary</div>
+      <div class="chip">Team Lead</div>
+    </div>
 
-<div class="section-title">Learning Point (1-line takeaway)</div>
-<input type="text" id="learningPoint" placeholder="Key improvement / takeaway">
+    <!-- Interventions -->
+    <div class="section-title">
+      Interventions
+    </div>
+    <div class="chip-container" id="interventionChips">
+      <div class="chip">Bandaging</div>
+      <div class="chip">Splinting</div>
+      <div class="chip">Monitoring</div>
+      <div class="chip">Pain Management</div>
+      <div class="chip">Oxygen</div>
+    </div>
+    <input type="text" id="customIntervention" placeholder="Custom intervention">
 
-<div class="section-title">Emotional State</div>
-<select id="emotionalState">
-<option value="">-- Select --</option>
-<option>Calm</option><option>Focused</option><option>Overwhelmed</option><option>Unsure</option><option>Confident</option>
-</select>
+    <!-- Notes -->
+    <div class="section-title">
+      Notes
+    </div>
+    <textarea id="notes" rows="2"></textarea>
+    <button type="button" class="secondary" onclick="startVoice()">
+      Voice to Text
+    </button>
 
-<button type="submit" class="primary">Add Entry</button>
-<button type="button" class="secondary" onclick="addShiftDivider()">Start New Shift</button>
-<button type="button" onclick="window.print()" class="export">Export PDF</button>
-<button type="button" onclick="clearAll()" class="danger">Clear All Data</button>
-</form>
-<p class="warning">No identifying patient information.</p>
+    <!-- Reflection -->
+    <div class="section-title">
+      Reflection (1-Tap Quick Tags)
+    </div>
+    <div class="chip-container" id="reflectionChips">
+      <div class="chip">Communication</div>
+      <div class="chip">Scene Control</div>
+      <div class="chip">Interventions</div>
+      <div class="chip">Documentation</div>
+      <div class="chip">Equipment Prep</div>
+      <div class="chip">Confidence</div>
+      <div class="chip">Teamwork</div>
+    </div>
+
+    <!-- learning Point -->
+    <div class="section-title">
+      Learning Point (1-line takeaway)
+    </div>
+    <input type="text" id="learningPoint" placeholder="Key improvement / takeaway">
+
+    <!-- Emtional State -->
+    <div class="section-title">
+      Emotional State
+    </div>
+    <select id="emotionalState">
+    <option value="">-- Select --</option>
+      <option>Calm</option>
+      <option>Focused</option>
+      <option>Overwhelmed</option>
+      <option>Unsure</option>
+      <option>Confident</option>
+    </select>
+
+    <button type="submit" class="primary">Add Entry</button>
+    <button type="button" class="secondary" onclick="addShiftDivider()">Start New Shift</button>
+    <button type="button" onclick="window.print()" class="export">Export PDF</button>
+    <button type="button" onclick="clearAll()" class="danger">Clear All Data</button>
+  </form>
+  <p class="warning">No identifying patient information.</p>
 </div>
 
 <div class="summary" id="summary"></div>
