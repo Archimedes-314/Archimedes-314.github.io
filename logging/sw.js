@@ -1,4 +1,4 @@
-const cacheName = "shift-log-cache-v2";
+const cacheName = "shift-log-cache-v3";
 const assets = [
   "/logging",
   "/logging/st-john-logging.html", 
