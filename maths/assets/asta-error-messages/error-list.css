@@ -1,0 +1,56 @@
+.error-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s linear;
+    z-index: 2;
+    cursor: url('/maths/assets/style/images/archimedes_pointing.png');
+}
+
+.error-container.show-error {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.error-box {
+    background-color: #f4f4f4;
+    border: 1px solid #cc0000;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    max-width: 400px;
+    width: 90%;
+    border-radius: 5px;
+    cursor: url('/maths/assets/style/images/archimedes_pointing.png') 16 4, pointer;
+}
+
+.pdf-choice-error-box,
+.pdf-download-error-box {
+    cursor: auto;
+}
+
+.pdf-choice-error-box button,
+.pdf-download-error-box button {
+    cursor: url('/maths/assets/style/images/archimedes_pointing.png');
+}
+
+.broken-math-ref {
+    color: #b00020;
+    font-style: italic;
+    cursor: url('/maths/assets/style/images/archimedes_pointing.png') 16 4, pointer;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .error-container {
+        transition: none;
+    }
+}

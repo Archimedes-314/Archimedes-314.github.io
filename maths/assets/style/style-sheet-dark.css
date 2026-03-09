@@ -1,0 +1,105 @@
+.dark {
+  color: #E6E6E6;
+}
+
+
+.dark a {
+  color: #8ab4f8;
+}
+.dark a:hover {
+  color: #a8c7ff;
+}
+
+
+.dark body {
+    background-color: #1F1F1F;
+}
+
+.dark .foot-note {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+
+.dark h1, .dark h2, .dark h3, .dark h4 {
+  color: #FFFFFF;
+}
+
+
+
+.dark section {
+  border-bottom: 1px solid #e0e0e052;
+}
+
+.dark .topic-list > li {
+    background-color: #e9f7e718;
+}
+
+.dark .topic-list > li:hover {
+    background-color: #d1e8d327;
+}
+
+.dark .p-box {
+    background-color: lightblue;
+}
+
+
+.dark .math-box {
+  border-left: 5px solid #4CAF50;
+  background: #1f2a2d;
+}
+
+.dark .theorem-box {border-color: #2b7a78;}
+.dark .definition-box {border-color: #8a4fff;}
+.dark .example-box {border-color: #ff9800;}
+
+.dark .theorem-box .working,
+.dark .definition-box .working,
+.dark .example-box .working {
+  background-color: #22373b;
+}
+
+
+.dark .lo-bdr-list li:not(:last-child) {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.dark .toggle-working {
+  background: #2A2A2A;
+  border: 1px solid #444;
+  color: #EEE;
+}
+
+
+.dark .toggle-working:hover {
+  background: #f1f1f1;
+}
+
+.dark table, 
+.dark th, 
+.dark td {
+  border: 1px solid rgba(255,255,255,0.15);
+}
+
+
+
+.dark .button-style {
+  background-color: #2A2A2A;
+  color: #EEE;
+}
+
+.dark .button-style:hover {
+  background-color: #333;
+}
+
+
+.dark .button-style-box {
+    background-color: white;
+    color: black;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}

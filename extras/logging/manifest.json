@@ -1,0 +1,20 @@
+{
+  "name": "Incident Reflection App",
+  "short_name": "ShiftLog",
+  "start_url": "/logging/incident-reflection-app.html",
+  "display": "standalone",
+  "background_color": "#f2f4f7",
+  "theme_color": "#005bbb",
+  "icons": [
+    {
+      "src": "/assets/style/images/archimedes.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/style/images/archimedes.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

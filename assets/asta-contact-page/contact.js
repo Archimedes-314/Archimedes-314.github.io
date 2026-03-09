@@ -11,12 +11,14 @@ document.getElementById("contact-form").addEventListener("submit", function (e) 
         return;
     }
 
-    const name = document.getElementById("name").value.trim();
-    const email = document.getElementById("email").value.trim();
+    const nameInput = document.getElementById("name")
+    const name = nameInput?.value.trim() || "there";
+    const emailInput = document.getElementById("email")
+    const email = emailInput?.value.trim() || "archimedes314notes@gmail.com";
     const title = document.getElementById("title").value.trim();
     const message = document.getElementById("message").value.trim();
 
-    if (!name || !email || !title || !message) {
+    if (!title || !message) {
         status.textContent = "Please fill in all fields.";
         status.style.color = "red";
         return;

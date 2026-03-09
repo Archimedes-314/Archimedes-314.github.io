@@ -1,0 +1,90 @@
+.dark {
+  --bg-main: #1f1d1d;
+  --bg-soft: #1e1e1e;
+  --bg-box: #242424;
+
+  --text-main: #eaeaea;
+  --text-muted: #b0b0b0;
+  --text-link: #8ab4f8;
+
+  --border-soft: #444444;
+
+  --green-main: #2e7939;
+  --green-dark: #255c28;
+  --green-hover: #115513;
+  --header-btn-shadow: #132d14;
+  --shadow-light: #000;
+
+  --sublinks-a: #000000;
+  --sublinks-a-active: #282828;
+}
+
+.dark .site-header {
+  background-color: #1f3d2b;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.6);
+}
+
+.dark .header-btn {
+  background-color: #2f6e31a4;
+  color: white;
+
+  box-shadow:
+    0 5px 0 #1e4f20af,
+    0 8px 20px rgba(0,0,0,0.6);
+}
+
+.dark .header-btn:hover {
+  background-color: #3a8a3daf;
+  box-shadow:
+    0 7px 0 #1e4f20af,
+    0 14px 28px rgba(0,0,0,0.6);
+}
+
+.dark .header-btn:active {
+  box-shadow:
+    0 3px 0 #1e4f20af,
+    0 6px 12px rgba(0,0,0,0.6);
+}
+
+.dark header h1 {
+color: white;
+}
+
+.dark .breadcrumbs {
+background-color: #2f6e31af;
+color: white;
+box-shadow: 2px 2px 5px #222222AA;
+}
+
+.dark .breadcrumbs a {
+color: white;
+}
+
+.dark .sub-links {
+background: #222;
+box-shadow: 0 2px 8px rgba(0,0,0,0.6);
+}
+
+.dark .sub-links a {
+  color: #ccc;
+}
+
+.dark .sub-links a:hover {
+color: #ccc;
+}
+
+.dark .sub-links a.active {
+  color: #fff;
+}
+
+
+.dark footer {
+    background: var(--green-main); 
+    color: white;
+}
+
+
+.dark .footer-main {
+    background-color: var(--green-dark); 
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}

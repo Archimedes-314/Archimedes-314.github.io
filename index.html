@@ -1,375 +1,223 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Real Analysis Maths Notes">   
-    <meta name="google-site-verification" content="[remove] 1GVbjY9xppS7E6tukfDbqtOGqj3NVu9PR0sdNOIQISE" />
-    <title>Eli's Maths Notes</title>
-    <link rel="icon" href="/assets/style/images/archimedes.png" />
-    <link rel="stylesheet" href="/assets/style/style-sheet-dark.css">
-    <link rel="stylesheet" href="/assets/style/style-sheet.css">
-    <link rel="stylesheet" href="/assets/style/head-foot-dark.css">
-    <link rel="stylesheet" href="/assets/style/head-foot.css">
-    <link rel="stylesheet" href="/assets/asta-error-messages/error-list.css">
-    <link rel="stylesheet" href="/assets/menu/menu.css">
-    <script src="/assets/style/style-sheet.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Professional Portfolio & Academic Projects</title>
 
-    <link rel="stylesheet" href="/assets/settings/settings.css">
-    <script src="/assets/settings/settings.js"></script>
-
-    <script src="/assets/main-js/macros.js"></script>
-    <script id="MathJax-script" async
-        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-    </script>
+  <link rel="stylesheet" href="/assets/CSS/main-style.css" />
+  <script src="/assets/JS/style-sheet.js"></script>
 </head>
-
 <body>
-    <header class="site-header">
-        <h1 class="header-h1-shadow">Eli's Maths Notes</h1>
+      <nav>
+      <input type="checkbox" id="sidebar-active">
+      <label for="sidebar-active" class="open-sidebar-btn">
+        <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+          <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M5 7h14M5 12h14M5 17h14"/>
+        </svg>
+      </label>
 
-        <div class="header-actions">
-            <button
-            id="togglePdfBtn"
-            class="header-btn header-btn--primary"
-            aria-expanded="false"
-            type="button"
-            >
-            <svg class="header-btn-icon" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M12 5v14M5 12h14"></path>
-            </svg>
-            <span class="header-btn-text">Show PDF</span>
-            </button>
+      <label for="sidebar-active" id="sidebar-overlay"></label>
+      <div class="links-container">
+        <label for="sidebar-active" class="close-sidebar-btn">
+          <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18 17.94 6M18 18 6.06 6"/>
+          </svg>
+        </label>
+          <a href="/extras/logging/incident-reflection-app.html">Incident Reflection App</a>
+          <a onclick="alert('This section has not been completed')" class="projects-nav-btn">Vehicle Pre-Check Application</a>
+          <a onclick="alert('This section has not been completed')">Personal Website</a>
+          <a href="/maths/maths-index.html">Maths Notes Website</a>
+          <a onclick="alert('This section has not been completed')">Nursing Notes Website</a>
+      </div>
+    </nav>
+  <!-- ================= HERO ================= -->
+  <header class="hero">
 
-            <button
-            id="downloadPdfBtn"
-            class="header-btn header-btn--primary small-screen-header-rm"
-            type="button"
-            >
-            <svg class="w-[24px] h-[24px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-                <path fill-rule="evenodd" d="M9 2.221V7H4.221a2 2 0 0 1 .365-.5L8.5 2.586A2 2 0 0 1 9 2.22ZM11 2v5a2 2 0 0 1-2 2H4a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2 2 2 0 0 0 2 2h12a2 2 0 0 0 2-2 2 2 0 0 0 2-2v-7a2 2 0 0 0-2-2V4a2 2 0 0 0-2-2h-7Zm-6 9a1 1 0 0 0-1 1v5a1 1 0 1 0 2 0v-1h.5a2.5 2.5 0 0 0 0-5H5Zm1.5 3H6v-1h.5a.5.5 0 0 1 0 1Zm4.5-3a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1h1.376A2.626 2.626 0 0 0 15 15.375v-1.75A2.626 2.626 0 0 0 12.375 11H11Zm1 5v-3h.375a.626.626 0 0 1 .625.626v1.748a.625.625 0 0 1-.626.626H12Zm5-5a1 1 0 0 0-1 1v5a1 1 0 1 0 2 0v-1h1a1 1 0 1 0 0-2h-1v-1h1a1 1 0 1 0 0-2h-2Z" clip-rule="evenodd"/>
-            </svg>
-            <span class="header-btn-text">Download PDF</span>
-            </button>
-
-            <a
-            class="header-btn header-btn--primary header-btn-pq"
-            onclick="showError('pq')"
-            >
-                <svg class="w-[24px] h-[24px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 20V7m0 13-4-4m4 4 4-4m4-12v13m0-13 4 4m-4-4-4 4"/>
-                </svg>
-                <span class="header-btn-text">Practice Questions</span>
-            </a>
-        </div>
-
-        <div class="hamburger" onclick="toggleMenu()">
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-    
-        <div class="overlay" onclick="toggleMenu()"></div>
-
-        <div id="menu-container"></div>
-        <div id="error-container"></div>
-    </header>
-
-    <div class="spacer"></div>
-
-    <div class="breadcrumb-wrapper">
-        <nav class="breadcrumbs">
-            <p>Home</p>
-        </nav>
+    <div class="hero-content">
+      <span class="hero-badge">Nursing · Mathematics · Emergency Service</span>
+      
+      <h1>Building knowledge, service, <br><span class="highlight">Clinical Skills & Analytical Rigor</span></h1>
+      
+      <p class="subtitle">
+        This is a structured repository of my journey, from 
+        <strong>Nursing</strong> clinical notes and <strong>Emergency Service</strong> reflections 
+        to the abstract logic of <strong>Mathematical Analysis</strong>.
+      </p>
+      
+      <div class="hero-btns">
+        <a href="#navigation" class="primary-btn">Explore My Work</a>
+        <a href="#projects" class="secondary-btn">My Extra Porjects</a>
+      </div>
     </div>
+  </header>
 
-    <div class="sub-links">
-        <a href="#top">Back to Top</a>
-        <a href="#section1">Purpose</a>
-        <a href="#section2">Common Notation and Syntax</a>
-        <a href="#section5">Main Topics</a>
+  <!-- ================= MISSION STATEMENT ================= -->
+  <div class="mission-statement">
+    <div class="container">
+      <h2>Mission Statement</h2>  
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce felis diam, aliquam in dapibus et, ornare gravida quam. Proin vitae mi quis augue viverra lobortis. Nulla facilisi. Etiam egestas semper gravida. In imperdiet odio non odio malesuada, ac lacinia augue sollicitudin. Cras at erat lobortis, varius nibh vitae, volutpat sem. Ut erat sem, rutrum at varius et, luctus vel sapien.
+      </p>
     </div>
+  </div>
 
-    <main>
-        <section
-        id="pdfContainer"
-        hidden
-        data-section="testing-sc"
-        data-webpage="testing"
-        >
-        <embed
-            id="pdfEmbed"
-            src="/pdf/testing.pdf"
-            type="application/pdf"
-            width="100%"
-            height="800px"
-        />
-        </section>
+  <!-- ================= OVERVIEW ================= -->
+  <section class="overview">
+    <div class="container">
+      <h2>Website Overview</h2>
+      <p>
+        This website is organised into three main sections: healthcare and emergency services, an ongoing mathematics project focused on real analysis, and my personal nursing 
+        study notes. Each section presents a different aspect of my professional and academic development.
+      </p>
+      <p>
+        The first section introduces my background, including my education, work experience, and future goals. I describe my roles with St John and the State Emergency Service 
+        (SES), the skills and lessons I have learned, and my motivation for working in these areas.
+      </p>
+      <p>
+        The second section focuses on my interest in pure mathematics. This ongoing project begins with real analysis, linear algebra, and logic, and will later include complex 
+        analysis as I continue my studies.
+      </p>
+      <p>
+        The final section contains my personal nursing notes, which reflect both my clinical knowledge and communication skills.
+      </p>
+    </div>
+  </section>
 
-        <input type="checkbox" id="calculator-toggle" hidden>
+  <!-- ================= NAVIGATION CARDS ================= -->
+  <section class="navigation" id="navigation">
+    <div class="container">
+      <h2>Explore the Sections</h2>
 
-        <div class="calculator-container">
-            <label for="calculator-toggle" class="calculator-tab">
-                Calculator
-            </label>
+      <div class="card-grid">
 
-            <div class="calculator">
-                <iframe
-                src="https://graphingti84calculator.com/TI-84"
-                width="100%"
-                height="100%"
-                frameborder="0"
-                allowfullscreen>
-                </iframe>
-            </div>
+        <!-- Personal Section -->
+        <div class="card" onclick="alert('This section has not been completed')">
+          <h3>Personal</h3>
+          <p>
+            This section outlines my professional experience, career goals, and commitment to healthcare and community service. It includes the experiences and achievements 
+            that have influenced my development and describes my aims for the future.
+          </p>
+          <span class="cta">View Professional Profile →</span>
         </div>
 
-
-
-
-        <section class="fncy-underline" id="section1">
-            <h2>Purpose</h2>
-                <h3>Welcome Message</h3>
-                    <p>
-                        Welcome to my online maths notes! This website is a list of personal mats notes  
-                        relating to introductory real analysis. I am entirely self-taught and working on this 
-                        project as a hobby, so <strong>there will be typos and minor errors in some 
-                        of the content</strong>. 
-                        However, I have done my best to ensure everything is as accurate as possible. If you 
-                        spot a mistake or want to provide feedback, you can contact me directly at 
-                        <a href="mailto:archimedes314notes@gmail.com">archimedes314notes@gmail.com</a>, 
-                        or fill out the form on my <a href="/contact/contact.html">Contact Page test</a>.
-                    </p>
-                    <p>
-                        This website is a work in progress. New content will be added over time, and I plan 
-                        to expand the topics covered in the future.
-                    </p>
-                    <p>
-                        I have also included a <a href="/assets/settings/settings.html">settings page</a>
-                         where you can customise certain aspects 
-                        of the site to suit your preferences. At the moment, I only have options
-                        for reduced motion, and showing hidden working by default. I am currently 
-                        working on a dark mode option, which will be added in a future update. More
-                        options will be added over time. You can access the settings page from the 
-                        <a onclick="toggleMenu()">menu</a>.
-                    </p>
-                
-                <h3>Purpose and Scope</h3>
-                    <p>
-                        This website explores how mathematical logic can be used to rigorously 
-                        construct the real numbers and understand their properties. We begin with 
-                        the basics of logic: learning what symbols mean, how to interpret 
-                        statements, and how to use logical reasoning to prove mathematical concepts. 
-                        Topics include propositional, first-order, and second-order logic.
-                    </p>
-
-                    <p>
-                        Using this foundation, we develop axiomatic systems to define the integers 
-                        and rational numbers from the natural numbers, and then construct the 
-                        irrational numbers and the real numbers. Along the way, we analyse 
-                        fundamental properties of the real number system, including completeness, 
-                        density, and incompleteness phenomena.
-                    </p>
-
-                    <p>
-                        Once we have a solid understanding of the real numbers, we return to logic, 
-                        focusing on syntax, semantics, and mathematical conventions. For example, we 
-                        examine why implicit multiplication is often given precedence over division, 
-                        how such conventions can be formally defined, and what it means for them to 
-                        be well-defined and consistent.
-                    </p>
-                    
-                    <p>
-                        In the future, this website will expand to include lessons on linear 
-                        algebra, calculus, and other areas of mathematics, always with an emphasis 
-                        on rigorous logical foundations.
-                    </p>
-
-                    <p class="foot-note">This is a test</p>
-                    <video controls poster="/assets/plots/videos/pic.png" style="max-width: 500px; width: 100%; height: auto;">
-                        <source src="/assets/plots/videos/CheckHealthDemo.mp4" type="video/mp4">
-                    </video>
-
-        </section>
-
-        <section 
-        class="collapsible-section" 
-        data-collapsible="true"
-        id="section2"
-        >
-            <header class="collapsible-header">
-                <h2 class="section-title">
-                    Common Notation and Syntax
-                </h2>
-
-                <button 
-                class="collapse-toggle" 
-                aria-label="Toggle section"
-                ></button>
-            </header>
-
-            <p class="section-description">
-                Unfortunately, mathematics lacks a universal set of notation; symbols, syntax and 
-                semantics can have different meanings across textbooks, and some authors even use 
-                their own systems. To avoid ambiguity, I will list the notation, syntax, and 
-                semantics used throughout this website.
-                This list can be <a onclick="showError('link')">downloaded</a> as a PDF.
-            </p>
-
-            <div class="section-content">
-                <h3>End of Proof Markers</h3>
-
-                    <p>
-                        In ancient Greek, the phrase <em>ὅπερ ἔδει δεῖξαι</em> (or ΟΕΔ) was commonly 
-                        used by mathematicians such as Euclid and Archimedes to mark the end of a 
-                        proof. During the European Renaissance, this was translated into Latin as 
-                        <em>quod erat demonstrandum</em> (Q.E.D.).
-                    </p>
-
-                    <p>
-                        However, in modern mathematics, it is common to use the <em>Halmos symbol</em> 
-                        (also known as the <em>tombstone</em>), represented as \(\blacksquare\). 
-                        Following standard convention, the tombstone will be used here to indicate 
-                        the end of a proof when appropriate.
-                    </p>
-
-                <h3>Implied Multiplication</h3>
-
-                    <p>
-                        Multiplication can be shown in two ways: with a symbol (such as \(2 \cdot 
-                        3\) or \(4 \times 6\)), or without one, by writing values together (such as 
-                        \(ab\), which means \(a\) times \(b\)). When a multiplication symbol is 
-                        used, the operation is called <em>explicit multiplication</em>. When no 
-                        symbol is used, it is called <em>implicit</em> (or <em>implied</em>) 
-                        multiplication. You may also see this referred to as <em>multiplication by 
-                        juxtaposition</em>.
-                    </p>
-
-                    <p>
-                        Depending on the author, implicit multiplication may be parsed with 
-                        different binding strength relative to other operations. Here are the two
-                        common conventions:
-                    </p>
-
-                    <ol>
-                        <li>
-                        <strong>High-precedence implicit multiplication.</strong><br>
-                        Implicit multiplication is treated as if it were surrounded by brackets, and therefore binds more tightly than division.
-                        </li>
-                        <li>
-                        <strong>Equal-precedence implicit multiplication.</strong><br>
-                        Implicit multiplication is treated as having the same precedence as explicit multiplication.
-                        </li>
-                    </ol>
-
-                    <p>
-                        It is important to understand which convention an author is using, as the 
-                        choice can significantly affect the interpretation of an expression. For 
-                        example, under the first convention, implicit multiplication always takes 
-                        precedence over division, and functions written without brackets are 
-                        interpreted as having all immediately following implicitly multiplied 
-                        values as part of the function's argument:
-                    </p>
-
-                    <ul>
-                        <li>\( 1 / ab = \frac{1}{ab} \)</li>
-                        <li>\( \cos ab = \cos(ab) \)</li>
-                    </ul>
-
-                    <p>
-                    However, if the second convention were used, the same expressions would instead 
-                    be interpreted as:
-                    </p>
-
-                    <ul>
-                        <li>\( 1 / ab = \frac{1}{a} \cdot b \)</li>
-                        <li>\( \cos ab = \cos(a) \cdot b \)</li>
-                    </ul>
-
-                    <p>
-                        Either convention is a stylistic choice of notation rather than a logical 
-                        necessity. However, the second interpretation is less common in modern 
-                        mathematical writing but does appear in some calculators and informal 
-                        contexts. Throughout this website, the first convention is used: implicit 
-                        multiplication binds more tightly than division. Whenever there is any 
-                        possibility of ambiguity, brackets will be used to make the intended meaning 
-                        explicit.
-                    </p>
-
-                    <p class="foot-note">(This section will be expanded overtime.)</p>
-            </div>
-        </section>
-
-
-        <section id="section5">
-            <h2>Main Topics</h2>
-            <ul class="topic-list">
-                <li>
-                    <h3><a href="formal-logic-i/formal-logic-i.html">
-                        1. <span>Formal Logic (Part I)</span>
-                    </a></h3>
-                    <p>This topic will include the following sections:</p>
-                    <ul class="subtopic-list">
-                        <li>Mathematical Language and Symbolism</li>
-                        <li>Formal Systems and proof</li>
-                    </ul>
-                </li>
-
-                <li>
-                    <h3><a onclick="showError('link')"> 
-                        2. <span>Constructing the Real Numbers</span>
-                    </a></h3>
-                    <p>This topic will include the following sections:</p>
-                    <ul class="subtopic-list">
-                        <li>temp</li>
-                    </ul>
-                </li>
-
-                <li>
-                    <h3><a onclick="showError('link')">
-                        3. <span>Formal Logic (Part II)</span>
-                    </a></h3>
-                    <p>This topic will include the following sections:</p>
-                    <ul class="subtopic-list">
-                        <li>temp</li>
-                    </ul>
-                </li>
-            </ul>
-        </section>
-    </main>
-
-    <footer>
-        <div class="footer-top">
-            <span class="footer-small">© 2026 Archimedes-314</span>
-            <span class="footer-small">Last updated: <span id="last-updated">14 February 2026</span></span>
+        <!-- Maths Section -->
+        <div class="card" onclick="redirectLink('/maths/maths-index.html')">
+          <h3>Mathematics</h3>
+          <p>
+            This section introduces real analysis and connects it with logic, set theory, calculus, and linear algebra. It supports my academic progress and interest in solving 
+            challenging problems.
+          </p>
+          <span class="cta">Explore Mathematics Project →</span>
         </div>
 
-        <div class="footer-main">
-            <p class="footer-disclaimer">Errors may exist; corrections welcome.</p>
-            <p class="footer-contact">
-                <a href="/contact/contact.html">Feedback/Contact Page</a>
-            </p>
-            <p class="footer-contact">
-                Email Directly:
-                <a href="mailto:archimedes314notes@gmail.com">
-                    archimedes314notes@gmail.com
-                </a>
-            </p>
-            <p class="footer-source">
-                Source code on
-                <a href="https://github.com/Archimedes-314" target="_blank">GitHub</a>
-            </p>
+        <!-- Nursing Section -->
+        <div class="card" onclick="alert('This section has not been completed')">
+          <h3>Nursing</h3>
+          <p>
+            This section contains study materials from my Diploma of Nursing. These notes help me organise new information and develop my nursing practice skills.
+          </p>
+          <span class="cta">Access Nursing Notes →</span>
         </div>
-    </footer>
-    <script src="/assets/menu/menu.js"></script>
-    <script src="/assets/main-js/macros.js"></script>
-    <script src="/assets/main-js/scroll-spy.js"></script>
-    <script src="/assets/main-js/fetch.js"></script>
-    <script src="/assets/asta-error-messages/error-list.js"></script>
-    <script src="/assets/main-js/show-embed.js"></script>
-    <script src="/assets/main-js/maths-box.js"></script>
-    <script src="/assets/main-js/collapsible-sections.js"></script>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PROJECTS ================= -->
+  <section class="projects" id="projects">
+    <div class="container">
+      <h2>Extra Projects</h2>
+      <p>
+        Beyond the core sections, this site also features several key projects that highlight both my practical and academic contributions. These projects are a blend of service, technology, and intellectual exploration:
+      </p>
+      <gap- size="2rem"></gap->
+
+      <div class="project-detail" onclick="redirectLink('/extras/logging/incident-reflection-app.html')">
+        <h3>Incident Reflection App</h3>
+        <p>
+          The Incident Reflection App is a web-based tool that supports personal reflection and 
+          improvement in community service and first response work. Its main function is to record events 
+          as they occur during a shift, so that you can review and reflect on them in detail afterwards.
+        </p>
+        
+        <p class="feature-lead">The main features of the app are as follows:</p>
+        <ul class="feature-list">
+          <li>
+            <strong>Incident Logging:</strong> 
+            You can record key details, including date, time, severity, case type, interventions, and 
+            clinical roles, for each incident.
+          </li>
+          <li>
+            <strong>Reflective Practice:</strong> 
+            The app includes a self-reflection tool that uses tags for common areas of improvement, 
+            including communication, scene control, and teamwork.
+          </li>
+          <li>
+            <strong>Emotional Awareness:</strong> 
+            You can document your emotional state to help identify patterns in your performance and 
+            well-being.
+          </li>
+        </ul>
+        <p class="disclaimer">
+          Disclaimer: This application was developed as a personal learning project and 
+          for individual reflection. It is a lightweight tool created primarily for 
+          experimentation and practice, and is not intended to replace official incident 
+          reporting systems, clinical documentation, or organisational record-keeping. 
+          Patient or personally identifiable information should not be recorded in this 
+          application.
+        </p>
+      </div>
+
+      <div class="project-detail" onclick="alert('This project has not been completed')">
+        <h3>Vehicle Pre-Check Application</h3>
+        <p>
+          The Vehicle Pre-Check Application is a basic tool that helps carry out vehicle pre-checks. 
+        </p>
+
+        <p class="feature-lead">Key features include:</p>
+        <ul class="feature-list">
+          <li>
+            <strong>Comprehensive Inspections:</strong> 
+            It provides categorised checklists for different parts of the vehicle, including the engine 
+            bay, exterior, tires, and interior controls.
+          </li>
+          <li>
+            <strong>Live Status Tracking:</strong> 
+            As you move through the inspection, a real-time summary counter helps you keep track of which 
+            items are in good condition and which need attention.
+          </li>
+          <li>
+            <strong>Offline Capability (PWA):</strong> 
+            Because the app is built as a Progressive Web App, you can complete inspections even in areas 
+            with poor cellular reception
+          </li>
+          <li>
+            <strong>Digital Logging:</strong> 
+            The app replaces paper forms by storing inspection data locally and allowing you to export 
+            reports as PDFs for audits and maintenance records.
+          </li>
+        </ul>
+        <p class="disclaimer">
+          Disclaimer: This project was built as a personal learning exercise. It is a lightweight 
+          tool intended for experimentation and personal use, and no guarantees are 
+          made regarding accuracy, completeness, or suitability for professional use.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="footer">
+    <div class="container">
+      <p>
+        © 2026 Archimedes-314<br>
+        All content provided in good faith. All materials shared are for educational and personal purposes only. No patient-identifiable or confidential operational 
+        information is published here. The information provided should not be considered a substitute for formal education or professional advice.
+      </p>
+    </div>
+  </footer>
+
+  <script src="/assets/JS/script.js"></script>
 </body>
-
 </html>

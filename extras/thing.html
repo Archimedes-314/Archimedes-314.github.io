@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Water Taxi Income Tracker</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f6f9;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+}
+
+.container {
+    max-width: 900px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+form {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+input, select, button {
+    padding: 8px;
+    font-size: 14px;
+}
+
+button {
+    background: #0077cc;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #005fa3;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+th {
+    background: #0077cc;
+    color: white;
+}
+
+.stats {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.stat-box {
+    background: #eef3f8;
+    padding: 10px;
+    border-radius: 8px;
+    width: 48%;
+}
+
+canvas {
+    margin-top: 20px;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+<h1>🚤 Water Taxi Income Tracker</h1>
+
+<form id="incomeForm">
+    <input type="date" id="date" required>
+    <select id="ship" required>
+        <option value="">Select Ship</option>
+        <option value="Water Taxi I">Water Taxi I</option>
+        <option value="Water Taxi II">Water Taxi II</option>
+        <option value="SS Boat 3">SS Boat 3</option>
+    </select>
+    <input type="number" id="income" placeholder="Income ($)" required>
+    <button type="submit">Add Entry</button>
+</form>
+
+<div class="stats">
+    <div class="stat-box">
+        <h3>Water Taxi I</h3>
+        <p>Total: $<span id="total1">0</span></p>
+        <p>Average: $<span id="avg1">0</span></p>
+    </div>
+    <div class="stat-box">
+        <h3>Water Taxi II</h3>
+        <p>Total: $<span id="total2">0</span></p>
+        <p>Average: $<span id="avg2">0</span></p>
+    </div>
+    <div class="stat-box">
+        <h3>SS Boat 3</h3>
+        <p>Total: $<span id="total3">0</span></p>
+        <p>Average: $<span id="avg3">0</span></p>
+    </div>
+</div>
+
+<table>
+    <thead>
+        <tr>
+            <th>Date</th>
+            <th>Ship</th>
+            <th>Income</th>
+        </tr>
+    </thead>
+    <tbody id="dataTable"></tbody>
+</table>
+
+<button onclick="clearData()">Clear All Data</button>
+
+<canvas id="incomeChart"></canvas>
+
+</div>
+
+<script>
+let incomeData = JSON.parse(localStorage.getItem("incomeData")) || [];
+
+const form = document.getElementById("incomeForm");
+const table = document.getElementById("dataTable");
+
+form.addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const entry = {
+        date: document.getElementById("date").value,
+        ship: document.getElementById("ship").value,
+        income: parseFloat(document.getElementById("income").value)
+    };
+
+    incomeData.push(entry);
+    localStorage.setItem("incomeData", JSON.stringify(incomeData));
+
+    form.reset();
+    render();
+});
+
+function render() {
+    table.innerHTML = "";
+
+    incomeData.sort((a,b) => new Date(a.date) - new Date(b.date));
+
+    incomeData.forEach(entry => {
+        const row = `
+            <tr>
+                <td>${entry.date}</td>
+                <td>${entry.ship}</td>
+                <td>$${entry.income.toLocaleString()}</td>
+            </tr>
+        `;
+        table.innerHTML += row;
+    });
+
+    updateStats();
+    updateChart();
+}
+
+function calculateStats(shipName) {
+    const filtered = incomeData.filter(e => e.ship === shipName);
+    const total = filtered.reduce((sum, e) => sum + e.income, 0);
+    const avg = filtered.length ? (total / filtered.length) : 0;
+    return { total, avg };
+}
+
+function updateStats() {
+    const stats1 = calculateStats("Water Taxi I");
+    const stats2 = calculateStats("Water Taxi II");
+    const stats3 = calculateStats("SS Boat 3");
+
+    document.getElementById("total1").innerText = stats1.total.toLocaleString();
+    document.getElementById("avg1").innerText = stats1.avg.toFixed(2);
+
+    document.getElementById("total2").innerText = stats2.total.toLocaleString();
+    document.getElementById("avg2").innerText = stats2.avg.toFixed(2);
+
+    document.getElementById("total3").innerText = stats3.total.toLocaleString();
+    document.getElementById("avg3").innerText = stats3.avg.toFixed(2);
+}
+
+let chart;
+
+function updateChart() {
+    const labels = [...new Set(incomeData.map(e => e.date))];
+
+    const data1 = labels.map(date => {
+        const entry = incomeData.find(e => e.date === date && e.ship === "Water Taxi I");
+        return entry ? entry.income : null;
+    });
+
+    const data2 = labels.map(date => {
+        const entry = incomeData.find(e => e.date === date && e.ship === "Water Taxi II");
+        return entry ? entry.income : null;
+    });
+
+    const data3 = labels.map(date => {
+        const entry = incomeData.find(e => e.date === date && e.ship === "SS Boat 3");
+        return entry ? entry.income : null;
+    });
+
+
+    if (chart) chart.destroy();
+
+    chart = new Chart(document.getElementById("incomeChart"), {
+        type: "line",
+        data: {
+            labels: labels,
+            datasets: [
+                {
+                    label: "Water Taxi I",
+                    data: data1,
+                    borderColor: "blue",
+                    fill: false
+                },
+                {
+                    label: "Water Taxi II",
+                    data: data2,
+                    borderColor: "green",
+                    fill: false
+                },
+                {
+                    label: "SS Boat 3",
+                    data: data3,
+                    borderColor: "red",
+                    fill: false
+                }
+            ]
+        }
+    });
+}
+
+function clearData() {
+    if (confirm("Are you sure you want to delete all data?")) {
+        localStorage.removeItem("incomeData");
+        incomeData = [];
+        render();
+    }
+}
+
+render();
+</script>
+
+</body>
+</html>
