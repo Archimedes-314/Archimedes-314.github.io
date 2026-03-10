@@ -44,6 +44,8 @@ p {
   color: var(--text-secondary);
 }
 
+/* ================= NAV ================= */
+
 nav {
   height: 60px;
   background-color: var(--nav-background);
