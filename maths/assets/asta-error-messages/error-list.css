@@ -12,7 +12,7 @@
     pointer-events: none;
     opacity: 0;
     transition: opacity 0.3s linear;
-    z-index: 2;
+    z-index: 10;
     cursor: url('/maths/assets/style/images/archimedes_pointing.png');
 }
 

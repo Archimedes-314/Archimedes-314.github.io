@@ -29,45 +29,69 @@
     <header class="site-header">
         <h1 class="header-h1-shadow">Eli's Maths Notes</h1>
 
+
         <div class="header-actions">
-            <button
-            id="togglePdfBtn"
-            class="header-btn header-btn--primary"
-            aria-expanded="false"
-            type="button"
-            >
-            <svg class="header-btn-icon" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M12 5v14M5 12h14"></path>
-            </svg>
-            <span class="header-btn-text">Show PDF</span>
-            </button>
+            <input type="checkbox" id="sidebar-active">
+            <label for="sidebar-active" class="open-sidebar-btn header-btn">
+                Actions
+            </label>
 
-            <button
-            id="downloadPdfBtn"
-            class="header-btn header-btn--primary small-screen-header-rm"
-            type="button"
-            >
-            <svg class="w-[24px] h-[24px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-                <path fill-rule="evenodd" d="M9 2.221V7H4.221a2 2 0 0 1 .365-.5L8.5 2.586A2 2 0 0 1 9 2.22ZM11 2v5a2 2 0 0 1-2 2H4a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2 2 2 0 0 0 2 2h12a2 2 0 0 0 2-2 2 2 0 0 0 2-2v-7a2 2 0 0 0-2-2V4a2 2 0 0 0-2-2h-7Zm-6 9a1 1 0 0 0-1 1v5a1 1 0 1 0 2 0v-1h.5a2.5 2.5 0 0 0 0-5H5Zm1.5 3H6v-1h.5a.5.5 0 0 1 0 1Zm4.5-3a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1h1.376A2.626 2.626 0 0 0 15 15.375v-1.75A2.626 2.626 0 0 0 12.375 11H11Zm1 5v-3h.375a.626.626 0 0 1 .625.626v1.748a.625.625 0 0 1-.626.626H12Zm5-5a1 1 0 0 0-1 1v5a1 1 0 1 0 2 0v-1h1a1 1 0 1 0 0-2h-1v-1h1a1 1 0 1 0 0-2h-2Z" clip-rule="evenodd"/>
-            </svg>
-            <span class="header-btn-text">Download PDF</span>
-            </button>
+            <label for="sidebar-active" id="sidebar-overlay"></label>
+            <div class="actions-container">
+                <label for="sidebar-active" class="close-sidebar-btn header-btn">
+                    <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18 17.94 6M18 18 6.06 6"/>
+                    </svg>
+                    Close Actions
+                </label>
+                <label for="sidebar-active" class="close-sidebar-btn header-btn" onclick="toggleMenu()">
+                    <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M5 7h14M5 12h14M5 17h14"/>
+                    </svg>
+                    Navigation Menu
+                </label>
 
-            <a
-            class="header-btn header-btn--primary header-btn-pq"
-            onclick="showError('pq')"
-            >
-                <svg class="w-[24px] h-[24px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 20V7m0 13-4-4m4 4 4-4m4-12v13m0-13 4 4m-4-4-4 4"/>
-                </svg>
-                <span class="header-btn-text">Practice Questions</span>
-            </a>
-        </div>
+                <label
+                for="sidebar-active"
+                class="header-btn"
+                id="togglePdfBtn"
+                >
+                    <svg class="header-btn-icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M12 5v14M5 12h14"></path>
+                    </svg>
+                    <span class="header-btn-text">Show PDF</span>
+                </label>
 
-        <div class="hamburger" onclick="toggleMenu()">
-            <div></div>
-            <div></div>
-            <div></div>
+                <label 
+                for="sidebar-active" 
+                class="header-btn" 
+                id="downloadPdfBtn"
+                >
+                    <svg class="w-[24px] h-[24px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                        <path fill-rule="evenodd" d="M9 2.221V7H4.221a2 2 0 0 1 .365-.5L8.5 2.586A2 2 0 0 1 9 2.22ZM11 2v5a2 2 0 0 1-2 2H4a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2 2 2 0 0 0 2 2h12a2 2 0 0 0 2-2 2 2 0 0 0 2-2v-7a2 2 0 0 0-2-2V4a2 2 0 0 0-2-2h-7Zm-6 9a1 1 0 0 0-1 1v5a1 1 0 1 0 2 0v-1h.5a2.5 2.5 0 0 0 0-5H5Zm1.5 3H6v-1h.5a.5.5 0 0 1 0 1Zm4.5-3a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1h1.376A2.626 2.626 0 0 0 15 15.375v-1.75A2.626 2.626 0 0 0 12.375 11H11Zm1 5v-3h.375a.626.626 0 0 1 .625.626v1.748a.625.625 0 0 1-.626.626H12Zm5-5a1 1 0 0 0-1 1v5a1 1 0 1 0 2 0v-1h1a1 1 0 1 0 0-2h-1v-1h1a1 1 0 1 0 0-2h-2Z" clip-rule="evenodd"/>
+                    </svg>
+                    <span class="header-btn-text">Download PDF</span>
+                </label>
+
+                <label
+                for="sidebar-active"
+                class="header-btn header-btn-pq"
+                onclick="showError('pq')"
+                >
+                    <svg class="w-[24px] h-[24px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 20V7m0 13-4-4m4 4 4-4m4-12v13m0-13 4 4m-4-4-4 4"/>
+                    </svg>
+                    <span class="header-btn-text">Practice Questions</span>
+                </label>
+
+                <label class="header-btn burger" onclick="toggleMenu()">
+                    <div class="hamburger">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                </label>
+            </div>
         </div>
     
         <div class="overlay" onclick="toggleMenu()"></div>
@@ -85,7 +109,7 @@
     </div>
 
     <div class="sub-links">
-        <a href="#top">Back to Top</a>
+        <a href="#top">Top</a>
         <a href="#section1">Purpose</a>
         <a href="#section2">Common Notation and Syntax</a>
         <a href="#section5">Main Topics</a>
