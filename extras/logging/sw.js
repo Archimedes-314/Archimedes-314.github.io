@@ -1,12 +1,12 @@
 const cacheName = "shift-log-cache-v4";
 const assets = [
-  "/logging",
-  "/logging/incident-reflection-app.html", 
-  "/logging/manifest.json"
+  "/extras/logging",
+  "/extras/logging/incident-reflection-app.html", 
+  "/extras/logging/manifest.json"
 ];
 
 if('serviceWorker' in navigator){
-  navigator.serviceWorker.register('/logging/sw.js', { scope: '/logging/' })
+  navigator.serviceWorker.register('/extras/logging/sw.js', { scope: '/extras/logging/' })
     .then(() => console.log("Service Worker Registered"));
 }
 
