@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vehicle Pre-Start Check</title>
+
+<link rel="manifest" href="manifest.json">
+<link rel="stylesheet" href="style.css">
+<meta name="theme-color" content="#005bbb">
+</head>
+<body>
+
+<h1>Vehicle Full Pre-Start Check</h1>
+
+<div id="formView" class="card">
+<form id="checkForm">
+
+<button 
+type="button" 
+class="secondary" 
+onclick="setNow()"
+>
+  Use Current Date & Time
+</button>
+
+<div class="section-title">Date</div>
+<input type="date" id="date" required>
+
+<div class="section-title">Time (24hr)</div>
+<input type="time" id="time" required>
+
+<div class="section-title">Vehicle ID / Rego</div>
+<input type="text" id="vehicleId" required>
+
+<div class="section-title">Odometer (km)</div>
+<input type="number" id="odometer">
+
+<div class="summary" id="liveSummary">
+Good: 0 | Needs Attention: 0 | N/A: 0
+</div>
+
+<div id="checklist"></div>
+
+<div class="section-title">Issues Found</div>
+<textarea id="issues" rows="2"></textarea>
+
+<div class="section-title">Driver Notes</div>
+<textarea id="notes" rows="2"></textarea>
+
+<button type="submit" class="primary">Save Pre-Check</button>
+<button type="button" onclick="window.print()" class="export">Export PDF</button>
+<button type="button" onclick="clearAll()" class="danger">Clear All Data</button>
+
+</form>
+</div>
+
+<div id="logView" class="hidden">
+<div id="entries"></div>
+</div>
+
+<script src="main.js"></script>
+
+</body>
+</html>
