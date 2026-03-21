@@ -6,14 +6,14 @@
     <meta name="description" content="Real Analysis Maths Notes">   
 -
     <title>Mathematical Notations and Terminology</title>
-    <link rel="icon" href="/maths/assets/style/images/archimedes.png"/>
+    <link rel="icon" href="/maths/assets/style/images/archimedes.png" />
     <link rel="stylesheet" href="/maths/assets/style/style-sheet-dark.css">
     <link rel="stylesheet" href="/maths/assets/style/style-sheet.css">
     <link rel="stylesheet" href="/maths/assets/style/head-foot-dark.css">
     <link rel="stylesheet" href="/maths/assets/style/head-foot.css">
     <link rel="stylesheet" href="/maths/assets/asta-error-messages/error-list.css">
     <link rel="stylesheet" href="/maths/assets/menu/menu.css">
-    <script src="/assets/js/style-sheet.js"></script>
+    <script src="/assets/JS/style-sheet.js" defer></script>
 
     <link rel="stylesheet" href="/maths/assets/settings/settings.css">
     <script src="/maths/assets/settings/settings.js"></script>
@@ -23,81 +23,156 @@
         src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
     </script>
 </head>
-<body>
-
+<body data-set-small-at="990px">
     <header class="site-header">
-        <h1 class="header-h1-shadow">Eli's Maths Notes</h1>
+        <div class="header-inner">
+            <h1 class="header-h1">Eli's Maths Notes</h1>
+            <div class="header-actions">
+                <input type="checkbox" id="sidebar-active">
+                <label for="sidebar-active" class="open-sidebar-btn header-btn">
+                    Actions
+                </label>
+                <input type="checkbox" id="links-bar-active">
+                <label for="links-bar-active" class="open-links-bar-btn header-btn">
+                    Links Bar
+                </label>
 
-        <div class="header-actions">
-            <button
-            id="togglePdfBtn"
-            class="header-btn header-btn--primary"
-            aria-expanded="false"
-            type="button"
-            >
-            <svg class="header-btn-icon" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M12 5v14M5 12h14"></path>
-            </svg>
-            <span class="header-btn-text">Show PDF</span>
-            </button>
+                <label for="sidebar-active" id="sidebar-overlay"></label>
+                <div class="actions-container">
+                    <label for="sidebar-active" class="close-sidebar-btn header-btn">
+                        <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18 17.94 6M18 18 6.06 6"/>
+                        </svg>
+                        Close Actions
+                    </label>
 
-            <button
-            onclick="showError('link')"
-            class="header-btn header-btn--primary small-screen-header-rm"
-            type="button"
-            >
-            <svg class="w-[24px] h-[24px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-                <path fill-rule="evenodd" d="M9 2.221V7H4.221a2 2 0 0 1 .365-.5L8.5 2.586A2 2 0 0 1 9 2.22ZM11 2v5a2 2 0 0 1-2 2H4a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2 2 2 0 0 0 2 2h12a2 2 0 0 0 2-2 2 2 0 0 0 2-2v-7a2 2 0 0 0-2-2V4a2 2 0 0 0-2-2h-7Zm-6 9a1 1 0 0 0-1 1v5a1 1 0 1 0 2 0v-1h.5a2.5 2.5 0 0 0 0-5H5Zm1.5 3H6v-1h.5a.5.5 0 0 1 0 1Zm4.5-3a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1h1.376A2.626 2.626 0 0 0 15 15.375v-1.75A2.626 2.626 0 0 0 12.375 11H11Zm1 5v-3h.375a.626.626 0 0 1 .625.626v1.748a.625.625 0 0 1-.626.626H12Zm5-5a1 1 0 0 0-1 1v5a1 1 0 1 0 2 0v-1h1a1 1 0 1 0 0-2h-1v-1h1a1 1 0 1 0 0-2h-2Z" clip-rule="evenodd"/>
-            </svg>
-            <span class="header-btn-text">Download PDF</span>
-            </button>
+                    <label for="sidebar-active" class="close-sidebar-btn header-btn" onclick="toggleMenu()">
+                        <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M5 7h14M5 12h14M5 17h14"/>
+                        </svg>
+                        Navigation Menu
+                    </label>
 
-            <a 
-            class="header-btn header-btn--primary header-btn-pq"
-            onclick="showError('link')"
-            >
-                <svg class="w-[24px] h-[24px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 20V7m0 13-4-4m4 4 4-4m4-12v13m0-13 4 4m-4-4-4 4"/>
-                </svg>
-                <span class="header-btn-text">Practice Questions</span>
-            </a>
+                    <label
+                    for="sidebar-active"
+                    class="header-btn"
+                    id="togglePdfBtn"
+                    >
+                        <svg class="header-btn-icon" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M12 5v14M5 12h14"></path>
+                        </svg>
+                        <span class="header-btn-text">Show PDF</span>
+                    </label>
+
+                    <label
+                    for="sidebar-active"
+                    class="header-btn"
+                    id="downloadPdfBtn"
+                    >
+                        <svg class="w-[24px] h-[24px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                            <path fill-rule="evenodd" d="M9 2.221V7H4.221a2 2 0 0 1 .365-.5L8.5 2.586A2 2 0 0 1 9 2.22ZM11 2v5a2 2 0 0 1-2 2H4a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2 2 2 0 0 0 2 2h12a2 2 0 0 0 2-2 2 2 0 0 0 2-2v-7a2 2 0 0 0-2-2V4a2 2 0 0 0-2-2h-7Zm-6 9a1 1 0 0 0-1 1v5a1 1 0 1 0 2 0v-1h.5a2.5 2.5 0 0 0 0-5H5Zm1.5 3H6v-1h.5a.5.5 0 0 1 0 1Zm4.5-3a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1h1.376A2.626 2.626 0 0 0 15 15.375v-1.75A2.626 2.626 0 0 0 12.375 11H11Zm1 5v-3h.375a.626.626 0 0 1 .625.626v1.748a.625.625 0 0 1-.626.626H12Zm5-5a1 1 0 0 0-1 1v5a1 1 0 1 0 2 0v-1h1a1 1 0 1 0 0-2h-1v-1h1a1 1 0 1 0 0-2h-2Z" clip-rule="evenodd"/>
+                        </svg>
+                        <span class="header-btn-text">Download PDF</span>
+                    </label>
+
+                    <label
+                    for="sidebar-active"
+                    class="header-btn header-btn-pq"
+                    onclick="showError('pq')"
+                    >
+                        <svg class="w-[24px] h-[24px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 20V7m0 13-4-4m4 4 4-4m4-12v13m0-13 4 4m-4-4-4 4"/>
+                        </svg>
+                        <span class="header-btn-text">Practice Questions</span>
+                    </label>
+                    
+                    <label class="header-btn burger" onclick="toggleMenu()">
+                        <div class="hamburger">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                    </label>
+                </div>
+
+                <label for="links-bar-active" id="links-bar-overlay"></label>
+                <div class="sub-links-inner-sc">
+                    <label for="links-bar-active" class="close-sidebar-btn header-btn">
+                        <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18 17.94 6M18 18 6.06 6"/>
+                        </svg>
+                        <span>Close Links Bar</span>
+                    </label>
+
+                    <label for="links-bar-active" class="close-sidebar-btn header-btn" onclick="toggleMenu()">
+                        <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M5 7h14M5 12h14M5 17h14"/>
+                        </svg>
+                        Navigation Menu
+                    </label>
+
+                    <label 
+                    for="links-bar-active" 
+                    onclick="linksScroll('top')"
+                    class="header-btn">
+                        <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v13m0-13 4 4m-4-4-4 4"/>
+                        </svg>
+                        <span>Back to Top</span>
+                    </label>
+
+                    <label 
+                    for="links-bar-active" 
+                    onclick="linksScroll('section1')"
+                    class="header-btn">
+                        <span>Purpose</span>
+                    </label>
+
+                    <label 
+                    for="links-bar-active" 
+                    onclick="linksScroll('section2')"
+                    class="header-btn">
+                        <span>Common Notation and Syntax</span>
+                    </label>
+
+                    <label 
+                    for="links-bar-active" 
+                    onclick="linksScroll('section5')"
+                    class="header-btn">
+                        <span>Common Notation and Syntax</span>
+                    </label>
+                </div>
+            </div>
+            <div class="overlay" onclick="toggleMenu()"></div>
+            <div id="menu-container"></div>
+            <div id="error-container"></div>
         </div>
-
-        <div class="hamburger" onclick="toggleMenu()">
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-    
-        <div class="overlay" onclick="toggleMenu()"></div>
-
-        <div id="menu-container"></div>
-        <div id="error-container"></div>
     </header>
-
-    <div class="spacer"></div>
 
     <div class="breadcrumb-wrapper">
         <nav class="breadcrumbs">
-            <a class="nav-link" href="/maths/maths-index.html">Home</a>
-            <a class="nav-link" href="/maths/formal-logic-i.html">Formal Logic I</a>
-            <a class="nav-link" href="/maths/formal-logic-i/syntax-and-semantics.html">Propositional Logic: Syntax and Semantics</a>
+            <a class="nav-link" href="/maths/maths-index.html"><span>Home</span></a>
+            <a class="nav-link" href="/maths/formal-logic-i.html"><span>Formal Logic I</span></a>
+            <a class="nav-link" href="/maths/formal-logic-i/syntax-and-semantics.html"><span>Propositional Logic: Syntax and Semantics</span></a>
             <p>Mathematical Notations and Terminology</p>
         </nav>
     </div>
 
     <div class="sub-links">
-        <a href="#top">Back to Top</a>
-        <a href="#section1">Sets</a>
-        <a href="#section2">Set-Theoretic Symbols</a>
-        <a href="#section3">The Set of Real Numbers (and Its Subsets)</a>
-        <a href="#section4">Universal and Existential Quantifiers</a>
+        <div class="sub-links-inner">
+            <a href="#top"><span>Top</span></a>
+            <a href="#section1"><span>Sets</span></a>
+            <a href="#section2"><span>Set-Theoretic Symbols</span></a>
+            <a href="#section3"><span>The Set of Real Numbers (and Its Subsets)</span></a>
+            <a href="#section4"><span>Universal and Existential Quantifiers</span></a>
+        </div>
     </div>
 
     <main>
         <section
         id="pdfContainer"
         hidden
+        data-section="formal-logic-i+syntax-and-semantics"
         data-webpage="formal-logic-i+syntax-and-semantics+mathematical-notations-and-terminology"
         >
         <embed
@@ -166,18 +241,15 @@
             data-box-name="Using Set-Builder Notation"
             >
             Using set builder notation, make sets that describe the following:
-            <ol 
-            class="multicol"
-            type="a"
-            data-col-number="2"
-            data-col-gap="1rem"
-            >
-                <li>The set of irrational numbers</li>
-                <li>The set of negative integers greater than \(-6\)</li>
-                <li>The set of integers that are multiples of \(4\) but not multiples of \(8\)</li>
-                <li>The set of all numbers that can be written as \(3n - 2\) where \(n \in \Z\)</li>
-                <li>The empty set written in set-builder notation</li>
-            </ol>
+            <multi-col>
+                <ol type="a">
+                    <li>The set of irrational numbers</li>
+                    <li>The set of negative integers greater than \(-6\)</li>
+                    <li>The set of integers that are multiples of \(4\) but not multiples of \(8\)</li>
+                    <li>The set of all numbers that can be written as \(3n - 2\) where \(n \in \Z\)</li>
+                    <li>The empty set written in set-builder notation</li>
+                </ol>
+            </multi-col>
                 <div class="working">
                     <ol type="a" class="lo-bdr-list">
                         <li>
@@ -193,9 +265,9 @@
                         <li>
                             <p class="answer"><strong>Answer: </strong>\(\{ x : (4 \mid x) \land (8 \not\mid x) \}\)</p>
                             <p class="reason"><strong>Reason: </strong>
-                                We take the set of \(x\), and state out constraints. Adding brackets 
-                                and using '\(:\)' helps make the set easier to read, as opposed 
-                                <span class="nb">to \(\{ x \, | \, 4 \mid x \land 8 \not\mid x \}\), \(\{ x \, | \, (4 \mid x) \land (8 \nmid x) \}\)</span> <span class="nb">or \(\{ x \, : \, 4 \mid x \land 8 \not\mid x \}\)</span>
+                                We take the set of \(x\), and state out constraints. Using '\(:\)' instead of '\(\mid\) 
+                                helps make the set easier to read, as opposed 
+                                <span class="nb">to \(\{ x \, | \, (4 \mid x) \land (8 \nmid x) \}\)</span>.
                             </p>
                         </li>
 
@@ -429,17 +501,14 @@
                 data-box-name="Simplifing Set Builder Notation"
                 >
                 Simply the following sets given the universal set is \(\R\):
-                <ol 
-                class="multicol"
-                type="a"
-                data-col-number="2"
-                data-col-gap="1rem"
-                >
-                    <li>\(\Big\{ x : \forall n\Big((n \in \N) \rarrow (x = 3n - 2) \Big) \Big\}\)</li>
-                    <li>\(\Bigg\{ x : \exists n\Bigg( (n \in \Z) \land \Big((x = n^2) \land (x \lt 0)\Big)\Bigg) \Bigg\}\)</li>
-                    <li>\(\Big\{ x : \forall n\Big( (n \in \N \land x = n) \rarrow n^2 = x\Big) \Big\}\)</li>
-                    <li>\(\Big\{x : \exists! n \in \Z\Big((n \lt 8) \land (n^2 = x)\Big)\Big\}\)</li>
-                </ol>
+                <multi-col>
+                    <ol type="a">
+                        <li>\(\Big\{ x : \forall n\Big((n \in \N) \rarrow (x = 3n - 2) \Big) \Big\}\)</li>
+                        <li>\(\Bigg\{ x : \exists n\Bigg( (n \in \Z) \land \Big((x = n^2) \land (x \lt 0)\Big)\Bigg) \Bigg\}\)</li>
+                        <li>\(\Big\{ x : \forall n\Big( (n \in \N \land x = n) \rarrow n^2 = x\Big) \Big\}\)</li>
+                        <li>\(\Big\{x : \exists! n \in \Z\Big((n \lt 8) \land (n^2 = x)\Big)\Big\}\)</li>
+                    </ol>
+                </multi-col>
                     <div class="working">
                         <ol type="a" class="lo-bdr-list">
                             <li>
@@ -490,29 +559,8 @@
 
     </main>
 
-    <footer>
-        <div class="footer-top">
-            <span class="footer-small">© 2026 Archimedes-314</span>
-            <span class="footer-small">Last updated: <span id="last-updated">14 February 2026</span></span>
-        </div>
-
-    <div class="footer-main">
-        <p class="footer-disclaimer">Errors may exist; corrections welcome.</p>
-        <p class="footer-contact">
-            <a href="/contact.html">Feedback/Contact Page</a>
-        </p>
-        <p class="footer-contact">
-            Email Directly:
-            <a href="mailto:archimedes314notes@gmail.com">
-                archimedes314notes@gmail.com
-            </a>
-        </p>
-        <p class="footer-source">
-            Source code on
-            <a href="https://github.com/Archimedes-314" target="_blank">GitHub</a>
-        </p>
-    </div>
-    </footer>
+    <footer-div date="22 March 2026"></footer-div>
+    
     <script src="/maths/assets/menu/menu.js"></script>
     <script src="/maths/assets/main-js/macros.js"></script>
     <script src="/maths/assets/main-js/scroll-spy.js"></script>

@@ -179,15 +179,10 @@
 @media (prefers-reduced-motion: reduce) {
   .burger-toggle-btn,
   .hamburger,
+  .hamburger div,
   .menu,
   .overlay,
   .toggle-icon {
     transition: none;
   }
-}
-
-@media (max-width: 1050px) {
-    .burger {
-        display: none;
-    }
 }

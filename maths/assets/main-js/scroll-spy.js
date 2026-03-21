@@ -15,15 +15,13 @@ document.addEventListener("DOMContentLoaded", () => {
           navLinks.forEach(link => link.classList.remove("active"));
 
           const activeLink = linkMap.get(entry.target.id);
-          if (activeLink) {
-            activeLink.classList.add("active");
-          }
+          activeLink.classList.add("active");
         }
       });
     },
     {
       root: null,
-      rootMargin: "-50% 0px -50% 0px",
+      rootMargin: "-40% 0px -60% 0px",
       threshold: 0
     }
   );

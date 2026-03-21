@@ -12,14 +12,9 @@ function hideError(type) {
 
 const screenQuery = window.matchMedia("(max-width: 670px)");
 
-function handleScreenSize(e) {
-    if (e.matches) {
-        showError("screen");
-    } else {
-        hideError("screen");
-    }
+const handleScreenSize = e => {
+    e.matches ? showError("screen") : hideError("screen")
 }
 
-handleScreenSize(screenQuery);
 screenQuery.addEventListener("change", handleScreenSize);
 
