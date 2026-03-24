@@ -2,6 +2,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-snap-type: y proximity;
 }
 
 :root {
@@ -214,7 +215,7 @@ nav .projects-nav-btn {
 }
 
 .primary-btn:hover {
-  background-color: var(--light-accent);
+  background-color: var(--accent);
 }
 
 .primary-btn::after {
@@ -257,6 +258,18 @@ nav .projects-nav-btn {
   border-color: var(--light-accent);
 }
 
+/* ================= OVERVIEW AND MISSION STATEMENT ================= */
+
+.mission-statement-text {
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: large;
+  color: var(--light-accent);
+}
+
+.overview p, .mission-statement p {
+  margin-bottom: 1rem;
+}
+
 /* ================= NAVIGATION CARDS ================= */
 
 .navigation {
@@ -272,6 +285,8 @@ nav .projects-nav-btn {
 
 .card {
   background-color: var(--card-bg);
+  display: grid;
+  grid-template-rows: auto 1fr auto;
   padding: 2rem;
   border-radius: 8px;
   cursor: pointer;
@@ -298,10 +313,6 @@ nav .projects-nav-btn {
   font-weight: 500;
 }
 
-.overview p {
-  margin-bottom: 1rem;
-}
-
 /* ================= LISTS ================= */
 
 ul {
@@ -315,9 +326,8 @@ ul li {
 }
 
 /* ================= PROJECT STYLES ================= */
-
 .projects .container {
-  max-width: 900px;
+  max-width: 900px;  
 }
 
 .project-detail {
@@ -328,15 +338,14 @@ ul li {
   margin-bottom: 3rem;
   cursor: pointer;
 
-  transition: transform 0.3s ease, border-left 0.3s ease;
+  transition: box-shadow 0.3s ease;
+
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
 }
 
 .project-detail:hover {
-  background: var(--card-bg);
-  border-left: 4px solid var(--accent);
-  transform: translateY(-0.1rem);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-  border-left: 6px solid var(--accent);
+  box-shadow: 0 2px 25px var(--light-accent);
 }
 
 .feature-lead {
