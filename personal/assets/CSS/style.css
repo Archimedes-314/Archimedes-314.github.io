@@ -6,6 +6,7 @@
   --accent-red: #d90429;
   --bg-card: #fffef3;
   --bg-color: #f4f7f6;
+  --bg-color-dark: #dfdfdf;
   --container-bg: #fff;
   --text-main: #212529;
   --text-muted: #6c757d;
@@ -21,7 +22,7 @@ body {
     -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial,
     sans-serif;
   line-height: 1.6;
-  background-color: var(--bg-color);
+  background-color: var(--bg-color-dark);
   color: var(--text-main);
 }
 
