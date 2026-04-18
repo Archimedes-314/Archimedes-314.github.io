@@ -1,0 +1,753 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/personal/assets/CSS/style.css" />
+    <title>
+      Eli Schodel&mdash;Professional Portfolio | Aspiring Paramedic & Nurse
+    </title>
+  </head>
+  <body>
+    <header>
+      <h1>Eli Schodel</h1>
+      <p>
+        Student Nurse | Emergency Service Volunteer | Aspiring Healthcare
+        Professional
+      </p>
+      <div class="contact-info">
+        <span>Location: Brisbane, Australia</span> |
+        <div class="email-container">
+          <a>Email Me</a>
+          <div class="email-box">
+            <p>contact.eli.schodel@gmail.com</p>
+          </div>
+        </div>
+        | <a href="https://github.com/Archimedes-314" target="_blank">GitHub</a>
+      </div>
+    </header>
+
+    <nav>
+      <ul>
+        <li>
+          <a href="https://archimedes-314.github.io" target="_blank"
+            >Landing Page</a
+          >
+        </li>
+        <ul>
+          <li><a href="#profile">Profile</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#vol-experience">Volunteer Experience</a></li>
+          <li><a href="#work-experience">Work Experience</a></li>
+          <li><a href="#technical-projects">Personal Projects</a></li>
+          <!-- <li><a href="#documentation">Documentation</a></li> -->
+        </ul>
+      </ul>
+    </nav>
+
+    <div class="container">
+      <section id="profile">
+        <div class="entry">
+          <h2>Professional Profile</h2>
+          <h3>Mission Statement</h3>
+          <p>
+            Committed to life-saving service, guided by the precision of
+            mathematical analysis and the heart of nursing.
+          </p>
+        </div>
+
+        <div class="entry">
+          <h3>Webpage Purpose</h3>
+          <p>
+            I created this webpage as a way to keep track of my progress as I
+            work towards joining the Queensland Ambulance Service (QAS). I find
+            it helpful to see my goals and achievements laid out visually, so
+            this site lets me reflect on what I have learned and what I still
+            want to explore. Since this page is public, I am careful about what
+            I share. However, I am also preparing a more detailed version of my
+            Professional Portfolio and Strategic Career Plan in PDF format for
+            recruiters, where I can go into more detail about myself while still
+            following privacy laws and the policies of the organisations I
+            volunteer with.
+          </p>
+
+          <p>
+            As I am still early in my career, there is not a lot here yet. But
+            as I learn new skills and gain more experience, I will keep this
+            page updated to show my progress.
+          </p>
+        </div>
+      </section>
+
+      <section class="separated-list" id="education">
+        <h2>Education & Study</h2>
+
+        <div class="entry">
+          <h3>HLT54121 Diploma of Nursing</h3>
+          <span class="date">TAFE Queensland | Graduating: March 2028</span>
+          <div class="summary">
+            <p class="expand-btn" onclick="expandBtn('tafe')">
+              Expand <span class="expand-btn-arrow">▼</span>
+            </p>
+            <p>
+              I am currently studying for a Diploma of Nursing, where I am
+              focusing on building clinical skills and learning how to use
+              evidence-based practice in real-world settings. As I work through
+              my studies, I am developing a strong foundation in patient
+              assessment, acute care, and clinical problem-solving. These are
+              the skills I will rely on to provide safe and effective care when
+              it matters most.
+            </p>
+          </div>
+          <div class="expanded" id="tafe-expanded">
+            <!-- <h4>Key Competencies</h4>
+            <ul>
+              <li>This is some temp text</li>
+              <li>This is some temp text</li>
+              <li>This is some temp text</li>
+              <li>This is some temp text</li>
+              <li>This is some temp text</li>
+            </ul> -->
+
+            <h4>My Motivation</h4>
+            <p>
+              I decided to move into nursing because I wanted to go from being a
+              bystander to someone who can help in critical moments. After
+              seeing situations where I felt the need to step in, I realised I
+              wanted a career where I could use technical skills and calm, clear
+              thinking to make a real difference.
+            </p>
+            <p>
+              I am especially interested in how acute care and patient advocacy
+              come together. I enjoy the challenge of clinical problem-solving,
+              where I need to bring together complex information to provide
+              safe, thoughtful, and evidence-based care. For me, nursing is
+              where scientific skill meets the responsibility to care for people
+              when they need it most.
+            </p>
+          </div>
+        </div>
+
+        <div class="entry">
+          <h3>Queensland Certificate of Education</h3>
+          <span class="date"
+            >Wynnum State High School | Graduated: November 2024</span
+          >
+          <div class="summary">
+            <p class="expand-btn" onclick="expandBtn('qce')">
+              Expand <span class="expand-btn-arrow">▼</span>
+            </p>
+            <p>
+              I completed my senior secondary education with a focus on advanced
+              mathematics, physics, and technical certifications. This
+              background helped me develop a disciplined approach to logical
+              reasoning and data accuracy, and it still shapes how I tackle new
+              challenges today.
+            </p>
+          </div>
+          <div class="expanded" id="qce-expanded">
+            <h4>What I Studied</h4>
+            <ul>
+              <li>Specialist Mathematics</li>
+              <li>Mathematical Methods</li>
+              <li>Physics</li>
+              <li>Completed a Cert II in Applied Digital Technology</li>
+              <li>Completed a Cert II in Sampling and Measurement</li>
+            </ul>
+
+            <h4>Why I Studied These</h4>
+            <p>
+              During my senior years at school, I was drawn to subjects that
+              needed careful thinking and technical skill. I chose Specialist
+              Mathematics, Mathematical Methods, and Physics because I wanted to
+              build a strong base in logical reasoning and learn about the rules
+              that shape complex systems. I also completed a Certificate II in
+              Digital Technologies to build my skills with the digital tools
+              used in today's workplaces. Furthermore, completing a Certificate
+              II in Sampling and Measurement also showed me how important data
+              accuracy and procedural discipline are in both laboratory and
+              field settings.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="vol-experience" class="separated-list">
+        <h2>Volunteer and Emergency Service Experience</h2>
+
+        <!-- <div class="entry">
+          <h3>
+            First Responder, Event Health Services | St John Ambulance Australia
+          </h3>
+          <span class="date">July 2025 &ndash; Present</span>
+
+          <div class="summary">
+            <p class="expand-btn" onclick="expandBtn('temp')">
+              Expand <span class="expand-btn-arrow">▼</span>
+            </p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </div>
+
+          <div class="expanded" id="temp-expanded">
+            <h4>Role Overview</h4>
+            <ul>
+              <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+            </ul>
+
+            <h4>Why I Joined</h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </div>
+        </div> -->
+
+        <div class="entry">
+          <h3>
+            First Responder, Event Health Services | St John Ambulance Australia
+          </h3>
+          <span class="date">July 2025 &ndash; Present</span>
+
+          <div class="summary">
+            <p class="expand-btn" onclick="expandBtn('st-john')">
+              Expand <span class="expand-btn-arrow">▼</span>
+            </p>
+            <p>
+              In my role with St John Ambulance, I provide medical support and
+              advanced first aid at a range of events, from large, high-pressure
+              gatherings to smaller local activities. My focus is always on
+              achieving the best outcomes for patients. This means I take care
+              to assess each situation thoroughly, work closely with the
+              Queensland Ambulance Service during handovers, and make sure my
+              communication is clear and reliable throughout each operation.
+            </p>
+            <p>
+              <strong>
+                So far, I have completed 118 hours across 16 events, both large
+                and small.
+              </strong>
+            </p>
+          </div>
+
+          <div class="expanded" id="st-john-expanded">
+            <h4>Role Overview</h4>
+            <ul>
+              <li>
+                <strong>Clinical Care & Scope Management:</strong> When
+                providing clinical care, I make sure to follow Clinical Practice
+                Guidelines and stay within my scope of practice. I recognise
+                when a patient needs care beyond what I can provide, and I
+                escalate to healthcare professionals when necessary.
+              </li>
+              <li>
+                <strong>Acute Injury Management:</strong> I have experience
+                assessing and treating a wide range of injuries and medical
+                emergencies, from minor trauma to more complex musculoskeletal
+                injuries like fractures and dislocations.
+              </li>
+              <li>
+                <strong>Inter-agency Liaison:</strong> When caring for
+                high-acuity patients, I make sure clinical handovers to the
+                Queensland Ambulance Service are smooth and thorough. I do this
+                by providing clear verbal and written reports to support
+                continuity of care.
+              </li>
+              <li>
+                <strong>Operational Communications:</strong> I use radio
+                communication to maintain situational awareness, provide concise
+                SITREPs (situation reports), and coordinate resources with the
+                Communications Centre.
+              </li>
+            </ul>
+
+            <h4>Why I Joined</h4>
+            <p>
+              Joining St John Ambulance was a real turning point for me. Before
+              joining St John Ambulance, I found communication difficult, which
+              made everyday tasks feel challenging. Joining St John Ambulance
+              gave me a way to ease into high-pressure environments at my own
+              pace, and it was flexible with my needs. Because I could choose my
+              shifts, I began with smaller events, such as school fairs, where I
+              could focus more on building my patient communication skills. As I
+              became more confident, I started taking on busier events, such as
+              Oz-Tag and 3P-tag events, where I had to manage larger patient
+              numbers and more complex injuries.
+            </p>
+            <p>
+              Furthermore, while my role at St John Ambulance only includes
+              Advanced First Aid, I've still had the chance to gain insights
+              into what a role in health care is like by working alongside
+              registered nurses and paramedics. I've learned a lot about this
+              line of work, which has further motivated me to turn it into a
+              career, rather than a volunteer commitment.
+            </p>
+          </div>
+        </div>
+
+        <div class="entry">
+          <h3>
+            Operational Volunteer (In Training) | Queensland State Emergency
+            Service (SES)
+          </h3>
+          <span class="date">Commencing June 2026</span>
+
+          <div class="summary">
+            <p class="expand-btn" onclick="expandBtn('ses')">
+              Expand <span class="expand-btn-arrow">▼</span>
+            </p>
+            <p>
+              I have attended demonstration and sign-on nights, and I am now
+              awaiting induction and training. The training will cover field
+              operations, disaster response, and community safety. I see these
+              as important areas that will help me build practical skills for my
+              future career.
+            </p>
+          </div>
+
+          <div class="expanded" id="ses-expanded">
+            <div>
+              <h4>Role Overview</h4>
+              <ul>
+                <li>
+                  <strong>Operational Support:</strong> I am preparing to
+                  support the Queensland Police Service (QPS) in land search
+                  operations, including missing persons cases and forensic
+                  search assistance.
+                </li>
+                <li>
+                  <strong>Emergency Mitigation:</strong> My training will also
+                  cover rapid storm damage response, including working at
+                  heights to secure residential and commercial structures before
+                  and after incidents.
+                </li>
+                <li>
+                  <strong>Community Engagement & Advocacy:</strong> I will be
+                  involved in public outreach to help improve disaster
+                  resilience, provide early warnings for severe weather events,
+                  and strengthen the connection between the SES and the local
+                  community.
+                </li>
+              </ul>
+
+              <h4>Why I Joined</h4>
+              <p>
+                After six months of volunteering with St John Ambulance, I
+                noticed a real change in my communication and confidence. And
+                now that I am able to do more, I feel a strong urge to do more
+                and help wherever I can. When it is storming outside, I want to
+                go out and help rescue people who are trapped and need support.
+                After flooding, I want to help clear debris and restore homes as
+                much as possible. When I see people in distress, I want to
+                comfort them and reassure them that there are always people
+                willing to help. Whether I am helping with traffic management,
+                providing compassion to people in difficult moments, or
+                assisting with rescues, I want to make a positive impact and
+                support my community.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="entry">
+          <h3>Community Engagement Volunteer | The Sunlight Centre</h3>
+          <span class="date">07 February 2026 &ndash; One Off</span>
+
+          <div class="summary">
+            <p class="expand-btn" onclick="expandBtn('tsc')">
+              Expand <span class="expand-btn-arrow">▼</span>
+            </p>
+            <p>
+              I was involved in a large community fundraising event, where I
+              represented a specialist organisation focused on mental health and
+              crisis counselling. My main goal was to help organise the event
+              and encourage people to support mental health and crisis services
+              by making donations.
+            </p>
+          </div>
+
+          <div class="expanded" id="tsc-expanded">
+            <h4>Role Overview</h4>
+            <ul>
+              <li>
+                <strong>Operational Coordination:</strong> During the event, I
+                focused on making sure everything ran smoothly. I paid close
+                attention to keeping service efficient and maintaining food
+                safety standards. I also wanted everyone who attended to feel
+                welcome and to have a positive experience.
+              </li>
+              <li>
+                <strong>Fundraising Achievement:</strong> Together with the
+                team, we raised over $3,000 in three days. All of this went
+                directly to providing free, face-to-face crisis counselling
+                sessions for people who needed support.
+              </li>
+              <li>
+                <strong>Interpersonal Communication:</strong> Throughout the
+                event, I relied on strong teamwork and clear communication,
+                especially when things got busy. Building a strong connection
+                with the community was always important to me.
+              </li>
+            </ul>
+
+            <h4>Why I Joined</h4>
+            <p>
+              Before I joined the event, I met someone while working with
+              Domino's who was going through domestic violence. When I learned
+              about their situation, I helped them contact the Queensland Police
+              and made sure to check in on them regularly, offering support and
+              someone to talk to. That experience showed me how important it is
+              to have people you can reach out to. If I hadn't been there, they
+              might have continued to struggle alone. So when I saw an urgent
+              call for volunteers to help raise money for mental health support
+              and counselling, I joined straight away and encouraged a few
+              friends to come along, too. I knew that even a small role in this
+              event could make a real difference for someone who needs support.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="separated-list" id="work-experience">
+        <h2>Work Experience</h2>
+
+        <div class="entry">
+          <h3>Casual Team Member/Deliver Driver | Domino's Pizza</h3>
+          <span class="date">July 2024 &ndash; Present</span>
+
+          <div class="summary">
+            <p class="expand-btn" onclick="expandBtn('domino')">
+              Expand <span class="expand-btn-arrow">▼</span>
+            </p>
+            <p>
+              Managing time-sensitive logistics and customer service in a
+              high-volume, fast-paced environment.
+            </p>
+          </div>
+
+          <div class="expanded" id="domino-expanded">
+            <h4>Role Overview</h4>
+            <ul>
+              <li>
+                <strong>Operational Reliability:</strong> I maintain high
+                performance across rotating rosters, including weekends, public
+                holidays, and busy periods. This has helped me become adaptable
+                to the demands of shift work.
+              </li>
+              <li>
+                <strong>WHS Compliance:</strong> I always follow Workplace
+                Health and Safety and food safety protocols to ensure a safe
+                environment for staff and the public.
+              </li>
+              <li>
+                <strong>Navigation & Situational Awareness:</strong> I plan and
+                carry out efficient multi-drop routes under tight time
+                constraints, while making sure I maintain high standards of road
+                safety and vehicle care.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="entry">
+          <h3>Truck Driver | StarTrack</h3>
+          <span class="date">March 2026 &ndash; April 2026</span>
+
+          <div class="summary">
+            <p class="expand-btn" onclick="expandBtn('truck')">
+              Expand <span class="expand-btn-arrow">▼</span>
+            </p>
+            <p>
+              Engaged for a defined operational period to support high-volume
+              distribution and fleet logistics across the Brisbane metropolitan
+              area.
+            </p>
+          </div>
+
+          <div class="expanded" id="truck-expanded">
+            <h4>Role Overview</h4>
+            <ul>
+              <li>
+                <strong>Dangerous Goods Management:</strong> I managed the safe
+                handling, loading, and transit of Dangerous Goods in line with
+                the Australian Dangerous Goods Code and company safety
+                requirements.
+              </li>
+              <li>
+                <strong>Regulatory Compliance:</strong> I followed National
+                Heavy Vehicle Regulator (NHVR) standards and company safety
+                protocols during all transit operations.
+              </li>
+              <li>
+                <strong>Logistical Coordination:</strong> I managed complex,
+                high-volume delivery schedules, making sure chain-of-custody
+                documentation was accurate and that freight was tracked in real
+                time using digital scanning systems.
+              </li>
+              <li>
+                <strong>Risk Management:</strong> I conducted daily pre-start
+                vehicle inspections and kept careful logbook records, always
+                making fleet integrity and public safety a priority.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="separated-list" id="technical-projects">
+        <h2>Other Projects</h2>
+        <div class="entry">
+          <h3>Eli's Maths Notes</h3>
+          <span class="date">Ongoing Personal Project</span>
+          <div class="summary">
+            <p class="expand-btn" onclick="expandBtn('EMN')">
+              Expand <span class="expand-btn-arrow">▼</span>
+            </p>
+            <p>
+              I'm creating a digital repository for my self-study in Real
+              Analysis, aiming to bridge the gap between rigorous mathematical
+              theory and modern front-end development. This project is a live
+              record of my progress through the continuum of mathematical
+              analysis, with a focus on clarity, open-source accessibility under
+              the MIT License, and responsive UI design.
+            </p>
+          </div>
+          <div class="expanded" id="EMN-expanded">
+            <h4>App Overview</h4>
+            <ul>
+              <li>
+                <strong>Front-End Development:</strong> I'm teaching myself web
+                development with HTML, CSS, JavaScript, using the Pyodide &
+                Manim libraries in Python, and LaTeX to create PDFs of my work.
+              </li>
+              <li>
+                <strong>Conceptual Application:</strong> I aim to translate
+                concepts from Real Analysis into structured digital content to
+                provide a visual guide to the inner workings of pure
+                mathematics.
+              </li>
+              <li>
+                <strong>Continuous Learning:</strong> I'm using project-based
+                learning to deepen my knowledge of pure mathematics and
+                front-end development.
+              </li>
+            </ul>
+
+            <h4>Purpose</h4>
+            <p>
+              I have always valued learning new skills and teaching myself new
+              things. This is what motivated me to create my maths notes
+              website. Through this project, I am learning programming and
+              markup languages as I document my study of real analysis. I am
+              especially interested in real analysis and mathematical analysis
+              more broadly because I want to understand how mathematical ideas
+              work, not just how to apply them. Rather than continuing with
+              physics or applied mathematics, I have chosen to focus on pure
+              mathematics so that I can explore where different formulas come
+              from, how they are derived, and what they truly mean.
+            </p>
+
+            <p>
+              Although mathematical analysis is not directly connected to health
+              care, my approach to learning&mdash;always seeking to understand
+              why things work&mdash;does relate to my work in health care. When
+              I care for a patient, I do not want to focus only on treating
+              their symptoms. I want to understand the underlying causes. In
+              paramedicine, communication is essential. Taking the time to get
+              to know the patient and understand their experiences can make a
+              significant difference in their outcome. A lot of QAS calls
+              involve low-acuity situations, where communication and empathy are
+              the most important tools I have.
+            </p>
+          </div>
+        </div>
+
+        <div class="entry">
+          <h3>Incident Reflection App</h3>
+          <span class="date">Personal Development Project</span>
+          <div class="summary">
+            <p class="expand-btn" onclick="expandBtn('IRA')">
+              Expand <span class="expand-btn-arrow">▼</span>
+            </p>
+            <p>
+              I designed a web-based tool to help with self-reflection and
+              professional growth in community service and first-response roles.
+              By providing a structured way to record what went well and lessons
+              learned during shifts, this app helps bridge the gap between field
+              experience and clinical improvement.
+            </p>
+          </div>
+          <div class="expanded" id="IRA-expanded">
+            <h4>App Overview</h4>
+            <ul>
+              <li>
+                <strong>Reflective Practice:</strong> The app supports the Gibbs
+                model of reflection by allowing me to document my own
+                performance and peers' observations for professional growth.
+              </li>
+              <li>
+                <strong>Privacy-First Design:</strong> I designed the app to
+                allow comprehensive reflection notes on the go, while ensuring
+                no patient-identifiable information is recorded.
+              </li>
+              <li>
+                <strong>Agile Iteration:</strong> I developed it as a
+                lightweight tool to practise state management and user-centred
+                design in a fast-paced service context.
+              </li>
+            </ul>
+
+            <h4>Purpose</h4>
+            <p>
+              Given my past communication struggles, I would write a paragraph
+              at the end of each day about what went wrong and where I can
+              improve my communication. This later evolved into me writing
+              comprehensive Gibbs reflections in a PDF Portfolio after each St
+              John shift, listing what I did well, and where I can improve. Now,
+              whenever I start a new shift with St John Ambulance, I have a list
+              of new communication skills recorded down, ready for me to
+              practice. This reflection app helps me add to my portfolio by
+              allowing me to record how I feel in the moment, what I think I did
+              well, and what I want to improve. Recording this in the moment
+              allows me to make a more accurate reflection later at home, as
+              I've removed the need to remember exactly how I felt and every
+              detail of the interaction.
+            </p>
+          </div>
+        </div>
+
+        <div class="entry">
+          <h3>Vehicle Pre-Check Application</h3>
+          <span class="date">Personal Development Project</span>
+          <div class="summary">
+            <p class="expand-btn" onclick="expandBtn('VPC')">
+              Expand <span class="expand-btn-arrow">▼</span>
+            </p>
+            <p>
+              In this project, I set out to modernise and simplify the process
+              of vehicle pre-start safety checks by building a streamlined
+              digital utility. My aim was to see how digital checklists could
+              help reduce human error and support operational readiness,
+              especially in situations where equipment reliability really
+              matters.
+            </p>
+          </div>
+          <div class="expanded" id="VPC-expanded">
+            <h4>App Overview</h4>
+            <ul>
+              <li>
+                <strong>Workflow Optimisation:</strong> One of my main goals was
+                to optimise the workflow for routine safety checks. I did this
+                by designing an interface that is both intuitive and
+                mobile-friendly, which helps reduce the risk of missing
+                something important.
+              </li>
+              <li>
+                <strong>Safety Compliance:</strong> I also wanted the app to
+                closely follow standard operating procedures. By doing this, I
+                could highlight the importance of thorough vehicle maintenance
+                and make sure that pre-start accountability is built into the
+                process.
+              </li>
+              <li>
+                <strong>Technical Practice:</strong> From a technical
+                perspective, this project gave me a chance to practise building
+                responsive form logic and using conditional rendering in
+                front-end development.
+              </li>
+            </ul>
+
+            <h4>Purpose</h4>
+            <p>
+              When I drive, I know it is my responsibility to make sure I am
+              driving safely. One of the most important steps is to carry out a
+              thorough pre-check before I start the car. If something like the
+              engine coolant is low or the brakes are not working as they
+              should, it can lead to serious damage or even put others at risk.
+              That is why, unless I have checked the car myself or have watched
+              someone else do it, I always assume the car has not been cleared
+              yet. It is up to me to confirm that the car is ready to drive.
+            </p>
+
+            <p>
+              Since I regularly switch between different cars, like the Domino's
+              and St John company vehicles, I make sure to do a full check each
+              time. To help me avoid missing anything important, I have put
+              together a comprehensive checklist that I follow whenever I check
+              a car.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- <section id="documentation">
+        <h2>Professional Documentation</h2>
+        <div class="entry">
+          <p>
+            To maintain the privacy of community members and the operational
+            security of the agencies I volunteer with, my detailed documentation
+            is not hosted publicly. However, I am happy to provide access to
+            prospective employers or mentors upon request.
+          </p>
+          <div class="asset-grid">
+            <div class="asset-card">
+              <h3>Strategic Career Plan</h3>
+              <p>
+                A comprehensive roadmap detailing my professional trajectory
+                within the Queensland emergency and healthcare sectors. It
+                outlines my core motivations, long-term objectives, and a
+                retrospective analysis of my developmental milestones.
+              </p>
+            </div>
+            <div class="asset-card">
+              <h3>Professional Portfolio</h3>
+              <p>
+                A detailed collection of evidence-based practice, including
+                clinical case studies from Event Health Services, educational
+                transcripts, and in-depth reflections on operational
+                deployments.
+              </p>
+            </div>
+          </div>
+          <div class="verification-box">
+            <h4>Access Protocol & Verification</h4>
+            <p>
+              Access may granted to individuals with a genuine professional
+              requirement. This includes, but is not limited to:
+            </p>
+            <ul class="verification-list">
+              <li>Clinical Placement Coordinators & Facilitators</li>
+              <li>Recruitment Officers</li>
+              <li>
+                Authorised members of St John Ambulance, SES, or TAFE Queensland
+              </li>
+            </ul>
+            <p class="disclaimer">
+              <em
+                >Note: Organisational verification will be required prior to the
+                release of these documents.</em
+              >
+            </p>
+            <a class="btn-request" onclick="alert('Not Yet Complete')"
+              >Request Verified Access</a
+            >
+          </div>
+        </div>
+      </section> -->
+    </div>
+
+    <footer>
+      <p>
+        &copy; 2026 Archimedes-314<br /><strong>Privacy Statement</strong>: This
+        online portfolio is maintained in strict accordance with the
+        <strong>privacy mandates</strong> of <strong>AHPRA</strong>,
+        <strong>TAFE Queensland</strong>, <strong>St John Ambulance</strong>,
+        and the <strong>SES</strong>. In compliance with the
+        <strong><em>Privacy Act 1988</em></strong> and clinical best practices,
+        this site contains
+        <strong>
+          no patient-identifiable data or restricted internal operational
+          intelligence </strong
+        >. Detailed case studies and operational experience are reserved for my
+        private professional portfolio.
+      </p>
+    </footer>
+    <script src="/personal/assets/JS/script.js"></script>
+  </body>
+</html>

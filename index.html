@@ -1,238 +1,321 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Professional Portfolio & Academic Projects</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Professional Portfolio & Academic Projects</title>
 
-  <link rel="stylesheet" href="/assets/CSS/main-style.css" />
-  <script src="/assets/JS/style-sheet.js" defer></script>
-</head>
-<body>
-  <nav>
-    <input type="checkbox" id="sidebar-active">
-    <label for="sidebar-active" class="open-sidebar-btn">
-      <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-        <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M5 7h14M5 12h14M5 17h14"/>
-      </svg>
-    </label>
-
-    <label for="sidebar-active" id="sidebar-overlay"></label>
-    <div class="links-container">
-      <label for="sidebar-active" class="close-sidebar-btn">
-        <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18 17.94 6M18 18 6.06 6"/>
+    <link rel="stylesheet" href="/assets/CSS/main-style.css" />
+    <script src="/assets/JS/style-sheet.js" defer></script>
+  </head>
+  <body>
+    <nav>
+      <input type="checkbox" id="sidebar-active" />
+      <label for="sidebar-active" class="open-sidebar-btn">
+        <svg
+          class="w-6 h-6 text-gray-800 dark:text-white"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          fill="none"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-width="2"
+            d="M5 7h14M5 12h14M5 17h14"
+          />
         </svg>
       </label>
-        <a href="/extras/logging/incident-reflection-app.html">Incident Reflection App</a>
-        <a href="/extras/car/logging.html" class="projects-nav-btn">Vehicle Pre-Check Application</a>
-        <a onclick="alert('This section has not been completed')">Personal Website</a>
+
+      <label for="sidebar-active" id="sidebar-overlay"></label>
+      <div class="links-container">
+        <label for="sidebar-active" class="close-sidebar-btn">
+          <svg
+            class="w-6 h-6 text-gray-800 dark:text-white"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18 17.94 6M18 18 6.06 6"
+            />
+          </svg>
+        </label>
+        <a href="/extras/logging/incident-reflection-app.html"
+          >Incident Reflection App</a
+        >
+        <a href="/extras/car/logging.html" class="projects-nav-btn"
+          >Vehicle Pre-Check Application</a
+        >
+        <a onclick="redirectLink('/personal/index.html')">Personal Website</a>
         <a href="/maths/maths-index.html">Maths Notes Website</a>
-        <a onclick="alert('This section has not been completed')">Nursing Notes Website</a>
-    </div>
-</nav>
-  <!-- ================= HERO ================= -->
-  <header class="hero">
-
-    <div class="hero-content">
-      <span class="hero-badge">Nursing · Mathematics · Emergency Service</span>
-      
-      <h1>Building knowledge, service, <br><span class="highlight">Clinical Skills & Analytical Rigor</span></h1>
-      
-      <p class="subtitle">
-        This is a structured repository of my journey, from 
-        <strong>Nursing</strong> clinical notes and <strong>Emergency&nbsp;Service</strong> reflections 
-        to the abstract logic of <strong>Mathematical&nbsp;Analysis</strong>.
-      </p>
-      
-      <div class="hero-btns">
-        <a href="#navigation" class="primary-btn">Explore My Work</a>
-        <a href="#projects" class="secondary-btn">My Extra Porjects</a>
+        <a onclick="alert('This section has not been completed')"
+          >Nursing Notes Website</a
+        >
       </div>
-    </div>
-  </header>
+    </nav>
+    <!-- ================= HERO ================= -->
+    <header class="hero">
+      <div class="hero-content">
+        <span class="hero-badge"
+          >Nursing · Mathematics · Emergency Service</span
+        >
 
-  <!-- ================= MISSION STATEMENT ================= -->
-  <div class="mission-statement">
-    <div class="container">
-      <h2>Mission Statement</h2>  
-      <p class="mission-statement-text">
-        Integrating professional healthcare service, mathematical exploration, and a 
-        commitment to community resilience.
-      </p>
+        <h1>
+          Building knowledge, service, <br /><span class="highlight"
+            >Clinical Skills & Analytical Rigour</span
+          >
+        </h1>
 
-      <p>
-        My aim is to help improve the safety and health of my community. I am working 
-        toward a career that requires both physical strength and careful thinking.
-      </p>
+        <p class="subtitle">
+          This is a structured repository of my journey, from
+          <strong>Nursing</strong> clinical notes and
+          <strong>Emergency&nbsp;Service</strong> reflections to the abstract
+          logic of <strong>Mathematical&nbsp;Analysis</strong>.
+        </p>
 
-      <p>
-        This site records my progress as I work toward this goal. It includes 
-        experiences from emergency response and mathematical analysis, and each 
-        section is meant to help me learn and improve. I believe that a good 
-        clinician always keeps learning, and this platform brings together my 
-        clinical training, academic interests, and professional experience to 
-        support that idea.
-      </p>
-    </div>
-  </div>
-
-  <!-- ================= OVERVIEW ================= -->
-  <section class="overview">
-    <div class="container">
-      <h2>Website Overview</h2>
-      <p>
-        This website is organised into three main sections: healthcare and emergency services, an ongoing mathematics project focused on real analysis, and my personal nursing 
-        study notes. Each section presents a different aspect of my professional and academic development.
-      </p>
-      <p>
-        The first section introduces my background, including my education, work experience, and future goals. I describe my roles with St John and the State Emergency Service 
-        (SES), the skills and lessons I have learned, and my motivation for working in these areas.
-      </p>
-      <p>
-        The second section focuses on my interest in pure mathematics. This ongoing project begins with real analysis, linear algebra, and logic, and will later include complex 
-        analysis as I continue my studies.
-      </p>
-      <p>
-        The final section contains my personal nursing notes, which reflect both my clinical knowledge and communication skills.
-      </p>
-    </div>
-  </section>
-
-  <!-- ================= NAVIGATION CARDS ================= -->
-  <section class="navigation" id="navigation">
-    <div class="container">
-      <h2>Explore the Sections</h2>
-
-      <div class="card-grid">
-
-        <!-- Personal Section -->
-        <div class="card" onclick="alert('This section has not been completed')">
-          <h3>Personal</h3>
-          <p>
-            This section outlines my professional experience, career goals, and commitment to healthcare and community service. It includes the experiences and achievements 
-            that have influenced my development and describes my aims for the future.
-          </p>
-          <span class="cta">View Professional Profile →</span>
+        <div class="hero-btns">
+          <a href="#navigation" class="primary-btn">Explore My Work</a>
+          <a href="#projects" class="secondary-btn">My Extra Projects</a>
         </div>
-
-        <!-- Maths Section -->
-        <div class="card" onclick="redirectLink('/maths/maths-index.html')">
-          <h3>Mathematics</h3>
-          <p>
-            This section introduces real analysis and connects it with logic, set theory, calculus, and linear algebra. It supports my academic progress and interest in solving 
-            challenging problems.
-          </p>
-          <span class="cta">Explore Mathematics Project →</span>
-        </div>
-
-        <!-- Nursing Section -->
-        <div class="card" onclick="alert('This section has not been completed')">
-          <h3>Nursing</h3>
-          <p>
-            This section contains study materials from my Diploma of Nursing. These notes help me organise new information and develop my nursing practice skills.
-          </p>
-          <span class="cta">Access Nursing Notes →</span>
-        </div>
-
       </div>
-    </div>
-  </section>
+    </header>
 
-  <!-- ================= PROJECTS ================= -->
-  <section class="projects" id="projects">
-    <div class="container">
-      <h2>Extra Projects</h2>
-      <p>
-        Beyond the core sections, this site also features several key projects that highlight both my practical and academic contributions. These projects are a blend of service, technology, and intellectual exploration:
-      </p>
-      <gap- size="2rem"></gap->
+    <!-- ================= MISSION STATEMENT ================= -->
+    <div class="mission-statement">
+      <div class="container">
+        <h2>Mission Statement</h2>
 
-      <div class="project-detail" onclick="redirectLink('/extras/logging/incident-reflection-app.html')">
-        <h3>Incident Reflection App</h3>
+        <p class="mission-statement-text">
+          Committed to life-saving service, guided by the precision of
+          mathematical analysis and the heart of nursing.
+        </p>
+
         <p>
-          The Incident Reflection App is a web-based tool that supports personal reflection and 
-          improvement in community service and first response work. Its main function is to record events 
-          as they occur during a shift, so that you can review and reflect on them in detail afterwards.
+          Curiosity and a passion for knowledge are at the heart of my practice,
+          inspiring my dedication to excellent, compassionate care. By
+          integrating mathematical logic into clinical practice, I strive to
+          best serve my community on every nursing shift and during every SES
+          call-out. Each shift is an opportunity to refine the tools I use to
+          support others. My goal is to carry this dedication and perspective
+          into a career with the Queensland Ambulance Service, ensuring my work
+          remains both rigorous and empathetic.
         </p>
-        
-        <p class="feature-lead">The main features of the app are as follows:</p>
-        <ul class="feature-list">
-          <li>
-            <strong>Incident Logging:</strong> 
-            You can record key details, including date, time, severity, case type, interventions, and 
-            clinical roles, for each incident.
-          </li>
-          <li>
-            <strong>Reflective Practice:</strong> 
-            The app includes a self-reflection tool that uses tags for common areas of improvement, 
-            including communication, scene control, and teamwork.
-          </li>
-          <li>
-            <strong>Emotional Awareness:</strong> 
-            You can document your emotional state to help identify patterns in your performance and 
-            well-being.
-          </li>
-        </ul>
-        <p class="disclaimer">
-          Disclaimer: This application was developed as a personal learning project and 
-          for individual reflection. It is a lightweight tool created primarily for 
-          experimentation and practice, and is not intended to replace official incident 
-          reporting systems, clinical documentation, or organisational record-keeping. 
-          Patient or personally identifiable information should not be recorded in this 
-          application.
-        </p>
-      </div>
 
-      <div class="project-detail" onclick="redirectLink('/extras/car/logging.html')">
-        <h3>Vehicle Pre-Check Application</h3>
         <p>
-          The Vehicle Pre-Check Application is a basic tool that helps carry out vehicle pre-checks. 
-        </p>
-
-        <p class="feature-lead">Key features include:</p>
-        <ul class="feature-list">
-          <li>
-            <strong>Comprehensive Inspections:</strong> 
-            It provides categorised checklists for different parts of the vehicle, including the engine 
-            bay, exterior, tires, and interior controls.
-          </li>
-          <li>
-            <strong>Live Status Tracking:</strong> 
-            As you move through the inspection, a real-time summary counter helps you keep track of which 
-            items are in good condition and which need attention.
-          </li>
-          <li>
-            <strong>Offline Capability (PWA):</strong> 
-            Because the app is built as a Progressive Web App, you can complete inspections even in areas 
-            with poor cellular reception
-          </li>
-          <li>
-            <strong>Digital Logging:</strong> 
-            The app replaces paper forms by storing inspection data locally and allowing you to export 
-            reports as PDFs for audits and maintenance records.
-          </li>
-        </ul>
-        <p class="disclaimer">
-          Disclaimer: This project was built as a personal learning exercise. It is a lightweight 
-          tool intended for experimentation and personal use, and no guarantees are 
-          made regarding accuracy, completeness, or suitability for professional use.
+          This site records my progress as I work toward this goal. It includes
+          experiences from emergency response and mathematical analysis, and
+          each section is meant to help me learn and improve. I believe that a
+          good clinician always keeps learning, and this platform brings
+          together my clinical training, academic interests, and professional
+          experience to support that idea.
         </p>
       </div>
     </div>
-  </section>
 
-  <!-- ================= FOOTER ================= -->
-  <footer class="footer">
-    <div class="container">
-      <p>
-        © 2026 Archimedes-314<br>
-        All content provided in good faith. All materials shared are for educational and personal purposes only. No patient-identifiable or confidential operational 
-        information is published here. The information provided should not be considered a substitute for formal education or professional advice.
-      </p>
-    </div>
-  </footer>
+    <!-- ================= OVERVIEW ================= -->
+    <section class="overview">
+      <div class="container">
+        <h2>Website Overview</h2>
+        <p>
+          This website is organised into three main sections: healthcare and
+          emergency services, an ongoing mathematics project focused on real
+          analysis, and my personal nursing study notes. Each section presents a
+          different aspect of my professional and academic development.
+        </p>
+        <p>
+          The first section introduces my background, including my education and
+          work experience, and explains why I've decided to take this pathway. I
+          describe my roles with St John, my upcoming role with the State
+          Emergency Service (SES), the skills and lessons I have learned, and my
+          motivation for working in these areas.
+        </p>
+        <p>
+          The second section focuses on my interest in pure mathematics. This
+          ongoing project begins with real analysis, and will later include,
+          linear algebra, logic, and potentially complex analysis as I continue
+          my studies.
+        </p>
+        <p>
+          The final section contains my personal nursing notes, which reflect
+          both my clinical knowledge and communication skills.
+        </p>
+      </div>
+    </section>
 
-  <script src="/assets/JS/script.js"></script>
-</body>
+    <!-- ================= NAVIGATION CARDS ================= -->
+    <section class="navigation" id="navigation">
+      <div class="container">
+        <h2>Explore the Sections</h2>
+
+        <div class="card-grid">
+          <!-- Personal Section -->
+          <div class="card" onclick="redirectLink('/personal/index.html')">
+            <h3>Personal</h3>
+            <p>
+              This section outlines my professional experience, career goals,
+              and commitment to healthcare and community service. It includes
+              the experiences and achievements that have influenced my
+              development and describes my aims for the future.
+            </p>
+            <span class="cta">View Professional Profile →</span>
+          </div>
+
+          <!-- Maths Section -->
+          <div class="card" onclick="redirectLink('/maths/maths-index.html')">
+            <h3>Mathematics</h3>
+            <p>
+              This section introduces real analysis and connects it with logic,
+              set theory, calculus, and linear algebra. It supports my academic
+              progress and interest in solving challenging problems.
+            </p>
+            <span class="cta">Explore Mathematics Project →</span>
+          </div>
+
+          <!-- Nursing Section -->
+          <div
+            class="card"
+            onclick="alert('This section has not been completed')"
+          >
+            <h3>Nursing</h3>
+            <p>
+              This section contains study materials from my Diploma of Nursing.
+              These notes help me organise new information and develop my
+              nursing practice skills.
+            </p>
+            <span class="cta">Access Nursing Notes →</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= PROJECTS ================= -->
+    <section class="projects" id="projects">
+      <div class="container">
+        <h2>Extra Projects</h2>
+        <p>
+          Beyond the core sections, this site also features several key projects
+          that highlight both my practical and academic contributions. These
+          projects are a blend of service, technology, and intellectual
+          exploration:
+        </p>
+        <gap- size="2rem"></gap->
+
+        <div
+          class="project-detail"
+          onclick="redirectLink('/extras/logging/incident-reflection-app.html')"
+        >
+          <h3>Incident Reflection App</h3>
+          <p>
+            The Incident Reflection App is a web-based tool that supports
+            personal reflection and improvement in community service and first
+            response work. Its main function is to record events as they occur
+            during a shift, so that you can review and reflect on them in detail
+            afterwards.
+          </p>
+
+          <p class="feature-lead">
+            The main features of the app are as follows:
+          </p>
+          <ul class="feature-list">
+            <li>
+              <strong>Incident Logging:</strong>
+              You can record key details, including date, time, severity, case
+              type, interventions, and clinical roles, for each incident.
+            </li>
+            <li>
+              <strong>Reflective Practice:</strong>
+              The app includes a self-reflection tool that uses tags for common
+              areas of improvement, including communication, scene control, and
+              teamwork.
+            </li>
+            <li>
+              <strong>Emotional Awareness:</strong>
+              You can document your emotional state to help identify patterns in
+              your performance and well-being.
+            </li>
+          </ul>
+          <p class="disclaimer">
+            Disclaimer: This application was developed as a personal learning
+            project and for individual reflection. It is a lightweight tool
+            created primarily for experimentation and practice, and is not
+            intended to replace official incident reporting systems, clinical
+            documentation, or organisational record-keeping. Patient or
+            personally identifiable information should not be recorded in this
+            application.
+          </p>
+        </div>
+
+        <div
+          class="project-detail"
+          onclick="redirectLink('/extras/car/logging.html')"
+        >
+          <h3>Vehicle Pre-Check Application</h3>
+          <p>
+            The Vehicle Pre-Check Application is a basic tool that helps carry
+            out vehicle pre-checks.
+          </p>
+
+          <p class="feature-lead">Key features include:</p>
+          <ul class="feature-list">
+            <li>
+              <strong>Comprehensive Inspections:</strong>
+              It provides categorised checklists for different parts of the
+              vehicle, including the engine bay, exterior, tires, and interior
+              controls.
+            </li>
+            <li>
+              <strong>Live Status Tracking:</strong>
+              As you move through the inspection, a real-time summary counter
+              helps you keep track of which items are in good condition and
+              which need attention.
+            </li>
+            <li>
+              <strong>Offline Capability (PWA):</strong>
+              Because the app is built as a Progressive Web App, you can
+              complete inspections even in areas with poor cellular reception
+            </li>
+            <li>
+              <strong>Digital Logging:</strong>
+              The app replaces paper forms by storing inspection data locally
+              and allowing you to export reports as PDFs for audits and
+              maintenance records.
+            </li>
+          </ul>
+          <p class="disclaimer">
+            Disclaimer: This project was built as a personal learning exercise.
+            It is a lightweight tool intended for experimentation and personal
+            use, and no guarantees are made regarding accuracy, completeness, or
+            suitability for professional use.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="footer">
+      <div class="container">
+        <p>
+          © 2026 Archimedes-314<br />
+          All content provided in good faith. All materials shared are for
+          educational and personal purposes only. No patient-identifiable or
+          confidential operational information is published here. The
+          information provided should not be considered a substitute for formal
+          education or professional advice.
+        </p>
+      </div>
+    </footer>
+
+    <script src="/assets/JS/script.js"></script>
+  </body>
 </html>
