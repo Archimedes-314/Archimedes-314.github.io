@@ -177,7 +177,12 @@
           <!-- Nursing Section -->
           <div
             class="card"
-            onclick="redirectLink('/nursing/quizzes/index.html')"
+            onclick="
+              confirmRedirectLink(
+                '/nursing/quizzes/index.html',
+                'This section is still being developed',
+              )
+            "
           >
             <h3>Nursing</h3>
             <p>
