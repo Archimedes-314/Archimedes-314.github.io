@@ -1,0 +1,108 @@
+:root {
+    --primary-blue: #2c3e50;
+    --accent-blue: #3498db;
+    --medical-white: #f8f9fa;
+    --border-color: #dee2e6;
+    --text-color: #333;
+    --st-john-green: #00843d; /* Subtle nod to the uniform */
+    --ses-orange: #f39c12;    /* Subtle nod to the orange ppe */
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--medical-white);
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 85%;
+    max-width: 1100px;
+    margin: auto;
+    overflow: hidden;
+}
+
+header {
+    background: var(--primary-blue);
+    color: #fff;
+    padding: 3rem 0;
+    text-align: center;
+    border-bottom: 4px solid var(--accent-blue);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    letter-spacing: 1px;
+}
+
+.subtitle {
+    font-style: italic;
+    opacity: 0.9;
+}
+
+.privacy-notice {
+    background: #fff3cd;
+    color: #856404;
+    text-align: center;
+    padding: 10px;
+    font-size: 0.9rem;
+    border-bottom: 1px solid #ffeeba;
+}
+
+.category {
+    margin: 40px 0;
+}
+
+.category h2 {
+    border-left: 5px solid var(--accent-blue);
+    padding-left: 15px;
+    color: var(--primary-blue);
+    margin-bottom: 20px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: #fff;
+    padding: 20px;
+    text-decoration: none;
+    color: inherit;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: block;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border-color: var(--accent-blue);
+}
+
+.card h3 {
+    margin-top: 0;
+    color: var(--accent-blue);
+}
+
+.card.st-john { border-top: 4px solid var(--st-john-green); }
+.card.ses { border-top: 4px solid var(--ses-orange); }
+
+footer {
+    text-align: center;
+    padding: 40px 0;
+    color: #777;
+    font-size: 0.85rem;
+}
+
+.status {
+    background: #eee;
+    padding: 2px 8px;
+    border-radius: 12px;
+}

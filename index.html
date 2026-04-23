@@ -58,8 +58,14 @@
           >Vehicle Pre-Check Application</a
         >
         <a onclick="redirectLink('/personal/index.html')">Personal Website</a>
-        <a href="/maths/maths-index.html">Maths Notes Website</a>
-        <a onclick="alert('This section has not been completed')"
+        <!-- <a href="/maths/maths-index.html">Maths Notes Website</a> -->
+        <a
+          onclick="
+            confirmRedirectLink(
+              '/nursing/quizzes/index.html',
+              'This section is still being developed',
+            )
+          "
           >Nursing Notes Website</a
         >
       </div>
@@ -97,28 +103,20 @@
         <h2>Mission Statement</h2>
 
         <p class="mission-statement-text">
-          Committed to life-saving service, guided by the precision of
-          mathematical analysis and the heart of nursing.
+          Merging disciplined analysis with the heart of nursing
         </p>
 
         <p>
-          Curiosity and a passion for knowledge are at the heart of my practice,
-          inspiring my dedication to excellent, compassionate care. By
-          integrating mathematical logic into clinical practice, I strive to
-          best serve my community on every nursing shift and during every SES
-          call-out. Each shift is an opportunity to refine the tools I use to
-          support others. My goal is to carry this dedication and perspective
-          into a career with the Queensland Ambulance Service, ensuring my work
-          remains both rigorous and empathetic.
-        </p>
-
-        <p>
-          This site records my progress as I work toward this goal. It includes
-          experiences from emergency response and mathematical analysis, and
-          each section is meant to help me learn and improve. I believe that a
-          good clinician always keeps learning, and this platform brings
-          together my clinical training, academic interests, and professional
-          experience to support that idea.
+          On this site, I share my journey as I work towards a career in health
+          care. I include my experiences from work experience and nursing
+          studies, and I use each section to reflect on what I have learned and
+          how I can improve. My goal is to serve my community as well as I can,
+          whether I am on a nursing shift or responding to an SES call-out. Each
+          experience gives me a chance to develop the skills I need to support
+          others. I see learning as a lifelong process for any clinician, so I
+          have brought together my clinical training, academic interests, and
+          professional experience here to help guide myself through this
+          journey.
         </p>
       </div>
     </div>
@@ -128,10 +126,10 @@
       <div class="container">
         <h2>Website Overview</h2>
         <p>
-          This website is organised into three main sections: healthcare and
-          emergency services, an ongoing mathematics project focused on real
-          analysis, and my personal nursing study notes. Each section presents a
-          different aspect of my professional and academic development.
+          This website is organised into two main sections: healthcare and
+          emergency services and my personal nursing study notes. Both sections
+          presents a different aspect of my professional and academic
+          development.
         </p>
         <p>
           The first section introduces my background, including my education and
@@ -141,13 +139,7 @@
           motivation for working in these areas.
         </p>
         <p>
-          The second section focuses on my interest in pure mathematics. This
-          ongoing project begins with real analysis, and will later include,
-          linear algebra, logic, and potentially complex analysis as I continue
-          my studies.
-        </p>
-        <p>
-          The final section contains my personal nursing notes, which reflect
+          The second section contains my personal nursing notes, which reflect
           both my clinical knowledge and communication skills.
         </p>
       </div>
@@ -171,7 +163,7 @@
             <span class="cta">View Professional Profile →</span>
           </div>
 
-          <!-- Maths Section -->
+          <!-- Maths Section
           <div class="card" onclick="redirectLink('/maths/maths-index.html')">
             <h3>Mathematics</h3>
             <p>
@@ -180,12 +172,12 @@
               progress and interest in solving challenging problems.
             </p>
             <span class="cta">Explore Mathematics Project →</span>
-          </div>
+          </div> -->
 
           <!-- Nursing Section -->
           <div
             class="card"
-            onclick="alert('This section has not been completed')"
+            onclick="redirectLink('/nursing/quizzes/index.html')"
           >
             <h3>Nursing</h3>
             <p>
