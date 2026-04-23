@@ -1,0 +1,7 @@
+{
+  "title": "Clinical Knowledge Review",
+  "questions": [
+    { "id": "q1", "question": "What is 2+2?", "answers": ["4", "four"] },
+    { "id": "q2", "question": "Capital of QLD?", "answers": ["Brisbane"] }
+  ]
+}

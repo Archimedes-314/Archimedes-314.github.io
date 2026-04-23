@@ -1,4 +1,4 @@
-:root {
+.theme-dashboard {
   --bg-color: #f0f4f8;
   --card-bg: #ffffff;
   --primary: #2c5282;
@@ -7,7 +7,7 @@
   --text-muted: #718096;
 }
 
-body {
+.theme-dashboard {
   background-color: var(--bg-color);
   font-family:
     -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -15,13 +15,13 @@ body {
   color: var(--text-main);
 }
 
-.app-container {
+.theme-dashboard .app-container {
   max-width: 500px;
   margin: 0 auto;
   padding: 20px;
 }
 
-.app-header {
+.theme-dashboard .app-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -29,13 +29,13 @@ body {
   padding: 10px 0;
 }
 
-.user-profile {
+.theme-dashboard .user-profile {
   display: flex;
   align-items: center;
   gap: 12px;
 }
 
-.avatar {
+.theme-dashboard .avatar {
   width: 45px;
   height: 45px;
   background: var(--primary);
@@ -47,18 +47,18 @@ body {
   font-weight: bold;
 }
 
-h1 {
+.theme-dashboard h1 {
   font-size: 1.4rem;
   margin: 0;
   color: var(--primary);
 }
-p {
+.theme-dashboard p {
   margin: 0;
   font-size: 0.85rem;
   color: var(--text-muted);
 }
 
-.install-pill {
+.theme-dashboard .install-pill {
   background: var(--accent);
   border: none;
   padding: 8px 16px;
@@ -70,7 +70,7 @@ p {
   display: none; /* Only shows when installable */
 }
 
-.stats-bar {
+.theme-dashboard .stats-bar {
   display: flex;
   background: var(--primary);
   padding: 20px;
@@ -80,45 +80,55 @@ p {
   box-shadow: 0 10px 15px -3px rgba(44, 82, 130, 0.2);
 }
 
-.stat-item {
+.theme-dashboard .stat-item {
   flex: 1;
   text-align: center;
 }
-.stat-value {
+.theme-dashboard .stat-value {
   display: block;
   font-size: 1.5rem;
   font-weight: bold;
 }
-.stat-label {
+.theme-dashboard .stat-label {
   font-size: 0.7rem;
   opacity: 0.8;
   text-transform: uppercase;
 }
 
-.quiz-grid {
+.theme-dashboard .quiz-grid {
   display: flex;
   flex-direction: column;
   gap: 15px;
 }
 
-.quiz-card {
+.theme-dashboard .quiz-card {
   background: var(--card-bg);
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
   padding: 18px;
   border-radius: 16px;
   text-decoration: none;
   color: inherit;
   display: flex;
   align-items: center;
+  user-select: none;
   gap: 15px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
   transition: transform 0.2s;
 }
 
-.quiz-card:active {
+.theme-dashboard .quiz-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.theme-dashboard .quiz-card:active {
   transform: scale(0.97);
 }
 
-.card-icon {
+.theme-dashboard .card-icon {
   font-size: 1.8rem;
   background: #edf2f7;
   width: 50px;
@@ -129,19 +139,39 @@ p {
   border-radius: 12px;
 }
 
-.card-content {
+.theme-dashboard .card-content {
   flex: 1;
 }
-.card-content h3 {
+.theme-dashboard .card-content h3 {
   margin: 0;
   font-size: 1rem;
 }
-.card-content p {
+.theme-dashboard .card-content p {
   font-size: 0.8rem;
   margin-top: 2px;
 }
 
-.badge {
+.theme-dashboard .back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #f3f4f6;
+  border: 1px solid #e5e7eb;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: 600;
+  color: #4b5563;
+  cursor: pointer;
+  margin-bottom: 20px;
+  transition: background 0.2s;
+}
+
+.theme-dashboard .back-btn:hover {
+  background: #e5e7eb;
+  color: #111827;
+}
+
+.theme-dashboard .badge {
   display: inline-block;
   background: #e6fffa;
   color: #2c7a7b;
@@ -152,13 +182,12 @@ p {
   margin-top: 8px;
 }
 
-.arrow {
+.theme-dashboard .arrow {
   color: var(--text-muted);
   font-weight: bold;
 }
 
-/* --- New Disclaimer Styles --- */
-.disclaimer-box {
+.theme-dashboard .disclaimer-box {
   background-color: #fffaf0;
   border: 1px solid #feebc8;
   border-left: 4px solid #ed8936;
@@ -167,39 +196,38 @@ p {
   margin-bottom: 25px;
 }
 
-.disclaimer-box strong {
+.theme-dashboard .disclaimer-box strong {
   display: block;
   color: #9c4221;
   font-size: 0.9rem;
   margin-bottom: 5px;
 }
 
-.disclaimer-box p {
+.theme-dashboard .disclaimer-box p {
   color: #7b341e;
   font-size: 0.8rem;
   line-height: 1.4;
 }
 
-/* --- New Footer/Contact Styles --- */
-.app-footer {
+.theme-dashboard .app-footer {
   margin-top: 40px;
   padding-bottom: 20px;
   text-align: center;
 }
 
-.contact-section {
+.theme-dashboard .contact-section {
   background: #edf2f7;
   padding: 20px;
   border-radius: 12px;
 }
 
-.contact-section h4 {
+.theme-dashboard .contact-section h4 {
   margin: 0 0 8px 0;
   color: var(--primary);
   font-size: 1rem;
 }
 
-.email-link {
+.theme-dashboard .email-link {
   color: var(--primary);
   font-weight: 600;
   text-decoration: none;
@@ -207,6 +235,12 @@ p {
   word-break: break-all;
 }
 
-.email-link:hover {
+.theme-dashboard .email-link:hover {
   text-decoration: underline;
+}
+
+@media (display-mode: standalone) {
+  .theme-dashboard .notes-section-card {
+    display: none;
+  }
 }

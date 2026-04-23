@@ -1,108 +1,117 @@
-:root {
-    --primary-blue: #2c3e50;
-    --accent-blue: #3498db;
-    --medical-white: #f8f9fa;
-    --border-color: #dee2e6;
-    --text-color: #333;
-    --st-john-green: #00843d; /* Subtle nod to the uniform */
-    --ses-orange: #f39c12;    /* Subtle nod to the orange ppe */
+.theme-quiz {
+  --primary-blue: #2c5282;
+  --medical-teal: #4fd1c5;
+  --bg-gray: #f0f4f8;
+  --border-color: #e2e8f0;
+  --success: #38a169;
+  --error: #e53e3e;
 }
 
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.6;
-    color: var(--text-color);
-    background-color: var(--medical-white);
-    margin: 0;
-    padding: 0;
+.theme-quiz {
+  background-color: var(--bg-gray);
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  padding: 40px 20px;
 }
 
-.container {
-    width: 85%;
-    max-width: 1100px;
-    margin: auto;
-    overflow: hidden;
+.theme-quiz .main-div {
+  max-width: 600px;
+  width: 100%;
+  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: #2d3748;
 }
 
-header {
-    background: var(--primary-blue);
-    color: #fff;
-    padding: 3rem 0;
-    text-align: center;
-    border-bottom: 4px solid var(--accent-blue);
+.theme-quiz h1 {
+  text-align: center;
+  color: var(--primary-blue);
+  margin-bottom: 30px;
+  font-weight: 600;
 }
 
-header h1 {
-    margin: 0;
-    font-size: 2.5rem;
-    letter-spacing: 1px;
+.theme-quiz .question-div {
+  background: white;
+  padding: 24px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  border-left: 5px solid var(--medical-teal);
+  transition: transform 0.2s;
 }
 
-.subtitle {
-    font-style: italic;
-    opacity: 0.9;
+.theme-quiz h2 {
+  font-size: 1.1rem;
+  margin-top: 0;
+  margin-bottom: 15px;
+  color: #4a5568;
 }
 
-.privacy-notice {
-    background: #fff3cd;
-    color: #856404;
-    text-align: center;
-    padding: 10px;
-    font-size: 0.9rem;
-    border-bottom: 1px solid #ffeeba;
+.theme-quiz input[type="text"] {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid var(--border-color);
+  border-radius: 6px;
+  font-size: 16px;
+  box-sizing: border-box;
+  transition: border-color 0.2s;
 }
 
-.category {
-    margin: 40px 0;
+.theme-quiz input[type="text"]:focus {
+  outline: none;
+  border-color: var(--medical-teal);
 }
 
-.category h2 {
-    border-left: 5px solid var(--accent-blue);
-    padding-left: 15px;
-    color: var(--primary-blue);
-    margin-bottom: 20px;
+.theme-quiz .feedback {
+  margin-top: 12px;
+  padding: 10px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  animation: fadeIn 0.3s ease-in;
 }
 
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
-}
-
-.card {
-    background: #fff;
-    padding: 20px;
-    text-decoration: none;
-    color: inherit;
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    transition: transform 0.2s, box-shadow 0.2s;
-    display: block;
-}
-
-.card:hover {
+@keyframes fadeIn {
+  from {
+    opacity: 0;
     transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    border-color: var(--accent-blue);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.card h3 {
-    margin-top: 0;
-    color: var(--accent-blue);
+.theme-quiz .btn-container {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
 }
 
-.card.st-john { border-top: 4px solid var(--st-john-green); }
-.card.ses { border-top: 4px solid var(--ses-orange); }
-
-footer {
-    text-align: center;
-    padding: 40px 0;
-    color: #777;
-    font-size: 0.85rem;
+.theme-quiz button {
+  flex: 1;
+  padding: 14px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition:
+    background 0.2s,
+    opacity 0.2s;
 }
 
-.status {
-    background: #eee;
-    padding: 2px 8px;
-    border-radius: 12px;
+.theme-quiz .btn-submit {
+  background-color: var(--primary-blue);
+  color: white;
+}
+
+.theme-quiz .btn-submit:hover {
+  background-color: #2a4365;
+}
+
+.theme-quiz .btn-reset {
+  background-color: #edf2f7;
+  color: #718096;
+}
+
+.theme-quiz .btn-reset:hover {
+  background-color: #e2e8f0;
 }
