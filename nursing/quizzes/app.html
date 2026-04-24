@@ -11,7 +11,7 @@
       name="apple-mobile-web-app-status-bar-style"
       content="black-translucent"
     />
-    <link rel="manifest" href="manifest.json" />
+    <link rel="manifest" href="/nursing/quizzes/assets/PWA/manifest.json" />
 
     <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
@@ -21,6 +21,17 @@
     <div id="app-wrapper">
       <div id="root"></div>
     </div>
-    <script src="assets/JS/script.js" type="text/babel"></script>
+
+    <script src="/nursing/quizzes/sw.js"></script>
+
+    <script
+      src="/nursing/quizzes/assets/JS/script.js"
+      type="text/babel"
+    ></script>
+    <script
+      src="/nursing/quizzes/assets/JS/dashboard.js"
+      type="text/babel"
+    ></script>
+    <script src="/nursing/quizzes/assets/JS/quiz.js" type="text/babel"></script>
   </body>
 </html>
