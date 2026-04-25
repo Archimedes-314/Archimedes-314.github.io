@@ -29,7 +29,7 @@ root.render(<App />);
 if ("serviceWorker" in navigator) {
   navigator.serviceWorker
     .register("sw.js")
-    .then(() => console.log("Service Worker Registered"));
+    .then(() => console.log(`Service Worker Registered: ${CACHE_NAME}`));
 }
 
 let deferredPrompt;
