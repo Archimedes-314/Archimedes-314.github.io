@@ -1,12 +1,12 @@
-const CACHE_NAME = "nursing-quiz-v2";
+const CACHE_NAME = "nursing-quiz-v4";
 const ASSETS = [
-  "/nursing/quizzes/",
-  "/nursing/quizzes/app.html",
-  "/nursing/quizzes/assets/CSS/index.css",
-  "/nursing/quizzes/assets/CSS/style.css",
-  "/nursing/quizzes/assets/JS/script.js",
-  "/nursing/quizzes/assets/JS/dashboard.js",
-  "/nursing/quizzes/assets/JS/quiz.js",
+  "./",
+  "./app.html",
+  "./assets/CSS/index.css",
+  "./assets/CSS/style.css",
+  "./assets/JS/script.js",
+  "./assets/JS/dashboard.js",
+  "./assets/JS/quiz.js",
   "https://unpkg.com/react@18/umd/react.development.js",
   "https://unpkg.com/react-dom@18/umd/react-dom.development.js",
   "https://unpkg.com/@babel/standalone/babel.min.js",
