@@ -1,6 +1,5 @@
 const CACHE_NAME = "nursing-quiz-v4";
 const ASSETS = [
-  "./",
   "./app.html",
   "./assets/CSS/index.css",
   "./assets/CSS/style.css",
