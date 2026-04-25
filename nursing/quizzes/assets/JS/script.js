@@ -26,23 +26,18 @@ const App = () => {
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<App />);
 
-// 1. Register the Service Worker
 if ("serviceWorker" in navigator) {
   navigator.serviceWorker
-    .register("/sw.js")
+    .register("sw.js")
     .then(() => console.log("Service Worker Registered"));
 }
 
-// 2. Handle the Install Prompt
 let deferredPrompt;
 const installBtn = document.getElementById("installBtn");
 
 window.addEventListener("beforeinstallprompt", (e) => {
-  // Prevent Chrome 67 and earlier from automatically showing the prompt
   e.preventDefault();
-  // Stash the event so it can be triggered later.
   deferredPrompt = e;
-  // Show the install button
   if (installBtn) installBtn.style.display = "block";
 });
 

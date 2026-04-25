@@ -3,17 +3,17 @@
   "name": "Nursing Quiz Portal",
   "icons": [
     {
-      "src": "assets/images/icon-192.png",
+      "src": "/maths/assets/style/images/archimedes.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "assets/images/icon-512.png",
+      "src": "/maths/assets/style/images/archimedes.png",
       "type": "image/png",
       "sizes": "512x512"
     }
   ],
-  "start_url": "/index.html",
+  "start_url": "/nursing/quizzes/app.html",
   "background_color": "#f0f4f8",
   "display": "standalone",
   "theme_color": "#2c5282"
