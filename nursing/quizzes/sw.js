@@ -1,4 +1,4 @@
-const CACHE_NAME = "nursing-quiz-v4";
+const CACHE_NAME = "nursing-quiz-v5";
 const ASSETS = [
   "./app.html",
   "./assets/CSS/index.css",

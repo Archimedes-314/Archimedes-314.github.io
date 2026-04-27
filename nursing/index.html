@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Eli Schodel | Online Nursing Notes</title>
+    <link rel="stylesheet" href="/nursing/assets/CSS/style.css" />
+  </head>
+  <body>
+    <div class="login-container" onclick="hideLogin()">
+      <div class="login-box" onclick="event.stopPropagation()">
+        <h2>Login</h2>
+        <p>Login to gain access to the hidden content.</p>
+        <button
+          onclick="
+            confirmRedirectLink(
+              'https://nursingquizzes.pages.dev',
+              'If you do not have an approved email, this will not work.',
+            )
+          "
+        >
+          Login
+        </button>
+        <button onclick="hideLogin()">Cancel</button>
+      </div>
+    </div>
+    <header>
+      <div class="container">
+        <h1>Online Nursing Notes and Quizzes</h1>
+        <p class="subtitle">
+          A Collection of Notes and Quizzes for Student ENs
+        </p>
+        <p class="login" onclick="showLogin()">Log In</p>
+      </div>
+    </header>
+
+    <div class="privacy-notice">
+      <p>
+        <strong>Notice:</strong> To ensure I follow TAFE Queensland policies and
+        privacy laws, I will limit the amount of personal study material I share
+        on this website to basic quizzes.
+      </p>
+    </div>
+
+    <main class="container">
+      <section class="category">
+        <h2>📝 Available Quizzes</h2>
+        <p>
+          In this section, I have collected all the quizzes and notes that I am
+          able to share with you. For each topic, you will find a dedicated
+          Nursing Quiz Portal with a list of quizzes based on the topic you
+          selected. I have also included study sheets that list questions with
+          space for you to write your own long-response answers. These study
+          sheets do not have answer keys, as they are designed to encourage you
+          to explore the material and develop your understanding through
+          personal study and research.
+        </p>
+        <div class="grid">
+          <!-- <a href="#" class="card">
+            <h3>Anatomy & Physiology</h3>
+            <p>Systems-based deep dives and pathological overviews.</p>
+          </a>
+          <a href="#" class="card">
+            <h3>Pharmacology</h3>
+            <p>
+              Medication calculations, classifications, and safe administration.
+            </p>
+          </a> -->
+          <a href="/nursing/quizzes/app.html" class="card">
+            <h3>My testing Quiz</h3>
+            <p>
+              This is for me to get the code set up. I may turn it into a manual
+              on how to use the quizzes.
+            </p>
+          </a>
+          <a href="#" class="card">
+            <h3>Vital Signs</h3>
+            <p>Vital signs, and ABCDEFG assessment models.</p>
+          </a>
+        </div>
+      </section>
+
+      <section class="category locked-section">
+        <h2>🔒 Locked Content</h2>
+        <p>
+          Here, I have included a wider range of resources to help with your
+          study. Because TAFE Queensland has strict rules about collusion and
+          sharing their materials, I cannot make these notes and quizzes
+          available to everyone. If you would like to use this content, you will
+          need to sign in with an approved email address. The only emails I will
+          add to the approved list are those belonging to TAFE teachers or
+          administrators.
+        </p>
+        <div class="grid">
+          <a href="#" class="card">
+            <h3>Anatomy & Physiology</h3>
+            <p>Systems-based deep dives and pathological overviews.</p>
+          </a>
+          <a href="#" class="card">
+            <h3>Pharmacology</h3>
+            <p>
+              Medication calculations, classifications, and safe administration.
+            </p>
+          </a>
+        </div>
+      </section>
+
+      <!-- <section class="category">
+        <h2>📚 Resources & Compliance</h2>
+        <div class="grid">
+          <a href="#" class="card meta">
+            <h3>Glossary</h3>
+            <p>Personal dictionary of medical abbreviations and terminology.</p>
+          </a>
+          <a href="#" class="card meta">
+            <h3>Ethics & Laws</h3>
+            <p>AHPRA standards and legal frameworks in nursing.</p>
+          </a>
+        </div>
+      </section> -->
+    </main>
+
+    <footer>
+      <p>&copy; 2026 Archimedes-314 | Personal Study Notes</p>
+    </footer>
+
+    <script src="/nursing/assets/JS/login.js"></script>
+  </body>
+</html>
