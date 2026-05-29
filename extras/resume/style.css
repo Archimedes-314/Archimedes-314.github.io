@@ -1,0 +1,231 @@
+/* --- Google Fonts Pack --- */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap");
+
+:root {
+  --primary: #1a365d;
+  --textdark: #2d3748;
+  --muted: #718096;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  color: var(--textdark);
+  background-color: #f7fafc;
+  margin: 0;
+  padding: 40px 0;
+}
+
+.control-panel {
+  max-width: 800px;
+  margin: 0 auto 20px auto;
+  background: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-print {
+  background-color: #2b6cb0;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.btn-print:hover {
+  background-color: #1a365d;
+}
+
+.btn-clear {
+  background-color: #e2e8f0;
+  color: #4a5568;
+  border: none;
+  padding: 10px 15px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.btn-clear:hover {
+  background-color: #cbd5e0;
+}
+
+.hint {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.4;
+}
+
+.list-controls {
+  display: inline-flex;
+  gap: 5px;
+  margin-top: 5px;
+  margin-left: 20px;
+}
+
+.btn-add-bullet {
+  background: #ebf8ff;
+  color: #2b6cb0;
+  border: 1px dashed #63b3ed;
+  padding: 3px 10px;
+  font-size: 11px;
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.btn-add-bullet:hover {
+  background: #bee3f8;
+}
+
+.bullet-item {
+  position: relative;
+  margin-bottom: 5px;
+  font-size: 14px;
+  line-height: 1.5;
+  padding-right: 30px;
+}
+
+.btn-remove-bullet {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #fed7d7;
+  color: #c53030;
+  border: none;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  font-size: 11px;
+  line-height: 18px;
+  text-align: center;
+  cursor: pointer;
+  display: none;
+  padding: 0;
+}
+
+.bullet-item:hover .btn-remove-bullet {
+  display: inline-block;
+}
+
+.resume-page {
+  background: white;
+  width: 210mm;
+  min-height: 297mm;
+  margin: 0 auto;
+  padding: 15mm;
+  box-sizing: border-box;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 25px;
+}
+.name {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--primary);
+  margin: 0 0 5px 0;
+}
+.contact {
+  font-size: 13px;
+  font-weight: 600;
+}
+.bullet-divider {
+  color: var(--muted);
+  margin: 0 8px;
+}
+
+section {
+  margin-top: 20px;
+}
+
+h2 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--primary);
+  text-transform: uppercase;
+  border-bottom: 2px solid var(--primary);
+  margin: 0 0 10px 0;
+  padding-bottom: 3px;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+.job-title {
+  font-weight: 700;
+}
+.company {
+  color: var(--primary);
+  font-weight: 700;
+}
+.meta-text {
+  color: var(--muted);
+  font-style: italic;
+  font-size: 13px;
+}
+
+ul {
+  margin: 5px 0 5px 0;
+  padding-left: 20px;
+}
+
+.prompt {
+  color: #4a5568;
+  background-color: #edf2f7;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.referee-container {
+  display: flex;
+  gap: 40px;
+  margin-top: 10px;
+}
+.referee-col {
+  flex: 1;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+@media print {
+  @page {
+    margin: 0;
+  }
+  body {
+    background: none;
+    padding: 0;
+  }
+  .control-panel,
+  .list-controls,
+  .btn-remove-bullet,
+  #res-ref-note {
+    display: none !important;
+  }
+  .resume-page {
+    box-shadow: none;
+    margin: 0;
+    width: 100%;
+    min-height: auto;
+    padding: 15mm;
+  }
+  .prompt {
+    background-color: transparent;
+    padding: 0;
+  }
+}
