@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Nursing Quiz Portal</title>
+    <title>Testing Quiz Portal</title>
     <link rel="stylesheet" href="assets/CSS/index.css" />
     <link rel="stylesheet" href="assets/CSS/style.css" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -11,7 +11,7 @@
       name="apple-mobile-web-app-status-bar-style"
       content="black-translucent"
     />
-    <link rel="manifest" href="/nursing/quizzes/assets/PWA/manifest.json" />
+    <!-- <link rel="manifest" href="/nursing/quizzes/assets/PWA/manifest.json" /> -->
 
     <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
@@ -22,16 +22,15 @@
       <div id="root"></div>
     </div>
 
-    <script src="/nursing/quizzes/sw.js"></script>
+    <!-- <script src="sw.js"></script> -->
 
-    <script
-      src="/nursing/quizzes/assets/JS/script.js"
-      type="text/babel"
-    ></script>
-    <script
-      src="/nursing/quizzes/assets/JS/dashboard.js"
-      type="text/babel"
-    ></script>
-    <script src="/nursing/quizzes/assets/JS/quiz.js" type="text/babel"></script>
+    <script src="assets/JS/script.js" type="text/babel"></script>
+    <script src="assets/JS/dashboard.js" type="text/babel"></script>
+    <script src="assets/JS/breathing-basic.js" type="text/babel"></script>
+    <script>
+      const redirectLink = (e) => {
+        window.location.href = `${e}`;
+      };
+    </script>
   </body>
 </html>

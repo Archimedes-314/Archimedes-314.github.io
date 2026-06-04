@@ -1,23 +1,26 @@
 const { useState, useEffect } = React;
 
 const App = () => {
-  const [view, setView] = useState("home");
+  const [currentQuiz, setCurrentQuiz] = useState(null);
 
   useEffect(() => {
     const wrapper = document.getElementById("app-wrapper");
-    if (view === "home") {
+    if (!currentQuiz) {
       wrapper.className = "theme-dashboard";
     } else {
       wrapper.className = "theme-quiz";
     }
-  }, [view]);
+  }, [currentQuiz]);
 
   return (
     <div>
-      {view === "home" ? (
-        <Dashboard onStartQuiz={() => setView("quiz")} />
+      {!currentQuiz ? (
+        <Dashboard onStartQuiz={(quizType) => setCurrentQuiz(quizType)} />
       ) : (
-        <Quiz onBack={() => setView("home")} />
+        <BreathingBasic
+          quizType={currentQuiz}
+          onBack={() => setCurrentQuiz(null)}
+        />
       )}
     </div>
   );
@@ -25,12 +28,6 @@ const App = () => {
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<App />);
-
-if ("serviceWorker" in navigator) {
-  navigator.serviceWorker
-    .register("sw.js")
-    .then(() => console.log(`Service Worker Registered: ${CACHE_NAME}`));
-}
 
 let deferredPrompt;
 const installBtn = document.getElementById("installBtn");

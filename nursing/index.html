@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Eli Schodel | Online Nursing Notes</title>
     <link rel="stylesheet" href="/nursing/assets/CSS/style.css" />
+    <link rel="manifest" href="/nursing/manifest.json" />
   </head>
   <body>
     <div class="login-container" onclick="hideLogin()">
@@ -66,16 +67,16 @@
               Medication calculations, classifications, and safe administration.
             </p>
           </a> -->
-          <a href="/nursing/quizzes/app.html" class="card">
+          <a href="/nursing/quizzes/testing/app.html" class="card">
             <h3>My testing Quiz</h3>
             <p>
               This is for me to get the code set up. I may turn it into a manual
               on how to use the quizzes.
             </p>
           </a>
-          <a href="#" class="card">
+          <a href="/nursing/quizzes/vital-signs/app.html" class="card">
             <h3>Vital Signs</h3>
-            <p>Vital signs, and ABCDEFG assessment models.</p>
+            <p>Vital signs and ABCDE assessment.</p>
           </a>
         </div>
       </section>
@@ -125,5 +126,15 @@
     </footer>
 
     <script src="/nursing/assets/JS/login.js"></script>
+    <script>
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+          navigator.serviceWorker
+            .register("/nursing/sw.js") // Root SW handles all subfolders!
+            .then(() => console.log("Master Nursing SW Registered"))
+            .catch((err) => console.error("SW failed to register:", err));
+        });
+      }
+    </script>
   </body>
 </html>

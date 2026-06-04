@@ -4,7 +4,9 @@ const Dashboard = ({ onStartQuiz }) => (
       <div className="user-profile">
         <span className="avatar">EN</span>
         <div>
-          <h1>Nursing Quiz Portal</h1>
+          <h1 onClick={() => redirectLink("/nursing/index.html")}>
+            Nursing Quiz Portal
+          </h1>
           <p>My Collection of Clinical Competency Quizzes</p>
         </div>
       </div>
@@ -37,7 +39,7 @@ const Dashboard = ({ onStartQuiz }) => (
 
     <main className="quiz-grid">
       <div
-        onClick={() => onStartQuiz("testing")}
+        onClick={() => onStartQuiz("breathing-basic")}
         className="quiz-card"
         style={{ cursor: "pointer" }}
       >
@@ -45,29 +47,49 @@ const Dashboard = ({ onStartQuiz }) => (
           <img src="/maths/assets/style/images/archimedes_cur.png" alt="icon" />
         </div>
         <div className="card-content">
-          <h3>Testing Quiz</h3>
-          <p>My Testing Quiz</p>
-          <span className="badge blue">Test</span>
+          <h3>Basic Breathing Quiz</h3>
+          <p>
+            A multi-choice quiz based on the breathing step of the ABCDE
+            assessment.
+          </p>
+          <span className="badge blue">ABCDE Assessment</span>
         </div>
         <div className="arrow">→</div>
       </div>
 
-      <div onClick={() => alert("Not Yet Complete")} className="quiz-card">
-        <div className="card-icon">🧪</div>
+      <div
+        onClick={() => onStartQuiz("breathing-written")}
+        className="quiz-card"
+        style={{ cursor: "pointer" }}
+      >
+        <div className="card-icon">
+          <img src="/maths/assets/style/images/archimedes_cur.png" alt="icon" />
+        </div>
         <div className="card-content">
-          <h3>Drug Calculations</h3>
-          <p>Calculations & Geography</p>
-          <span className="badge">Medication</span>
+          <h3>Written Breathing Quiz</h3>
+          <p>
+            A Written quiz based on the breathing step of the ABCDE assessment.
+          </p>
+          <span className="badge blue">ABCDE Assessment</span>
         </div>
         <div className="arrow">→</div>
       </div>
 
-      <div onClick={() => alert("Not Yet Complete")} className="quiz-card">
-        <div className="card-icon">💊</div>
+      <div
+        onClick={() => onStartQuiz("circulation-basic")}
+        className="quiz-card"
+        style={{ cursor: "pointer" }}
+      >
+        <div className="card-icon">
+          <img src="/maths/assets/style/images/archimedes_cur.png" alt="icon" />
+        </div>
         <div className="card-content">
-          <h3>Pharmacology</h3>
-          <p>Dosage & Administration</p>
-          <span className="badge">Medication</span>
+          <h3>Basic Circulation Quiz</h3>
+          <p>
+            A multi-choice quiz based on the circulation step of the ABCDE
+            assessment.
+          </p>
+          <span className="badge blue">ABCDE Assessment</span>
         </div>
         <div className="arrow">→</div>
       </div>
