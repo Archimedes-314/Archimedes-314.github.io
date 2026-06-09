@@ -1,4 +1,4 @@
-const CACHE_NAME = "nursing-app-v1";
+const CACHE_NAME = "nursing-app-v3.0";
 
 const ASSETS = [
   // --- Main Landing & Global Assets ---
@@ -7,12 +7,13 @@ const ASSETS = [
   "/nursing/manifest.json",
   "/nursing/assets/CSS/style.css",
   "/nursing/assets/JS/login.js",
+  "/nursing/assets/JS/script.js",
 
   // --- Quiz 1.1: Overview of Anatomy and Physiology ---
   "/nursing/quizzes/1.1-overview-of-anatomy-and-physiology/app.html",
   "/nursing/quizzes/1.1-overview-of-anatomy-and-physiology/assets/CSS/index.css",
   "/nursing/quizzes/1.1-overview-of-anatomy-and-physiology/assets/CSS/style.css",
-  "/nursing/quizzes/1.1-overview-of-anatomy-and-physiology/assets/JS/breathing-basic.js",
+  "/nursing/quizzes/1.1-overview-of-anatomy-and-physiology/assets/JS/quiz-data.js",
   "/nursing/quizzes/1.1-overview-of-anatomy-and-physiology/assets/JS/dashboard.js",
   "/nursing/quizzes/1.1-overview-of-anatomy-and-physiology/assets/JS/script.js",
 
