@@ -69,10 +69,7 @@
           </a> -->
           <a href="/nursing/quizzes/testing/app.html" class="card">
             <h3>My testing Quiz</h3>
-            <p>
-              This is for me to get the code set up. I may turn it into a manual
-              on how to use the quizzes.
-            </p>
+            <p>This is for me to get the code set up.</p>
           </a>
           <a
             href="/nursing/quizzes/1.1-overview-of-anatomy-and-physiology/app.html"
@@ -81,7 +78,7 @@
             <h3>An Introduction to the Human Body</h3>
             <ul>
               <li>Overview of Anatomy and Physiology</li>
-              <li>Structural Organization of the Human Body</li>
+              <li>Structural Organisation of the Human Body</li>
               <li>Functions of Human Life</li>
               <li>Requirements for Human Life</li>
               <li>Homeostasis</li>
@@ -141,7 +138,7 @@
       if ("serviceWorker" in navigator) {
         window.addEventListener("load", () => {
           navigator.serviceWorker
-            .register("/nursing/sw.js") // Root SW handles all subfolders!
+            .register("/nursing/sw.js")
             .then(() => console.log("Master Nursing SW Registered"))
             .catch((err) => console.error("SW failed to register:", err));
         });

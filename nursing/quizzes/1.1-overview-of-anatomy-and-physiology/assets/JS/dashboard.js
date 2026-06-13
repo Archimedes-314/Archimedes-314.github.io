@@ -47,12 +47,40 @@ const Dashboard = ({ onStartQuiz }) => (
           <img src="/maths/assets/style/images/archimedes_cur.png" alt="icon" />
         </div>
         <div className="card-content">
-          <h3>Basic Breathing Quiz</h3>
-          <p>
-            A multi-choice quiz based on the breathing step of the ABCDE
-            assessment.
-          </p>
-          <span className="badge blue">ABCDE Assessment</span>
+          <h3>Overview of Anatomy and Physiology</h3>
+          <ul>
+            <li>Compare and contrast anatomy and physiology</li>
+            <li>
+              Discuss the fundamental relationship between anatomy and
+              physiology
+            </li>
+          </ul>
+          <span className="badge blue">A&E Overview</span>
+        </div>
+        <div className="arrow">→</div>
+      </div>
+
+      <div
+        onClick={() => onStartQuiz("organisation-quiz")}
+        className="quiz-card"
+        style={{ cursor: "pointer" }}
+      >
+        <div className="card-icon">
+          <img src="/maths/assets/style/images/archimedes_cur.png" alt="icon" />
+        </div>
+        <div className="card-content">
+          <h3>Structural Organisation of the Human Body</h3>
+          <ul>
+            <li>
+              Describe the structure of the human body in terms of six levels of
+              organisation
+            </li>
+            <li>
+              List the eleven organ systems of the human body and identify at
+              least one organ and one major function of each
+            </li>
+          </ul>
+          <span className="badge blue">A&E Overview</span>
         </div>
         <div className="arrow">→</div>
       </div>

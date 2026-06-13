@@ -1,48 +1,47 @@
 const { useState, useEffect } = React;
 
-const categorisationQuestion = ["Anatomy", "Physiology"];
-
+const foundationCategorisationQuestion = ["Anatomy", "Physiology"];
 const foundationsAnPData = [
   {
     type: "multiple-select",
     question:
       "Measuring the electrical activity of the heart using an electrocardiogram (ECG)",
-    options: categorisationQuestion,
+    options: foundationCategorisationQuestion,
     answers: ["Physiology"],
   },
   {
     type: "multiple-select",
     question:
       "Identifying the lobes, fissures, and sulci of the human brain during a dissection lab.",
-    options: categorisationQuestion,
+    options: foundationCategorisationQuestion,
     answers: ["Anatomy"],
   },
   {
     type: "multiple-select",
     question:
       "Using an electron microscope to examine the structural layers of a cell membrane.",
-    options: categorisationQuestion,
+    options: foundationCategorisationQuestion,
     answers: ["Anatomy"],
   },
   {
     type: "multiple-select",
     question:
       "Investigating how the rate of oxygen diffusion across alveolar walls changes during exercise.",
-    options: categorisationQuestion,
+    options: foundationCategorisationQuestion,
     answers: ["Physiology"],
   },
   {
     type: "multiple-select",
     question:
       "Performing a biopsy to check for abnormal cell arrangements in epithelial tissue.",
-    options: categorisationQuestion,
+    options: foundationCategorisationQuestion,
     answers: ["Anatomy"],
   },
   {
     type: "multiple-select",
     question:
       "Testing how varying levels of hormone binding affect glucose uptake in skeletal muscle cells.",
-    options: categorisationQuestion,
+    options: foundationCategorisationQuestion,
     answers: ["Physiology"],
   },
   {
@@ -81,9 +80,26 @@ const foundationsAnPData = [
       "The two general approaches include regional anatomy and systemic anatomy. Regional anatomy is the study of the interrelationships of all the structures in a specific body region, such as the abdomen. In contrast, systemic anatomy is the study of the structures that make up a discrete body system—that is, a group of structures that work together to perform a unique body function. For example, a systemic anatomy study of the muscular system would consider all of the skeletal muscles of the body.",
     ],
   },
+  {
+    type: "long-response",
+    question: "Compare and contrast systemic and regional anatomy",
+    answers: [
+      "\n Compare: TO DO \n \n Contrast: Systemic anatomy studies the structures that make up a discrete body system (e.g., studying the entire cardiovascular system across the body), whereas regional anatomy studies all the varied structures (muscles, bones, vessels, nerves) within a specific spatial area (e.g., studying just the abdomen or the upper arm).",
+    ],
+  },
 ];
 
-const BreathingBasic = ({ quizType, onBack }) => {
+const organisationData = [
+  {
+    type: "long-response",
+    question: "Compare and contrast systemic and regional anatomy",
+    answers: [
+      "\n Compare: TO DO \n \n Contrast: Systemic anatomy studies the structures that make up a discrete body system (e.g., studying the entire cardiovascular system across the body), whereas regional anatomy studies all the varied structures (muscles, bones, vessels, nerves) within a specific spatial area (e.g., studying just the abdomen or the upper arm).",
+    ],
+  },
+];
+
+const Quiz = ({ quizType, onBack }) => {
   const shuffleArray = (array) => {
     const shuffled = [...array];
     for (let i = shuffled.length - 1; i > 0; i--) {
@@ -97,13 +113,13 @@ const BreathingBasic = ({ quizType, onBack }) => {
   const [userAnswers, setUserAnswers] = useState({});
   const [submitted, setSubmitted] = useState(false);
 
+  const QUIZ_DATA_MAP = {
+    "organisation-quiz": organisationData,
+    "foundations-A-and-P": foundationsAnPData,
+  };
+
   const handleRandomise = () => {
-    const selectedData =
-      quizType === "breathing-written"
-        ? breathingWrittenData
-        : quizType === "circulation-basic"
-          ? circulationBasicData
-          : foundationsAnPData;
+    const selectedData = QUIZ_DATA_MAP[quizType];
 
     const dataWithIds = selectedData.map((q, index) => ({
       ...q,
@@ -341,7 +357,7 @@ const BreathingBasic = ({ quizType, onBack }) => {
                       : "✕ INCORRECT"}
                 </strong>
                 {!isCorrect && (
-                  <p style={{ margin: "5px 0 0" }}>
+                  <p style={{ margin: "5px 0 0", whiteSpace: "pre-line" }}>
                     Expected: {item.answers.join(", ")}
                   </p>
                 )}

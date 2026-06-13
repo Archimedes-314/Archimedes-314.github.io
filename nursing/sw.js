@@ -1,4 +1,4 @@
-const CACHE_NAME = "nursing-app-v3.0";
+const CACHE_NAME = "nursing-app-v4.0";
 
 const ASSETS = [
   // --- Main Landing & Global Assets ---

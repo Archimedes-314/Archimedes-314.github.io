@@ -17,10 +17,7 @@ const App = () => {
       {!currentQuiz ? (
         <Dashboard onStartQuiz={(quizType) => setCurrentQuiz(quizType)} />
       ) : (
-        <BreathingBasic
-          quizType={currentQuiz}
-          onBack={() => setCurrentQuiz(null)}
-        />
+        <Quiz quizType={currentQuiz} onBack={() => setCurrentQuiz(null)} />
       )}
     </div>
   );
