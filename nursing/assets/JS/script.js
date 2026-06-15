@@ -1,5 +1,9 @@
 const { useState, useEffect } = React;
 
+const redirectLink = (e) => {
+  window.location.href = `${e}`;
+};
+
 const App = () => {
   const [currentQuiz, setCurrentQuiz] = useState(null);
 

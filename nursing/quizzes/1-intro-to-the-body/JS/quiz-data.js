@@ -48,58 +48,80 @@ const foundationsAnPData = [
     type: "long-response",
     question: "What does the scientific study of anatomy encompass?",
     answers: [
-      "Anatomy is the scientific study of the body's structures, their locations, and their physical relationships to one another. It provides the biological map of our cells, tissues, organs and organ systems.",
+      "Anatomy is the scientific study of the physical structure of organisms, including their systems, organs and tissues. The word comes from the Greek for 'dissection'. Anatomy refers to how we identify and describe the parts of the body, how they relate to one another, and what they are made of. Studying anatomy gives us a biological map of our cells, tissues, organs and organ systems.",
     ],
   },
   {
     type: "long-response",
     question: "What does the scientific study of physiology encompass?",
     answers: [
-      "The scientific study of the chemistry and physics of the structures of the body and the ways in which they work together to support the functions of life.",
+      "Physiology is the scientific study of how living organisms, their organs, tissues and cells function. It focuses on the chemical and physical mechanisms of biological systems, exploring everything from microscopic molecular interactions to whole-body processes to understand how life is sustained, how it adapts, and what causes dysfunction. Physiology answers questions about how the body works, what happens when we are born and develop, how body systems adapt to stresses such as exercise or environmental extremes, and how body functions change in disease states.",
     ],
   },
   {
     type: "long-response",
     question: "What is homeostasis?",
     answers: [
-      "The state of steady internal conditions maintained by living things; the dynamic equilibrium that the physiological mechanisms of the body constantly work to preserve.",
+      "Homeostasis is the biological process by which a living organism regulates its internal environment to maintain stability and function properly, despite changes in external conditions. When homeostasis functions properly, your body is able to fight off illnesses, recover from injuries, and run daily functions efficiently. When it fails or experiences a homeostatic imbalance, it can result in diseases, disorders, or even death.",
     ],
   },
   {
     type: "long-response",
     question: "What are the two main types of human anatomy?",
     answers: [
-      "Some structures studied in anatomy can only been seen through a microscope (e.g., cells). The study of these structures is called microscopic anatomy. Other structures can be seen without a microscope (e.g., heart and lungs). The study of these structures is called macroscopic (or gross) anatomy.",
+      "Anatomy is usually divided it into two main types: *macroscopic anatomy* (sometimes called *gross anatomy*) and *microscopic anatomy*. \n \n Macroscopic anatomy is the study of structures in the body that you can see with the naked eye, such as internal organs, bones and muscles. \n \n On the other hand, microscopic anatomy focuses on structures that are too small to see with the naked eye, so we need tools like microscopes. This includes looking at cells and understanding how they work together to build larger organs.",
     ],
   },
   {
     type: "long-response",
     question:
-      "What are the two general approaches to the study of human anatomy?",
+      "What are the two general approaches to the study of gross anatomy?",
     answers: [
-      "The two general approaches include regional anatomy and systemic anatomy. Regional anatomy is the study of the interrelationships of all the structures in a specific body region, such as the abdomen. In contrast, systemic anatomy is the study of the structures that make up a discrete body system—that is, a group of structures that work together to perform a unique body function. For example, a systemic anatomy study of the muscular system would consider all of the skeletal muscles of the body.",
+      "There are two main ways to study anatomy: *regional anatomy* and *systemic anatomy*. \n \n Regional anatomy involves examining all the structures within a particular body region, such as the abdomen, and how they relate to one another in that space. This approach helps us understand how different parts work together in one location. \n \n On the other hand, systemic anatomy focuses on the structures that make up a single body system. Here, we look at groups of structures that work together to perform a specific function, such as the organs involved in digestion.",
     ],
   },
   {
     type: "long-response",
-    question: "Compare and contrast systemic and regional anatomy",
+    question:
+      "What are the two general approaches to the study of microscopic anatomy?",
     answers: [
-      "\n Compare: TO DO \n \n Contrast: Systemic anatomy studies the structures that make up a discrete body system (e.g., studying the entire cardiovascular system across the body), whereas regional anatomy studies all the varied structures (muscles, bones, vessels, nerves) within a specific spatial area (e.g., studying just the abdomen or the upper arm).",
+      "There are two main ways to study microscopic anatomy: *cytology* and *histology*. Cytology involves studying the internal structures, formation and function of individual cells.  On the other hand, histology focuses on the structure of biological tissues and how those cells are organised to form organs.",
     ],
   },
 ];
 
 const organisationData = [
   {
-    type: "long-response",
-    question: "Compare and contrast systemic and regional anatomy",
+    type: "written-ordered",
+    question:
+      "What are the six structural levels of organisation of the human body, from simplest to most complex?",
+    extraBoxes: 1,
     answers: [
-      "\n Compare: TO DO \n \n Contrast: Systemic anatomy studies the structures that make up a discrete body system (e.g., studying the entire cardiovascular system across the body), whereas regional anatomy studies all the varied structures (muscles, bones, vessels, nerves) within a specific spatial area (e.g., studying just the abdomen or the upper arm).",
+      ["Chemical level", "Chemical"],
+      ["Cellular level", "Cells", "Cellular"],
+      ["Tissue level", "Tissues", "Tissue"],
+      ["Organ level", "Organs", "Organ"],
+      ["Organ system level", "Organ systems", "System level", "Organ system"],
+      ["Organismal level", "Organism", "Organisms"],
     ],
   },
 ];
 
 const Quiz = ({ quizType, onBack }) => {
+  const renderItalics = (text) => {
+    if (!text) return "";
+
+    const italicsParts = text.split(/\*(.*?)\*/g);
+
+    return italicsParts.map((part, index) => {
+      if (index % 2 === 1) {
+        return <em key={index}>{part}</em>;
+      }
+
+      return part;
+    });
+  };
+
   const shuffleArray = (array) => {
     const shuffled = [...array];
     for (let i = shuffled.length - 1; i > 0; i--) {
@@ -198,13 +220,13 @@ const Quiz = ({ quizType, onBack }) => {
         .map((v) => v.trim().toLowerCase())
         .filter((v) => v !== "");
 
-      const cleanAnswers = item.answers.map((a) => a.trim().toLowerCase());
+      if (cleanInputs.length !== item.answers.length) return false;
 
-      if (cleanInputs.length !== cleanAnswers.length) return false;
-
-      return cleanAnswers.every((ans, index) => {
+      return item.answers.every((acceptableAnswers, index) => {
         const userVal = (input[index] || "").trim().toLowerCase();
-        return userVal === ans;
+        return acceptableAnswers.some(
+          (ans) => ans.trim().toLowerCase() === userVal,
+        );
       });
     }
 
@@ -224,6 +246,21 @@ const Quiz = ({ quizType, onBack }) => {
     }
 
     return false;
+  };
+
+  const formatExpectedAnswers = (item) => {
+    if (item.type === "written-ordered" || item.type === "written-ordered-cs") {
+      return item.answers.map((ansGroup, index) => {
+        const primary = ansGroup[0];
+        const variations = ansGroup.slice(1);
+
+        return variations.length > 0
+          ? `${index + 1}. ${primary} (or: ${variations.join(", ")})`
+          : `${index + 1}. ${primary}`;
+      });
+    }
+
+    return [item.answers.join(", ")];
   };
 
   return (
@@ -357,9 +394,29 @@ const Quiz = ({ quizType, onBack }) => {
                       : "✕ INCORRECT"}
                 </strong>
                 {!isCorrect && (
-                  <p style={{ margin: "5px 0 0", whiteSpace: "pre-line" }}>
-                    Expected: {item.answers.join(", ")}
-                  </p>
+                  <div>
+                    <span
+                      style={{
+                        fontWeight: "bold",
+                        display: "block",
+                        marginBottom: "5px",
+                      }}
+                    >
+                      Expected Sequence:
+                    </span>
+                    {formatExpectedAnswers(item).map((line, index) => (
+                      <p
+                        key={index}
+                        style={{
+                          margin: "2px 0",
+                          fontSize: "0.95em",
+                          paddingLeft: "5px",
+                        }}
+                      >
+                        {renderItalics(line)}
+                      </p>
+                    ))}
+                  </div>
                 )}
               </div>
             )}

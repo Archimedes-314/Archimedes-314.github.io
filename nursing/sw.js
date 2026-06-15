@@ -1,4 +1,4 @@
-const CACHE_NAME = "nursing-app-v4.0";
+const CACHE_NAME = "nursing-app-v5.5";
 
 const ASSETS = [
   // --- Main Landing & Global Assets ---
@@ -6,16 +6,16 @@ const ASSETS = [
   "/nursing/index.html",
   "/nursing/manifest.json",
   "/nursing/assets/CSS/style.css",
+  "/nursing/assets/CSS/index.css",
+  "/nursing/assets/CSS/index-style.css",
   "/nursing/assets/JS/login.js",
   "/nursing/assets/JS/script.js",
 
   // --- Quiz 1.1: Overview of Anatomy and Physiology ---
-  "/nursing/quizzes/1.1-overview-of-anatomy-and-physiology/app.html",
-  "/nursing/quizzes/1.1-overview-of-anatomy-and-physiology/assets/CSS/index.css",
-  "/nursing/quizzes/1.1-overview-of-anatomy-and-physiology/assets/CSS/style.css",
-  "/nursing/quizzes/1.1-overview-of-anatomy-and-physiology/assets/JS/quiz-data.js",
-  "/nursing/quizzes/1.1-overview-of-anatomy-and-physiology/assets/JS/dashboard.js",
-  "/nursing/quizzes/1.1-overview-of-anatomy-and-physiology/assets/JS/script.js",
+  "/nursing/quizzes/1-intro-to-the-body/",
+  "/nursing/quizzes/1-intro-to-the-body/app.html",
+  "/nursing/quizzes/1-intro-to-the-body/JS/quiz-data.js",
+  "/nursing/quizzes/1-intro-to-the-body/JS/dashboard.js",
 
   // --- Quiz: Testing ---
   "/nursing/quizzes/testing/app.html",
@@ -65,20 +65,6 @@ self.addEventListener("activate", (e) => {
 
   self.clients.claim();
 });
-
-// Activate Event
-// self.addEventListener("activate", (e) => {
-//   e.waitUntil(
-//     caches.keys().then((keys) => {
-//       return Promise.all(
-//         keys.map((key) => {
-//           if (key !== CACHE_NAME) return caches.delete(key);
-//         }),
-//       );
-//     }),
-//   );
-//   self.clients.claim();
-// });
 
 // Fetch Event
 self.addEventListener("fetch", (e) => {
