@@ -5,7 +5,7 @@ const urlsToCache = [
   "/extras/task-tracker/manifest.json",
   "/extras/task-tracker/favicon.svg",
   "/extras/task-tracker/icons.svg",
-  "/extras/task-tracker/assets/index-HJSA-Tpp.js",
+  "/extras/task-tracker/assets/index-y3pIFeNb.js",
   "/extras/task-tracker/assets/index-nqMpL4T3.css",
 ];
 
