@@ -1,5 +1,13 @@
-const CACHE_NAME = "roster-cache-v1";
-const urlsToCache = ["/", "/index.html", "/manifest.json"];
+const CACHE_NAME = "roster-cache-v1.4";
+const urlsToCache = [
+  "/extras/task-tracker/",
+  "/extras/task-tracker/index.html",
+  "/extras/task-tracker/manifest.json",
+  "/extras/task-tracker/favicon.svg",
+  "/extras/task-tracker/icons.svg",
+  "/extras/task-tracker/assets/index-HJSA-Tpp.js",
+  "/extras/task-tracker/assets/index-nqMpL4T3.css",
+];
 
 self.addEventListener("install", (e) => {
   e.waitUntil(
