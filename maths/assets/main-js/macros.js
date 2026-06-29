@@ -26,6 +26,8 @@ window.MathJax = {
             sumb: ["\\sum_{#1}{#2}", 2],
 
             Lim: ["\\lim_{#1 \\to #2}{#3}", 3],
+            Limb: ["\\lim_{#1 \\to #2} \\left(#3 \\right)", 3],
+            Lims: ["\\lim_{#1 \\to #2} \\left[#3 \\right]", 3],
             To: ["\\overset{#1\\to#2}{\\lorarrow}", 2],
 
             seq: ["\\{ #1 \\}_{#2}^{#3}}", 3],

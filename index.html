@@ -6,7 +6,21 @@
     <title>Professional Portfolio & Academic Projects</title>
 
     <link rel="stylesheet" href="/assets/CSS/main-style.css" />
-    <script src="/assets/JS/style-sheet.js" defer></script>
+    <script>
+      const redirectLink = (e) => {
+        window.location.href = `${e}`;
+      };
+      const confirmRedirectLink = (link, message) => {
+        if (confirm(message)) {
+          redirectLink(link);
+        }
+      };
+      const linksScroll = (e) => {
+        document.getElementById(`${e}`).scrollIntoView({
+          behavior: "smooth",
+        });
+      };
+    </script>
   </head>
   <body>
     <nav>
@@ -57,14 +71,8 @@
         <a href="/extras/car/logging.html" class="projects-nav-btn"
           >Vehicle Pre-Check Application</a
         >
-        <a onclick="redirectLink('/personal/index.html')">Personal Website</a>
-        <a
-          onclick="
-            confirmRedirectLink(
-              '/nursing/index.html',
-              'This section is still being developed',
-            )
-          "
+        <a onclick="redirectLink('/maths/maths-index.html')">Maths Website</a>
+        <a onclick="redirectLink('/nursing/index.html')"
           >Nursing Notes Website</a
         >
       </div>
@@ -96,62 +104,13 @@
       </div>
     </header>
 
-    <!-- ================= MISSION STATEMENT ================= -->
-    <div class="mission-statement">
-      <div class="container">
-        <h2>Mission Statement</h2>
-
-        <p class="mission-statement-text">
-          Merging disciplined analysis with the heart of nursing
-        </p>
-
-        <p>
-          On this site, I share my journey as I work towards a career in health
-          care. I include my experiences from work experience and nursing
-          studies, and I use each section to reflect on what I have learned and
-          how I can improve. My goal is to serve my community as well as I can,
-          whether I am on a nursing shift or responding to an SES call-out. Each
-          experience gives me a chance to develop the skills I need to support
-          others. I see learning as a lifelong process for any clinician, so I
-          have brought together my clinical training, academic interests, and
-          professional experience here to help guide myself through this
-          journey.
-        </p>
-      </div>
-    </div>
-
-    <!-- ================= OVERVIEW ================= -->
-    <section class="overview">
-      <div class="container">
-        <h2>Website Overview</h2>
-        <p>
-          This website is organised into two main sections: healthcare and
-          emergency services and my personal nursing study notes. Both sections
-          presents a different aspect of my professional and academic
-          development.
-        </p>
-        <p>
-          The first section introduces my background, including my education and
-          work experience, and explains why I've decided to take this pathway. I
-          describe my roles with St John, my upcoming role with the State
-          Emergency Service (SES), the skills and lessons I have learned, and my
-          motivation for working in these areas.
-        </p>
-        <p>
-          The second section contains my personal nursing notes, which reflect
-          both my clinical knowledge and communication skills.
-        </p>
-      </div>
-    </section>
-
     <!-- ================= NAVIGATION CARDS ================= -->
     <section class="navigation" id="navigation">
       <div class="container">
-        <h2>Explore the Sections</h2>
+        <h2>Explore My Main Projects</h2>
 
         <div class="card-grid">
-          <!-- Personal Section -->
-          <div class="card" onclick="redirectLink('/personal/index.html')">
+          <!-- <div class="card" onclick="redirectLink('/personal/index.html')">
             <h3>Personal Portfolio</h3>
             <p>
               This section outlines my professional experience, career goals,
@@ -160,20 +119,18 @@
               development and describes my aims for the future.
             </p>
             <span class="cta">View Professional Profile →</span>
-          </div>
+          </div> -->
 
-          <!-- Maths Section
           <div class="card" onclick="redirectLink('/maths/maths-index.html')">
-            <h3>Mathematics</h3>
+            <h3>Mathematics Website</h3>
             <p>
               This section introduces real analysis and connects it with logic,
               set theory, calculus, and linear algebra. It supports my academic
               progress and interest in solving challenging problems.
             </p>
             <span class="cta">Explore Mathematics Project →</span>
-          </div> -->
+          </div>
 
-          <!-- Nursing Section -->
           <div
             class="card"
             onclick="
@@ -185,7 +142,7 @@
           >
             <h3>Nursing Notes</h3>
             <p>
-              This section contains study materials from my Diploma of Nursing.
+              This section contains study quizzes from my Diploma of Nursing.
               These notes help me organise new information and develop my
               nursing practice skills.
             </p>
@@ -198,102 +155,56 @@
     <!-- ================= PROJECTS ================= -->
     <section class="projects" id="projects">
       <div class="container">
-        <h2>Extra Projects</h2>
-        <p>
-          Beyond the core sections, this site also features several key projects
-          that highlight both my practical and academic contributions. These
-          projects are a blend of service, technology, and intellectual
-          exploration:
-        </p>
-        <gap- size="2rem"></gap->
+        <h2>Explore My Extra Projects</h2>
 
-        <div
-          class="project-detail"
-          onclick="redirectLink('/extras/logging/incident-reflection-app.html')"
-        >
-          <h3>Incident Reflection App</h3>
-          <p>
-            The Incident Reflection App is a web-based tool that supports
-            personal reflection and improvement in community service and first
-            response work. Its main function is to record events as they occur
-            during a shift, so that you can review and reflect on them in detail
-            afterwards.
-          </p>
+        <div class="card-grid">
+          <div
+            class="card"
+            onclick="
+              redirectLink('/extras/logging/incident-reflection-app.html')
+            "
+          >
+            <h3>Incident Reflection App</h3>
+            <p>
+              The Incident Reflection App is a web-based tool that supports
+              personal reflection. It allows you to write down quite reflections
+              while out in the field so that you can review and reflect on them
+              in detail afterwards.
+            </p>
+            <span class="cta">Access Incident Reflection App →</span>
+          </div>
 
-          <p class="feature-lead">
-            The main features of the app are as follows:
-          </p>
-          <ul class="feature-list">
-            <li>
-              <strong>Incident Logging:</strong>
-              You can record key details, including date, time, severity, case
-              type, interventions, and clinical roles, for each incident.
-            </li>
-            <li>
-              <strong>Reflective Practice:</strong>
-              The app includes a self-reflection tool that uses tags for common
-              areas of improvement, including communication, scene control, and
-              teamwork.
-            </li>
-            <li>
-              <strong>Emotional Awareness:</strong>
-              You can document your emotional state to help identify patterns in
-              your performance and well-being.
-            </li>
-          </ul>
-          <p class="disclaimer">
-            Disclaimer: This application was developed as a personal learning
-            project and for individual reflection. It is a lightweight tool
-            created primarily for experimentation and practice, and is not
-            intended to replace official incident reporting systems, clinical
-            documentation, or organisational record-keeping. Patient or
-            personally identifiable information should not be recorded in this
-            application.
-          </p>
-        </div>
-
-        <div
-          class="project-detail"
-          onclick="redirectLink('/extras/car/logging.html')"
-        >
-          <h3>Vehicle Pre-Check Application</h3>
-          <p>
-            The Vehicle Pre-Check Application is a basic tool that helps carry
-            out vehicle pre-checks.
-          </p>
-
-          <p class="feature-lead">Key features include:</p>
-          <ul class="feature-list">
-            <li>
-              <strong>Comprehensive Inspections:</strong>
-              It provides categorised checklists for different parts of the
-              vehicle, including the engine bay, exterior, tires, and interior
-              controls.
-            </li>
-            <li>
-              <strong>Live Status Tracking:</strong>
-              As you move through the inspection, a real-time summary counter
-              helps you keep track of which items are in good condition and
-              which need attention.
-            </li>
-            <li>
-              <strong>Offline Capability (PWA):</strong>
-              Because the app is built as a Progressive Web App, you can
-              complete inspections even in areas with poor cellular reception
-            </li>
-            <li>
-              <strong>Digital Logging:</strong>
-              The app replaces paper forms by storing inspection data locally
-              and allowing you to export reports as PDFs for audits and
-              maintenance records.
-            </li>
-          </ul>
-          <p class="disclaimer">
-            Disclaimer: This project was built as a personal learning exercise.
-            It is a lightweight tool intended for experimentation and personal
-            use, and no guarantees are made regarding accuracy, completeness, or
-            suitability for professional use.
-          </p>
+          <div class="card" onclick="redirectLink('/extras/car/logging.html')">
+            <h3>Vehicle Pre-Check App</h3>
+            <p>
+              The Vehicle Pre-Check Application is a basic tool that helps carry
+              out vehicle pre-checks.
+            </p>
+            <span class="cta">Access Vehicle Pre-Check App →</span>
+          </div>
+          <div
+            class="card"
+            onclick="redirectLink('/extras/checklist-app/index.html')"
+          >
+            <h3>Checklist App</h3>
+            <p>
+              The Checklist App is a basic application made to assist with
+              self-managing ADHD.
+            </p>
+            <span class="cta">Access Checklist App →</span>
+          </div>
+          <div
+            class="card"
+            onclick="redirectLink('/extras/task-tracker/index.html')"
+          >
+            <h3>Task Tracking App</h3>
+            <p>
+              The Task-Tracker App is a basic application made to assist with
+              self-managing ADHD. It includes a basic Kanban board and calendar
+              system.
+            </p>
+            <span class="cta">Access Task Tracking App →</span>
+          </div>
         </div>
       </div>
     </section>

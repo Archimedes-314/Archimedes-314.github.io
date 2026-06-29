@@ -1,46 +1,211 @@
-main, header, .sub-links, footer-div {
-  max-width: 1000px;
-  margin-left: auto;
-  margin-right: auto;
-  width: 100%;
+/* ==========================================================================
+   1. GLOBAL TOKENS & VARIABLE ARCHITECTURE
+   ========================================================================== */
+:root {
+  /* --- Neutrals (Light Mode Base) --- */
+  --white10: oklch(10% 0.01 250); /* Deep Near-Black */
+  --white20: oklch(20% 0.01 250);
+  --white40: oklch(40% 0.01 250);
+  --white60: oklch(60% 0.01 250);
+  --white80: oklch(80% 0.01 250);
+  --white95: oklch(98% 0.001 250); /* Clean Off-White */
+
+  /* --- Brand & Color Accents --- */
+  --blue20: oklch(20% 0.2 250);
+  --blue40: oklch(40% 0.2 250);
+  --blue60: oklch(60% 0.2 250);
+  --blue80: oklch(80% 0.2 250);
+
+  --green20: oklch(20% 0.2 150);
+  --green40: oklch(40% 0.2 150);
+  --green60: oklch(60% 0.2 150);
+  --green80: oklch(80% 0.2 150);
+
+  /* --- UI / Functional States --- */
+  --danger: oklch(60% 0.2 30);
+  --warning: oklch(65% 0.18 80);
+  --success: oklch(60% 0.2 140);
+  --info: oklch(60% 0.2 250);
+
+  /* --- Semantic Layout Mappings --- */
+  --bg-body: var(--white95);
+  --text-main: var(--white10);
+  --text-muted: var(--white40);
+  --border-colour: oklch(88% 0.01 250);
+
+  /* System Blocks */
+  --card-bg: oklch(96% 0.02 145); /* Soft Tinted Green Card Background */
+  --card-hover: oklch(92% 0.04 145); /* Distinct Accent Active State */
+  --math-bg: oklch(96% 0.015 210); /* Muted Light Blue Formula Box */
+  --working-bg: oklch(91% 0.025 210); /* Deep Accent Working Layer */
+
+  /* Interactive Buttons */
+  --btn-bg: oklch(100% 0 0);
+  --btn-hover: oklch(94% 0.01 250);
+
+  /* Branding Overlays */
+  --brand-bg: oklch(45% 0.14 145); /* Stable Mid-tone green base */
+  --brand-active: oklch(38% 0.14 145);
+  --brand-text: var(--white95);
+
+  /* Shadows */
+  --shadow-light: rgba(17, 17, 17, 0.08);
+  --shadow-dark: rgba(17, 17, 17, 0.24);
 }
 
-*, *::before, *::after {
+:root.dark {
+  /* --- Neutrals (Inverted Base) --- */
+  --white10: oklch(93% 0.01 250); /* High-Contrast Crisp Reading Canvas */
+  --white20: oklch(83% 0.01 250);
+  --white40: oklch(65% 0.01 250);
+  --white60: oklch(45% 0.01 250);
+  --white80: oklch(25% 0.01 250);
+  --white95: oklch(14% 0.01 250); /* True Void Dark Background Layer */
+
+  /* --- Accent Brightness Shifts --- */
+  --blue20: oklch(85% 0.11 250);
+  --blue40: oklch(72% 0.14 250);
+  --blue60: oklch(52% 0.16 250);
+  --blue80: oklch(32% 0.18 250);
+
+  --green20: oklch(85% 0.11 150);
+  --green40: oklch(72% 0.14 150);
+  --green60: oklch(52% 0.16 150);
+  --green80: oklch(32% 0.18 150);
+
+  /* --- Inverted UI States --- */
+  --danger: oklch(55% 0.16 30);
+  --warning: oklch(60% 0.14 80);
+  --success: oklch(55% 0.16 140);
+  --info: oklch(55% 0.16 250);
+
+  /* --- Inverted Semantic Mappings --- */
+  --bg-body: var(--white95);
+  --text-main: var(--white10);
+  --text-muted: var(--white40);
+  --border-colour: var(--white80);
+
+  /* System Blocks Dark */
+  --card-bg: oklch(22% 0.025 145); /* Dark Subtle Emerald Content Box */
+  --card-hover: oklch(26% 0.035 145);
+  --math-bg: oklch(20% 0.02 210); /* Deep Oceanic Technical Blueprint */
+  --working-bg: oklch(24% 0.03 210);
+
+  /* Interactive Buttons Dark */
+  --btn-bg: var(--white80);
+  --btn-hover: var(--white60);
+
+  /* Branding Dark Layer */
+  --brand-bg: oklch(24% 0.04 145); /* Dark Grounded Header */
+  --brand-active: oklch(18% 0.04 145);
+  --brand-text: var(--white10);
+
+  /* Shadows Dark */
+  --shadow-light: rgba(0, 0, 0, 0.3);
+  --shadow-dark: rgba(0, 0, 0, 0.6);
+}
+
+/* ==========================================================================
+   2. CORE BASE STYLING & RESET
+   ========================================================================== */
+*,
+*::before,
+*::after {
   box-sizing: border-box;
-}
-
-body {
-    font-family: Arial, sans-serif;
-    background-color: white;
-    line-height: 1.6;
-    margin: 0;
-    counter-reset: theorem definition example;
-    display: grid;
-    grid-template-rows: auto 1fr auto;
-    width: 100%;
 }
 
 html {
   scroll-behavior: smooth;
 }
 
-.a {
-  cursor: url('/maths/assets/style/images/archimedes_pointing.png') 16 4, pointer;
+body {
+  font-family: Arial, sans-serif;
+  background-color: var(--bg-body);
+  color: var(--text-main);
+  line-height: 1.6;
+  margin: 0;
+  counter-reset: theorem definition example;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  width: 100%;
 }
 
+main,
+header,
+.sub-links,
+footer-div {
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
+main {
+  padding: 20px;
+}
+
+p {
+  margin: 1rem 0;
+}
+
+strong {
+  font-weight: 600;
+}
+
+/* Custom Image Interactive Cursors */
+.a,
+input[type="checkbox"],
+.collapse-toggle,
+.topic-list > li,
+.topic-list > li a,
+.toggle-working,
+.toggle-icon,
+.button-style:hover,
+.breadcrumbs a {
+  cursor:
+    url("/maths/assets/style/images/archimedes_pointing.png") 16 4,
+    pointer;
+}
+
+/* ==========================================================================
+   3. TYPOGRAPHY & SEMANTIC CONTENT LINKING
+   ========================================================================== */
+h2 {
+  text-decoration: underline;
+  font-weight: 600;
+  line-height: 1.3;
+  margin-top: 2.2rem;
+  margin-bottom: 1rem;
+  color: var(--text-main);
+}
+
+h1:not(.header-h1),
+h3,
+h4 {
+  font-weight: 600;
+  line-height: 1.3;
+  margin-top: 2.2rem;
+  margin-bottom: 1rem;
+  color: var(--text-main);
+}
+
+.foot-note {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+/* Text Inline Anchors Styling */
 .fncy-underline a {
   text-decoration: none;
-  color: #0000BB;
+  color: var(--blue40);
   font-weight: bold;
   position: relative;
   transition: color 0.3s ease;
-  cursor: url('/maths/assets/style/images/archimedes_pointing.png') 16 4, pointer;
   white-space: nowrap;
 }
 
 .fncy-underline a:hover {
-  cursor: url('/maths/assets/style/images/archimedes_pointing.png') 16 4, pointer;
-  color: #0055CC;
+  color: var(--blue20);
 }
 
 .fncy-underline a::after {
@@ -51,7 +216,6 @@ html {
   width: 100%;
   height: 2px;
   background-color: currentColor;
-
   transform: scaleX(0);
   transform-origin: center;
   transition: transform 0.3s ease;
@@ -61,51 +225,114 @@ html {
   transform: scaleX(1);
 }
 
-input[type="checkbox"] {
-  cursor: url('/maths/assets/style/images/archimedes_pointing.png') 16 4, pointer;
-}
-
-main {
-    padding: 20px;
-}
-
-
-p {
-  margin: 1rem 0;
-}
-
-
-.foot-note {
-  font-size: 0.9rem;
-  color: #555;
-}
-
-
-h2 {
-  text-decoration: underline;
-  font-weight: 600;
-  line-height: 1.3;
-  margin-top: 2.2rem;
-  margin-bottom: 1rem;
-  color: #111;
-}
-
-h1:not(.header-h1), h3, h4 {
-  font-weight: 600;
-  line-height: 1.3;
-  margin-top: 2.2rem;
-  margin-bottom: 1rem;
-  color: #111;
-}
-
-
+/* ==========================================================================
+   4. STRUCTURAL CONTENT BLOCKS & ELEMENTS
+   ========================================================================== */
 section {
   margin-bottom: 2.5rem;
   padding-bottom: 1rem;
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 1px solid var(--border-colour);
   scroll-margin-top: 7rem;
 }
 
+/* Lists and Structural Column Arrays */
+ol[data-prefix] {
+  list-style-type: none;
+  counter-reset: step-list-counter;
+  --prefix-text: attr(data-prefix);
+}
+
+ol[data-prefix] li {
+  counter-increment: step-list-counter;
+}
+
+ol[data-prefix] li::before {
+  content: var(--prefix-text) " " counter(step-list-counter) ": ";
+  font-weight: bold;
+}
+
+ol[data-prefix] li[data-counter]::before {
+  content: var(--prefix-text) " " attr(data-counter) ": ";
+  font-weight: bold;
+}
+
+ol[data-prefix] li[data-dots]::before {
+  content: "\22EE";
+  font-weight: bold;
+  display: inline-block;
+  width: 100%;
+}
+
+ol[data-prefix] li[data-prefix]::before {
+  content: attr(data-prefix);
+  font-weight: bold;
+  display: inline-block;
+  width: 100%;
+}
+
+multi-col {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow-wrap: break-word;
+}
+
+multi-col ol {
+  margin: 0;
+  padding-left: 1.5rem;
+}
+multi-col ul {
+  margin: 0;
+}
+multi-col li {
+  break-inside: avoid-column;
+  margin-bottom: 0.5rem;
+}
+
+/* Interactive Topic Cards Grid Layout */
+.topic-list {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.topic-list > li {
+  background-color: var(--card-bg);
+  margin: 10px 0;
+  padding: 15px;
+  border-radius: 8px;
+  transition:
+    background-color 0.4s ease,
+    transform 0.4s ease,
+    box-shadow 0.4s ease;
+  box-shadow: 0 2px 5px var(--shadow-light);
+}
+
+.topic-list > li:hover {
+  background-color: var(--card-hover);
+  transform: translate(0.25rem, -0.25rem);
+  box-shadow: -0.25rem 0.25rem 12px var(--shadow-dark);
+}
+
+.topic-list > li a {
+  text-decoration: none;
+  color: var(--text-main);
+  font-weight: bold;
+}
+
+.topic-list > li a span {
+  text-decoration: underline;
+}
+
+.subtopic-list {
+  list-style-type: "- ";
+  padding-left: 2rem;
+  color: var(--text-muted);
+}
+
+/* ==========================================================================
+   5. COLLAPSIBLE ACCORDION LOGIC
+   ========================================================================== */
 .collapsible-header {
   display: flex;
   align-items: center;
@@ -119,10 +346,8 @@ section {
 .collapse-toggle {
   background: none;
   border: none;
-  cursor: pointer;
   font-size: 1rem;
   transition: transform 0.5s ease;
-  cursor: url('/maths/assets/style/images/archimedes_pointing.png') 16 4, pointer;
 }
 
 .section-content {
@@ -153,94 +378,31 @@ section {
   pointer-events: none;
 }
 
-
 .collapsible-section.open .collapse-toggle {
   transform: rotate(-180deg);
 }
 
-
-.maths {
+/* ==========================================================================
+   6. MATHEMATICAL BLOCKS & CONTAINERS
+   ========================================================================== */
+.maths,
+mjx-container {
   text-align: center;
-  margin: 1.2rem 0;
+  margin: 1.4rem 0;
   font-size: 1.1rem;
+  overflow-x: visible !important;
+  overflow-y: visible !important;
+  line-height: 2;
 }
-
-multi-col {
-  display: block;
-  width: 100%;
-  max-width: 100%;
-  box-sizing: border-box;
-  overflow-wrap: break-word;
-}
-
-multi-col ol {
-  margin: 0;
-  padding-left: 1.5rem;
-}
-
-multi-col ul {
-  margin: 0;
-}
-
-multi-col li {
-  break-inside: avoid-column;
-  margin-bottom: 0.5rem;
-}
-
-strong {
-  font-weight: 600;
-}
-
-.topic-list {
-    list-style-type: none;
-    padding-left: 0;
-}
-
-.topic-list > li {
-    background-color: #e9f7e7;
-    margin: 10px 0;
-    padding: 10px;
-    border-radius: 5px;
-    transition: background-color 0.4s ease, translate 0.4s ease, box-shadow 0.4s ease;
-    cursor: url('/maths/assets/style/images/archimedes_pointing.png') 16 4, pointer;
-}
-
-.topic-list > li:hover {
-    background-color: #d1e8d3;
-    translate: 0.25rem -0.25rem;
-    box-shadow: -0.25rem 0.25rem 10px #222222AA;
-}
-
-.topic-list > li a {
-  text-decoration: none;
-  color: #444;
-  font-weight: bold;
-  cursor: url('/maths/assets/style/images/archimedes_pointing.png') 16 4, pointer;
-}
-
-.topic-list > li a span {
-  text-decoration: underline;
-}
-
-.subtopic-list {
-  list-style-type: "- ";
-  padding-left: 3rem;
-}
-
-.p-box {
-    border-radius: 10px;
-    background-color: lightblue;
-    border: solid;
-}
-
 
 .math-box {
-  border-left: 5px solid #4CAF50;
-  background: #e9fdff;
+  background: var(--math-bg);
   padding: 15px;
   margin: 20px 0;
   border-radius: 6px;
   scroll-margin-top: 7rem;
+  border-left: 5px solid var(--info);
+  box-shadow: 0 2px 5px var(--shadow-light);
 }
 
 .math-box-title {
@@ -249,11 +411,18 @@ strong {
   font-size: 1.1rem;
 }
 
-.theorem-box {border-color: #2b7a78;}
-.definition-box {border-color: #8a4fff;}
-.example-box {border-color: #ff9800;}
-.math-box-body p { margin: 0; }
-
+.theorem-box {
+  border-color: var(--info);
+}
+.definition-box {
+  border-color: oklch(55% 0.2 290);
+}
+.example-box {
+  border-color: var(--warning);
+}
+.math-box-body p {
+  margin: 0;
+}
 
 .collapsible-content {
   overflow: hidden;
@@ -265,15 +434,14 @@ strong {
 .theorem-box .working,
 .definition-box .working,
 .example-box .working {
-  background-color: #d2f3f7;
-  border-radius: 25px;
-  padding-left: 15px;
-  padding-right: 15px;
+  background-color: var(--working-bg);
+  color: var(--text-main);
+  border-radius: 12px;
+  padding: 0 15px;
 }
 
-
 .lo-bdr-list li:not(:last-child) {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  border-bottom: 1px solid var(--border-colour);
   padding-bottom: 10px;
   margin-bottom: 10px;
 }
@@ -289,23 +457,22 @@ strong {
 
 .toggle-working {
   margin-bottom: 8px;
-  background: #ffffff;
-  border: 1px solid #ccc;
+  background: var(--btn-bg);
+  color: var(--text-main);
+  border: 1px solid var(--border-colour);
   padding: 6px 10px;
-  cursor: url('/maths/assets/style/images/archimedes_pointing.png') 16 4, pointer;
   border-radius: 4px;
   font-size: 0.9rem;
+  transition: background-color 0.2s ease;
 }
 
 .toggle-working:hover {
-  background: #f1f1f1;
+  background: var(--btn-hover);
 }
-
 
 .toggle-icon {
   background: none;
   border: none;
-  cursor: url('/maths/assets/style/images/archimedes_pointing.png') 16 4, pointer;
   font-size: 1rem;
   padding: 0;
   margin-left: 10px;
@@ -316,41 +483,434 @@ strong {
   transform: rotate(-180deg);
 }
 
-table, th, td {
-    border: 1px solid black;
-    border-collapse: collapse;
-    padding: 8px;
+/* Tables and Static Form Elements */
+table,
+th,
+td {
+  border: 1px solid var(--border-colour);
+  color: var(--text-main);
+  border-collapse: collapse;
+  padding: 8px;
 }
 
+.p-box {
+  border-radius: 10px;
+  background-color: var(--math-bg);
+  border: 1px solid var(--border-colour);
+  padding: 10px;
+}
 
 .button-style {
-    background-color: white;
-    border-radius: 10px;
-    padding: 10px 5px 10px 5px;
+  background-color: var(--btn-bg);
+  color: var(--text-main);
+  border: 1px solid var(--border-colour);
+  border-radius: 10px;
+  padding: 10px;
 }
 
 .button-style:hover {
-    background-color: #f0f0f0;
-    cursor: url('/maths/assets/style/images/archimedes_pointing.png') 16 4, pointer;
-
+  background-color: var(--btn-hover);
 }
 
 .button-style-box {
-    background-color: white;
-    color: black;
-    border-radius: 10px;
-    padding: 10px 5px 10px 5px;
-    display: inline-block;
+  background-color: var(--btn-bg);
+  color: var(--text-main);
+  border: 1px solid var(--border-colour);
+  border-radius: 10px;
+  padding: 10px;
+  display: inline-block;
 }
 
-mjx-container {
-  margin: 1.2rem 0;
-  overflow-x: auto;
+/* ==========================================================================
+   7. SYSTEM HEADER & SIDEBAR NAVIGATION
+   ========================================================================== */
+.site-header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  height: 4rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--brand-bg);
+  box-shadow: 0px 4px 6px var(--shadow-dark);
+  z-index: 100;
 }
 
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  max-width: 1000px;
+  padding: 0 1rem;
+}
+
+.header-h1 {
+  color: var(--brand-text);
+  text-shadow: 1px 1px 3px var(--shadow-dark);
+  transition: font-size 0.4s ease-in-out;
+  margin-right: auto;
+}
+
+.header-actions:not(.sub-links-inner-sc) {
+  display: flex;
+  height: 100%;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.actions-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.header-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  position: relative;
+  height: 70%;
+  padding: 0 12px;
+  margin: 0 5px;
+  background-color: transparent;
+  color: var(--brand-text);
+  border-radius: 6px;
+  border: 2px solid var(--brand-text);
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+  cursor:
+    url("/maths/assets/style/images/archimedes_pointing.png") 16 4,
+    pointer;
+}
+
+.header-btn-pq svg {
+  transition: transform 0.5s ease;
+}
+
+.header-btn:hover {
+  background-color: var(--brand-text);
+  color: var(--brand-bg);
+}
+
+.header-btn-pq:hover svg {
+  transform: rotate(-90deg);
+}
+
+.header-btn-icon {
+  width: 24px;
+  height: 24px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2.5;
+}
+
+#sidebar-active {
+  display: none;
+}
+
+.open-sidebar-btn,
+.close-sidebar-btn {
+  display: none;
+}
+
+#sidebar-overlay {
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  background-color: rgba(0, 0, 0, 0.6);
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9;
+  pointer-events: none;
+}
+
+/* Responsive Small Screen Action Triggers */
+.set-small .actions-container {
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding-top: 2rem;
+  gap: 1.2rem;
+  position: fixed;
+  top: 0;
+  right: -100%;
+  z-index: 10;
+  width: 280px;
+  height: 100dvh;
+  background-color: var(--brand-bg);
+  transition: right 0.4s ease;
+  box-shadow: -5px 0 15px var(--shadow-dark);
+}
+
+.set-small .header-btn {
+  box-sizing: border-box;
+  height: auto;
+  width: 90%;
+  padding: 12px 18px;
+  justify-content: flex-start;
+}
+
+.set-small .open-sidebar-btn {
+  display: flex;
+  height: 70%;
+}
+
+.set-small .close-sidebar-btn {
+  display: flex;
+}
+
+.set-small #sidebar-active:checked ~ .actions-container {
+  right: 0;
+}
+
+.set-small #sidebar-active:checked ~ #sidebar-overlay {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ==========================================================================
+   8. BREADCRUMBS LAYER
+   ========================================================================== */
+.breadcrumb-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 4rem;
+}
+
+.breadcrumbs {
+  display: inline-flex;
+  align-items: center;
+  margin: 0.2rem auto;
+  font-size: 0.9rem;
+  background-color: var(--brand-bg);
+  color: var(--brand-text);
+  border-radius: 20px;
+  padding: 0 15px;
+  box-shadow: 0 2px 5px var(--shadow-dark);
+  height: 2rem;
+}
+
+.set-small .breadcrumbs {
+  display: none;
+}
+
+.breadcrumbs a:not(:first-child, :last-child)::after {
+  content: " / ";
+  margin: 0 8px;
+}
+
+.breadcrumbs a:first-child::after {
+  content: ":";
+  margin-right: 8px;
+}
+
+.breadcrumbs a {
+  text-align: center;
+  text-decoration: none;
+  font-weight: bold;
+  color: var(--brand-text);
+}
+
+.breadcrumbs a span {
+  transition: font-size 0.2s ease;
+  position: relative;
+}
+
+.breadcrumbs p {
+  margin: 0;
+  text-shadow: 1px 1px 1px var(--shadow-light);
+}
+
+.breadcrumbs a:hover span {
+  font-size: 0.95rem;
+}
+
+/* ==========================================================================
+   9. INTERACTIVE SYSTEM PANELS (CALCULATOR & EMBEDS)
+   ========================================================================== */
+#pdfContainer {
+  margin-top: 1rem;
+  height: 600px;
+}
+
+embed {
+  width: 100%;
+  height: 100%;
+  border: 1px solid var(--border-colour);
+}
+
+.calculator-container {
+  position: fixed;
+  visibility: hidden;
+  top: 50%;
+  right: -300px;
+  transform: translateY(-50%);
+  width: 300px;
+  height: 600px;
+  background-color: var(--math-bg);
+  border-radius: 8px 0 0 8px;
+  box-shadow: -4px 0 12px var(--shadow-dark);
+  transition:
+    right 0.3s ease,
+    visibility 0.3s;
+  z-index: 1000;
+  border-left: 2px solid var(--border-colour);
+}
+
+#calculator-toggle:checked + .calculator-container {
+  right: 0;
+  visibility: visible;
+}
+
+.calculator-tab {
+  position: absolute;
+  visibility: visible;
+  left: -40px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: var(--brand-bg);
+  color: var(--brand-text);
+  padding: 12px 6px;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  font-weight: bold;
+  border-radius: 8px 0 0 8px;
+  user-select: none;
+  box-shadow: -2px 2px 5px var(--shadow-light);
+  cursor:
+    url("/maths/assets/style/images/archimedes_pointing.png") 16 4,
+    pointer;
+}
+
+#calculator-toggle {
+  cursor:
+    url("/maths/assets/style/images/archimedes_pointing.png") 16 4,
+    pointer;
+}
+
+.calculator {
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+/* ==========================================================================
+   10. SYSTEM FOOTER WRAPPER
+   ========================================================================== */
+footer-div > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--brand-bg);
+  color: var(--brand-text);
+  height: 5rem;
+  border-radius: 10px;
+  margin-bottom: 0.5rem;
+  padding: 10px;
+  box-shadow: 0 -2px 5px var(--shadow-light);
+}
+
+.footer-up {
+  margin: 0;
+  padding: 0;
+}
+
+.footer-up ul {
+  margin: 0;
+  display: flex;
+  list-style: none;
+  padding: 0;
+}
+
+.footer-up li:not(:last-child)::after {
+  content: "|";
+  margin: 0 10px;
+  color: var(--border-colour);
+}
+
+.footer-up a {
+  color: var(--brand-text);
+  text-decoration: none;
+}
+
+.footer-up a:hover {
+  text-decoration: underline;
+  cursor:
+    url("/maths/assets/style/images/archimedes_pointing.png") 16 4,
+    pointer;
+}
+
+.footer-down {
+  display: flex;
+  flex-direction: row;
+  font-size: 0.85rem;
+  width: calc(100% - 0.8rem);
+  /* border-top: 1px solid rgba(255, 255, 255, 0.1); */
+  padding-top: 5px;
+  margin: 0 0.4rem;
+}
+
+.footer-down p {
+  margin: 0;
+}
+
+.footer-down p:first-child {
+  margin-right: auto;
+}
+
+/* ==========================================================================
+   11. MEDIA QUERIES & ACCESSIBILITY
+   ========================================================================== */
+@media (max-width: 550px) {
+  .header-h1 {
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 430px) {
+  .header-h1 {
+    font-size: 1.1rem;
+  }
+}
 
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+  .header-h1,
+  .header-btn,
+  .actions-container,
+  #sidebar-overlay,
+  .breadcrumbs a,
+  .breadcrumbs a span,
+  .topic-list > li,
+  .section-content {
+    transition: none !important;
+  }
+  .header-btn-pq:hover svg {
+    transform: none !important;
+  }
+  .breadcrumbs a span {
+    text-decoration: underline dotted;
+  }
+  .breadcrumbs a:hover span {
+    font-size: inherit;
+    text-decoration: underline;
   }
 }

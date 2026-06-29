@@ -1,412 +1,226 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Real Analysis Maths Notes">   
-    <meta name="google-site-verification" content="[remove] 1GVbjY9xppS7E6tukfDbqtOGqj3NVu9PR0sdNOIQISE" />
-    <title>Eli's Maths Notes</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Real Analysis Maths Notes" />
+    <meta
+      name="google-site-verification"
+      content="[remove] 1GVbjY9xppS7E6tukfDbqtOGqj3NVu9PR0sdNOIQISE"
+    />
+    <title>Basic Maths Notes</title>
     <link rel="icon" href="/maths/assets/style/images/archimedes.png" />
-    <link rel="stylesheet" href="/maths/assets/style/style-sheet-dark.css">
-    <link rel="stylesheet" href="/maths/assets/style/style-sheet.css">
-    <link rel="stylesheet" href="/maths/assets/style/head-foot-dark.css">
-    <link rel="stylesheet" href="/maths/assets/style/head-foot.css">
-    <link rel="stylesheet" href="/maths/assets/asta-error-messages/error-list.css">
-    <link rel="stylesheet" href="/maths/assets/menu/menu.css">
-    <script src="/maths/assets/main-js/fetch.js"></script>
-    <script src="/assets/JS/style-sheet.js" defer></script>
+    <link rel="stylesheet" href="/maths/assets/style/style-sheet.css" />
+    <link
+      rel="stylesheet"
+      href="/maths/assets/asta-error-messages/error-list.css"
+    />
+    <link rel="stylesheet" href="/maths/assets/menu/menu.css" />
+    <script src="/maths/assets/style/style-sheet.js" defer></script>
 
-    <link rel="stylesheet" href="/maths/assets/settings/settings.css">
+    <link rel="stylesheet" href="/maths/assets/settings/settings.css" />
     <script src="/maths/assets/settings/settings.js"></script>
 
     <script src="/maths/assets/main-js/macros.js"></script>
-    <script id="MathJax-script" async
-        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-    </script>
-</head>
+    <script
+      id="MathJax-script"
+      async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+    ></script>
 
-<body id="top">
-    <header class="site-header">
-        <div class="header-inner">
-            <h1 class="header-h1">Eli's Maths Notes</h1>
-            <div class="header-actions">
-                <input type="checkbox" id="sidebar-active">
-                <label for="sidebar-active" class="open-sidebar-btn header-btn">
-                    Actions
-                </label>
-                <input type="checkbox" id="links-bar-active">
-                <label for="links-bar-active" class="open-links-bar-btn header-btn">
-                    Links Bar
-                </label>
+    <script
+      src="https://unpkg.com/react@18/umd/react.production.min.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"
+      crossorigin
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
 
-                <label for="sidebar-active" id="sidebar-overlay"></label>
-                <div class="actions-container">
-                    <label for="sidebar-active" class="close-sidebar-btn header-btn">
-                        <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18 17.94 6M18 18 6.06 6"/>
-                        </svg>
-                        Close Actions
-                    </label>
+    <script
+      type="text/babel"
+      src="/maths/assets/main-js/global-header.js"
+      defer
+    ></script>
+  </head>
 
-                    <label for="sidebar-active" class="close-sidebar-btn header-btn" onclick="toggleMenu()">
-                        <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M5 7h14M5 12h14M5 17h14"/>
-                        </svg>
-                        Navigation Menu
-                    </label>
-
-                    <label
-                    for="sidebar-active"
-                    class="header-btn"
-                    id="togglePdfBtn"
-                    >
-                        <svg class="header-btn-icon" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M12 5v14M5 12h14"></path>
-                        </svg>
-                        <span class="header-btn-text">Show PDF</span>
-                    </label>
-
-                    <label
-                    for="sidebar-active"
-                    class="header-btn"
-                    id="downloadPdfBtn"
-                    >
-                        <svg class="w-[24px] h-[24px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-                            <path fill-rule="evenodd" d="M9 2.221V7H4.221a2 2 0 0 1 .365-.5L8.5 2.586A2 2 0 0 1 9 2.22ZM11 2v5a2 2 0 0 1-2 2H4a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2 2 2 0 0 0 2 2h12a2 2 0 0 0 2-2 2 2 0 0 0 2-2v-7a2 2 0 0 0-2-2V4a2 2 0 0 0-2-2h-7Zm-6 9a1 1 0 0 0-1 1v5a1 1 0 1 0 2 0v-1h.5a2.5 2.5 0 0 0 0-5H5Zm1.5 3H6v-1h.5a.5.5 0 0 1 0 1Zm4.5-3a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1h1.376A2.626 2.626 0 0 0 15 15.375v-1.75A2.626 2.626 0 0 0 12.375 11H11Zm1 5v-3h.375a.626.626 0 0 1 .625.626v1.748a.625.625 0 0 1-.626.626H12Zm5-5a1 1 0 0 0-1 1v5a1 1 0 1 0 2 0v-1h1a1 1 0 1 0 0-2h-1v-1h1a1 1 0 1 0 0-2h-2Z" clip-rule="evenodd"/>
-                        </svg>
-                        <span class="header-btn-text">Download PDF</span>
-                    </label>
-
-                    <label
-                    for="sidebar-active"
-                    class="header-btn header-btn-pq"
-                    onclick="showError('pq')"
-                    >
-                        <svg class="w-[24px] h-[24px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 20V7m0 13-4-4m4 4 4-4m4-12v13m0-13 4 4m-4-4-4 4"/>
-                        </svg>
-                        <span class="header-btn-text">Practice Questions</span>
-                    </label>
-                    
-                    <label class="header-btn burger" onclick="toggleMenu()">
-                        <div class="hamburger">
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                        </div>
-                    </label>
-                </div>
-
-                <label for="links-bar-active" id="links-bar-overlay"></label>
-                <div class="sub-links-inner-sc">
-                    <label for="links-bar-active" class="close-sidebar-btn header-btn">
-                        <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18 17.94 6M18 18 6.06 6"/>
-                        </svg>
-                        <span>Close Links Bar</span>
-                    </label>
-                    <label 
-                    for="links-bar-active" 
-                    onclick="linksScroll('top')"
-                    class="header-btn">
-                        <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v13m0-13 4 4m-4-4-4 4"/>
-                        </svg>
-                        <span>Back to Top</span>
-                    </label>
-
-                    <label 
-                    for="links-bar-active" 
-                    onclick="linksScroll('section1')"
-                    class="header-btn">
-                        <span>Purpose</span>
-                    </label>
-
-                    <label 
-                    for="links-bar-active" 
-                    onclick="linksScroll('section2')"
-                    class="header-btn">
-                        <span>Common Notation and Syntax</span>
-                    </label>
-
-                    <label 
-                    for="links-bar-active" 
-                    onclick="linksScroll('section5')"
-                    class="header-btn">
-                        <span>Main Topics</span>
-                    </label>
-                </div>
-            </div>
-            <div class="overlay" onclick="toggleMenu()"></div>
-            <div id="menu-container"></div>
-            <div id="error-container"></div>
-        </div>
-    </header>
+  <body id="top">
+    <header-div pdf="yes" pq="no"></header-div>
 
     <div class="breadcrumb-wrapper">
-        <nav class="breadcrumbs">
-            <p>Home</p>
-        </nav>
-    </div>
-
-    <div class="sub-links">
-        <div class="sub-links-inner">
-            <a href="#top"><span>Back to Top</span></a>
-            <a href="#section1" class="active"><span>Purpose</span></a>
-            <a href="#section2" class=""><span>Common Notation and Syntax</span></a>
-            <a href="#section5" class=""><span>Main Topics</span></a>
-        </div>
+      <nav class="breadcrumbs">
+        <p>Home</p>
+      </nav>
     </div>
 
     <main>
-        <section
+      <section
         id="pdfContainer"
         hidden
         data-section="testing-sc"
         data-webpage="testing"
-        >
+      >
         <embed
-            id="pdfEmbed"
-            src="/pdf/testing.pdf"
-            type="application/pdf"
-            width="100%"
-            height="800px"
+          id="pdfEmbed"
+          src="/pdf/testing.pdf"
+          type="application/pdf"
+          width="100%"
+          height="800px"
         />
-        </section>
+      </section>
 
-        <input type="checkbox" id="calculator-toggle" hidden>
+      <input type="checkbox" id="calculator-toggle" hidden />
 
-        <div class="calculator-container">
-            <label for="calculator-toggle" class="calculator-tab">
-                Calculator
-            </label>
+      <div class="calculator-container">
+        <label for="calculator-toggle" class="calculator-tab">
+          Calculator
+        </label>
 
-            <div class="calculator">
-                <iframe
-                src="https://graphingti84calculator.com/TI-84"
-                width="100%"
-                height="100%"
-                frameborder="0"
-                allowfullscreen>
-                </iframe>
-            </div>
+        <div class="calculator">
+          <iframe
+            src="https://graphingti84calculator.com/TI-84"
+            width="100%"
+            height="100%"
+            frameborder="0"
+            allowfullscreen
+          >
+          </iframe>
         </div>
+      </div>
 
-        <section class="fncy-underline" id="section1">
-            <h2>Purpose</h2>
-                <h3>Welcome Message</h3>
-                    <p>
-                        Welcome to my online maths notes! This website is a list of personal mats notes  
-                        relating to introductory real analysis. I am entirely self-taught and working on this 
-                        project as a hobby, so <strong>there will be typos and minor errors in some 
-                        of the content</strong>. 
-                        However, I have done my best to ensure everything is as accurate as possible. If you 
-                        spot a mistake or want to provide feedback, you can contact me directly at 
-                        <a href="mailto:archimedes314notes@gmail.com">archimedes314notes@gmail.com</a>, 
-                        or fill out the form on my <a href="/contact.html">Contact Page test</a>.
-                    </p>
-                    <p>
-                        This website is a work in progress. New content will be added over time, and I plan 
-                        to expand the topics covered in the future.
-                    </p>
-                    <p>
-                        I have also included a <a href="/maths/settings.html">settings page</a>
-                         where you can customise certain aspects 
-                        of the site to suit your preferences. At the moment, I only have options
-                        for reduced motion, and showing hidden working by default. I am currently 
-                        working on a dark mode option, which will be added in a future update. More
-                        options will be added over time. You can access the settings page from the 
-                        <a onclick="toggleMenu()">menu</a>.
-                    </p>
-                
-                <h3>Purpose and Scope</h3>
-                    <p>
-                        This website explores how mathematical logic can be used to rigorously 
-                        construct the real numbers and understand their properties. We begin with 
-                        the basics of logic: learning what symbols mean, how to interpret 
-                        statements, and how to use logical reasoning to prove mathematical concepts. 
-                        Topics include propositional, first-order, and second-order logic.
-                    </p>
+      <section class="fncy-underline" id="section1">
+        <h2>Topic Purpose and Scope</h2>
+        <p>
+          Welcome to my online maths notes! This website is a personal
+          collection of notes and examples focused on introductory real
+          analysis. I am entirely self-taught and maintain this project as a
+          hobby. While I do my best to ensure accuracy, these notes are
+          primarily a reflection of my own learning journey rather than a formal
+          textbook.
+        </p>
+      </section>
 
-                    <p>
-                        Using this foundation, we develop axiomatic systems to define the integers 
-                        and rational numbers from the natural numbers, and then construct the 
-                        irrational numbers and the real numbers. Along the way, we analyse 
-                        fundamental properties of the real number system, including completeness, 
-                        density, and incompleteness phenomena.
-                    </p>
-
-                    <p>
-                        Once we have a solid understanding of the real numbers, we return to logic, 
-                        focusing on syntax, semantics, and mathematical conventions. For example, we 
-                        examine why implicit multiplication is often given precedence over division, 
-                        how such conventions can be formally defined, and what it means for them to 
-                        be well-defined and consistent.
-                    </p>
-                    
-                    <p>
-                        In the future, this website will expand to include lessons on linear 
-                        algebra, calculus, and other areas of mathematics, always with an emphasis 
-                        on rigorous logical foundations.
-                    </p>
-        </section>
-
-        <section 
-        class="collapsible-section" 
+      <section
+        class="collapsible-section"
         data-collapsible="true"
         id="section2"
-        >
-            <header class="collapsible-header">
-                <h2 class="section-title">
-                    Common Notation and Syntax
-                </h2>
+      >
+        <header class="collapsible-header">
+          <h2 class="section-title">Common Notation and Syntax</h2>
 
-                <button 
-                class="collapse-toggle" 
-                aria-label="Toggle section"
-                ></button>
-            </header>
+          <button class="collapse-toggle" aria-label="Toggle section"></button>
+        </header>
 
-            <p class="section-description">
-                Unfortunately, mathematics lacks a universal set of notation; symbols, syntax and 
-                semantics can have different meanings across textbooks, and some authors even use 
-                their own systems. To avoid ambiguity, I will list the notation, syntax, and 
-                semantics used throughout this website.
-                This list can be <a onclick="showError('link')">downloaded</a> as a PDF.
-            </p>
+        <p class="section-description">
+          Unfortunately, mathematics lacks a universal set of notation; symbols,
+          syntax and semantics can have different meanings across textbooks, and
+          some authors even use their own systems. To avoid ambiguity, I will
+          list the notation, syntax, and semantics used throughout this website.
+        </p>
 
-            <div class="section-content">
-                <h3>End of Proof Markers</h3>
+        <div class="section-content">
+          <h3>End of Proof Markers</h3>
 
-                    <p>
-                        In ancient Greek, the phrase <em>ὅπερ ἔδει δεῖξαι</em> (or ΟΕΔ) was commonly 
-                        used by mathematicians such as Euclid and Archimedes to mark the end of a 
-                        proof. During the European Renaissance, this was translated into Latin as 
-                        <em>quod erat demonstrandum</em> (Q.E.D.).
-                    </p>
+          <p>
+            In ancient Greek, the phrase <em>ὅπερ ἔδει δεῖξαι</em> (or ΟΕΔ) was
+            commonly used by mathematicians such as Euclid and Archimedes to
+            mark the end of a proof. During the European Renaissance, this was
+            translated into Latin as <em>quod erat demonstrandum</em> (QED).
+          </p>
 
-                    <p>
-                        However, in modern mathematics, it is common to use the <em>Halmos symbol</em> 
-                        (also known as the <em>tombstone</em>), represented as \(\blacksquare\). 
-                        Following standard convention, the tombstone will be used here to indicate 
-                        the end of a proof when appropriate.
-                    </p>
+          <p>
+            However, in modern mathematics, it is common to use the
+            <em>Halmos symbol</em> (also known as the <em>tombstone</em>),
+            represented as \(\blacksquare\). Following standard convention, the
+            tombstone will be used here to indicate the end of a proof when
+            appropriate.
+          </p>
 
-                <h3>Implied Multiplication</h3>
+          <h3>Implied Multiplication</h3>
 
-                    <p>
-                        Multiplication can be shown in two ways: with a symbol (such as \(2 \cdot 
-                        3\) or \(4 \times 6\)), or without one, by writing values together (such as 
-                        \(ab\), which means \(a\) times \(b\)). When a multiplication symbol is 
-                        used, the operation is called <em>explicit multiplication</em>. When no 
-                        symbol is used, it is called <em>implicit</em> (or <em>implied</em>) 
-                        multiplication. You may also see this referred to as <em>multiplication by 
-                        juxtaposition</em>.
-                    </p>
+          <p>
+            Multiplication can be expressed as
+            <em>explicit multiplication</em> (such as \(2 \cdot 3\) or \(4
+            \times 6\)), or <em>implicit multiplication</em> (such as \(ab\)).
+            Depending on the author, implicit multiplication may be parsed with
+            different binding strength relative to other operations. Here are
+            the two common conventions:
+          </p>
 
-                    <p>
-                        Depending on the author, implicit multiplication may be parsed with 
-                        different binding strength relative to other operations. Here are the two
-                        common conventions:
-                    </p>
+          <ol>
+            <li>
+              <strong>High-precedence implicit multiplication.</strong><br />
+              Implicit multiplication is treated as if it were surrounded by
+              brackets, and therefore binds tighter than division.
+            </li>
+            <li>
+              <strong>Equal-precedence implicit multiplication.</strong><br />
+              Implicit multiplication is treated as having the same precedence
+              as explicit multiplication.
+            </li>
+          </ol>
 
-                    <ol>
-                        <li>
-                        <strong>High-precedence implicit multiplication.</strong><br>
-                        Implicit multiplication is treated as if it were surrounded by brackets, and therefore binds more tightly than division.
-                        </li>
-                        <li>
-                        <strong>Equal-precedence implicit multiplication.</strong><br>
-                        Implicit multiplication is treated as having the same precedence as explicit multiplication.
-                        </li>
-                    </ol>
+          <p>
+            It is important to know which convention an author is using, as the
+            choice can significantly affect the interpretation of an expression.
+            For example, take the following two in-line functions: \(1/ab\) and
+            \(\cos ab\). If the the first convention is used, these are
+            interpreted as:
+          </p>
 
-                    <p>
-                        It is important to understand which convention an author is using, as the 
-                        choice can significantly affect the interpretation of an expression. For 
-                        example, under the first convention, implicit multiplication always takes 
-                        precedence over division, and functions written without brackets are 
-                        interpreted as having all immediately following implicitly multiplied 
-                        values as part of the function's argument:
-                    </p>
+          <ul>
+            <li>\(\displaystyle 1 / ab = \frac{1}{ab} \)</li>
+            <li>\( \cos ab = \cos(ab) \)</li>
+          </ul>
 
-                    <ul>
-                        <li>\( 1 / ab = \frac{1}{ab} \)</li>
-                        <li>\( \cos ab = \cos(ab) \)</li>
-                    </ul>
+          <p>
+            However, if the second convention were used, the same expressions
+            would instead be interpreted as:
+          </p>
 
-                    <p>
-                    However, if the second convention were used, the same expressions would instead 
-                    be interpreted as:
-                    </p>
+          <ul>
+            <li>\(\displaystyle 1 / ab = \frac{1}{a} \cdot b \)</li>
+            <li>\( \cos ab = \cos(a) \cdot b \)</li>
+          </ul>
 
-                    <ul>
-                        <li>\( 1 / ab = \frac{1}{a} \cdot b \)</li>
-                        <li>\( \cos ab = \cos(a) \cdot b \)</li>
-                    </ul>
+          <p>
+            Either convention is a stylistic choice of notation rather than a
+            logical necessity. However, the second interpretation is less common
+            in modern mathematical writing but does appear in some calculators
+            and informal contexts. Throughout this website, the first convention
+            is used: implicit multiplication binds more tightly than division.
+            Whenever there is any possibility of ambiguity, brackets will be
+            used to make the intended meaning explicit.
+          </p>
 
-                    <p>
-                        Either convention is a stylistic choice of notation rather than a logical 
-                        necessity. However, the second interpretation is less common in modern 
-                        mathematical writing but does appear in some calculators and informal 
-                        contexts. Throughout this website, the first convention is used: implicit 
-                        multiplication binds more tightly than division. Whenever there is any 
-                        possibility of ambiguity, brackets will be used to make the intended meaning 
-                        explicit.
-                    </p>
+          <p class="foot-note">(This section will be expanded overtime.)</p>
+        </div>
+      </section>
 
-                    <p class="foot-note">(This section will be expanded overtime.)</p>
-            </div>
-        </section>
-
-
-        <section id="section5">
-            <h2>Main Topics</h2>
-            <ul class="topic-list">
-                <li onclick="redirectLink('/maths/formal-logic-i.html')">
-                    <h3><a>
-                        1. <span>Formal Logic (Part I)</span>
-                    </a></h3>
-                    <p>This topic will include the following sections:</p>
-                    <ul class="subtopic-list">
-                        <li>Mathematical Language and Symbolism</li>
-                        <li>Formal Systems and proof</li>
-                    </ul>
-                </li>
-
-                <li onclick="showError('link')">
-                    <h3><a> 
-                        2. <span>Constructing the Real Numbers</span>
-                    </a></h3>
-                    <p>This topic will include the following sections:</p>
-                    <ul class="subtopic-list">
-                        <li>temp</li>
-                    </ul>
-                </li>
-
-                <li onclick="showError('link')">
-                    <h3><a>
-                        3. <span>Formal Logic (Part II)</span>
-                    </a></h3>
-                    <p>This topic will include the following sections:</p>
-                    <ul class="subtopic-list">
-                        <li>temp</li>
-                    </ul>
-                </li>
+      <section id="topic=list">
+        <h2>Sections</h2>
+        <ul class="topic-list">
+          <li onclick="redirectLink('/maths/main/natural-numbers.html')">
+            <h3>
+              <a>1. <span>The Natural Numbers</span> </a>
+            </h3>
+            <p>This topic will include the following sections:</p>
+            <ul class="subtopic-list">
+              <li>The Peano Axioms</li>
+              <li>Addition</li>
+              <li>Multiplication</li>
             </ul>
-        </section>
+          </li>
+        </ul>
+      </section>
     </main>
 
-    <footer-div date="21 March 2026"></footer-div>
+    <footer-div date="29 June 2026"></footer-div>
 
-    <script src="/maths/assets/menu/menu.js"></script>
     <script src="/maths/assets/main-js/macros.js"></script>
-    <script src="/maths/assets/main-js/scroll-spy.js"></script>
     <script src="/maths/assets/asta-error-messages/error-list.js"></script>
-    <script src="/maths/assets/main-js/show-embed.js"></script>
     <script src="/maths/assets/main-js/maths-box.js"></script>
     <script src="/maths/assets/main-js/collapsible-sections.js"></script>
-</body>
-
+  </body>
 </html>
