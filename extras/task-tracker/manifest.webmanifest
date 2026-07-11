@@ -1,0 +1,12 @@
+{
+  "name": "Task Tracker",
+  "short_name": "TaskTracker",
+  "description": "An app for tracking tasks",
+  "start_url": "/extras/task-tracker/",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#0f172a",
+  "lang": "en",
+  "scope": "/extras/task-tracker/",
+  "icons": [{ "src": "favicon.svg", "sizes": "any", "type": "image/svg+xml" }]
+}

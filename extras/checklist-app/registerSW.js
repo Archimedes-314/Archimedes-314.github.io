@@ -1,0 +1,7 @@
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("/extras/checklist-app/sw.js", {
+      scope: "/extras/checklist-app/",
+    });
+  });
+}

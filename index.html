@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Professional Portfolio & Academic Projects</title>
+
+    <link rel="stylesheet" href="/assets/CSS/main-style.css" />
+    <script>
+      const redirectLink = (e) => {
+        window.location.href = `${e}`;
+      };
+      const confirmRedirectLink = (link, message) => {
+        if (confirm(message)) {
+          redirectLink(link);
+        }
+      };
+      const linksScroll = (e) => {
+        document.getElementById(`${e}`).scrollIntoView({
+          behavior: "smooth",
+        });
+      };
+    </script>
+  </head>
+  <body>
+    <nav>
+      <input type="checkbox" id="sidebar-active" />
+      <label for="sidebar-active" class="open-sidebar-btn">
+        <svg
+          class="w-6 h-6 text-gray-800 dark:text-white"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          fill="none"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-width="2"
+            d="M5 7h14M5 12h14M5 17h14"
+          />
+        </svg>
+      </label>
+
+      <label for="sidebar-active" id="sidebar-overlay"></label>
+      <div class="links-container">
+        <label for="sidebar-active" class="close-sidebar-btn">
+          <svg
+            class="w-6 h-6 text-gray-800 dark:text-white"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18 17.94 6M18 18 6.06 6"
+            />
+          </svg>
+        </label>
+        <a href="/extras/logging/incident-reflection-app.html"
+          >Incident Reflection App
+        </a>
+        <a href="/extras/car/logging.html"> Vehicle Pre-Check Application </a>
+        <a href="/extras/checklist-app/index.html"> Checklist App </a>
+        <a href="/extras/todo-app/index.html" class="projects-nav-btn">
+          Task-Tracking App
+        </a>
+        <a href="/maths/maths-index.html">Maths Website</a>
+        <a href="/nursing-app/index.html">Nursing Notes Website</a>
+      </div>
+    </nav>
+    <!-- ================= HERO ================= -->
+    <header class="hero">
+      <div class="hero-content">
+        <span class="hero-badge"
+          >Nursing · Mathematics · Emergency Service</span
+        >
+
+        <h1>
+          Building knowledge, service, <br /><span class="highlight"
+            >Clinical Skills & Analytical Rigour</span
+          >
+        </h1>
+
+        <p class="subtitle">
+          This is a structured repository of my journey, from
+          <strong>Nursing</strong> clinical notes and
+          <strong>Emergency&nbsp;Service</strong> reflections to the abstract
+          logic of <strong>Mathematical&nbsp;Analysis</strong>.
+        </p>
+
+        <div class="hero-btns">
+          <a href="#navigation" class="primary-btn">Explore My Work</a>
+          <a href="#projects" class="secondary-btn">My Extra Projects</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- ================= NAVIGATION CARDS ================= -->
+    <section class="navigation" id="navigation">
+      <div class="container">
+        <h2>Explore My Main Projects</h2>
+
+        <div class="card-grid">
+          <!-- <div class="card" onclick="redirectLink('/personal/index.html')">
+            <h3>Personal Portfolio</h3>
+            <p>
+              This section outlines my professional experience, career goals,
+              and commitment to healthcare and community service. It includes
+              the experiences and achievements that have influenced my
+              development and describes my aims for the future.
+            </p>
+            <span class="cta">View Professional Profile →</span>
+          </div> -->
+
+          <div class="card" onclick="redirectLink('/maths/maths-index.html')">
+            <h3>Mathematics Website</h3>
+            <p>
+              This section introduces real analysis and connects it with logic,
+              set theory, calculus, and linear algebra. It supports my academic
+              progress and interest in solving challenging problems.
+            </p>
+            <span class="cta">Explore Mathematics Project →</span>
+          </div>
+
+          <div class="card" onclick="redirectLink('/nursing-app/index.html')">
+            <h3>Nursing Notes</h3>
+            <p>
+              This section contains study quizzes from my Diploma of Nursing.
+              These notes help me organise new information and develop my
+              nursing practice skills.
+            </p>
+            <span class="cta">Access Nursing Notes →</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= PROJECTS ================= -->
+    <section class="projects" id="projects">
+      <div class="container">
+        <h2>Explore My Extra Projects</h2>
+
+        <div class="card-grid">
+          <div
+            class="card"
+            onclick="
+              redirectLink('/extras/logging/incident-reflection-app.html')
+            "
+          >
+            <h3>Incident Reflection App</h3>
+            <p>
+              The Incident Reflection App is a web-based tool that supports
+              personal reflection. It allows you to write down quite reflections
+              while out in the field so that you can review and reflect on them
+              in detail afterwards.
+            </p>
+            <span class="cta">Access Incident Reflection App →</span>
+          </div>
+
+          <div class="card" onclick="redirectLink('/extras/car/logging.html')">
+            <h3>Vehicle Pre-Check App</h3>
+            <p>
+              The Vehicle Pre-Check Application is a basic tool that helps carry
+              out vehicle pre-checks.
+            </p>
+            <span class="cta">Access Vehicle Pre-Check App →</span>
+          </div>
+          <div
+            class="card"
+            onclick="redirectLink('/extras/checklist-app/index.html')"
+          >
+            <h3>Checklist App</h3>
+            <p>
+              The Checklist App is a basic application made to assist with
+              self-managing ADHD.
+            </p>
+            <span class="cta">Access Checklist App →</span>
+          </div>
+          <div
+            class="card"
+            onclick="redirectLink('/extras/todo-app/index.html')"
+          >
+            <h3>Task Tracking App</h3>
+            <p>This app is a basic Kanban board.</p>
+            <span class="cta">Access Task Tracking App →</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="footer">
+      <div class="container">
+        <p>
+          © 2026 Archimedes-314<br />
+          All content provided in good faith. All materials shared are for
+          educational and personal purposes only. No patient-identifiable or
+          confidential operational information is published here. The
+          information provided should not be considered a substitute for formal
+          education or professional advice.
+        </p>
+      </div>
+    </footer>
+
+    <script src="/assets/JS/script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Real Analysis Maths Notes" />
+    <meta
+      name="google-site-verification"
+      content="[remove] 1GVbjY9xppS7E6tukfDbqtOGqj3NVu9PR0sdNOIQISE"
+    />
+    <title>Basic Maths Notes</title>
+    <link rel="icon" href="/maths/assets/style/images/archimedes.png" />
+    <link rel="stylesheet" href="/maths/assets/style/style-sheet.css" />
+    <link
+      rel="stylesheet"
+      href="/maths/assets/asta-error-messages/error-list.css"
+    />
+    <link rel="stylesheet" href="/maths/assets/menu/menu.css" />
+    <script src="/maths/assets/style/style-sheet.js" defer></script>
+
+    <link rel="stylesheet" href="/maths/assets/settings/settings.css" />
+    <script src="/maths/assets/settings/settings.js"></script>
+
+    <script src="/maths/assets/main-js/macros.js"></script>
+    <script
+      id="MathJax-script"
+      async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+    ></script>
+
+    <script
+      src="https://unpkg.com/react@18/umd/react.production.min.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"
+      crossorigin
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+
+    <script
+      type="text/babel"
+      src="/maths/assets/main-js/global-header.js"
+      defer
+    ></script>
+  </head>
+
+  <body id="top">
+    <header-div pdf="yes" pq="no"></header-div>
+
+    <div class="breadcrumb-wrapper">
+      <nav class="breadcrumbs">
+        <p>Home</p>
+      </nav>
+    </div>
+
+    <main>
+      <section
+        id="pdfContainer"
+        hidden
+        data-section="testing-sc"
+        data-webpage="testing"
+      >
+        <embed
+          id="pdfEmbed"
+          src="/pdf/testing.pdf"
+          type="application/pdf"
+          width="100%"
+          height="800px"
+        />
+      </section>
+
+      <input type="checkbox" id="calculator-toggle" hidden />
+
+      <div class="calculator-container">
+        <label for="calculator-toggle" class="calculator-tab">
+          Calculator
+        </label>
+
+        <div class="calculator">
+          <iframe
+            src="https://graphingti84calculator.com/TI-84"
+            width="100%"
+            height="100%"
+            frameborder="0"
+            allowfullscreen
+          >
+          </iframe>
+        </div>
+      </div>
+
+      <section class="fncy-underline" id="section1">
+        <h2>Topic Purpose and Scope</h2>
+        <p>
+          Welcome to my online maths notes! This website is a personal
+          collection of notes and examples focused on introductory real
+          analysis. I am entirely self-taught and maintain this project as a
+          hobby. While I do my best to ensure accuracy, these notes are
+          primarily a reflection of my own learning journey rather than a formal
+          textbook.
+        </p>
+      </section>
+
+      <section
+        class="collapsible-section"
+        data-collapsible="true"
+        id="section2"
+      >
+        <header class="collapsible-header">
+          <h2 class="section-title">Common Notation and Syntax</h2>
+
+          <button class="collapse-toggle" aria-label="Toggle section"></button>
+        </header>
+
+        <p class="section-description">
+          Unfortunately, mathematics lacks a universal set of notation; symbols,
+          syntax and semantics can have different meanings across textbooks, and
+          some authors even use their own systems. To avoid ambiguity, I will
+          list the notation, syntax, and semantics used throughout this website.
+        </p>
+
+        <div class="section-content">
+          <h3>End of Proof Markers</h3>
+
+          <p>
+            In ancient Greek, the phrase <em>ὅπερ ἔδει δεῖξαι</em> (or ΟΕΔ) was
+            commonly used by mathematicians such as Euclid and Archimedes to
+            mark the end of a proof. During the European Renaissance, this was
+            translated into Latin as <em>quod erat demonstrandum</em> (QED).
+          </p>
+
+          <p>
+            However, in modern mathematics, it is common to use the
+            <em>Halmos symbol</em> (also known as the <em>tombstone</em>),
+            represented as \(\blacksquare\). Following standard convention, the
+            tombstone will be used here to indicate the end of a proof when
+            appropriate.
+          </p>
+
+          <h3>Implied Multiplication</h3>
+
+          <p>
+            Multiplication can be expressed as
+            <em>explicit multiplication</em> (such as \(2 \cdot 3\) or \(4
+            \times 6\)), or <em>implicit multiplication</em> (such as \(ab\)).
+            Depending on the author, implicit multiplication may be parsed with
+            different binding strength relative to other operations. Here are
+            the two common conventions:
+          </p>
+
+          <ol>
+            <li>
+              <strong>High-precedence implicit multiplication.</strong><br />
+              Implicit multiplication is treated as if it were surrounded by
+              brackets, and therefore binds tighter than division.
+            </li>
+            <li>
+              <strong>Equal-precedence implicit multiplication.</strong><br />
+              Implicit multiplication is treated as having the same precedence
+              as explicit multiplication.
+            </li>
+          </ol>
+
+          <p>
+            It is important to know which convention an author is using, as the
+            choice can significantly affect the interpretation of an expression.
+            For example, take the following two in-line functions: \(1/ab\) and
+            \(\cos ab\). If the the first convention is used, these are
+            interpreted as:
+          </p>
+
+          <ul>
+            <li>\(\displaystyle 1 / ab = \frac{1}{ab} \)</li>
+            <li>\( \cos ab = \cos(ab) \)</li>
+          </ul>
+
+          <p>
+            However, if the second convention were used, the same expressions
+            would instead be interpreted as:
+          </p>
+
+          <ul>
+            <li>\(\displaystyle 1 / ab = \frac{1}{a} \cdot b \)</li>
+            <li>\( \cos ab = \cos(a) \cdot b \)</li>
+          </ul>
+
+          <p>
+            Either convention is a stylistic choice of notation rather than a
+            logical necessity. However, the second interpretation is less common
+            in modern mathematical writing but does appear in some calculators
+            and informal contexts. Throughout this website, the first convention
+            is used: implicit multiplication binds more tightly than division.
+            Whenever there is any possibility of ambiguity, brackets will be
+            used to make the intended meaning explicit.
+          </p>
+
+          <p class="foot-note">(This section will be expanded overtime.)</p>
+        </div>
+      </section>
+
+      <section id="topic=list">
+        <h2>Sections</h2>
+        <ul class="topic-list">
+          <li onclick="redirectLink('/maths/main/natural-numbers.html')">
+            <h3>
+              <a>1. <span>The Natural Numbers</span> </a>
+            </h3>
+            <p>This topic will include the following sections:</p>
+            <ul class="subtopic-list">
+              <li>The Peano Axioms</li>
+              <li>Addition</li>
+              <li>Multiplication</li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <footer-div date="29 June 2026"></footer-div>
+
+    <script src="/maths/assets/main-js/macros.js"></script>
+    <script src="/maths/assets/asta-error-messages/error-list.js"></script>
+    <script src="/maths/assets/main-js/maths-box.js"></script>
+    <script src="/maths/assets/main-js/collapsible-sections.js"></script>
+  </body>
+</html>

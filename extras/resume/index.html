@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resume Builder</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="control-panel">
+      <div class="hint">
+        <strong>How to use:</strong> Click anywhere to change text. Use buttons
+        to add/remove bullets. Your changes save automatically!
+      </div>
+      <div class="actions">
+        <button class="btn-clear" id="resetBtn">Reset</button>
+        <button class="btn-print" id="printBtn">Save as PDF</button>
+      </div>
+    </div>
+
+    <div class="resume-page">
+      <div class="header">
+        <div class="name" id="res-name" contenteditable="true">[Name]</div>
+        <div class="contact">
+          <span id="res-phone" contenteditable="true"
+            ><strong>Ph</strong>: xxxx xxx xxx</span
+          >
+          <span class="bullet-divider">•</span>
+          <span id="res-email" contenteditable="true"
+            ><strong>E</strong>: example@gmail.com</span
+          >
+          <span class="bullet-divider">•</span>
+          <span id="res-address" contenteditable="true"
+            ><strong>Addr</strong>: City, State</span
+          >
+        </div>
+      </div>
+
+      <section>
+        <h2>Professional Summary</h2>
+        <div class="prompt" id="res-summary" contenteditable="true">
+          Write 3–4 sentences here introducing yourself. Mention your current
+          interest in moving into a community or care-focused role. Briefly
+          describe your personal strengths, such as your ability to stay calm
+          under pressure, how you work with teams, your physical fitness, or
+          your communication style.
+        </div>
+      </section>
+
+      <section>
+        <h2>Education & Certifications</h2>
+        <div class="row">
+          <span class="job-title" id="res-school" contenteditable="true"
+            >[School Name]</span
+          >
+          <span class="meta-text" id="res-school-dates" contenteditable="true"
+            >[yyyy – yyyy]</span
+          >
+        </div>
+        <div
+          class="meta-text"
+          id="res-school-QCE"
+          contenteditable="true"
+          style="margin-bottom: 5px"
+        >
+          [Year Level Completed/QCE]
+        </div>
+
+        <ul id="list-education" class="dynamic-list"></ul>
+
+        <div class="job-title" style="margin-top: 10px" contenteditable="true">
+          Licences & Core Credentials:
+        </div>
+        <ul id="list-credentials" class="dynamic-list"></ul>
+      </section>
+
+      <section>
+        <h2>Work History</h2>
+
+        <div class="row">
+          <span
+            ><span class="job-title" id="res-j1-title" contenteditable="true"
+              >Soccer Referee</span
+            >
+            |
+            <span class="company" id="res-j1-comp" contenteditable="true"
+              >[Company Name]</span
+            ></span
+          >
+          <span class="meta-text" id="res-j1-dates" contenteditable="true"
+            >[City | mm/yyyy – mm/yyyy (or current)]</span
+          >
+        </div>
+        <ul id="list-job1" class="dynamic-list"></ul>
+
+        <div class="row">
+          <span
+            ><span class="job-title" id="res-j2-title" contenteditable="true"
+              >Operations Assistant</span
+            >
+            |
+            <span class="company" id="res-j2-comp" contenteditable="true"
+              >[Company Name]</span
+            ></span
+          >
+          <span class="meta-text" id="res-j2-dates" contenteditable="true"
+            >[City | mm/yyyy – mm/yyyy (or current)]</span
+          >
+        </div>
+        <ul id="list-job2" class="dynamic-list"></ul>
+
+        <div class="row">
+          <span
+            ><span class="job-title" id="res-j3-title" contenteditable="true"
+              >Warehouse Storeperson</span
+            >
+            |
+            <span class="company" id="res-j3-comp" contenteditable="true"
+              >[Company Name]</span
+            ></span
+          >
+          <span class="meta-text" id="res-j3-dates" contenteditable="true"
+            >[City | mm/yyyy – mm/yyyy (or current)]</span
+          >
+        </div>
+        <ul id="list-job3" class="dynamic-list"></ul>
+
+        <div class="row">
+          <span
+            ><span class="job-title" id="res-j4-title" contenteditable="true"
+              >Retail Assistant</span
+            >
+            |
+            <span class="company" id="res-j4-comp" contenteditable="true"
+              >[Company Name]</span
+            ></span
+          >
+          <span class="meta-text" id="res-j4-dates" contenteditable="true"
+            >[City | mm/yyyy – mm/yyyy (or current)]</span
+          >
+        </div>
+        <ul id="list-job4" class="dynamic-list"></ul>
+      </section>
+
+      <section>
+        <h2>Volunteer Work & Core Strengths</h2>
+        <div class="row">
+          <span class="job-title" id="res-vol-title" contenteditable="true"
+            >Event Support Volunteer | [Company Name]</span
+          >
+          <span class="meta-text" id="res-vol-dates" contenteditable="true"
+            >[Dates]</span
+          >
+        </div>
+        <ul id="list-volunteer" class="dynamic-list"></ul>
+      </section>
+
+      <section>
+        <h2>Professional Referees</h2>
+        <div
+          class="meta-text prompt"
+          id="res-ref-note"
+          style="margin-bottom: 10px"
+        >
+          You must ask permission from two (or more) people before putting them
+          down as references. Good choices include previous supervisors or
+          managers. Do not include family members.
+        </div>
+        <div class="referee-container">
+          <div class="referee-col">
+            <div
+              style="font-weight: 700"
+              id="res-ref1-name"
+              contenteditable="true"
+            >
+              [Referee Name 1]
+            </div>
+            <div class="meta-text" id="res-ref1-title" contenteditable="true">
+              [Their Job Title]
+            </div>
+            <div id="res-ref1-comp" contenteditable="true">
+              Company: [Company/Club]
+            </div>
+            <div id="res-ref1-phone" contenteditable="true">
+              Ph: [Phone Number]
+            </div>
+          </div>
+          <div class="referee-col">
+            <div
+              style="font-weight: 700"
+              id="res-ref2-name"
+              contenteditable="true"
+            >
+              [Referee Name 2]
+            </div>
+            <div class="meta-text" id="res-ref2-title" contenteditable="true">
+              [Their Job Title]
+            </div>
+            <div id="res-ref2-comp" contenteditable="true">
+              Company: [Company/Club]
+            </div>
+            <div id="res-ref2-phone" contenteditable="true">
+              Ph: [Phone Number]
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

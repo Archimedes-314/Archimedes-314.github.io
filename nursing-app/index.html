@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Online Nursing Notes</title>
+    <script type="module" crossorigin src="/nursing-app/assets/main-CfSqXA4L.js"></script>
+    <link rel="modulepreload" crossorigin href="/nursing-app/assets/style-lQnUR443.js">
+    <link rel="stylesheet" crossorigin href="/nursing-app/assets/style-CQlFkjQc.css">
+    <link rel="stylesheet" crossorigin href="/nursing-app/assets/main-BGReWXit.css">
+  <link rel="manifest" href="/nursing-app/manifest.webmanifest"><script id="vite-plugin-pwa:register-sw" src="/nursing-app/registerSW.js"></script></head>
+  <body>
+    <div class="login-container" onclick="hideLogin()">
+      <div class="login-box" onclick="event.stopPropagation()">
+        <h2>Login</h2>
+        <p>Login to gain access to the hidden content.</p>
+        <button
+          onclick="
+            confirmRedirectLink(
+              'https://nursingquizzes.pages.dev',
+              'If you do not have an approved email, this will not work.',
+            )
+          "
+        >
+          Login
+        </button>
+        <button onclick="hideLogin()">Cancel</button>
+      </div>
+    </div>
+
+    <header>
+      <div class="container">
+        <h1>Online Nursing Notes and Quizzes</h1>
+        <p class="subtitle">
+          A Collection of Notes and Quizzes for Student ENs
+        </p>
+        <p class="login" onclick="showLogin()">Log In</p>
+      </div>
+    </header>
+
+    <div class="privacy-notice">
+      <p>
+        <strong>Notice:</strong> To ensure I follow TAFE Queensland policies and
+        privacy laws, I will limit the amount of personal study material I share
+        on this website to basic quizzes.
+      </p>
+    </div>
+
+    <main class="container">
+      <section class="category">
+        <h2>📝 Available Quizzes</h2>
+        <p>
+          Select a topic portal below to access deep dives and clinical quiz
+          panels.
+        </p>
+
+        <div class="grid">
+          <a href="topics/1-intro-to-the-human-body/index.html" class="card">
+            <h3>An Introduction to the Human Body</h3>
+            <ul>
+              <li>Overview of Anatomy and Physiology</li>
+              <li>Structural Organisation of the Human Body</li>
+              <li>Functions of Human Life</li>
+              <li>Requirements for Human Life</li>
+              <li>Homeostasis</li>
+              <li>Anatomical Terminology</li>
+              <li>Medical Imaging</li>
+            </ul>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2026 Archimedes-314 | Personal Study Notes</p>
+    </footer>
+
+  </body>
+</html>

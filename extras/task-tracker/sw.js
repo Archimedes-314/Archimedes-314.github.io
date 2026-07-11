@@ -1,0 +1,56 @@
+if (!self.define) {
+  let e,
+    i = {};
+  const s = (s, r) => (
+    (s = new URL(s + ".js", r).href),
+    i[s] ||
+      new Promise((i) => {
+        if ("document" in self) {
+          const e = document.createElement("script");
+          ((e.src = s), (e.onload = i), document.head.appendChild(e));
+        } else ((e = s), importScripts(s), i());
+      }).then(() => {
+        let e = i[s];
+        if (!e) throw new Error(`Module ${s} didn’t register its module`);
+        return e;
+      })
+  );
+  self.define = (r, n) => {
+    const t =
+      e ||
+      ("document" in self ? document.currentScript.src : "") ||
+      location.href;
+    if (i[t]) return;
+    let o = {};
+    const l = (e) => s(e, t),
+      c = { module: { uri: t }, exports: o, require: l };
+    i[t] = Promise.all(r.map((e) => c[e] || l(e))).then((e) => (n(...e), o));
+  };
+}
+define(["./workbox-9c191d2f"], function (e) {
+  "use strict";
+  (self.skipWaiting(),
+    e.clientsClaim(),
+    e.precacheAndRoute(
+      [
+        {
+          url: "_service-worker.js",
+          revision: "0b9644417c0469174caba664d0bd984f",
+        },
+        { url: "registerSW.js", revision: "421083e29696ea00d64c7e4a01a5331d" },
+        { url: "index.html", revision: "d08c17f58a539907c5463ff6f110725c" },
+        { url: "assets/index-nqMpL4T3.css", revision: null },
+        { url: "assets/index-DTZ-JVES.js", revision: null },
+        { url: "favicon.svg", revision: "7e840862161341271697daa99a40d76b" },
+        {
+          url: "manifest.webmanifest",
+          revision: "097800754f11916680487c5fef637193",
+        },
+      ],
+      {},
+    ),
+    e.cleanupOutdatedCaches(),
+    e.registerRoute(
+      new e.NavigationRoute(e.createHandlerBoundToURL("index.html")),
+    ));
+});

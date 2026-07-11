@@ -1,0 +1,337 @@
+.theme-dashboard {
+  --bg-color: oklch(0.97 0.01 220);
+  --card-bg: oklch(1 0 0);
+  --primary: oklch(0.32 0.09 230);
+  --accent: oklch(0.62 0.15 190);
+  --text-main: oklch(0.22 0.02 230);
+  --text-muted: oklch(0.48 0.02 230);
+  --text-light: oklch(1 0 0);
+
+  --icon-bg: oklch(0.94 0.03 190);
+  --avatar-bg: oklch(0.42 0.11 225);
+
+  --btn-bg: oklch(0.92 0.01 230);
+  --btn-border: oklch(0.85 0.01 230);
+  --btn-text: oklch(0.32 0.02 230);
+
+  --badge-bg: oklch(0.93 0.05 190);
+  --badge-text: oklch(0.38 0.08 190);
+
+  --disclaimer-bg: oklch(0.97 0.01 60);
+  --disclaimer-border: oklch(0.88 0.04 60);
+  --disclaimer-accent: oklch(0.65 0.12 50);
+  --disclaimer-title: oklch(0.38 0.06 50);
+  --disclaimer-text: oklch(0.3 0.03 50);
+
+  background-color: var(--bg-color);
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial,
+    sans-serif;
+  margin: 0;
+  color: var(--text-main);
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+
+  background-image:
+    linear-gradient(to right, oklch(0 0 0 / 0.012) 1px, transparent 1px),
+    linear-gradient(to bottom, oklch(0 0 0 / 0.012) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.theme-dashboard::before {
+  content: "";
+  position: fixed;
+  top: 10%;
+  left: 0;
+  width: 100vw;
+  height: 220px;
+  opacity: 0.12;
+  pointer-events: none;
+
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMjAwIDExMCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2IoNDMsMTYzLDE4MikiIHN0cm9rZS13aWR0aD0iMy41IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjxwYXRoIGQ9Ik0wLDU1IEwzNTAsNTUgQzM3MCw1NSAzNzUsNDAgMzg1LDQwIEMzOTUsNDAgNDAwLDU1IDQxMCw1NSBMNDMwLDU1IEw0NDAsNjUgTDQ1NSwxMCBMNDcwLDEwMCBMNDgwLDU1IEw1MDAsNTUgQzUyMCw1NSA1MzAsNDUgNTQ1LDQ1IEM1NjAsNDUgNTcwLDU1IDU5MCw1NSBMMTIwMCw1NSIvPjwvc3ZnPg==");
+
+  background-repeat: repeat-x;
+  background-position: center;
+  background-size: 1200px 110px;
+
+  animation:
+    telemetryPulse 25s linear infinite,
+    vitalsGlow 4s ease-in-out infinite alternate;
+  z-index: 0;
+}
+
+@keyframes telemetryPulse {
+  from {
+    background-position-x: 0;
+  }
+  to {
+    background-position-x: -1200px;
+  }
+}
+
+@keyframes vitalsGlow {
+  from {
+    opacity: 0.05;
+    filter: drop-shadow(0 0 1px var(--accent));
+  }
+  to {
+    opacity: 0.16;
+    filter: drop-shadow(0 0 4px var(--accent));
+  }
+}
+
+.theme-dashboard .app-container {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 24px 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.theme-dashboard .app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  padding: 10px 0;
+}
+
+.theme-dashboard .user-profile {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.theme-dashboard .avatar {
+  width: 48px;
+  height: 48px;
+  background: var(--avatar-bg);
+  color: var(--text-light);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  box-shadow:
+    inset 0 -3px 0px rgba(0, 0, 0, 0.15),
+    0 4px 10px oklch(0.42 0.11 225 / 0.2);
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.theme-dashboard .user-profile:hover .avatar {
+  transform: rotate(-10deg) scale(1.08);
+}
+
+.theme-dashboard h1 {
+  font-size: 1.4rem;
+  font-weight: 800;
+  margin: 0;
+  color: var(--primary);
+  letter-spacing: -0.3px;
+  transition: color 0.2s ease;
+}
+
+.theme-dashboard h1:hover {
+  color: var(--accent);
+}
+
+.theme-dashboard p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.theme-dashboard .install-pill {
+  background: var(--accent);
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  color: var(--text-light);
+  font-weight: 600;
+  font-size: 0.8rem;
+  cursor: pointer;
+  display: none;
+}
+
+.theme-dashboard .quiz-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Staggered entrance animation for cards */
+.theme-dashboard .quiz-card {
+  background: var(--card-bg);
+  border: 1px solid oklch(0 0 0 / 0.05);
+  text-align: left;
+  width: 100%;
+  padding: 20px;
+  border-radius: 16px;
+  color: inherit;
+  display: flex;
+  align-items: center;
+  user-select: none;
+  gap: 16px;
+  box-shadow: 0 4px 18px oklch(0.32 0.09 230 / 0.03);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+
+  animation: fadeSlideIn 0.5s cubic-bezier(0.25, 1, 0.5, 1) both;
+  animation-delay: calc(var(--card-index, 0) * 0.12s);
+
+  transition:
+    transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Subtle moving sheen overlay on hover */
+.theme-dashboard .quiz-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    transparent,
+    oklch(1 0 0 / 0.35),
+    transparent
+  );
+  transform: skewX(-25deg);
+  pointer-events: none;
+}
+
+.theme-dashboard .quiz-card:hover::after {
+  left: 150%;
+  transition: left 0.8s ease-in-out;
+}
+
+.theme-dashboard .quiz-card:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.theme-dashboard .quiz-card:hover {
+  transform: translateY(-5px);
+  border-color: oklch(0.62 0.15 190 / 0.4);
+  box-shadow: 0 14px 28px -6px oklch(0.32 0.09 230 / 0.12);
+}
+
+.theme-dashboard .quiz-card:active {
+  transform: scale(0.975);
+}
+
+.theme-dashboard .card-icon {
+  background: var(--icon-bg);
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+  flex-shrink: 0;
+  font-size: 1.5rem;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.theme-dashboard .quiz-card:hover .card-icon {
+  transform: scale(1.12);
+}
+
+.theme-dashboard .card-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.theme-dashboard .card-content h3 {
+  margin: 0 0 4px 0;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-main);
+  line-height: 1.3;
+}
+
+.theme-dashboard .card-description {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+  margin: 0;
+}
+
+.theme-dashboard .badge {
+  display: inline-block;
+  background: var(--badge-bg);
+  color: var(--badge-text);
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  margin-top: 10px;
+  border: 1px solid oklch(0.4 0.1 185 / 0.15);
+}
+
+.theme-dashboard .arrow {
+  color: var(--text-muted);
+  font-weight: bold;
+  font-size: 1.2rem;
+  transition:
+    transform 0.2s ease,
+    color 0.2s ease;
+}
+
+/* Playful arrow wiggle animation on card hover */
+.theme-dashboard .quiz-card:hover .arrow {
+  color: var(--accent);
+  animation: arrowWiggle 0.6s ease infinite alternate;
+}
+
+@keyframes arrowWiggle {
+  from {
+    transform: translateX(2px);
+  }
+  to {
+    transform: translateX(7px);
+  }
+}
+
+.theme-dashboard .disclaimer-box {
+  background-color: var(--disclaimer-bg);
+  border: 1px solid var(--disclaimer-border);
+  border-left: 5px solid var(--disclaimer-accent);
+  padding: 16px;
+  border-radius: 12px;
+  margin-bottom: 25px;
+  box-shadow: 0 2px 8px oklch(0 0 0 / 0.02);
+  animation: fadeSlideIn 0.5s ease-out;
+}
+
+.theme-dashboard .disclaimer-box strong {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--disclaimer-title);
+  font-size: 0.9rem;
+  margin-bottom: 6px;
+}
+
+.theme-dashboard .disclaimer-box p {
+  color: var(--disclaimer-text);
+  font-size: 0.82rem;
+  line-height: 1.45;
+}

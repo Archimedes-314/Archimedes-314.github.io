@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Incident Reflection App</title>
+
+<link rel="manifest" href="manifest.json">
+<link rel="stylesheet" href="style-sheet.css">
+<meta name="theme-color" content="#005bbb">
+</head>
+<body>
+
+<h1>Shift Case Log</h1>
+<div class="card">
+  <form id="logForm">
+
+    <button 
+    type="button" 
+    class="secondary" 
+    onclick="setNow()"
+    >
+      Use Current Date & Time
+    </button>
+
+    <!--Date and Time-->
+    <div class="section-title">Date</div>
+    <input type="date" id="date">
+
+    <div class="section-title">Time (24hr)</div>
+    <input type="time" id="time" step="60">
+
+    <!--Sevarity-->
+    <div class="section-title">Severity</div>
+    <div class="chip-container" id="severityChips">
+      <div class="chip">Minor</div>
+      <div class="chip">Moderate</div>
+      <div class="chip">High</div>
+      <div class="chip">Escalated</div>
+    </div>
+
+    <!--Case Type-->
+    <div class="section-title">Case Type</div>
+      <select id="caseType">
+        <option value="">-- Select --</option>
+        <option>Bleeding / Wound</option>
+        <option>Soft Tissue</option>
+        <option>Fracture / Dislocation</option>
+        <option>Heat-related</option>
+        <option>Diabetic</option>
+      </select>
+      
+    <input type="text" id="customCase" placeholder="Custom case type">
+
+    <!--Location and Context-->
+    <div class="section-title">
+      Clinical Exposure (Location / Context)
+    </div>
+    <div class="chip-container" id="contextChips">
+      <div class="chip">Event</div>
+      <div class="chip">Roadside</div>
+      <div class="chip">Community</div>
+      <div class="chip">Sporting</div>
+      <div class="chip">Crowd</div>
+      <div class="chip">Remote</div>
+    </div>
+
+    <!--Role-->
+    <div class="section-title">
+      Clinical Role
+    </div>
+    <div class="chip-container" id="levelChips">
+      <div class="chip">Observer</div>
+      <div class="chip">Assisted</div>
+      <div class="chip">Secondary</div>
+      <div class="chip">Primary</div>
+      <div class="chip">Team Lead</div>
+    </div>
+
+    <!-- Interventions -->
+    <div class="section-title">
+      Interventions
+    </div>
+    <div class="chip-container" id="interventionChips">
+      <div class="chip">Bandaging</div>
+      <div class="chip">Splinting</div>
+      <div class="chip">Monitoring</div>
+      <div class="chip">Pain Management</div>
+      <div class="chip">Oxygen</div>
+    </div>
+    <input type="text" id="customIntervention" placeholder="Custom intervention">
+
+    <!-- Reflection -->
+    <div class="section-title">
+      Reflection (1-Tap Quick Tags)
+    </div>
+    <div class="chip-container" id="reflectionChips">
+      <div class="chip">Communication</div>
+      <div class="chip">Scene Control</div>
+      <div class="chip">Interventions</div>
+      <div class="chip">Documentation</div>
+      <div class="chip">Equipment Prep</div>
+      <div class="chip">Confidence</div>
+      <div class="chip">Teamwork</div>
+    </div>
+
+    <!-- learning Point -->
+    <div class="section-title">
+      Learning Point (1-line takeaway)
+    </div>
+    <input type="text" id="learningPoint" placeholder="Key improvement / takeaway">
+
+    <!-- Notes -->
+    <div class="section-title">
+      Notes
+    </div>
+    <textarea id="notes" rows="2"></textarea>
+    <button type="button" class="secondary" onclick="startVoice()">
+      Voice to Text
+    </button>
+
+    <!-- Emtional State -->
+    <div class="section-title">
+      Emotional State
+    </div>
+    <select id="emotionalState">
+    <option value="">-- Select --</option>
+      <option>Calm</option>
+      <option>Focused</option>
+      <option>Overwhelmed</option>
+      <option>Unsure</option>
+      <option>Confident</option>
+    </select>
+
+    <button type="submit" class="primary">Add Entry</button>
+    <button type="button" onclick="window.print()" class="export">Export PDF</button>
+    <button type="button" onclick="clearAll()" class="danger">Clear All Data</button>
+  </form>
+  <p class="warning">No identifying patient information.</p>
+</div>
+
+<div class="summary" id="summary"></div>
+<h2 style="margin-top:10px;">Logged Entries</h2>
+<div id="entries"></div>
+
+<script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("/extras/task-tracker/sw.js", {
+      scope: "/extras/task-tracker/",
+    });
+  });
+}
