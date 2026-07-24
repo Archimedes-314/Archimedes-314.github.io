@@ -1,0 +1,1 @@
+if('serviceWorker' in navigator) {window.addEventListener('load', () => {navigator.serviceWorker.register('/extras/work-checklist-app/sw.js', { scope: '/extras/work-checklist-app/' })})}
