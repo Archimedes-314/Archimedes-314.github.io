@@ -1,0 +1,1 @@
+{"name":"Budget PWA","short_name":"Budget","description":"Minimal Budgeting App","start_url":"/extras/budget-app/","display":"standalone","background_color":"#0f172a","theme_color":"#0f172a","lang":"en","scope":"/extras/budget-app/","icons":[{"src":"favicon.svg","sizes":"192x192","type":"image/png"},{"src":"favicon.svg","sizes":"512x512","type":"image/png"}]}
