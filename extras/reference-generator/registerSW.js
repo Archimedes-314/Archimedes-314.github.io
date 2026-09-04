@@ -1,1 +1,0 @@
-if('serviceWorker' in navigator) {window.addEventListener('load', () => {navigator.serviceWorker.register('/extras/reference-generator/sw.js', { scope: '/extras/reference-generator/' })})}
