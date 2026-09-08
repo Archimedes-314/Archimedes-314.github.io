@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reference Generator Manual Thing</title>
+    <style>
+      :root {
+        --bg-color: #f8f9fa;
+        --card-bg: #ffffff;
+        --text-color: #212529;
+        --border-color: #e9ecef;
+        --accent-color: #0d6efd;
+      }
+
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
+          Cantarell, sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        line-height: 1.6;
+        margin: 0;
+        padding: 2rem;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      header {
+        margin-bottom: 2rem;
+        border-bottom: 2px solid var(--border-color);
+        padding-bottom: 1rem;
+      }
+
+      .step-card {
+        background: var(--card-bg);
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+      }
+
+      .step-header {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin-bottom: 0.75rem;
+      }
+
+      .step-number {
+        background: var(--accent-color);
+        color: white;
+        font-weight: bold;
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.875rem;
+      }
+
+      .step-title {
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin: 0;
+      }
+
+      .step-content {
+        color: #495057;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Reference Generator Manual</h1>
+        <p>
+          This is a basic manual explaining how to easily reference your work.
+          This manual will be updated alongside the reference generator.
+        </p>
+      </header>
+
+      <main id="content-display">
+        <div class="step-card">
+          <div class="step-header">
+            <span class="step-number">1</span>
+            <h2 class="step-title">Download Your Reference</h2>
+          </div>
+          <div class="step-content">
+            <p>
+              First, download your reference. At the top of most sources, a
+              button (shown in the image below) lets you download the details
+              you need for your reference (such as the authors' names, the
+              editors' names, the book title, etc.).
+            </p>
+            <img
+              src="step1.1.png"
+              alt="Button used to download reference."
+              width="700"
+            />
+          </div>
+        </div>
+
+        <div class="step-card">
+          <div class="step-header">
+            <span class="step-number">2</span>
+            <h2 class="step-title">Upload the File</h2>
+          </div>
+          <div class="step-content">
+            <p>
+              Once you've downloaded the file, upload it to my app. This will
+              automatically fill in the fields. Double-check the publisher, as
+              most .bib files (which you just downloaded) do not include it.
+              Also double-check that the edition is written correctly (e.g., the
+              field says '4th' instead of 'fourth' or 'fourth edition').
+            </p>
+            <p>
+              Authors and editors should fix themselves correctly; however,
+              titles will not. Currently, titles are inserted exactly as they
+              appear in the .bib file, but they may not always be written
+              correctly. Make sure they are in sentence case. I will add a
+              feature that does this for you, but for now you'll need to do it
+              yourself.
+            </p>
+            <img
+              src="step2.1.png"
+              alt="Button used to download reference."
+              width="300"
+            />
+          </div>
+        </div>
+
+        <div class="step-card">
+          <div class="step-header">
+            <span class="step-number">3</span>
+            <h2 class="step-title">Copy Your Citation</h2>
+          </div>
+          <div class="step-content">
+            <p>
+              This is it. Copy it and make sure the formatting in Word matches
+              the generator's formatting.
+            </p>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
