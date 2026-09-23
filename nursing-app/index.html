@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Online Nursing Notes</title>
-    <script type="module" crossorigin src="/nursing-app/assets/main-B_0eA6UR.js"></script>
-    <link rel="modulepreload" crossorigin href="/nursing-app/assets/style-7q2qAKRU.js">
+    <script type="module" crossorigin src="/nursing-app/assets/main-DtzJnAcI.js"></script>
+    <link rel="modulepreload" crossorigin href="/nursing-app/assets/style-C2ZhtGnx.js">
     <link rel="stylesheet" crossorigin href="/nursing-app/assets/style-DoUFogNO.css">
     <link rel="stylesheet" crossorigin href="/nursing-app/assets/main-BGReWXit.css">
   <link rel="manifest" href="/nursing-app/manifest.webmanifest"></head>
@@ -53,10 +53,21 @@
           Select a topic portal below to access deep dives and clinical quiz
           panels.
         </p>
+        <div class="grid">
+          <a href="topics/intro-to-chem/index.html" class="card">
+            <h3><span class="counter-number"></span> Introductory Chemistry</h3>
+            <ul>
+              <li>An Empty Quiz</li>
+            </ul>
+          </a>
+        </div>
 
         <div class="grid">
           <a href="topics/1-intro-to-the-human-body/index.html" class="card">
-            <h3>1. An Introduction to the Human Body</h3>
+            <h3>
+              <span class="counter-number"></span> An Introduction to the Human
+              Body
+            </h3>
             <ul>
               <li>Overview of Anatomy and Physiology</li>
               <li>Structural Organisation of the Human Body</li>
@@ -65,33 +76,6 @@
               <li>Homeostasis</li>
               <li>Anatomical Terminology</li>
               <li>Medical Imaging</li>
-            </ul>
-          </a>
-        </div>
-
-        <div class="grid">
-          <a href="topics/empty1/index.html" class="card">
-            <h3>2. Empty</h3>
-            <ul>
-              <li>An Empty Quiz</li>
-            </ul>
-          </a>
-        </div>
-
-        <div class="grid">
-          <a href="topics/empty2/index.html" class="card">
-            <h3>3. Empty</h3>
-            <ul>
-              <li>An Empty Quiz</li>
-            </ul>
-          </a>
-        </div>
-
-        <div class="grid">
-          <a href="topics/empty3/index.html" class="card">
-            <h3>4. Empty</h3>
-            <ul>
-              <li>An Empty Quiz</li>
             </ul>
           </a>
         </div>
@@ -116,6 +100,16 @@
           redirectLink(link);
         }
       };
+    </script>
+
+    <script>
+      let n = 1;
+      const number = document
+        .querySelectorAll(".counter-number")
+        .forEach((counter) => {
+          counter.textContent = `${n}.`;
+          n++;
+        });
     </script>
   </body>
 </html>
