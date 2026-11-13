@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>St John Photos</title>
+    <link rel="stylesheet" href="../assets/gallery-style.css" />
+  </head>
+  <body>
+    <div
+      class="lightbox-backdrop"
+      id="lightboxBackdrop"
+      onclick="closeAllImages()"
+    ></div>
+    <div class="container">
+      <a href="../gallery.html" class="nav-back">&larr; Back to Main Gallery</a>
+
+      <header>
+        <div class="event-meta">August 2026</div>
+        <h1>Ipswich Supercars</h1>
+        <p class="event-overview"></p>
+      </header>
+
+      <div class="photo-grid">
+        <div class="photo-card">
+          <div class="photo-container">
+            <img
+              src="sj/supercars/truckone.jpg"
+              alt="Truck"
+              onclick="toggleZoom(this)"
+            />
+          </div>
+          <div class="photo-caption">
+            The best part of the day was checking out the trucks
+          </div>
+        </div>
+
+        <div class="photo-card">
+          <div class="photo-container">
+            <img
+              src="sj/supercars/trucktwo.jpg"
+              alt="Truck"
+              onclick="toggleZoom(this)"
+            />
+          </div>
+          <div class="photo-caption">Nothing beats a good T909</div>
+        </div>
+
+        <div class="photo-card">
+          <div class="photo-container">
+            <img
+              src="sj/supercars/burnoutpic.JPG"
+              alt="Truck"
+              onclick="toggleZoom(this)"
+            />
+          </div>
+          <div class="photo-caption"></div>
+        </div>
+
+        <div class="photo-card">
+          <div class="photo-container">
+            <img
+              src="sj/supercars/holden.jpg"
+              alt="Truck"
+              onclick="toggleZoom(this)"
+            />
+          </div>
+          <div class="photo-caption"></div>
+        </div>
+
+        <div class="photo-card">
+          <div class="video-container">
+            <video controls preload="metadata">
+              <source src="sj/supercars/burnout.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <div class="photo-caption"></div>
+        </div>
+
+        <div class="photo-card">
+          <div class="photo-container">
+            <img
+              src="sj/supercars/truckthree.jpg"
+              alt="Truck"
+              onclick="toggleZoom(this)"
+            />
+          </div>
+          <div class="photo-caption">Where it belongs</div>
+        </div>
+
+        <div class="photo-card">
+          <div class="photo-container">
+            <img
+              src="sj/supercars/car.jpg"
+              alt="Car"
+              onclick="toggleZoom(this)"
+            />
+          </div>
+          <div class="photo-caption"></div>
+        </div>
+
+        <div class="photo-card">
+          <div class="photo-container">
+            <img
+              src="sj/supercars/sunset.jpg"
+              alt="Car"
+              onclick="toggleZoom(this)"
+            />
+          </div>
+          <div class="photo-caption"></div>
+        </div>
+      </div>
+
+      <header>
+        <div class="event-meta">September 2026</div>
+        <h1>Festitalia</h1>
+        <p class="event-overview"></p>
+      </header>
+
+      <div class="photo-grid">
+        <div class="photo-card">
+          <div class="photo-container">
+            <img
+              src="sj/festitalia/cars.jpg"
+              alt="Truck"
+              onclick="toggleZoom(this)"
+            />
+          </div>
+          <div class="photo-caption"></div>
+        </div>
+
+        <div class="photo-card">
+          <div class="photo-container">
+            <img
+              src="sj/festitalia/cartwo.jpg"
+              alt="Truck"
+              onclick="toggleZoom(this)"
+            />
+          </div>
+          <div class="photo-caption"></div>
+        </div>
+      </div>
+
+      <header>
+        <div class="event-meta">October 2026</div>
+        <h1>Natives Rifle Club Prize Meeting</h1>
+        <p class="event-overview"></p>
+      </header>
+
+      <div class="photo-grid">
+        <div class="photo-card">
+          <div class="photo-container">
+            <img src="sj/shooting/gunone.jpg" onclick="toggleZoom(this)" />
+          </div>
+          <div class="photo-caption"></div>
+        </div>
+
+        <div class="photo-card">
+          <div class="photo-container">
+            <img src="sj/shooting/guntwo.jpg" onclick="toggleZoom(this)" />
+          </div>
+          <div class="photo-caption"></div>
+        </div>
+      </div>
+
+      <footer>
+        <p>
+          © 2026 Archimedes-314<br />
+          All content provided in good faith.
+        </p>
+      </footer>
+    </div>
+    <script src="../assets/gallery-script.js"></script>
+  </body>
+</html>

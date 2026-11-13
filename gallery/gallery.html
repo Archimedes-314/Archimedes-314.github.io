@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The 'Has-Been' Gallery</title>
+    <link rel="stylesheet" href="assets/main-style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>The 'Has-Been' Gallery</h1>
+        <p class="mission-statement">
+          I'd sooner be a 'has-been' than a 'never was at all'
+        </p>
+        <p class="summary">
+          Looking forward to the road ahead and back on the lessons I've learnt,
+          this gallery is a visual log of my journey through 2027. Whether I'm
+          on shift with St John Ambulance, on deployment with the SES, or
+          tracking through the bush on my outdoor adventures, these photos
+          capture the progress, grit, and memories along the way.
+        </p>
+      </header>
+
+      <!-- Year Navigation Buttons -->
+      <div class="year-selector">
+        <a class="year-btn" href="https://archimedes-314.github.io"> Home </a>
+        <button class="year-btn active" onclick="switchYear('2026')">
+          2026
+        </button>
+        <button class="year-btn" onclick="switchYear('2027')">2027</button>
+      </div>
+
+      <!-- 2026 Content Section -->
+      <div id="section-2026" class="year-section active">
+        <h2>2026 Expeditions & Shifts</h2>
+        <div class="category-grid">
+          <!-- Outdoor Adventures Card -->
+          <a href="2026/outdoors.html" class="card-link">
+            <div class="card">
+              <div class="card-header">Outdoor Adventures</div>
+              <div class="photo-placeholder">View Album &rarr;</div>
+              <div class="card-body">
+                I'm a bit of a muppet and accidentally deleted all my old
+                photos. I also never backed them up. So here's a collection of
+                all my photos from November and December.
+              </div>
+            </div>
+          </a>
+
+          <!-- St John Card -->
+          <a href="2026/stjohn.html" class="card-link">
+            <div class="card">
+              <div class="card-header">St John Ambulance QLD</div>
+              <div class="photo-placeholder">View Album &rarr;</div>
+              <div class="card-body">
+                Here's a few photos I managed to find from my volunteering with
+                St John Ambulance throughout 2026 (there aren't many).
+              </div>
+            </div>
+          </a>
+
+          <!-- SES Card -->
+          <a href="#" class="card-link">
+            <div class="card">
+              <div class="card-header">SES Operations</div>
+              <div class="photo-placeholder">View Album &rarr;</div>
+              <div class="card-body">No photos with the storm carrots yet.</div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- 2027 Content Section -->
+      <div id="section-2027" class="year-section">
+        <h2>2027 Expeditions & Shifts</h2>
+        <div class="category-grid">
+          <!-- Outdoor Adventures Card -->
+          <a href="outdoor-2027.html" class="card-link">
+            <div class="card">
+              <div class="card-header">Outdoor Adventures</div>
+              <div class="photo-placeholder">View Album &rarr;</div>
+              <div class="card-body">
+                Where will we go this year? Future trails, bigger peaks, and new
+                tracks mapped out for 2027.
+              </div>
+            </div>
+          </a>
+
+          <!-- St John Card -->
+          <a href="stjohn-2027.html" class="card-link">
+            <div class="card">
+              <div class="card-header">St John Ambulance QLD</div>
+              <div class="photo-placeholder">View Album &rarr;</div>
+              <div class="card-body">
+                Continuing community first-aid support through 2027.
+              </div>
+            </div>
+          </a>
+
+          <!-- SES Card -->
+          <a href="ses-2027.html" class="card-link">
+            <div class="card">
+              <div class="card-header">SES Operations</div>
+              <div class="photo-placeholder">View Album &rarr;</div>
+              <div class="card-body">
+                Ready for whatever weather and callouts 2027 throws our way.
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <footer>
+        <p>
+          © 2026 Archimedes-314<br />
+          All content provided in good faith.
+        </p>
+      </footer>
+    </div>
+
+    <script src="assets/main-script.js"></script>
+  </body>
+</html>

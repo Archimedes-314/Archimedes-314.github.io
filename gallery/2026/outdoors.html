@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Outdoor Photos</title>
+    <link rel="stylesheet" href="../assets/gallery-style.css" />
+  </head>
+  <body>
+    <div
+      class="lightbox-backdrop"
+      id="lightboxBackdrop"
+      onclick="closeAllImages()"
+    ></div>
+    <div class="container">
+      <a href="../gallery.html" class="nav-back">&larr; Back to Main Gallery</a>
+
+      <header>
+        <div class="event-meta">Throughout 2026</div>
+        <h1>Waterfront Photos</h1>
+        <p class="event-overview">The best place to study</p>
+      </header>
+
+      <div class="photo-grid">
+        <div class="photo-card">
+          <div class="photo-container">
+            <img
+              src="outdoors/waterfront/morningone.jpg"
+              alt="Fatso"
+              onclick="toggleZoom(this)"
+            />
+          </div>
+          <div class="photo-caption"></div>
+        </div>
+
+        <div class="photo-card">
+          <div class="photo-container">
+            <img
+              src="outdoors/waterfront/morningtwo.jpg"
+              alt="Fatso"
+              onclick="toggleZoom(this)"
+            />
+          </div>
+          <div class="photo-caption"></div>
+        </div>
+      </div>
+
+      <header>
+        <div class="event-meta">Throughout 2026</div>
+        <h1>Animal Photos</h1>
+        <p class="event-overview">
+          Photos of the fat cat (and some other animals)
+        </p>
+      </header>
+
+      <div class="photo-grid">
+        <div class="photo-card">
+          <div class="photo-container">
+            <img src="animals/boots.jpg" onclick="toggleZoom(this)" />
+          </div>
+          <div class="photo-caption">Sleeping with my new boots</div>
+        </div>
+
+        <div class="photo-card">
+          <div class="photo-container">
+            <img src="animals/chairone.jpg" onclick="toggleZoom(this)" />
+          </div>
+          <div class="photo-caption">His favourite chair</div>
+        </div>
+
+        <div class="photo-card">
+          <div class="photo-container">
+            <img src="animals/door.jpg" onclick="toggleZoom(this)" />
+          </div>
+          <div class="photo-caption">Chasing a bug</div>
+        </div>
+
+        <div class="photo-card">
+          <div class="photo-container">
+            <img src="animals/wardrobeone.jpg" onclick="toggleZoom(this)" />
+          </div>
+          <div class="photo-caption"></div>
+        </div>
+
+        <div class="photo-card">
+          <div class="photo-container">
+            <img src="animals/wardrobetwo.jpg" onclick="toggleZoom(this)" />
+          </div>
+          <div class="photo-caption"></div>
+        </div>
+
+        <div class="photo-card">
+          <div class="photo-container">
+            <img src="animals/wardrobethree.jpg" onclick="toggleZoom(this)" />
+          </div>
+          <div class="photo-caption"></div>
+        </div>
+
+        <div class="photo-card">
+          <div class="video-container">
+            <video controls preload="metadata">
+              <source src="animals/bury.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <div class="photo-caption">Trying to get under my blanket</div>
+        </div>
+
+        <div class="photo-card">
+          <div class="video-container">
+            <video controls preload="metadata">
+              <source src="animals/cleanone.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <div class="photo-caption">Cleaning his head with a tennis ball</div>
+        </div>
+
+        <div class="photo-card">
+          <div class="video-container">
+            <video controls preload="metadata">
+              <source src="animals/cleantwo.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <div class="photo-caption">Cleaning his head with a shoe</div>
+        </div>
+      </div>
+
+      <header>
+        <div class="event-meta">November 2026</div>
+        <h1>Neville Lawrie Reserve</h1>
+        <p class="event-overview"></p>
+      </header>
+
+      <div class="photo-grid">
+        <div class="photo-card">
+          <div class="photo-container">
+            <img
+              src="outdoors/nl-reserve/fatman.jpg"
+              alt="Fatso"
+              onclick="toggleZoom(this)"
+            />
+          </div>
+          <div class="photo-caption"></div>
+        </div>
+
+        <div class="photo-card">
+          <div class="photo-container">
+            <img
+              src="outdoors/nl-reserve/group.jpg"
+              alt="Car"
+              onclick="toggleZoom(this)"
+            />
+          </div>
+          <div class="photo-caption"></div>
+        </div>
+
+        <div class="photo-card">
+          <div class="photo-container">
+            <img
+              src="outdoors/nl-reserve/lakeone.jpg"
+              alt="Car"
+              onclick="toggleZoom(this)"
+            />
+          </div>
+          <div class="photo-caption"></div>
+        </div>
+
+        <div class="photo-card">
+          <div class="photo-container">
+            <img
+              src="outdoors/nl-reserve/laketwo.jpg"
+              alt="Car"
+              onclick="toggleZoom(this)"
+            />
+          </div>
+          <div class="photo-caption"></div>
+        </div>
+      </div>
+
+      <footer>
+        <p>
+          © 2026 Archimedes-314<br />
+          All content provided in good faith.
+        </p>
+      </footer>
+    </div>
+    <script src="../assets/gallery-script.js"></script>
+  </body>
+</html>
